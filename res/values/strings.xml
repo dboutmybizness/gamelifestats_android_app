@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+
+    <string name="app_name">GLSElevate</string>
+    <string name="action_settings">Settings</string>
+    <string name="hello_world">Hello world!</string>
+    <string name="your_scout">Your Scout</string>
+    <string name="title_activity_gls__act__scout_edit">GLS_Act_ScoutEdit</string>
+    <string-array name="positions_array">
+        <item>Guard</item>
+        <item>Point Guard</item>
+        <item>Shooting Guard</item>
+        <item>Off Guard</item>
+        <item>Combo Guard</item>
+    </string-array>
+
+</resources>
