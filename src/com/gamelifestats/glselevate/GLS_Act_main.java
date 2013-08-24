@@ -27,8 +27,16 @@ public class GLS_Act_main extends Activity {
     @Override
     public boolean onOptionsItemSelected(MenuItem item) {
     	String itemTitle = (String) item.getTitle();
+    	Object cls = null;
+    	
     	if ( itemTitle.equals("Your Scout")){
-    		startActivity(new Intent(this, GLS_Act_ScoutEdit.class));
+    		cls = ScoutEdit.class;
+    	} else if ( itemTitle.equals("Play Ball")){
+    		cls = PlayBall_List.class;
+    	}
+    	
+    	if ( cls != null ){
+    		startActivity(new Intent(this, (Class<?>) cls));
     		return true;
     	}
 

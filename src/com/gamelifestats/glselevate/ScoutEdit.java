@@ -12,7 +12,7 @@ import android.widget.ArrayAdapter;
 import android.widget.Spinner;
 import android.widget.Toast;
 
-public class GLS_Act_ScoutEdit extends Activity {
+public class ScoutEdit extends Activity {
 
 	Cursor c;
 	int row = 453;

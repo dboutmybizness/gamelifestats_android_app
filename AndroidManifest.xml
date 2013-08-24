@@ -23,12 +23,28 @@
             </intent-filter>
         </activity>
         <activity
-            android:name="com.gamelifestats.glselevate.GLS_Act_ScoutEdit"
+            android:name="com.gamelifestats.glselevate.ScoutEdit"
             android:label="@string/title_activity_gls__act__scout_edit"
             android:parentActivityName="com.gamelifestats.glselevate.GLS_Act_main" >
             <meta-data
                 android:name="android.support.PARENT_ACTIVITY"
                 android:value="com.gamelifestats.glselevate.GLS_Act_main" />
+        </activity>
+        <activity
+            android:name="com.gamelifestats.glselevate.PlayBall_List"
+            android:label="@string/title_activity_gls__act__play_ball__list"
+            android:parentActivityName="com.gamelifestats.glselevate.GLS_Act_main" >
+            <meta-data
+                android:name="android.support.PARENT_ACTIVITY"
+                android:value="com.gamelifestats.glselevate.GLS_Act_main" />
+        </activity>
+        <activity
+            android:name="com.gamelifestats.glselevate.PlayBall_GameStatsEdit"
+            android:label="@string/title_activity_gls__act__play_ball__game_stats_edit"
+            android:parentActivityName="com.gamelifestats.glselevate.PlayBall_List" >
+            <meta-data
+                android:name="android.support.PARENT_ACTIVITY"
+                android:value="com.gamelifestats.glselevate.GLS_Act_PlayBall_List" />
         </activity>
     </application>
 
