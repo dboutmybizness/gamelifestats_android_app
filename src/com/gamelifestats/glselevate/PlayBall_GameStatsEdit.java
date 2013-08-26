@@ -1,11 +1,14 @@
 package com.gamelifestats.glselevate;
 
+import java.sql.SQLException;
+
 import android.app.Activity;
 import android.media.MediaPlayer;
 import android.os.Bundle;
 import android.support.v4.app.NavUtils;
 import android.view.Menu;
 import android.view.MenuItem;
+import android.view.View;
 import android.widget.SeekBar;
 import android.widget.SeekBar.OnSeekBarChangeListener;
 import android.widget.TextView;
@@ -20,8 +23,9 @@ public class PlayBall_GameStatsEdit extends Activity {
 	TextView dmin,dfgma, dfg3ma, dftma, dfgp, dfg3p, dftp;
 	TextView dpts, dasts, dstls, dblks, dtos, dfouls;
 	TextView doreb, dtreb;
+	DBAdapter db;
+	DBAdapter.Games games;
 	
-
 	@Override
 	protected void onCreate(Bundle savedInstanceState) {
 		super.onCreate(savedInstanceState);
@@ -30,7 +34,8 @@ public class PlayBall_GameStatsEdit extends Activity {
 		setupActionBar();
 		
 		setUpAllStats();
-
+		db = new DBAdapter(this);
+		games = db.new Games();
 	}
 	
 	@Override
@@ -226,6 +231,21 @@ public class PlayBall_GameStatsEdit extends Activity {
 	protected void onRestoreInstanceState(Bundle savedInstanceState) {
 	    playbuzzer = savedInstanceState.getBoolean("playbuzzer");
 	    super.onRestoreInstanceState(savedInstanceState);
+	}
+	
+	public void saveStats(View v){
+		games.minutes = (String) dmin.getText();
+		games.points = (String) dpts.getText();
+		try {
+			db.open();
+			games.insertStats();
+		} catch (SQLException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+		
+		db.close();
+		//Toast.makeText(this, "saving", Toast.LENGTH_SHORT).show();
 	}
 
 }

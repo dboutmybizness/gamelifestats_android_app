@@ -18,6 +18,9 @@
     <string name="wingspan">Wingspan</string>
     <string name="vertical_leap">Vertical Leap</string>
     <string name="shoesize">Shoe Size</string>
+    
+    <string name="avg_totals">AVG/TOTALS</string>
+    <string name="game_by_game">GAME BY GAME</string>
 
     <string-array name="positions_array">
         <item>Guard</item>
@@ -34,7 +37,7 @@
     <string-array name="playball_list">
         <item>upload game stats</item>
     </string-array>
-    
+
     <string name="pts">PTS</string>
     <string name="rebs">REB</string>
     <string name="oreb">OREB</string>
@@ -49,7 +52,6 @@
     <string name="ftp">FT%</string>
     <string name="fg3p">3G%</string>
     <string name="fls">FOULS</string>
-
     <string name="points">Points</string>
     <string name="rebounds">Rebounds</string>
     <string name="assists">Assists</string>
@@ -74,5 +76,9 @@
     <string name="double_zero">00</string>
     <string name="title_activity_gls__act__play_ball__list">PlayBall_List</string>
     <string name="title_activity_gls__act__play_ball__game_stats_edit">GameStatsEdit</string>
+    <string name="title_activity_statbook">Statbook</string>
+    <string name="title_section1">Section 1</string>
+    <string name="title_section2">Section 2</string>
+    <string name="title_section3">Section 3</string>
 
 </resources>

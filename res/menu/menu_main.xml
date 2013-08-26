@@ -11,6 +11,11 @@
         android:icon="@drawable/ic_menu_bball"
         android:showAsAction="ifRoom" />
     <item
+        android:id="@+id/statbook"
+        android:title="@string/statbook"
+        android:icon="@drawable/ic_menu_statbook"
+        android:showAsAction="ifRoom" />
+    <item
         android:id="@+id/scout"
         android:title="@string/your_scout"
         android:icon="@drawable/ic_menu_scout"

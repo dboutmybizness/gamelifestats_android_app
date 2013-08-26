@@ -46,6 +46,14 @@
                 android:name="android.support.PARENT_ACTIVITY"
                 android:value="com.gamelifestats.glselevate.GLS_Act_PlayBall_List" />
         </activity>
+        <activity
+            android:name="com.gamelifestats.glselevate.Statbook"
+            android:label="@string/title_activity_statbook"
+            android:parentActivityName="com.gamelifestats.glselevate.GLS_Act_main" >
+            <meta-data
+                android:name="android.support.PARENT_ACTIVITY"
+                android:value="com.gamelifestats.glselevate.GLS_Act_main" />
+        </activity>
     </application>
 
 </manifest>

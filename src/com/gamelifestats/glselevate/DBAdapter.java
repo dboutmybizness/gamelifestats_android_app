@@ -30,6 +30,18 @@ public class DBAdapter {
 			"has_scout integer" +
 			")";
 	
+	static final String TABLE_GAMES = "games";
+	static final String KEY_G_ID = "_id";
+	static final String KEY_G_MIN = "min";
+	static final String KEY_G_POINTS = "points";
+	
+	static final String CREATE_GAMES = 
+			"create table games ("+
+			"_id integer primary key autoincrement, "+
+			"min text not null, "+
+			"points text not null"+
+			")";
+	
 	final Context context;
 	
 	DatabaseHelper DBHelper;
@@ -50,6 +62,7 @@ public class DBAdapter {
 		@Override
 		public void onCreate(SQLiteDatabase db){
 			db.execSQL(DATABASE_CREATE);
+			db.execSQL(CREATE_GAMES);
 			createInitial(db);
 			
 		}
@@ -95,6 +108,19 @@ public class DBAdapter {
 			mCursor.moveToFirst();
 		}
 		return mCursor;
+	}
+	
+	public class Games {
+
+		String minutes, points;
+		
+		public void insertStats(){
+			ContentValues args = new ContentValues();
+			args.put(KEY_G_MIN, minutes);
+			args.put(KEY_G_POINTS, points);
+			db.insert(TABLE_GAMES, null, args);
+		}
+		
 	}
 	
 }

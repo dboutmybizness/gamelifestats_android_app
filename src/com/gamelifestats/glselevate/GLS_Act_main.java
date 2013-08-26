@@ -33,7 +33,10 @@ public class GLS_Act_main extends Activity {
     		cls = ScoutEdit.class;
     	} else if ( itemTitle.equals("Play Ball")){
     		cls = PlayBall_List.class;
+    	} else if ( itemTitle.equals("Statbook")){
+    		cls = Statbook.class;
     	}
+    	
     	
     	if ( cls != null ){
     		startActivity(new Intent(this, (Class<?>) cls));
