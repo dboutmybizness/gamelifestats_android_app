@@ -34,6 +34,21 @@
     <string-array name="playball_list">
         <item>upload game stats</item>
     </string-array>
+    
+    <string name="pts">PTS</string>
+    <string name="rebs">REB</string>
+    <string name="oreb">OREB</string>
+    <string name="treb">TREB</string>
+    <string name="ast">AST</string>
+    <string name="stl">STL</string>
+    <string name="blk">BLK</string>
+    <string name="tos">TOs</string>
+    <string name="min">MIN</string>
+    <string name="fgma">FG(m-a)</string>
+    <string name="fgp">FG%</string>
+    <string name="ftp">FT%</string>
+    <string name="fg3p">3G%</string>
+    <string name="fls">FOULS</string>
 
     <string name="points">Points</string>
     <string name="rebounds">Rebounds</string>
@@ -44,15 +59,19 @@
     <string name="fouls">Fouls</string>
     <string name="minutes">Minutes</string>
     <string name="fgs">FGs</string>
-    <string name="fg3s">3FGs</string>
+    <string name="fg3s">3Gs</string>
     <string name="fts">FTs</string>
     <string name="pointers_2">2-Pointers</string>
     <string name="pointers_3">3-Pointers</string>
     <string name="free_throws">Free Throws</string>
+    <string name="offensive">Offensive</string>
+    <string name="defensive">Defensive</string>
+    <string name="breakdown">Breakdown</string>
     <string name="made">Made</string>
     <string name="missed">Missed</string>
     <string name="save">Save</string>
     <string name="load">Load</string>
+    <string name="double_zero">00</string>
     <string name="title_activity_gls__act__play_ball__list">PlayBall_List</string>
     <string name="title_activity_gls__act__play_ball__game_stats_edit">GameStatsEdit</string>
 
