@@ -30,18 +30,6 @@ public class DBAdapter {
 			"has_scout integer" +
 			")";
 	
-	static final String TABLE_GAMES = "games";
-	static final String KEY_G_ID = "_id";
-	static final String KEY_G_MIN = "min";
-	static final String KEY_G_POINTS = "points";
-	
-	static final String CREATE_GAMES = 
-			"create table games ("+
-			"_id integer primary key autoincrement, "+
-			"min text not null, "+
-			"points text not null"+
-			")";
-	
 	final Context context;
 	
 	DatabaseHelper DBHelper;
@@ -62,7 +50,7 @@ public class DBAdapter {
 		@Override
 		public void onCreate(SQLiteDatabase db){
 			db.execSQL(DATABASE_CREATE);
-			db.execSQL(CREATE_GAMES);
+			db.execSQL(Games.CREATE_DB);
 			createInitial(db);
 			
 		}
@@ -111,14 +99,35 @@ public class DBAdapter {
 	}
 	
 	public class Games {
+		static final String TABLE = "games";
+		static final String ID = "_id";
+		static final String MINUTES = "minutes";
+		static final String POINTS = "points";
+		static final String REBOUNDS = "rebounds";
+		static final String ASSISTS = "assists";
+		static final String STEALS = "steals";
+		static final String BLOCKS = "blocks";
+		static final String FOULS = "fouls";
+		
+		static final String CREATE_DB = 
+			"create table"+ TABLE +" ("+
+			ID+" integer primary key autoincrement, "+
+			MINUTES+" text, "+
+			POINTS+" text,"+
+			REBOUNDS+" text,"+
+			ASSISTS+" text,"+
+			STEALS+" text,"+
+			BLOCKS+" text,"+
+			FOULS+" text"+
+			")";
 
-		String minutes, points;
+		String minutes, points, rebounds, assists, steals, blocks, fouls;
 		
 		public void insertStats(){
 			ContentValues args = new ContentValues();
-			args.put(KEY_G_MIN, minutes);
-			args.put(KEY_G_POINTS, points);
-			db.insert(TABLE_GAMES, null, args);
+			args.put(MINUTES, minutes);
+			args.put(POINTS, points);
+			db.insert(TABLE, null, args);
 		}
 		
 	}
