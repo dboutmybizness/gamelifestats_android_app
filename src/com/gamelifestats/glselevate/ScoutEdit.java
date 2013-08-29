@@ -29,7 +29,7 @@ public class ScoutEdit extends Activity {
 		adapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
 		positions.setAdapter(adapter);
 		
-		DBAdapter db = new DBAdapter(this);
+		/*DBAdapter db = new DBAdapter(this);
 		try {
 			db.open();
 		} catch (SQLException e) {
@@ -42,7 +42,7 @@ public class ScoutEdit extends Activity {
 		
 		try {
 			
-			c = db.getScout();
+			//c = db.getScout();
 			row = c.getInt(0);
 		} catch (SQLException e) {
 			// TODO Auto-generated catch block
@@ -54,7 +54,7 @@ public class ScoutEdit extends Activity {
 
 		db.close();
 		
-		Toast.makeText(this, "ddfs "+row, Toast.LENGTH_SHORT).show();
+		Toast.makeText(this, "ddfs "+row, Toast.LENGTH_SHORT).show();*/
 
 	}
 

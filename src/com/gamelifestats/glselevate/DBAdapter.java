@@ -1,6 +1,7 @@
 package com.gamelifestats.glselevate;
 
 import java.sql.SQLException;
+import java.util.HashMap;
 
 import android.content.ContentValues;
 import android.content.Context;
@@ -11,6 +12,8 @@ import android.util.Log;
 
 
 public class DBAdapter {
+	
+	private String TABLE;
 	
 	static final String KEY_ROWID = "_id";
 	static final String KEY_NAME = "name";
@@ -49,8 +52,8 @@ public class DBAdapter {
 		
 		@Override
 		public void onCreate(SQLiteDatabase db){
-			db.execSQL(DATABASE_CREATE);
-			db.execSQL(Games.CREATE_DB);
+			//db.execSQL(DATABASE_CREATE);
+			db.execSQL(Model_Games.CREATE_DB);	//games model
 			createInitial(db);
 			
 		}
@@ -71,6 +74,22 @@ public class DBAdapter {
 	public void close(){
 		DBHelper.close();
 	}
+	
+	public void setTable(String table) {
+		this.TABLE = table;
+	}
+	
+	protected void create(HashMap<String, String> map) throws SQLException{
+		open();
+		ContentValues args = new ContentValues();
+		for (HashMap.Entry <String, String> entry : map.entrySet()) {
+		    args.put(entry.getKey(), entry.getValue());
+		}
+		db.insert(TABLE, null, args);
+		close();
+	}
+	
+	
 	
 	private static void createInitial(SQLiteDatabase db){
 		ContentValues initialValues = new ContentValues();
@@ -98,38 +117,5 @@ public class DBAdapter {
 		return mCursor;
 	}
 	
-	public class Games {
-		static final String TABLE = "games";
-		static final String ID = "_id";
-		static final String MINUTES = "minutes";
-		static final String POINTS = "points";
-		static final String REBOUNDS = "rebounds";
-		static final String ASSISTS = "assists";
-		static final String STEALS = "steals";
-		static final String BLOCKS = "blocks";
-		static final String FOULS = "fouls";
-		
-		static final String CREATE_DB = 
-			"create table"+ TABLE +" ("+
-			ID+" integer primary key autoincrement, "+
-			MINUTES+" text, "+
-			POINTS+" text,"+
-			REBOUNDS+" text,"+
-			ASSISTS+" text,"+
-			STEALS+" text,"+
-			BLOCKS+" text,"+
-			FOULS+" text"+
-			")";
-
-		String minutes, points, rebounds, assists, steals, blocks, fouls;
-		
-		public void insertStats(){
-			ContentValues args = new ContentValues();
-			args.put(MINUTES, minutes);
-			args.put(POINTS, points);
-			db.insert(TABLE, null, args);
-		}
-		
-	}
 	
 }

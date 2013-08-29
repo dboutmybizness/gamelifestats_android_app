@@ -23,8 +23,7 @@ public class PlayBall_GameStatsEdit extends Activity {
 	TextView dmin,dfgma, dfg3ma, dftma, dfgp, dfg3p, dftp;
 	TextView dpts, dasts, dstls, dblks, dtos, dfouls;
 	TextView doreb, dtreb;
-	DBAdapter db;
-	DBAdapter.Games games;
+	Model_Games dbGames;
 	
 	@Override
 	protected void onCreate(Bundle savedInstanceState) {
@@ -34,8 +33,9 @@ public class PlayBall_GameStatsEdit extends Activity {
 		setupActionBar();
 		
 		setUpAllStats();
-		db = new DBAdapter(this);
-		games = db.new Games();
+		dbGames = new Model_Games(this);
+		
+		renderPage();
 	}
 	
 	@Override
@@ -78,9 +78,7 @@ public class PlayBall_GameStatsEdit extends Activity {
 		dfgp = initTV(R.id.dis_fgp);
 		dfg3p = initTV(R.id.dis_fg3p);
 		dftp = initTV(R.id.dis_ftp);
-		
-		
-		
+
 		fg2md = setUpSeeks(R.id.ed_fg2md, 25);
 		fg2ms = setUpSeeks(R.id.ed_fg2ms, 25);
 		fg3md = setUpSeeks(R.id.ed_fg3md, 20);
@@ -128,65 +126,53 @@ public class PlayBall_GameStatsEdit extends Activity {
 	}
 	
 	private void refactorStats(){
-		//combo field vars
-		int pre_fg2m = gProg(fg2md);
-		int pre_fg3m = gProg(fg3md);
-		int pre_fgm = (pre_fg2m + pre_fg3m);
-		int pre_fg3ms = gProg(fg3ms);
-		int pre_fg2ms = gProg(fg2ms);
-		int pre_fgms = pre_fg2ms + pre_fg3ms;
-		String fgm = (Integer.toString(pre_fgm));
-		int pre_fga = pre_fgms + pre_fgm;
-		String fga = (Integer.toString(pre_fga));
 		
+		dbGames.minutes = minutes.getProgress();
 		
-		String fg3m = (Integer.toString(pre_fg3m));
-		int pre_fg3a = pre_fg3ms + pre_fg3m;
-		String fg3a = (Integer.toString(pre_fg3a));
+		dbGames.fg2m = fg2md.getProgress();
+		dbGames.fg2ms = fg2ms.getProgress();
 		
-		int pre_ftm = gProg(fg1md);
-		int pre_ftms = gProg(fg1ms);
-		int pre_fta = pre_ftms + pre_ftm;
-		String ftm = Integer.toString(pre_ftm);
-		String fta = Integer.toString(pre_fta);
+		dbGames.fg3m = fg3md.getProgress();
+		dbGames.fg3ms = fg3ms.getProgress();
 		
+		dbGames.ftm = fg1md.getProgress();
+		dbGames.ftms = fg1ms.getProgress();
 		
+		dbGames.reb_def = rebs_def.getProgress();
+		dbGames.reb_off = rebs_off.getProgress();
 		
-		dmin.setText(Integer.toString(gProg(minutes)));
-		dfgma.setText(fgm + "-" +fga);
-		dfg3ma.setText(fg3m + "-" + fg3a);
-		dftma.setText(ftm + "-" + fta);
-		dpts.setText(Integer.toString(pre_ftm + (pre_fg2m * 2) + (pre_fg3m * 3)));
-		doreb.setText(Integer.toString(gProg(rebs_off)));
-		dtreb.setText(Integer.toString(gProg(rebs_off) + gProg(rebs_def)));
-		dasts.setText(Integer.toString(gProg(assists)));
-		dstls.setText(Integer.toString(gProg(steals)));
-		dblks.setText(Integer.toString(gProg(blocks)));
-		dtos.setText(Integer.toString(gProg(turnovers)));
-		dfouls.setText(Integer.toString(gProg(fouls)));
-		dfgp.setText(divPerc(pre_fgm, pre_fga));
-		dfg3p.setText(divPerc(pre_fg3m, pre_fg3a));
-		dftp.setText(divPerc(pre_ftm, pre_fta));
+		dbGames.assists = assists.getProgress();
+		dbGames.steals = steals.getProgress();
+		dbGames.blocks = blocks.getProgress();
+		dbGames.turnovers = turnovers.getProgress();
+		dbGames.fouls = fouls.getProgress();
 		
-		
+		dbGames.renderStats();
+		renderPage();
 	}
 	
-	public String divPerc(int l, int b){
-		if ( l  < 1) return "0.0";
-		Float f = ((l * 100.0f) / b);
-		if( f == 100) return "100";
-		
-		return roundToOneDigit(f);
-	}
-	
-	public static String roundToOneDigit(float paramFloat) {
-	    return String.format("%.1f%n", paramFloat);
-	}
-	
-	private int gProg(SeekBar sb){
-		return sb.getProgress();
-	}
+	public void renderPage(){
 
+		dmin.setText(dbGames.s_minutes);
+		dfgma.setText(dbGames.s_fgm + "-" + dbGames.s_fga);
+		dfg3ma.setText(dbGames.s_fg3m + "-" + dbGames.s_fg3a);
+		dftma.setText(dbGames.s_ftm + "-" + dbGames.s_fta);
+		dpts.setText(dbGames.s_points);
+		doreb.setText(dbGames.s_reb_off);
+		dtreb.setText(dbGames.s_rebounds);
+		dasts.setText(dbGames.s_assists);
+		dstls.setText(dbGames.s_steals);
+		dblks.setText(dbGames.s_blocks);
+		dtos.setText(dbGames.s_turnovers);
+		dfouls.setText(dbGames.s_fouls);
+		
+		/*
+		dfg3p.setText(StatsHelper.roundToOneDigit(dbGames.fg3p));
+		dftp.setText(StatsHelper.roundToOneDigit(dbGames.ftp));
+		*/
+		
+	}
+	
 	/**
 	 * Set up the {@link android.app.ActionBar}.
 	 */
@@ -233,19 +219,9 @@ public class PlayBall_GameStatsEdit extends Activity {
 	    super.onRestoreInstanceState(savedInstanceState);
 	}
 	
-	public void saveStats(View v){
-		games.minutes = (String) dmin.getText();
-		games.points = (String) dpts.getText();
-		try {
-			db.open();
-			games.insertStats();
-		} catch (SQLException e) {
-			// TODO Auto-generated catch block
-			e.printStackTrace();
-		}
-		
-		db.close();
-		//Toast.makeText(this, "saving", Toast.LENGTH_SHORT).show();
+	public void saveStats(View v) throws SQLException{
+		dbGames.insertStats();
+
 	}
 
 }
