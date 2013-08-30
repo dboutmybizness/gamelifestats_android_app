@@ -14,6 +14,7 @@ import android.util.Log;
 public class DBAdapter {
 	
 	private String TABLE;
+	private String[] getFields;
 	
 	static final String KEY_ROWID = "_id";
 	static final String KEY_NAME = "name";
@@ -78,6 +79,9 @@ public class DBAdapter {
 	public void setTable(String table) {
 		this.TABLE = table;
 	}
+	public void setGetFields(String[] s){
+		getFields = s;
+	}
 	
 	protected void create(HashMap<String, String> map) throws SQLException{
 		open();
@@ -87,6 +91,13 @@ public class DBAdapter {
 		}
 		db.insert(TABLE, null, args);
 		close();
+	}
+	
+	protected Cursor read(long rowId) throws SQLException{
+		open();
+		Cursor mCursor = db.query(true, TABLE, getFields, "_id="+rowId, null, null, null, null, null);
+		close();
+		return mCursor;
 	}
 	
 	

@@ -4,6 +4,7 @@ import java.sql.SQLException;
 import java.util.HashMap;
 
 import android.content.Context;
+import android.database.Cursor;
 
 public class Model_Games extends DBAdapter {
 	static final String TABLE = "games";
@@ -28,7 +29,11 @@ public class Model_Games extends DBAdapter {
 		BLOCKS+" integer," +
 		FOULS+" integer" +
 		")";
+	static final String[] getFields = {
+		ID,MINUTES,POINTS,REBOUNDS,ASSISTS,STEALS,BLOCKS,FOULS
+	};
 
+	int gameID = 0;
 	int minutes = 0;
 	int points = 0;
 	int rebounds = 0;
@@ -84,15 +89,19 @@ public class Model_Games extends DBAdapter {
 	
 	Model_Games(Context context) {
 		super(context);
-		super.setTable(TABLE);
+		setTable(TABLE);
+		setGetFields(getFields);
 	}
 	
-
-
 	public void insertStats() throws SQLException{
 		HashMap<String, String> m = new HashMap<String,String>();
 		m.put(MINUTES, s_minutes);
 		create(m);
+	}
+	
+	public Cursor getGame(int gameId) throws SQLException{
+		Cursor mCursor = read(gameId);
+		return mCursor;
 	}
 	
 
