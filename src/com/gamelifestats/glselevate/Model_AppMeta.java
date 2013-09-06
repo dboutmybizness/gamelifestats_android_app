@@ -17,6 +17,8 @@ public class Model_AppMeta extends DBAdapter {
 	static final String APP_USER_HAS_PRO_PIC =	"app_user_has_pro_pic";
 	static final String APP_LAST_OPEN =		"app_last_open";
 	static final String APP_LAST_SYNC =		"app_last_sync";
+	static final String APP_LAST_SYNC_GAMES =		"app_last_sync_games";
+	static final String APP_LAST_SYNC_SCOUT =		"app_last_sync_scout";
 
 
 	static final String CREATE_TABLE =

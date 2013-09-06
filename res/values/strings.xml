@@ -38,6 +38,8 @@
         <item>upload game stats</item>
     </string-array>
 
+    
+
     <string name="pts">PTS</string>
     <string name="rebs">REB</string>
     <string name="oreb">OREB</string>
@@ -52,8 +54,11 @@
     <string name="ftp">FT%</string>
     <string name="fg3p">3G%</string>
     <string name="fls">FOULS</string>
+    
+    <string name="games">Games</string>
     <string name="points">Points</string>
     <string name="rebounds">Rebounds</string>
+    <string name="orebounds">Off. Rebounds</string>
     <string name="assists">Assists</string>
     <string name="steals">Steals</string>
     <string name="blocks">Blocks</string>
@@ -80,5 +85,8 @@
     <string name="title_section1">Section 1</string>
     <string name="title_section2">Section 2</string>
     <string name="title_section3">Section 3</string>
+    
+    <string name="totals">Totals</string>
+    <string name="empty"></string>
 
 </resources>

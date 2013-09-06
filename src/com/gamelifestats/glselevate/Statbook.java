@@ -84,8 +84,8 @@ public class Statbook extends FragmentActivity implements ActionBar.TabListener 
 					.setTabListener(this));
 		}
 		
-		dbGames = new Model_Games(this);
-		setUpAVG();
+		//dbGames = new Model_Games(this);
+		//setUpAVG();
 	}
 
 	@Override
@@ -192,9 +192,13 @@ public class Statbook extends FragmentActivity implements ActionBar.TabListener 
 	}
 	
 	public static class AVGTOT extends Fragment {
+		Context getParentContext;
+		
+		
 		@Override
 		public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState){
 			View rootView = inflater.inflate(R.layout.avg_totals, container, false);
+			getParentContext = rootView.getContext();
 			return rootView;
 		}
 	}

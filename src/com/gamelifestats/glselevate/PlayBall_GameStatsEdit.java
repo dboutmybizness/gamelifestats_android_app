@@ -3,6 +3,9 @@ package com.gamelifestats.glselevate;
 import java.sql.SQLException;
 
 import android.app.Activity;
+import android.app.AlertDialog;
+import android.content.DialogInterface;
+import android.content.Intent;
 import android.media.MediaPlayer;
 import android.os.Bundle;
 import android.support.v4.app.NavUtils;
@@ -219,9 +222,38 @@ public class PlayBall_GameStatsEdit extends Activity {
 	    super.onRestoreInstanceState(savedInstanceState);
 	}
 	
-	public void saveStats(View v) throws SQLException{
+	public void saveStats(View v){
+		AlertDialog.Builder alertDialogBuilder = new AlertDialog.Builder(this);
+		alertDialogBuilder
+			.setMessage("Are you ready to save?")
+			//.setCancelable(false)
+			.setPositiveButton("OK, save game", new DialogInterface.OnClickListener() {
+				@Override
+				public void onClick(DialogInterface dialog, int which) {
+					// TODO Auto-generated method stub
+					try {
+						commitSave();
+						startActivity(new Intent(getBaseContext(), Statbook.class));
+					} catch (SQLException e) {
+						// TODO Auto-generated catch block
+						e.printStackTrace();
+					}
+				}
+			})
+			.setNegativeButton("Back", new DialogInterface.OnClickListener() {
+				
+				@Override
+				public void onClick(DialogInterface dialog, int which) {
+					dialog.cancel();
+					
+				}
+			});
+		AlertDialog alertDialog = alertDialogBuilder.create();
+		alertDialog.show();
+	}
+	
+	private void commitSave() throws SQLException{
 		dbGames.insertStats();
-
 	}
 
 }
