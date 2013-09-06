@@ -1,5 +1,6 @@
 package com.gamelifestats.glselevate;
 
+import java.sql.SQLException;
 import java.util.Locale;
 
 import android.app.ActionBar;
@@ -19,6 +20,7 @@ import android.view.MenuItem;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.TextView;
+import android.widget.Toast;
 
 public class Statbook extends FragmentActivity implements ActionBar.TabListener {
 
@@ -36,6 +38,10 @@ public class Statbook extends FragmentActivity implements ActionBar.TabListener 
 	 * The {@link ViewPager} that will host the section contents.
 	 */
 	ViewPager mViewPager;
+	
+	Cursor c = null;
+	
+	Model_Games dbGames;
 
 	@Override
 	protected void onCreate(Bundle savedInstanceState) {
@@ -77,6 +83,9 @@ public class Statbook extends FragmentActivity implements ActionBar.TabListener 
 					.setText(mSectionsPagerAdapter.getPageTitle(i))
 					.setTabListener(this));
 		}
+		
+		dbGames = new Model_Games(this);
+		setUpAVG();
 	}
 
 	@Override
@@ -112,6 +121,23 @@ public class Statbook extends FragmentActivity implements ActionBar.TabListener 
 	@Override
 	public void onTabReselected(ActionBar.Tab tab,
 			FragmentTransaction fragmentTransaction) {
+	}
+	
+	public void setUpAVG(){
+		
+		try {
+			dbGames.open();
+			c = dbGames.getGame(1);
+			c.moveToFirst();
+			Toast.makeText(getBaseContext(), c.getString(1), Toast.LENGTH_SHORT).show();
+			dbGames.close();
+			 Toast.makeText(getBaseContext(), "ghhh", Toast.LENGTH_SHORT).show();
+			
+		} catch (SQLException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+		
 	}
 
 	/**
@@ -184,14 +210,49 @@ public class Statbook extends FragmentActivity implements ActionBar.TabListener 
 		public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState){
 			rootView = inflater.inflate(R.layout.gamebygame, container, false);
 			base = rootView.getContext();
-			setUpGames();
+			pts = (TextView) rootView.findViewById(R.id.pts);
+			//setUpGames();
 			return rootView;
 			
 		}
 		
 		public void setUpGames(){
-			pts = (TextView) rootView.findViewById(R.id.pts);
-			pts.setText("blah blah");
+			dbGames = new Model_Games(base);
+			
+			try {
+				mCursor = dbGames.getGame(1);
+				if ( mCursor == null){
+					Toast.makeText(base, "something wrong", Toast.LENGTH_SHORT).show();
+				} else {
+					
+					//Log.w("GLS", mCursor.getString(1));
+					//Toast.makeText(base, mCursor.getCount()+'r', Toast.LENGTH_SHORT).show();
+					//mCursor.moveToFirst();
+					//pts.setText(mCursor.getString(1));
+					//Toast.makeText(base, "something right", Toast.LENGTH_SHORT).show();
+				}
+					//if (mCursor.moveToFirst()){
+					//Toast.makeText(rootView.getContext(), mCursor.getString(1), Toast.LENGTH_SHORT).show();
+				//}
+
+			} catch (SQLException e) {
+				// TODO Auto-generated catch block
+				e.printStackTrace();
+			}
+			
+			
+			/*renderGames();
+			if (mCursor.moveToFirst()){
+				pts.setText(mCursor.getString(1));
+			}*/
+		}
+		public void renderGames(){
+			try {
+				mCursor = dbGames.getGame(1);
+			} catch (SQLException e) {
+				// TODO Auto-generated catch block
+				e.printStackTrace();
+			}
 		}
 	}
 

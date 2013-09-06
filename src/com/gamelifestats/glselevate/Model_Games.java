@@ -16,21 +16,45 @@ public class Model_Games extends DBAdapter {
 	static final String ASSISTS = "assists";
 	static final String STEALS = "steals";
 	static final String BLOCKS = "blocks";
+	static final String TURNOVERS = "turnovers";
 	static final String FOULS = "fouls";
-
+	static final String FG2M = "fg2m";
+	static final String FG2A = "fg2a";
+	static final String FG2p = "fg2p";
+	static final String FG3M = "fg3m";
+	static final String FG3A = "fg3a";
+	static final String FG3p = "fg3p";
+	static final String FTM = "ftm";
+	static final String FTA = "fta";
+	static final String FTP = "ftp";
+	static final String REB_OFF = "reb_off";
+	static final String REB_DEF = "reb_def";
+	
 	static final String CREATE_DB = 
 		"create table "+TABLE+" (" +
 		ID+" integer primary key autoincrement, " +
-		MINUTES+" integer, " +
-		POINTS+" integer," +
-		REBOUNDS+" integer," +
-		ASSISTS+" integer," +
-		STEALS+" integer," +
-		BLOCKS+" integer," +
-		FOULS+" integer" +
+		MINUTES+" text, " +
+		POINTS+" text," +
+		REBOUNDS+" text," +
+		ASSISTS+" text," +
+		STEALS+" text," +
+		BLOCKS+" text," +
+		TURNOVERS+" text," +
+		FOULS+" text," +
+		
+		FG2M+" text," +
+		FG2A+" text," +
+		
+		FG3M+" text," +
+		FG3A+" text," +
+		
+		FTM+" text," +
+		FTA+" text" +
+		
 		")";
+	
 	static final String[] getFields = {
-		ID,MINUTES,POINTS,REBOUNDS,ASSISTS,STEALS,BLOCKS,FOULS
+		ID,MINUTES,POINTS,REBOUNDS,ASSISTS,STEALS,BLOCKS,TURNOVERS,FOULS,FG2M,FG2A,FG3M,FG3A,FTM,FTA
 	};
 
 	int gameID = 0;
@@ -89,18 +113,25 @@ public class Model_Games extends DBAdapter {
 	
 	Model_Games(Context context) {
 		super(context);
-		setTable(TABLE);
-		setGetFields(getFields);
+		super.setTable(Model_Games.TABLE);
+		super.setGetFields(Model_Games.getFields);
 	}
 	
 	public void insertStats() throws SQLException{
 		HashMap<String, String> m = new HashMap<String,String>();
 		m.put(MINUTES, s_minutes);
-		create(m);
+		m.put(POINTS, s_points);
+		m.put(REBOUNDS, s_rebounds);
+		m.put(ASSISTS, s_assists);
+		m.put(STEALS, s_steals);
+		m.put(BLOCKS, s_blocks);
+		m.put(TURNOVERS, s_turnovers);
+		m.put(FOULS, s_fouls);
+		super.create(m);
 	}
 	
 	public Cursor getGame(int gameId) throws SQLException{
-		Cursor mCursor = read(gameId);
+		Cursor mCursor = super.getRow(gameId);
 		return mCursor;
 	}
 	

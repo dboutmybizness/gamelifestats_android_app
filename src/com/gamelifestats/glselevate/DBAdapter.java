@@ -80,7 +80,7 @@ public class DBAdapter {
 		this.TABLE = table;
 	}
 	public void setGetFields(String[] s){
-		getFields = s;
+		this.getFields = s;
 	}
 	
 	protected void create(HashMap<String, String> map) throws SQLException{
@@ -89,14 +89,12 @@ public class DBAdapter {
 		for (HashMap.Entry <String, String> entry : map.entrySet()) {
 		    args.put(entry.getKey(), entry.getValue());
 		}
-		db.insert(TABLE, null, args);
+		db.insert(this.TABLE, null, args);
 		close();
 	}
 	
-	protected Cursor read(long rowId) throws SQLException{
-		open();
-		Cursor mCursor = db.query(true, TABLE, getFields, "_id="+rowId, null, null, null, null, null);
-		close();
+	protected Cursor getRow(long rowId) throws SQLException{
+		Cursor mCursor = db.query(true, this.TABLE, this.getFields, "_id="+rowId, null, null, null, null, null);
 		return mCursor;
 	}
 	
