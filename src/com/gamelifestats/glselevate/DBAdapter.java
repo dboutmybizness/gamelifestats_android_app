@@ -54,7 +54,8 @@ public class DBAdapter {
 		@Override
 		public void onCreate(SQLiteDatabase db){
 			//db.execSQL(DATABASE_CREATE);
-			db.execSQL(Model_Games.CREATE_DB);	//games model
+			db.execSQL(Model_Games.CREATE_TABLE);	//games model
+			db.execSQL(Model_Career.CREATE_TABLE);
 			createInitial(db);
 			
 		}
@@ -99,7 +100,7 @@ public class DBAdapter {
 	}
 
 	protected Cursor getAllRowsWhere(String whereStatement){
-		Cursor mCursor = db.query(true, this.Table, this.getFields, whereStatement, null,null,null,null,null);
+		Cursor mCursor = db.query(true, this.TABLE, this.getFields, whereStatement, null,null,null,null,null);
 		return mCursor;
 	}
 	

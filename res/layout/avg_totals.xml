@@ -125,6 +125,16 @@
             android:text="@string/empty"
             android:textAppearance="?android:attr/textAppearanceMedium" />
 
+        <TextView
+            android:id="@+id/tot_games"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignBottom="@+id/lab_games"
+            android:layout_alignLeft="@+id/totals"
+            android:layout_marginLeft="20dp"
+            android:text="@string/double_zero"
+            android:textAppearance="?android:attr/textAppearanceMedium" />
+
     </RelativeLayout>
 
 </ScrollView>

@@ -5,11 +5,13 @@ import java.util.HashMap;
 
 import android.content.Context;
 import android.database.Cursor;
+import android.widget.Toast;
 
 public class Model_Games extends DBAdapter {
 	static final String TABLE = "games";
 
 	static final String ID = "_id";
+	static final String USERID = "userID";
 	static final String MINUTES = "minutes";
 	static final String POINTS = "points";
 	static final String REBOUNDS = "rebounds";
@@ -30,9 +32,10 @@ public class Model_Games extends DBAdapter {
 	static final String REB_OFF = "reb_off";
 	static final String REB_DEF = "reb_def";
 	
-	static final String CREATE_DB = 
+	static final String CREATE_TABLE = 
 		"create table "+TABLE+" (" +
 		ID+" integer primary key autoincrement, " +
+		USERID+" integer," +
 		MINUTES+" text, " +
 		POINTS+" text," +
 		REBOUNDS+" text," +
@@ -54,10 +57,11 @@ public class Model_Games extends DBAdapter {
 		")";
 	
 	static final String[] getFields = {
-		ID,MINUTES,POINTS,REBOUNDS,ASSISTS,STEALS,BLOCKS,TURNOVERS,FOULS,FG2M,FG2A,FG3M,FG3A,FTM,FTA
+		ID,USERID,MINUTES,POINTS,REBOUNDS,ASSISTS,STEALS,BLOCKS,TURNOVERS,FOULS,FG2M,FG2A,FG3M,FG3A,FTM,FTA
 	};
 
 	int gameID = 0;
+	int userID = 0;
 	int minutes = 0;
 	int points = 0;
 	int rebounds = 0;
@@ -121,6 +125,8 @@ public class Model_Games extends DBAdapter {
 	
 	public void insertStats() throws SQLException{
 		HashMap<String, String> m = new HashMap<String,String>();
+
+		m.put(USERID, "1");
 		m.put(MINUTES, s_minutes);
 		m.put(POINTS, s_points);
 		m.put(REBOUNDS, s_rebounds);
@@ -132,14 +138,18 @@ public class Model_Games extends DBAdapter {
 		super.create(m);
 
 		//get all games
-		Cursor c = this.getAllWhere();
+		super.open();
+		Cursor c = this.getAllGames(0);
 		Model_Career career = new Model_Career(super.context);
 		career.buildCareerObject(c);
+		super.close();
+		
 		career.saveCareerObject();
+		
 	}
 
 	public Cursor getAllGames(int userID){
-		
+		return getAllRowsWhere("userID=1");
 	}
 	
 	public Cursor getGame(int gameId) throws SQLException{

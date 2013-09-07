@@ -193,13 +193,29 @@ public class Statbook extends FragmentActivity implements ActionBar.TabListener 
 	
 	public static class AVGTOT extends Fragment {
 		Context getParentContext;
-		
+		Model_Career career;
+		View rootView;
+		TextView tot_games;
 		
 		@Override
 		public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState){
-			View rootView = inflater.inflate(R.layout.avg_totals, container, false);
+			rootView = inflater.inflate(R.layout.avg_totals, container, false);
 			getParentContext = rootView.getContext();
+			
 			return rootView;
+		}
+		
+		@Override
+		public void onActivityCreated(Bundle savedInstanceState){
+			career = new Model_Career(getParentContext);
+			
+			tot_games = (TextView) rootView.findViewById(R.id.tot_games);
+			
+			setUpCareer();
+		}
+		
+		private void setUpCareer(){
+			tot_games.setText("34");
 		}
 	}
 	
