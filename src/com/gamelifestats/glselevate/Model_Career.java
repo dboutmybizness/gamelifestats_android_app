@@ -39,16 +39,17 @@ public class Model_Career extends DBAdapter {
 	static final String[] getFields = {
         	ID,TGAMES,TMINUTES,TPOINTS,TREBOUNDS,TREBS_OFF,TREBS_DEF,TASSISTS,TSTEALS,TBLOCKS,TTURNOVERS,TFOULS
         };	
-	
-	int tot_points;
-	int tot_rebounds;
-	int tot_reb_off;
-	int tot_reb_def;
-	int tot_assists;
-	int tot_steals;
-	int tot_blocks;
-	int tot_turnovers;
-	int tot_fouls;
+	int tot_games = 0;
+	int tot_minutes = 0;
+	int tot_points = 0;
+	int tot_rebounds = 0;
+	int tot_reb_off = 0;
+	int tot_reb_def = 0;
+	int tot_assists = 0;
+	int tot_steals = 0;
+	int tot_blocks = 0;
+	int tot_turnovers = 0;
+	int tot_fouls = 0;
 	
 	
 	public Model_Career(Context ctx) {
@@ -61,5 +62,19 @@ public class Model_Career extends DBAdapter {
 
 	}	
 	//public void renderCareer
-	
+
+	public void buildCareerObject(Cursor cursor){
+		if (cursor != null){
+			c.moveToFirst();
+			do {
+				tot_games += c.getInt(1);
+				tot_minutes += c.getInt(2);
+				tot_points += c.getInt(3);
+				tot_rebounds += c.getInt(4);
+				tot_reb_off += c.getInt(5);
+				tot_reb_def += c.getInt(6);
+				tot_assists += c.getInt(7);
+				
+		}
+	}	
 }

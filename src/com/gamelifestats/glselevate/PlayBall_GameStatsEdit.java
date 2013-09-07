@@ -225,7 +225,7 @@ public class PlayBall_GameStatsEdit extends Activity {
 	public void saveStats(View v){
 		AlertDialog.Builder alertDialogBuilder = new AlertDialog.Builder(this);
 		alertDialogBuilder
-			.setMessage("Are you ready to save?")
+			.setMessage("Finished?")
 			//.setCancelable(false)
 			.setPositiveButton("OK, save game", new DialogInterface.OnClickListener() {
 				@Override

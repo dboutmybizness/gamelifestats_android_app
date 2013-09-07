@@ -110,8 +110,10 @@ public class Model_Games extends DBAdapter {
 	String s_fgm;
 	String s_fga;
 	String s_fgp;
+
 	
 	Model_Games(Context context) {
+		
 		super(context);
 		super.setTable(Model_Games.TABLE);
 		super.setGetFields(Model_Games.getFields);
@@ -128,6 +130,16 @@ public class Model_Games extends DBAdapter {
 		m.put(TURNOVERS, s_turnovers);
 		m.put(FOULS, s_fouls);
 		super.create(m);
+
+		//get all games
+		Cursor c = this.getAllWhere();
+		Model_Career career = new Model_Career(super.context);
+		career.buildCareerObject(c);
+		career.saveCareerObject();
+	}
+
+	public Cursor getAllGames(int userID){
+		
 	}
 	
 	public Cursor getGame(int gameId) throws SQLException{

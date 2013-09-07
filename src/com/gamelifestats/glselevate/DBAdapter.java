@@ -97,8 +97,11 @@ public class DBAdapter {
 		Cursor mCursor = db.query(true, this.TABLE, this.getFields, "_id="+rowId, null, null, null, null, null);
 		return mCursor;
 	}
-	
-	
+
+	protected Cursor getAllRowsWhere(String whereStatement){
+		Cursor mCursor = db.query(true, this.Table, this.getFields, whereStatement, null,null,null,null,null);
+		return mCursor;
+	}
 	
 	private static void createInitial(SQLiteDatabase db){
 		ContentValues initialValues = new ContentValues();
