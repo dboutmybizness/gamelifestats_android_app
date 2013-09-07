@@ -16,28 +16,18 @@ public class DBAdapter {
 	private String TABLE;
 	private String[] getFields;
 	
-	static final String KEY_ROWID = "_id";
-	static final String KEY_NAME = "name";
-	static final String KEY_POSITION = "position";
-	static final String KEY_HAS_SCOUT = "has_scout";
+
 	static final String TAG = "DBAdapter";
-	
 	static final String DATABASE_NAME = "GLSDB";
-	static final String DATABASE_TABLE = "scout";
 	static final int DATABASE_VERSION = 1;
 	
-	static final String DATABASE_CREATE = 
-			"create table scout ("+
-			"_id integer primary key autoincrement, "+
-			"name text not null, "+
-			"position text not null, "+
-			"has_scout integer" +
-			")";
+
 	
 	final Context context;
-	
 	DatabaseHelper DBHelper;
 	SQLiteDatabase db;
+	
+	
 	
 	public DBAdapter(Context ctx){
 		this.context = ctx;
@@ -53,9 +43,17 @@ public class DBAdapter {
 		
 		@Override
 		public void onCreate(SQLiteDatabase db){
-			//db.execSQL(DATABASE_CREATE);
-			db.execSQL(Model_Games.CREATE_TABLE);	//games model
-			db.execSQL(Model_Career.CREATE_TABLE);
+			
+			String[] TABLES_TO_CREATE = new String[]{
+					MAppMeta.CREATE_TABLE,
+					MGames.CREATE_TABLE,
+					MCareer.CREATE_TABLE
+			};
+			
+			for ( int i = 0; i< TABLES_TO_CREATE.length; i++){
+				db.execSQL(TABLES_TO_CREATE[i]);
+			}
+			
 			createInitial(db);
 			
 		}
@@ -84,6 +82,12 @@ public class DBAdapter {
 		this.getFields = s;
 	}
 	
+	private static void createInitial(SQLiteDatabase db) throws SQLException{
+		HashMap <String,String> meta = MAppMeta.initializeApp();
+		DBAdapter dba = new DBAdapter();
+		create(meta);
+	}
+	
 	protected void create(HashMap<String, String> map) throws SQLException{
 		open();
 		ContentValues args = new ContentValues();
@@ -102,15 +106,6 @@ public class DBAdapter {
 	protected Cursor getAllRowsWhere(String whereStatement){
 		Cursor mCursor = db.query(true, this.TABLE, this.getFields, whereStatement, null,null,null,null,null);
 		return mCursor;
-	}
-	
-	private static void createInitial(SQLiteDatabase db){
-		ContentValues initialValues = new ContentValues();
-		initialValues.put(KEY_HAS_SCOUT, 0);
-		initialValues.put(KEY_ROWID, 1);
-		initialValues.put(KEY_NAME, "my name");
-		initialValues.put(KEY_POSITION, "Guard");
-		db.insert(DATABASE_TABLE, null, initialValues);
 	}
 	
 	//---below is public quering---

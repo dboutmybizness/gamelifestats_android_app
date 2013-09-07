@@ -132,7 +132,7 @@
             android:layout_alignBottom="@+id/lab_games"
             android:layout_alignLeft="@+id/totals"
             android:layout_marginLeft="20dp"
-            android:text="@string/double_zero"
+            android:text="@string/empty"
             android:textAppearance="?android:attr/textAppearanceMedium" />
 
     </RelativeLayout>

@@ -26,7 +26,7 @@ public class PlayBall_GameStatsEdit extends Activity {
 	TextView dmin,dfgma, dfg3ma, dftma, dfgp, dfg3p, dftp;
 	TextView dpts, dasts, dstls, dblks, dtos, dfouls;
 	TextView doreb, dtreb;
-	Model_Games dbGames;
+	MGames dbGames;
 	
 	@Override
 	protected void onCreate(Bundle savedInstanceState) {
@@ -36,7 +36,7 @@ public class PlayBall_GameStatsEdit extends Activity {
 		setupActionBar();
 		
 		setUpAllStats();
-		dbGames = new Model_Games(this);
+		dbGames = new MGames(this);
 		
 		renderPage();
 	}

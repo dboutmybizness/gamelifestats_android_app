@@ -41,7 +41,7 @@ public class Statbook extends FragmentActivity implements ActionBar.TabListener 
 	
 	Cursor c = null;
 	
-	Model_Games dbGames;
+	MGames dbGames;
 
 	@Override
 	protected void onCreate(Bundle savedInstanceState) {
@@ -193,34 +193,50 @@ public class Statbook extends FragmentActivity implements ActionBar.TabListener 
 	
 	public static class AVGTOT extends Fragment {
 		Context getParentContext;
-		Model_Career career;
+		MCareer career;
 		View rootView;
 		TextView tot_games;
+		Cursor c = null;
 		
 		@Override
 		public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState){
 			rootView = inflater.inflate(R.layout.avg_totals, container, false);
 			getParentContext = rootView.getContext();
+			//career = new Model_Career(getParentContext);
 			
 			return rootView;
 		}
 		
 		@Override
-		public void onActivityCreated(Bundle savedInstanceState){
-			career = new Model_Career(getParentContext);
+		public void onResume(){
+			super.onResume();
+			career = new MCareer(getParentContext);
 			
-			tot_games = (TextView) rootView.findViewById(R.id.tot_games);
-			
+			tot_games = (TextView) getActivity().findViewById(R.id.tot_games);
 			setUpCareer();
 		}
 		
 		private void setUpCareer(){
-			tot_games.setText("34");
+			
+			try {
+				career.open();
+				c = career.getAllRowsWhere("user_id= 1");
+				if ( c != null){
+					tot_games.setText(c.getString(1));
+				}
+				career.close();
+				
+			} catch (SQLException e) {
+				// TODO Auto-generated catch block
+				e.printStackTrace();
+			}
+			
+			
 		}
 	}
 	
 	public static class GAMEBYGAME extends Fragment {
-		Model_Games dbGames;
+		MGames dbGames;
 		Cursor mCursor;
 		View rootView;
 		Context base;
@@ -237,7 +253,7 @@ public class Statbook extends FragmentActivity implements ActionBar.TabListener 
 		}
 		
 		public void setUpGames(){
-			dbGames = new Model_Games(base);
+			dbGames = new MGames(base);
 			
 			try {
 				mCursor = dbGames.getGame(1);

@@ -10,7 +10,7 @@ public abstract class StatsHelper {
 		return (float)(a/b);
 	}
 	
-	public static String int2String(int num){
+	public static String int2Str(int num){
 		return Integer.toString(num);
 	}
 	
@@ -25,4 +25,5 @@ public abstract class StatsHelper {
 	public static String roundToOneDigit(float paramFloat) {
 	    return String.format("%.1f%n", paramFloat);
 	}
+	
 }
