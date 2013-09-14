@@ -195,8 +195,8 @@ public class Statbook extends FragmentActivity implements ActionBar.TabListener 
 		Context getParentContext;
 		MCareer career;
 		View rootView;
-		TextView tot_games;
-		Cursor c = null;
+		TextView tot_games,tot_minutes,tot_points,tot_rebounds,tot_reb_off,tot_assists,tot_steals,tot_blocks,tot_turnovers,tot_fouls;
+		TextView avg_games,avg_minutes,avg_points,avg_rebounds,avg_reb_off,avg_assists,avg_steals,avg_blocks,avg_turnovers,avg_fouls;
 		
 		@Override
 		public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState){
@@ -213,25 +213,60 @@ public class Statbook extends FragmentActivity implements ActionBar.TabListener 
 			career = new MCareer(getParentContext);
 			
 			tot_games = (TextView) getActivity().findViewById(R.id.tot_games);
+			tot_minutes = (TextView) getActivity().findViewById(R.id.tot_minutes);
+			tot_points = (TextView) getActivity().findViewById(R.id.tot_points);
+			tot_rebounds = (TextView) getActivity().findViewById(R.id.tot_rebounds);
+			tot_reb_off = (TextView) getActivity().findViewById(R.id.tot_reb_off);
+			//tot_reb_def = (TextView) getActivity().findViewById(R.id.tot_reb_def);
+			tot_assists = (TextView) getActivity().findViewById(R.id.tot_assists);
+			tot_steals = (TextView) getActivity().findViewById(R.id.tot_steals);
+			tot_blocks = (TextView) getActivity().findViewById(R.id.tot_blocks);
+			tot_turnovers = (TextView) getActivity().findViewById(R.id.tot_turnovers);
+			tot_fouls = (TextView) getActivity().findViewById(R.id.tot_fouls);
+			
+			avg_games = (TextView) getActivity().findViewById(R.id.avg_games);
+			avg_minutes = (TextView) getActivity().findViewById(R.id.avg_minutes);
+			avg_points = (TextView) getActivity().findViewById(R.id.avg_points);
+			avg_rebounds = (TextView) getActivity().findViewById(R.id.avg_rebounds);
+			avg_reb_off = (TextView) getActivity().findViewById(R.id.avg_reb_off);
+			//avg_reb_def = (TextView) getActivity().findViewById(R.id.avg_reb_def);
+			avg_assists = (TextView) getActivity().findViewById(R.id.avg_assists);
+			avg_steals = (TextView) getActivity().findViewById(R.id.avg_steals);
+			avg_blocks = (TextView) getActivity().findViewById(R.id.avg_blocks);
+			avg_turnovers = (TextView) getActivity().findViewById(R.id.avg_turnovers);
+			avg_fouls = (TextView) getActivity().findViewById(R.id.avg_fouls);
+
 			setUpCareer();
 		}
 		
 		private void setUpCareer(){
+			Boolean has_career;
 			
-			try {
-				career.open();
-				c = career.getAllRowsWhere("user_id= 1");
-				if ( c != null){
-					tot_games.setText(c.getString(1));
-				}
-				career.close();
+			has_career = career.loadSavedCareer();
+			
+			if ( has_career ){
+				tot_games.setText(StatsHelper.int2Str(career.tot_games));
+				tot_minutes.setText(StatsHelper.int2Str(career.tot_minutes));
+				tot_points.setText(StatsHelper.int2Str(career.tot_points));
+				tot_rebounds.setText(StatsHelper.int2Str(career.tot_rebounds));
+				tot_reb_off.setText(StatsHelper.int2Str(career.tot_reb_off));
+				tot_assists.setText(StatsHelper.int2Str(career.tot_assists));
+				tot_steals.setText(StatsHelper.int2Str(career.tot_steals));
+				tot_blocks.setText(StatsHelper.int2Str(career.tot_blocks));
+				tot_turnovers.setText(StatsHelper.int2Str(career.tot_turnovers));
+				tot_fouls.setText(StatsHelper.int2Str(career.tot_fouls));
 				
-			} catch (SQLException e) {
-				// TODO Auto-generated catch block
-				e.printStackTrace();
+				avg_minutes.setText(StatsHelper.float2Str(career.avg_minutes));
+				avg_points.setText(StatsHelper.float2Str(career.avg_points));
+				avg_rebounds.setText(StatsHelper.float2Str(career.avg_rebounds));
+				avg_reb_off.setText(StatsHelper.float2Str(career.avg_reb_off));
+				avg_assists.setText(StatsHelper.float2Str(career.avg_assists));
+				avg_steals.setText(StatsHelper.float2Str(career.avg_steals));
+				avg_blocks.setText(StatsHelper.float2Str(career.avg_blocks));
+				avg_turnovers.setText(StatsHelper.float2Str(career.avg_turnovers));
+				avg_fouls.setText(StatsHelper.float2Str(career.avg_fouls));
 			}
-			
-			
+		
 		}
 	}
 	

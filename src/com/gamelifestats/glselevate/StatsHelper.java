@@ -14,16 +14,20 @@ public abstract class StatsHelper {
 		return Integer.toString(num);
 	}
 	
-	/*public static String divPerc(int l, int b){
-		if ( l  < 1) return "0.0";
-		Float f = ((l * 100.0f) / b);
-		if( f == 100) return "100";
-		
-		return roundToOneDigit(f);
-	}*/
+	public static float divPerc(int l, int b){
+		if ( l  < 1) return 0;
+		Float f = ((l * 1.0f) / b);
+		if( f == 100) return 100;
+		return f;
+	}
 	
 	public static String roundToOneDigit(float paramFloat) {
 	    return String.format("%.1f%n", paramFloat);
+	}
+	
+	public static String float2Str(float f){
+		//return String.valueOf(f);
+		return roundToOneDigit(f);
 	}
 	
 }

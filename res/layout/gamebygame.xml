@@ -19,7 +19,7 @@
         android:layout_height="wrap_content"
         android:layout_alignParentLeft="true"
         android:layout_below="@+id/dis_min"
-        android:text="Medium Text"
+        android:text="@string/coming_soon"
         android:textAppearance="?android:attr/textAppearanceMedium" />
 
 </RelativeLayout>

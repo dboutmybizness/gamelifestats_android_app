@@ -109,7 +109,7 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_alignParentTop="true"
-            android:layout_marginLeft="15dp"
+            android:layout_marginLeft="100dp"
             android:layout_toRightOf="@+id/lab_rebs_off"
             android:text="@string/totals"
             android:textAppearance="?android:attr/textAppearanceLarge" />
@@ -120,19 +120,201 @@
             android:layout_height="wrap_content"
             android:layout_alignBaseline="@+id/lab_games"
             android:layout_alignBottom="@+id/lab_games"
+            android:layout_alignLeft="@+id/totals"
+            android:layout_marginLeft="20dp"
+            android:text="@string/zero"
+            android:textAppearance="?android:attr/textAppearanceMedium" />
+
+        <TextView
+            android:id="@+id/tot_minutes"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignBaseline="@+id/lab_minutes"
+            android:layout_alignBottom="@+id/lab_minutes"
+            android:layout_alignLeft="@+id/tot_games"
+            android:text="@string/zero"
+            android:textAppearance="?android:attr/textAppearanceMedium" />
+        
+        <TextView
+            android:id="@+id/tot_points"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignBaseline="@+id/lab_points"
+            android:layout_alignBottom="@+id/lab_points"
+            android:layout_alignLeft="@+id/tot_games"
+            android:text="@string/zero"
+            android:textAppearance="?android:attr/textAppearanceMedium" />
+        
+        <TextView
+            android:id="@+id/tot_rebounds"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignBaseline="@+id/lab_rebs"
+            android:layout_alignBottom="@+id/lab_rebs"
+            android:layout_alignLeft="@+id/tot_games"
+            android:text="@string/zero"
+            android:textAppearance="?android:attr/textAppearanceMedium" />
+        
+        <TextView
+            android:id="@+id/tot_reb_off"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignBaseline="@+id/lab_rebs_off"
+            android:layout_alignBottom="@+id/lab_rebs_off"
+            android:layout_alignLeft="@+id/tot_games"
+            android:text="@string/zero"
+            android:textAppearance="?android:attr/textAppearanceMedium" />
+        
+        <TextView
+            android:id="@+id/tot_assists"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignBaseline="@+id/lab_assists"
+            android:layout_alignBottom="@+id/lab_assists"
+            android:layout_alignLeft="@+id/tot_games"
+            android:text="@string/zero"
+            android:textAppearance="?android:attr/textAppearanceMedium" />
+        
+        <TextView
+            android:id="@+id/tot_steals"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignBaseline="@+id/lab_steals"
+            android:layout_alignBottom="@+id/lab_steals"
+            android:layout_alignLeft="@+id/tot_games"
+            android:text="@string/zero"
+            android:textAppearance="?android:attr/textAppearanceMedium" />
+        
+        <TextView
+            android:id="@+id/tot_blocks"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignBaseline="@+id/lab_blocks"
+            android:layout_alignBottom="@+id/lab_blocks"
+            android:layout_alignLeft="@+id/tot_games"
+            android:text="@string/zero"
+            android:textAppearance="?android:attr/textAppearanceMedium" />
+        
+        <TextView
+            android:id="@+id/tot_turnovers"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignBaseline="@+id/lab_turnovers"
+            android:layout_alignBottom="@+id/lab_turnovers"
+            android:layout_alignLeft="@+id/tot_games"
+            android:text="@string/zero"
+            android:textAppearance="?android:attr/textAppearanceMedium" />
+        
+        <TextView
+            android:id="@+id/tot_fouls"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignBaseline="@+id/lab_fouls"
+            android:layout_alignBottom="@+id/lab_fouls"
+            android:layout_alignLeft="@+id/tot_games"
+            android:text="@string/zero"
+            android:textAppearance="?android:attr/textAppearanceMedium" />
+
+        <TextView
+            android:id="@+id/avg"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentTop="true"
             android:layout_marginLeft="30dp"
             android:layout_toRightOf="@+id/lab_rebs_off"
+            android:text="@string/avg"
+            android:textAppearance="?android:attr/textAppearanceLarge" />
+
+        <TextView
+            android:id="@+id/avg_games"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignBaseline="@+id/lab_games"
+            android:layout_alignBottom="@+id/tot_games"
+            android:layout_alignLeft="@+id/avg"
+            android:layout_marginLeft="15dp"
             android:text="@string/empty"
             android:textAppearance="?android:attr/textAppearanceMedium" />
 
         <TextView
-            android:id="@+id/tot_games"
+            android:id="@+id/avg_minutes"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_alignBottom="@+id/lab_games"
-            android:layout_alignLeft="@+id/totals"
-            android:layout_marginLeft="20dp"
-            android:text="@string/empty"
+            android:layout_alignBaseline="@+id/lab_minutes"
+            android:layout_alignLeft="@+id/avg_games"
+            android:text="@string/zero"
+            android:textAppearance="?android:attr/textAppearanceMedium" />
+        
+        <TextView
+            android:id="@+id/avg_points"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignBaseline="@+id/lab_points"
+            android:layout_alignLeft="@+id/avg_games"
+            android:text="@string/zero"
+            android:textAppearance="?android:attr/textAppearanceMedium" />
+        
+        <TextView
+            android:id="@+id/avg_rebounds"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignBaseline="@+id/lab_rebs"
+            android:layout_alignLeft="@+id/avg_games"
+            android:text="@string/zero"
+            android:textAppearance="?android:attr/textAppearanceMedium" />
+        
+        <TextView
+            android:id="@+id/avg_reb_off"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignBaseline="@+id/lab_rebs_off"
+            android:layout_alignLeft="@+id/avg_games"
+            android:text="@string/zero"
+            android:textAppearance="?android:attr/textAppearanceMedium" />
+        
+        <TextView
+            android:id="@+id/avg_assists"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignBaseline="@+id/lab_assists"
+            android:layout_alignLeft="@+id/avg_games"
+            android:text="@string/zero"
+            android:textAppearance="?android:attr/textAppearanceMedium" />
+        
+        <TextView
+            android:id="@+id/avg_steals"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignBaseline="@+id/lab_steals"
+            android:layout_alignLeft="@+id/avg_games"
+            android:text="@string/zero"
+            android:textAppearance="?android:attr/textAppearanceMedium" />
+        
+        <TextView
+            android:id="@+id/avg_blocks"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignBaseline="@+id/lab_blocks"
+            android:layout_alignLeft="@+id/avg_games"
+            android:text="@string/zero"
+            android:textAppearance="?android:attr/textAppearanceMedium" />
+        
+        <TextView
+            android:id="@+id/avg_turnovers"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignBaseline="@+id/lab_turnovers"
+            android:layout_alignLeft="@+id/avg_games"
+            android:text="@string/zero"
+            android:textAppearance="?android:attr/textAppearanceMedium" />
+        
+        <TextView
+            android:id="@+id/avg_fouls"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignBaseline="@+id/lab_fouls"
+            android:layout_alignLeft="@+id/avg_games"
+            android:text="@string/zero"
             android:textAppearance="?android:attr/textAppearanceMedium" />
 
     </RelativeLayout>

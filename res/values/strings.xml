@@ -20,6 +20,7 @@
     <string name="shoesize">Shoe Size</string>
     
     <string name="avg_totals">AVG/TOTALS</string>
+    <string name="avg">AVG</string>
     <string name="game_by_game">GAME BY GAME</string>
 
     <string-array name="positions_array">
@@ -79,6 +80,7 @@
     <string name="save">Save</string>
     <string name="load">Load</string>
     <string name="double_zero">00</string>
+    <string name="zero">0</string>
     <string name="title_activity_gls__act__play_ball__list">PlayBall_List</string>
     <string name="title_activity_gls__act__play_ball__game_stats_edit">GameStatsEdit</string>
     <string name="title_activity_statbook">Statbook</string>
@@ -86,7 +88,9 @@
     <string name="title_section2">Section 2</string>
     <string name="title_section3">Section 3</string>
     
-    <string name="totals">Totals</string>
+    <string name="totals">Totals &#8721;</string>
+    <string name="coming_soon">COMING SOON!!!</string>
+    
     <string name="empty"></string>
 
 </resources>

@@ -54,7 +54,12 @@ public class DBAdapter {
 				db.execSQL(TABLES_TO_CREATE[i]);
 			}
 			
-			createInitial(db);
+			try {
+				createInitial(db);
+			} catch (SQLException e) {
+				// TODO Auto-generated catch block
+				e.printStackTrace();
+			}
 			
 		}
 		
@@ -83,9 +88,18 @@ public class DBAdapter {
 	}
 	
 	private static void createInitial(SQLiteDatabase db) throws SQLException{
+		// insert app meta
 		HashMap <String,String> meta = MAppMeta.initializeApp();
-		DBAdapter dba = new DBAdapter();
-		create(meta);
+		ContentValues args = new ContentValues();
+		for (HashMap.Entry <String, String> entry : meta.entrySet()) {
+		    args.put(entry.getKey(), entry.getValue());
+		}
+		db.insert(MAppMeta.TABLE, null, args);
+		
+		ContentValues argus = new ContentValues();
+		argus.put(MCareer.USERID, "1");
+		db.insert(MCareer.TABLE, null, argus);
+		
 	}
 	
 	protected void create(HashMap<String, String> map) throws SQLException{
@@ -98,6 +112,16 @@ public class DBAdapter {
 		close();
 	}
 	
+	protected Boolean update(HashMap<String,String> map, String where) throws SQLException{
+
+		ContentValues args = new ContentValues();
+		for (HashMap.Entry <String, String> entry : map.entrySet()) {
+		    args.put(entry.getKey(), entry.getValue());
+		}
+		return db.update(this.TABLE, args, where, null) > 0;
+
+	}
+	
 	protected Cursor getRow(long rowId) throws SQLException{
 		Cursor mCursor = db.query(true, this.TABLE, this.getFields, "_id="+rowId, null, null, null, null, null);
 		return mCursor;
@@ -108,7 +132,7 @@ public class DBAdapter {
 		return mCursor;
 	}
 	
-	//---below is public quering---
+	/*/---below is public quering---
 	public boolean updateScout(String name, String position){
 		ContentValues args = new ContentValues();
 		args.put(KEY_NAME, name);
@@ -124,6 +148,6 @@ public class DBAdapter {
 		}
 		return mCursor;
 	}
-	
+	*/
 	
 }

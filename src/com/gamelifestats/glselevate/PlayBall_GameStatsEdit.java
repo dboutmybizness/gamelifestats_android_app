@@ -54,8 +54,8 @@ public class PlayBall_GameStatsEdit extends Activity {
 	
 	public void playBuzzer(){
 		
-		MediaPlayer mp = MediaPlayer.create(getApplicationContext(), R.raw.buzzer);
-	    mp.start();
+		//MediaPlayer mp = MediaPlayer.create(getApplicationContext(), R.raw.buzzer);
+	    //mp.start();
 	    
 	}
 	
@@ -168,11 +168,6 @@ public class PlayBall_GameStatsEdit extends Activity {
 		dblks.setText(dbGames.s_blocks);
 		dtos.setText(dbGames.s_turnovers);
 		dfouls.setText(dbGames.s_fouls);
-		
-		/*
-		dfg3p.setText(StatsHelper.roundToOneDigit(dbGames.fg3p));
-		dftp.setText(StatsHelper.roundToOneDigit(dbGames.ftp));
-		*/
 		
 	}
 	

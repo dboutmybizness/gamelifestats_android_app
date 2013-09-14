@@ -39,6 +39,8 @@ public class MGames extends DBAdapter {
 		MINUTES+" text, " +
 		POINTS+" text," +
 		REBOUNDS+" text," +
+		REB_OFF+" text,"+
+		REB_DEF+" text,"+
 		ASSISTS+" text," +
 		STEALS+" text," +
 		BLOCKS+" text," +
@@ -57,7 +59,7 @@ public class MGames extends DBAdapter {
 		")";
 	
 	static final String[] getFields = {
-		ID,USERID,MINUTES,POINTS,REBOUNDS,ASSISTS,STEALS,BLOCKS,TURNOVERS,FOULS,FG2M,FG2A,FG3M,FG3A,FTM,FTA
+		ID,USERID,MINUTES,POINTS,REBOUNDS,REB_OFF,REB_DEF,ASSISTS,STEALS,BLOCKS,TURNOVERS,FOULS,FG2M,FG2A,FG3M,FG3A,FTM,FTA
 	};
 
 	int gameID = 0;
@@ -130,6 +132,7 @@ public class MGames extends DBAdapter {
 		m.put(MINUTES, s_minutes);
 		m.put(POINTS, s_points);
 		m.put(REBOUNDS, s_rebounds);
+		m.put(REB_OFF, s_reb_off);
 		m.put(ASSISTS, s_assists);
 		m.put(STEALS, s_steals);
 		m.put(BLOCKS, s_blocks);
