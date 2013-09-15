@@ -47,7 +47,8 @@ public class DBAdapter {
 			String[] TABLES_TO_CREATE = new String[]{
 					MAppMeta.CREATE_TABLE,
 					MGames.CREATE_TABLE,
-					MCareer.CREATE_TABLE
+					MCareer.CREATE_TABLE,
+					MScout.CREATE_TABLE
 			};
 			
 			for ( int i = 0; i< TABLES_TO_CREATE.length; i++){
@@ -96,9 +97,16 @@ public class DBAdapter {
 		}
 		db.insert(MAppMeta.TABLE, null, args);
 		
+		// insert career
 		ContentValues argus = new ContentValues();
 		argus.put(MCareer.USERID, "1");
 		db.insert(MCareer.TABLE, null, argus);
+		
+		// insert scout
+		ContentValues s_args = new ContentValues();
+		s_args.put(MScout.USERID, "1");
+		s_args.put(MScout.HASPRO, "0");
+		db.insert(MScout.TABLE, null, s_args);
 		
 	}
 	
@@ -124,6 +132,10 @@ public class DBAdapter {
 	
 	protected Cursor getRow(long rowId) throws SQLException{
 		Cursor mCursor = db.query(true, this.TABLE, this.getFields, "_id="+rowId, null, null, null, null, null);
+		return mCursor;
+	}
+	protected Cursor getRow(String row, long rowId) throws SQLException{
+		Cursor mCursor = db.query(true, this.TABLE, this.getFields, row+"="+rowId, null, null, null, null, null);
 		return mCursor;
 	}
 

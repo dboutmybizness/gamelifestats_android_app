@@ -30,7 +30,7 @@ public class GLS_Act_main extends Activity {
     	Object cls = null;
     	
     	if ( itemTitle.equals("Your Scout")){
-    		cls = ScoutEdit.class;
+    		cls = Scout.class;
     	} else if ( itemTitle.equals("Play Ball")){
     		cls = PlayBall_List.class;
     	} else if ( itemTitle.equals("Statbook")){

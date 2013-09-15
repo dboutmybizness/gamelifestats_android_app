@@ -18,7 +18,10 @@
     <string name="wingspan">Wingspan</string>
     <string name="vertical_leap">Vertical Leap</string>
     <string name="shoesize">Shoe Size</string>
-    
+    <string name="nickname">Nickname</string>
+    <string name="jersey">#Jersey</string>
+    <string name="vertical">Vertical</string>
+    <string name="active_status">Active Status</string>
     <string name="avg_totals">AVG/TOTALS</string>
     <string name="avg">AVG</string>
     <string name="game_by_game">GAME BY GAME</string>
@@ -39,8 +42,6 @@
         <item>upload game stats</item>
     </string-array>
 
-    
-
     <string name="pts">PTS</string>
     <string name="rebs">REB</string>
     <string name="oreb">OREB</string>
@@ -55,7 +56,6 @@
     <string name="ftp">FT%</string>
     <string name="fg3p">3G%</string>
     <string name="fls">FOULS</string>
-    
     <string name="games">Games</string>
     <string name="points">Points</string>
     <string name="rebounds">Rebounds</string>
@@ -87,10 +87,10 @@
     <string name="title_section1">Section 1</string>
     <string name="title_section2">Section 2</string>
     <string name="title_section3">Section 3</string>
-    
     <string name="totals">Totals &#8721;</string>
     <string name="coming_soon">COMING SOON!!!</string>
-    
     <string name="empty"></string>
+    <string name="title_activity_scout">Scout</string>
+    <string name="edit">Edit</string>
 
 </resources>

@@ -1,21 +1,24 @@
 package com.gamelifestats.glselevate;
 
 import android.app.Activity;
-import android.database.Cursor;
-import android.database.SQLException;
+import android.content.Intent;
 import android.os.Bundle;
 import android.support.v4.app.NavUtils;
 import android.view.Menu;
 import android.view.MenuInflater;
 import android.view.MenuItem;
+import android.view.View;
 import android.widget.ArrayAdapter;
 import android.widget.Spinner;
+import android.widget.TextView;
 import android.widget.Toast;
 
 public class ScoutEdit extends Activity {
 
-	Cursor c;
-	int row = 453;
+	MScout scoutObj;
+	TextView name,nickname;
+	Spinner position;
+	
 	
 	@Override
 	protected void onCreate(Bundle savedInstanceState) {
@@ -24,40 +27,28 @@ public class ScoutEdit extends Activity {
 		// Show the Up button in the action bar.
 		setupActionBar();
 		
-		Spinner positions = (Spinner) findViewById(R.id.spinner_positions);
+		scoutObj = new MScout(this);
+		
+		position = (Spinner) findViewById(R.id.spinner_positions);
 		ArrayAdapter<CharSequence> adapter = ArrayAdapter.createFromResource(this, R.array.positions_array, android.R.layout.simple_spinner_item);
 		adapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
-		positions.setAdapter(adapter);
+		position.setAdapter(adapter);
 		
-		/*DBAdapter db = new DBAdapter(this);
-		try {
-			db.open();
-		} catch (SQLException e) {
-			// TODO Auto-generated catch block
-			e.printStackTrace();
-		} catch (java.sql.SQLException e) {
-			// TODO Auto-generated catch block
-			e.printStackTrace();
-		}
+		this.setupViews();
+		scoutObj.getScout();
+		this.loadScoutView();
+	}
+	
+	@Override
+	protected void onResume(){
+		super.onResume();
 		
-		try {
-			
-			//c = db.getScout();
-			row = c.getInt(0);
-		} catch (SQLException e) {
-			// TODO Auto-generated catch block
-			e.printStackTrace();
-		} catch (java.sql.SQLException e) {
-			// TODO Auto-generated catch block
-			e.printStackTrace();
-		}
-
-		db.close();
-		
-		Toast.makeText(this, "ddfs "+row, Toast.LENGTH_SHORT).show();*/
-
 	}
 
+	public void setupViews(){
+		name = (TextView) findViewById(R.id.e_name);
+		nickname = (TextView) findViewById(R.id.e_nickname);
+	}
 
 	/**
 	 * Set up the {@link android.app.ActionBar}.
@@ -90,6 +81,33 @@ public class ScoutEdit extends Activity {
 			return true;
 		}
 		return super.onOptionsItemSelected(item);
+	}
+	
+	public void saveScout(View v){
+		loadScoutObj();
+
+		if ( scoutObj.trySave() ){
+			Toast.makeText(this, "Save Successful", Toast.LENGTH_SHORT).show();
+			startActivity(new Intent(this, Scout.class));
+			finish();
+		} else {
+			Toast.makeText(this, "There was a problem saving your scout, check that all fields are complete.", Toast.LENGTH_SHORT).show();
+		}
+	}
+	
+	
+	private void loadScoutObj(){
+		scoutObj.name = name.getText().toString();
+		scoutObj.nickname = nickname.getText().toString();
+		scoutObj.position = position.getSelectedItemPosition();
+	}
+	
+	private void loadScoutView(){
+		if ( scoutObj.has_profile > 0){
+			name.setText(scoutObj.name);
+			nickname.setText(scoutObj.nickname);
+			position.setSelection(scoutObj.position);
+		}
 	}
 
 }

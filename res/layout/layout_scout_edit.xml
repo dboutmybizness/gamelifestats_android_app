@@ -1,47 +1,72 @@
-<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools"
-    android:id="@+id/ScrollView1"
+    android:id="@+id/ScoutContainer"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".ScoutEdit" >
+    android:orientation="vertical" >
 
-    <LinearLayout
+    <ScrollView
+        android:id="@+id/ScrollView1"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentTop="true"
+        android:layout_weight="1"
+        tools:context=".ScoutEdit" >
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical" >
+
+            <FrameLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginBottom="25dp"
+                android:padding="15dp" >
+
+                <TextView
+                    android:id="@+id/textView1"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="Build your scouting report so others can view facts about you." />
+            </FrameLayout>
+
+            <EditText
+                android:id="@+id/e_name"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:hint="@string/name" />
+
+            <EditText
+                android:id="@+id/e_nickname"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:hint="@string/nickname" />
+
+            <Spinner
+                android:id="@+id/spinner_positions"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:spinnerMode="dialog" />
+        </LinearLayout>
+    </ScrollView>
+
+    <FrameLayout
+        android:id="@+id/FrameLayout1"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:orientation="vertical" >
+        android:layout_alignParentBottom="true"
+        android:layout_alignParentLeft="true"
+        android:layout_weight="4" >
 
-        <FrameLayout
+        <Button
+            android:id="@+id/save_scout"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_marginBottom="25dp"
-            android:padding="15dp" >
+            android:onClick="saveScout"
+            android:text="@string/save" />
 
-            <TextView
-                android:id="@+id/textView1"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:text="Build your scouting report so others can view facts about you." />
+    </FrameLayout>
 
-        </FrameLayout>
-
-        <EditText
-            android:id="@+id/editText1"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:hint="Name" />
-        
-        <EditText
-            android:id="@+id/editText2"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:hint="Hometown" />
-
-        <Spinner
-            android:id="@+id/spinner_positions"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content" 
-            android:spinnerMode="dialog" />
-
-    </LinearLayout>
-
-</ScrollView>
+</RelativeLayout>
