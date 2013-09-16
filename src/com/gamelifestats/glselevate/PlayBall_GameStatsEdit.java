@@ -183,23 +183,21 @@ public class PlayBall_GameStatsEdit extends Activity {
 	@Override
 	public boolean onCreateOptionsMenu(Menu menu) {
 		// Inflate the menu; this adds items to the action bar if it is present.
-		getMenuInflater().inflate(R.menu.gls__act__play_ball__game_stats_edit,
-				menu);
+		getMenuInflater().inflate(R.menu.edit_game, menu);
 		return true;
 	}
 
 	@Override
 	public boolean onOptionsItemSelected(MenuItem item) {
+		if (item.getTitle().equals("Done")){
+			this.saveStats(null);
+			return true;
+		}
+		
 		switch (item.getItemId()) {
 		case android.R.id.home:
-			// This ID represents the Home or Up button. In the case of this
-			// activity, the Up button is shown. Use NavUtils to allow users
-			// to navigate up one level in the application structure. For
-			// more details, see the Navigation pattern on Android Design:
-			//
-			// http://developer.android.com/design/patterns/navigation.html#up-vs-back
-			//
 			NavUtils.navigateUpFromSameTask(this);
+			finish();
 			return true;
 		}
 		return super.onOptionsItemSelected(item);
@@ -218,6 +216,7 @@ public class PlayBall_GameStatsEdit extends Activity {
 	}
 	
 	public void saveStats(View v){
+		
 		AlertDialog.Builder alertDialogBuilder = new AlertDialog.Builder(this);
 		alertDialogBuilder
 			.setMessage("Finished?")
@@ -229,6 +228,7 @@ public class PlayBall_GameStatsEdit extends Activity {
 					try {
 						commitSave();
 						startActivity(new Intent(getBaseContext(), Statbook.class));
+						finish();
 					} catch (SQLException e) {
 						// TODO Auto-generated catch block
 						e.printStackTrace();

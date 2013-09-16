@@ -6,6 +6,7 @@ import java.util.Locale;
 import android.app.ActionBar;
 import android.app.FragmentTransaction;
 import android.content.Context;
+import android.content.Intent;
 import android.database.Cursor;
 import android.os.Bundle;
 import android.support.v4.app.Fragment;
@@ -91,15 +92,22 @@ public class Statbook extends FragmentActivity implements ActionBar.TabListener 
 	@Override
 	public boolean onCreateOptionsMenu(Menu menu) {
 		// Inflate the menu; this adds items to the action bar if it is present.
-		getMenuInflater().inflate(R.menu.statbook, menu);
+		getMenuInflater().inflate(R.menu.menu_main, menu);
 		return true;
 	}
 
 	@Override
 	public boolean onOptionsItemSelected(MenuItem item) {
+		ABSelect bar_select = new ABSelect(this, ABSelect.ACT_STATBOOK);
+    	Object cls = bar_select.trySelected(item);
+    	if ( cls != null ){
+    		startActivity(new Intent(this, (Class<?>) cls));
+    		return true;
+    	}
 		switch (item.getItemId()) {
 		case android.R.id.home:
 			NavUtils.navigateUpFromSameTask(this);
+			finish();
 			return true;
 		}
 		return super.onOptionsItemSelected(item);

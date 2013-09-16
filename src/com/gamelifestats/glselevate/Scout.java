@@ -71,22 +71,29 @@ public class Scout extends Activity {
 	@Override
 	public boolean onCreateOptionsMenu(Menu menu) {
 		// Inflate the menu; this adds items to the action bar if it is present.
-		getMenuInflater().inflate(R.menu.scout, menu);
+		getMenuInflater().inflate(R.menu.menu_main, menu);
 		return true;
 	}
 
 	@Override
 	public boolean onOptionsItemSelected(MenuItem item) {
+		if ( item.getTitle().equals(ABSelect.ACT_YOUR_SCOUT)){
+			startActivity(new Intent(this, ScoutEdit.class));
+			finish();
+			return true;
+		}
+		
+		ABSelect bar_select = new ABSelect(this, ABSelect.ACT_YOUR_SCOUT);
+    	Object cls = bar_select.trySelected(item);
+    	if ( cls != null ){
+    		startActivity(new Intent(this, (Class<?>) cls));
+    		return true;
+    	}
+		
 		switch (item.getItemId()) {
 		case android.R.id.home:
-			// This ID represents the Home or Up button. In the case of this
-			// activity, the Up button is shown. Use NavUtils to allow users
-			// to navigate up one level in the application structure. For
-			// more details, see the Navigation pattern on Android Design:
-			//
-			// http://developer.android.com/design/patterns/navigation.html#up-vs-back
-			//
 			NavUtils.navigateUpFromSameTask(this);
+			finish();
 			return true;
 		}
 		return super.onOptionsItemSelected(item);

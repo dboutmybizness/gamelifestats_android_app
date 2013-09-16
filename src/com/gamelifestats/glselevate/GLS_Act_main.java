@@ -1,6 +1,8 @@
 package com.gamelifestats.glselevate;
 
 import android.app.Activity;
+import android.app.AlertDialog;
+import android.content.DialogInterface;
 import android.content.Intent;
 import android.os.Bundle;
 import android.view.Menu;
@@ -8,7 +10,7 @@ import android.view.MenuInflater;
 import android.view.MenuItem;
 
 public class GLS_Act_main extends Activity {
-
+	
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -26,23 +28,29 @@ public class GLS_Act_main extends Activity {
     
     @Override
     public boolean onOptionsItemSelected(MenuItem item) {
-    	String itemTitle = (String) item.getTitle();
-    	Object cls = null;
-    	
-    	if ( itemTitle.equals("Your Scout")){
-    		cls = Scout.class;
-    	} else if ( itemTitle.equals("Play Ball")){
-    		cls = PlayBall_List.class;
-    	} else if ( itemTitle.equals("Statbook")){
-    		cls = Statbook.class;
-    	}
-    	
-    	
+    	ABSelect bar_select = new ABSelect(this, null);
+    	Object cls = bar_select.trySelected(item);
     	if ( cls != null ){
     		startActivity(new Intent(this, (Class<?>) cls));
     		return true;
     	}
+    	
+    	if ( item.getTitle().equals("About") ){
+    		AlertDialog.Builder ab = new AlertDialog.Builder(this);
+    		ab.setMessage("About APP")
+    		.setTitle("About GameLifeStats Elevate")
+    		.setCancelable(true)
+    		.setNegativeButton("OK", new DialogInterface.OnClickListener(){
 
+				@Override
+				public void onClick(DialogInterface dialog, int which) {
+					dialog.cancel();
+				}
+    			
+    		});
+    		ab.show();
+    	}
+    	
     	return super.onOptionsItemSelected(item);
 
     }
