@@ -90,30 +90,6 @@ public class Statbook extends FragmentActivity implements ActionBar.TabListener 
 	}
 
 	@Override
-	public boolean onCreateOptionsMenu(Menu menu) {
-		// Inflate the menu; this adds items to the action bar if it is present.
-		getMenuInflater().inflate(R.menu.menu_main, menu);
-		return true;
-	}
-
-	@Override
-	public boolean onOptionsItemSelected(MenuItem item) {
-		ABSelect bar_select = new ABSelect(this, ABSelect.ACT_STATBOOK);
-    	Object cls = bar_select.trySelected(item);
-    	if ( cls != null ){
-    		startActivity(new Intent(this, (Class<?>) cls));
-    		return true;
-    	}
-		switch (item.getItemId()) {
-		case android.R.id.home:
-			NavUtils.navigateUpFromSameTask(this);
-			finish();
-			return true;
-		}
-		return super.onOptionsItemSelected(item);
-	}
-
-	@Override
 	public void onTabSelected(ActionBar.Tab tab,
 			FragmentTransaction fragmentTransaction) {
 		// When the given tab is selected, switch to the corresponding page in
@@ -129,6 +105,37 @@ public class Statbook extends FragmentActivity implements ActionBar.TabListener 
 	@Override
 	public void onTabReselected(ActionBar.Tab tab,
 			FragmentTransaction fragmentTransaction) {
+	}
+	
+	@Override
+	public boolean onCreateOptionsMenu(Menu menu) {
+		// Inflate the menu; this adds items to the action bar if it is present.
+		getMenuInflater().inflate(R.menu.menu_main, menu);
+		return true;
+	}
+
+	@Override
+	public boolean onOptionsItemSelected(MenuItem item) {
+		if ( item.getTitle().equals(ABSelect.ACT_STATBOOK) ){
+			int goToTab = 0;
+			if ( mViewPager.getCurrentItem() == 0 ) goToTab = 1;
+			mViewPager.setCurrentItem(goToTab);
+
+		}
+		
+		ABSelect bar_select = new ABSelect(this, ABSelect.ACT_STATBOOK);
+    	Object cls = bar_select.trySelected(item);
+    	if ( cls != null ){
+    		startActivity(new Intent(this, (Class<?>) cls));
+    		return true;
+    	}
+		switch (item.getItemId()) {
+		case android.R.id.home:
+			NavUtils.navigateUpFromSameTask(this);
+			finish();
+			return true;
+		}
+		return super.onOptionsItemSelected(item);
 	}
 	
 	public void setUpAVG(){
