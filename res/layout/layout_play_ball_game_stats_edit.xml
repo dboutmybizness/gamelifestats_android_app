@@ -6,19 +6,39 @@
     android:orientation="vertical"
     tools:context=".PlayBall_GameStatsEdit" >
 
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_weight="3" >
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:text="@string/hello_world" />
+
+        <TextView
+            android:id="@+id/seek_print"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:text="@string/double_zero"
+            android:textAppearance="?android:attr/textAppearanceLarge" />
+    </LinearLayout>
+    
     <HorizontalScrollView
         android:id="@+id/horizontalScrollView1"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:layout_weight="2"
+        android:layout_weight="3"
         android:background="#E0FFFF" >
 
         <RelativeLayout
             android:id="@+id/RelativeLayout1"
-            android:layout_width="wrap_content"
+            android:layout_width="match_parent"
             android:layout_height="match_parent"
             android:orientation="vertical"
-            android:padding="10dp" >
+            android:padding="5dp" >
 
             <TextView
                 android:id="@+id/lab_min"
@@ -34,78 +54,151 @@
                 android:layout_height="wrap_content"
                 android:layout_alignBaseline="@+id/lab_min"
                 android:layout_alignBottom="@+id/lab_min"
-                android:layout_marginLeft="10dp"
-                android:layout_toRightOf="@+id/lab_min"
+                android:layout_alignLeft="@+id/lab_min"
+                android:layout_marginLeft="40dp"
                 android:text="@string/pts"
                 android:textAppearance="?android:attr/textAppearanceSmall" />
-
+            
             <TextView
                 android:id="@+id/lab_oreb"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_alignBaseline="@+id/lab_min"
-                android:layout_marginLeft="10dp"
-                android:layout_toRightOf="@+id/lab_pts"
+                android:layout_alignBottom="@+id/lab_min"
+                android:layout_alignLeft="@+id/lab_pts"
+                android:layout_marginLeft="40dp"
                 android:text="@string/oreb"
                 android:textAppearance="?android:attr/textAppearanceSmall" />
-
+            
             <TextView
                 android:id="@+id/lab_treb"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_alignBaseline="@+id/lab_min"
-                android:layout_marginLeft="10dp"
-                android:layout_toRightOf="@+id/lab_oreb"
+                android:layout_alignBottom="@+id/lab_min"
+                android:layout_alignLeft="@+id/lab_oreb"
+                android:layout_marginLeft="40dp"
                 android:text="@string/treb"
                 android:textAppearance="?android:attr/textAppearanceSmall" />
 
+            <TextView
+                android:id="@+id/lab_fgma"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_alignBaseline="@+id/lab_min"
+                android:layout_alignBottom="@+id/lab_min"
+                android:layout_alignLeft="@+id/lab_treb"
+                android:layout_marginLeft="40dp"
+                android:text="@string/fgs"
+                android:textAppearance="?android:attr/textAppearanceSmall" />
+            
+            <TextView
+                android:id="@+id/lab_fgp"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_alignBaseline="@+id/lab_min"
+                android:layout_alignBottom="@+id/lab_min"
+                android:layout_alignLeft="@+id/lab_fgma"
+                android:layout_marginLeft="40dp"
+                android:text="@string/fgp"
+                android:textAppearance="?android:attr/textAppearanceSmall" />
+            
+            <TextView
+                android:id="@+id/lab_3fgma"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_alignBaseline="@+id/lab_min"
+                android:layout_alignBottom="@+id/lab_min"
+                android:layout_alignLeft="@+id/lab_fgp"
+                android:layout_marginLeft="40dp"
+                android:text="@string/fg3s"
+                android:textAppearance="?android:attr/textAppearanceSmall" />
+            
+            <TextView
+                android:id="@+id/lab_3fgp"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_alignBaseline="@+id/lab_min"
+                android:layout_alignBottom="@+id/lab_min"
+                android:layout_alignLeft="@+id/lab_3fgma"
+                android:layout_marginLeft="40dp"
+                android:text="@string/fg3p"
+                android:textAppearance="?android:attr/textAppearanceSmall" />
+            
+            <TextView
+                android:id="@+id/lab_ftma"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_alignBaseline="@+id/lab_min"
+                android:layout_alignBottom="@+id/lab_min"
+                android:layout_alignLeft="@+id/lab_3fgp"
+                android:layout_marginLeft="40dp"
+                android:text="@string/fts"
+                android:textAppearance="?android:attr/textAppearanceSmall" />
+            
+            <TextView
+                android:id="@+id/lab_ftp"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_alignBaseline="@+id/lab_min"
+                android:layout_alignBottom="@+id/lab_min"
+                android:layout_alignLeft="@+id/lab_ftma"
+                android:layout_marginLeft="40dp"
+                android:text="@string/ftp"
+                android:textAppearance="?android:attr/textAppearanceSmall" />
+            
             <TextView
                 android:id="@+id/lab_ast"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_alignBaseline="@+id/lab_min"
-                android:layout_marginLeft="10dp"
-                android:layout_toRightOf="@+id/lab_treb"
+                android:layout_alignBottom="@+id/lab_min"
+                android:layout_alignLeft="@+id/lab_ftp"
+                android:layout_marginLeft="40dp"
                 android:text="@string/ast"
                 android:textAppearance="?android:attr/textAppearanceSmall" />
-
+            
             <TextView
                 android:id="@+id/lab_stl"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_alignBaseline="@+id/lab_min"
-                android:layout_marginLeft="10dp"
-                android:layout_toRightOf="@+id/lab_ast"
+                android:layout_alignBottom="@+id/lab_min"
+                android:layout_alignLeft="@+id/lab_ast"
+                android:layout_marginLeft="40dp"
                 android:text="@string/stl"
                 android:textAppearance="?android:attr/textAppearanceSmall" />
-
+            
             <TextView
                 android:id="@+id/lab_blk"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_alignBaseline="@+id/lab_min"
-                android:layout_marginLeft="10dp"
-                android:layout_toRightOf="@+id/lab_stl"
+                android:layout_alignBottom="@+id/lab_min"
+                android:layout_alignLeft="@+id/lab_stl"
+                android:layout_marginLeft="40dp"
                 android:text="@string/blk"
                 android:textAppearance="?android:attr/textAppearanceSmall" />
-
+            
             <TextView
                 android:id="@+id/lab_tos"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_alignBaseline="@+id/lab_min"
-                android:layout_marginLeft="10dp"
-                android:layout_toRightOf="@+id/lab_blk"
+                android:layout_alignBottom="@+id/lab_min"
+                android:layout_alignLeft="@+id/lab_blk"
+                android:layout_marginLeft="40dp"
                 android:text="@string/tos"
                 android:textAppearance="?android:attr/textAppearanceSmall" />
-
+            
             <TextView
                 android:id="@+id/lab_fouls"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_alignBaseline="@+id/lab_min"
-                android:layout_marginLeft="10dp"
-                android:layout_toRightOf="@+id/lab_tos"
+                android:layout_alignBottom="@+id/lab_min"
+                android:layout_alignLeft="@+id/lab_tos"
+                android:layout_marginLeft="40dp"
                 android:text="@string/fls"
                 android:textAppearance="?android:attr/textAppearanceSmall" />
 
@@ -113,7 +206,7 @@
                 android:id="@+id/dis_min"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_alignLeft="@+id/lab_min"
+                android:layout_alignParentLeft="true"
                 android:layout_below="@+id/lab_min"
                 android:text="@string/double_zero"
                 android:textAppearance="?android:attr/textAppearanceSmall" />
@@ -123,187 +216,77 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_alignBaseline="@+id/dis_min"
+                android:layout_alignBottom="@+id/dis_min"
                 android:layout_alignLeft="@+id/lab_pts"
                 android:text="@string/double_zero"
                 android:textAppearance="?android:attr/textAppearanceSmall" />
-
+            
             <TextView
                 android:id="@+id/dis_oreb"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_alignBaseline="@+id/dis_min"
+                android:layout_alignBottom="@+id/dis_min"
                 android:layout_alignLeft="@+id/lab_oreb"
                 android:text="@string/double_zero"
                 android:textAppearance="?android:attr/textAppearanceSmall" />
+            
             <TextView
                 android:id="@+id/dis_treb"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_alignBaseline="@+id/dis_min"
+                android:layout_alignBottom="@+id/dis_min"
                 android:layout_alignLeft="@+id/lab_treb"
                 android:text="@string/double_zero"
-                android:textAppearance="?android:attr/textAppearanceSmall" />
-            
-			<TextView
-                android:id="@+id/dis_ast"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_alignBaseline="@+id/dis_min"
-                android:layout_alignLeft="@+id/lab_ast"
-                android:text="@string/double_zero"
-                android:textAppearance="?android:attr/textAppearanceSmall" />
-
-            <TextView
-                android:id="@+id/dis_stl"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_alignBaseline="@+id/dis_min"
-                android:layout_alignLeft="@+id/lab_stl"
-                android:text="@string/double_zero"
-                android:textAppearance="?android:attr/textAppearanceSmall" />
-
-            <TextView
-                android:id="@+id/dis_blk"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_alignBaseline="@+id/dis_min"
-                android:layout_alignLeft="@+id/lab_blk"
-                android:text="@string/double_zero"
-                android:textAppearance="?android:attr/textAppearanceSmall" />
-
-            <TextView
-                android:id="@+id/dis_tos"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_alignBaseline="@+id/dis_min"
-                android:layout_alignLeft="@+id/lab_tos"
-                android:text="@string/double_zero"
-                android:textAppearance="?android:attr/textAppearanceSmall" />
-
-            <TextView
-                android:id="@+id/dis_fouls"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_alignBaseline="@+id/dis_min"
-                android:layout_alignLeft="@+id/lab_fouls"
-                android:text="@string/double_zero"
-                android:textAppearance="?android:attr/textAppearanceSmall" />
-            
-            <TextView
-                android:id="@+id/lab_shooting"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_alignParentLeft="true"
-                android:layout_below="@+id/dis_min"
-                android:layout_marginTop="5dp"
-                android:text="@string/shooting"
-                android:textAppearance="?android:attr/textAppearanceSmall" />
-
-            <TextView
-                android:id="@+id/lab_fgma"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_below="@+id/lab_shooting"
-                android:text="@string/fgs"
-                android:textAppearance="?android:attr/textAppearanceSmall" />
-
-  
-
-            <TextView
-                android:id="@+id/lab_fgp"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_alignBaseline="@+id/lab_fgma"
-                android:layout_alignBottom="@+id/lab_fgma"
-                android:layout_marginLeft="30dp"
-                android:layout_toRightOf="@+id/lab_fgma"
-                android:text="@string/fgp"
-                android:textAppearance="?android:attr/textAppearanceSmall" />
-
-            <TextView
-                android:id="@+id/lab_3fgma"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_alignBaseline="@+id/lab_fgma"
-                android:layout_marginLeft="30dp"
-                android:layout_toRightOf="@+id/lab_fgp"
-                android:text="@string/fg3s"
-                android:textAppearance="?android:attr/textAppearanceSmall" />
-
-            <TextView
-                android:id="@+id/lab_3fgp"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_alignBaseline="@+id/lab_fgma"
-                android:layout_alignBottom="@+id/lab_3fgma"
-                android:layout_marginLeft="30dp"
-                android:layout_toRightOf="@+id/lab_3fgma"
-                android:text="@string/fg3p"
-                android:textAppearance="?android:attr/textAppearanceSmall" />
-
-            <TextView
-                android:id="@+id/lab_ftma"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_alignBaseline="@+id/lab_fgma"
-                android:layout_alignBottom="@+id/lab_3fgp"
-                android:layout_marginLeft="30dp"
-                android:layout_toRightOf="@+id/lab_3fgp"
-                android:text="@string/fts"
-                android:textAppearance="?android:attr/textAppearanceSmall" />
-
-            <TextView
-                android:id="@+id/lab_ftp"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_alignBaseline="@+id/lab_fgma"
-                android:layout_alignBottom="@+id/lab_ftma"
-                android:layout_marginLeft="30dp"
-                android:layout_toRightOf="@+id/lab_ftma"
-                android:text="@string/ftp"
                 android:textAppearance="?android:attr/textAppearanceSmall" />
             
             <TextView
                 android:id="@+id/dis_fgma"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
+                android:layout_alignBaseline="@+id/dis_min"
+                android:layout_alignBottom="@+id/dis_min"
                 android:layout_alignLeft="@+id/lab_fgma"
-                android:layout_below="@+id/lab_fgma"
                 android:text="@string/double_zero"
                 android:textAppearance="?android:attr/textAppearanceSmall" />
-
+            
             <TextView
                 android:id="@+id/dis_fgp"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_alignBaseline="@+id/dis_fgma"
+                android:layout_alignBaseline="@+id/dis_min"
+                android:layout_alignBottom="@+id/dis_min"
                 android:layout_alignLeft="@+id/lab_fgp"
                 android:text="@string/double_zero"
                 android:textAppearance="?android:attr/textAppearanceSmall" />
-
+            
             <TextView
                 android:id="@+id/dis_fg3ma"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_alignBaseline="@+id/dis_fgma"
+                android:layout_alignBaseline="@+id/dis_min"
+                android:layout_alignBottom="@+id/dis_min"
                 android:layout_alignLeft="@+id/lab_3fgma"
                 android:text="@string/double_zero"
                 android:textAppearance="?android:attr/textAppearanceSmall" />
-
+            
             <TextView
                 android:id="@+id/dis_fg3p"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_alignBaseline="@+id/dis_fgma"
+                android:layout_alignBaseline="@+id/dis_min"
+                android:layout_alignBottom="@+id/dis_min"
                 android:layout_alignLeft="@+id/lab_3fgp"
                 android:text="@string/double_zero"
                 android:textAppearance="?android:attr/textAppearanceSmall" />
-
+            
             <TextView
                 android:id="@+id/dis_ftma"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_alignBaseline="@+id/dis_fgma"
+                android:layout_alignBaseline="@+id/dis_min"
+                android:layout_alignBottom="@+id/dis_min"
                 android:layout_alignLeft="@+id/lab_ftma"
                 android:text="@string/double_zero"
                 android:textAppearance="?android:attr/textAppearanceSmall" />
@@ -312,13 +295,63 @@
                 android:id="@+id/dis_ftp"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_alignBaseline="@+id/dis_fgma"
+                android:layout_alignBaseline="@+id/dis_min"
+                android:layout_alignBottom="@+id/dis_min"
                 android:layout_alignLeft="@+id/lab_ftp"
                 android:text="@string/double_zero"
                 android:textAppearance="?android:attr/textAppearanceSmall" />
             
-        </RelativeLayout>
+            <TextView
+                android:id="@+id/dis_ast"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_alignBaseline="@+id/dis_min"
+                android:layout_alignBottom="@+id/dis_min"
+                android:layout_alignLeft="@+id/lab_ast"
+                android:text="@string/double_zero"
+                android:textAppearance="?android:attr/textAppearanceSmall" />
+            
+            <TextView
+                android:id="@+id/dis_stl"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_alignBaseline="@+id/dis_min"
+                android:layout_alignBottom="@+id/dis_min"
+                android:layout_alignLeft="@+id/lab_stl"
+                android:text="@string/double_zero"
+                android:textAppearance="?android:attr/textAppearanceSmall" />
+            
+            <TextView
+                android:id="@+id/dis_blk"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_alignBaseline="@+id/dis_min"
+                android:layout_alignBottom="@+id/dis_min"
+                android:layout_alignLeft="@+id/lab_blk"
+                android:text="@string/double_zero"
+                android:textAppearance="?android:attr/textAppearanceSmall" />
+            
+            <TextView
+                android:id="@+id/dis_tos"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_alignBaseline="@+id/dis_min"
+                android:layout_alignBottom="@+id/dis_min"
+                android:layout_alignLeft="@+id/lab_tos"
+                android:text="@string/double_zero"
+                android:textAppearance="?android:attr/textAppearanceSmall" />
+            
+            <TextView
+                android:id="@+id/dis_fouls"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_alignBaseline="@+id/dis_min"
+                android:layout_alignBottom="@+id/dis_min"
+                android:layout_alignLeft="@+id/lab_fouls"
+                android:text="@string/double_zero"
+                android:textAppearance="?android:attr/textAppearanceSmall" />
 
+        </RelativeLayout>
     </HorizontalScrollView>
 
     <ScrollView
@@ -326,14 +359,14 @@
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:layout_weight="1"
-        android:paddingBottom="3dp"
+        android:paddingBottom="5dp"
         android:paddingLeft="15dp"
         android:paddingRight="15dp"
-        android:paddingTop="3dp" >
+        android:paddingTop="5dp" >
 
         <LinearLayout
             android:layout_width="match_parent"
-            android:layout_height="wrap_content"
+            android:layout_height="fill_parent"
             android:orientation="vertical" >
 
             <TableRow
@@ -646,28 +679,20 @@
         </LinearLayout>
     </ScrollView>
 
-    <LinearLayout
-        android:id="@+id/LinearLayout2"
+    <FrameLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:layout_weight="2"
+        android:layout_weight="3"
         android:padding="8dp" >
 
         <Button
             android:id="@+id/save_button"
             style="?android:attr/buttonStyleSmall"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
             android:onClick="saveStats"
             android:text="@string/save" />
 
-        <TextView
-            android:id="@+id/seek_print"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="@string/double_zero"
-            android:textAppearance="?android:attr/textAppearanceLarge" />
-
-    </LinearLayout>
+    </FrameLayout>
 
 </LinearLayout>
