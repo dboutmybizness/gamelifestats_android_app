@@ -25,13 +25,14 @@ public class PlayBall_GameStatsEdit extends Activity {
 	Boolean playbuzzer = false;
 	TextView dmin,dfgma, dfg3ma, dftma, dfgp, dfg3p, dftp;
 	TextView dpts, dasts, dstls, dblks, dtos, dfouls;
-	TextView doreb, dtreb;
+	TextView dreb, dtreb;
+	TextView stline_pts, stline_rebs, stline_asts, stline_stls;
 	MGames dbGames;
 	
 	@Override
 	protected void onCreate(Bundle savedInstanceState) {
 		super.onCreate(savedInstanceState);
-		setContentView(R.layout.layout_play_ball_game_stats_edit);
+		setContentView(R.layout.game_edit);
 		// Show the Up button in the action bar.
 		setupActionBar();
 		
@@ -65,35 +66,41 @@ public class PlayBall_GameStatsEdit extends Activity {
 	}
 	
 	public void setUpAllStats(){
-		seekPrint = (TextView) findViewById(R.id.seek_print);
-		dmin = (TextView) findViewById(R.id.dis_min);
-		dfgma = (TextView) findViewById(R.id.dis_fgma);
-		dfg3ma = (TextView) findViewById(R.id.dis_fg3ma);
-		dftma = (TextView) findViewById(R.id.dis_ftma);
-		dpts = (TextView) findViewById(R.id.dis_pts);
-		doreb = (TextView) findViewById(R.id.dis_oreb);
-		dtreb = (TextView) findViewById(R.id.dis_treb);
-		dasts = initTV(R.id.dis_ast);
-		dstls = initTV(R.id.dis_stl);
-		dblks = initTV(R.id.dis_blk);
-		dtos = initTV(R.id.dis_tos);
+		stline_pts = initTV(R.id.dis_spoints);
+		stline_rebs = initTV(R.id.dis_srebounds);
+		stline_asts = initTV(R.id.dis_sassists);
+		stline_stls = initTV(R.id.dis_ssteals);
+		
+		//seekPrint = (TextView) findViewById(R.id.seek_print);
+		dmin = (TextView) findViewById(R.id.dis_minutes);
+		dfgma = (TextView) findViewById(R.id.dis_fgs);
+		dfg3ma = (TextView) findViewById(R.id.dis_fg3s);
+		dftma = (TextView) findViewById(R.id.dis_fts);
+		dpts = (TextView) findViewById(R.id.dis_points);
+		dreb = (TextView) findViewById(R.id.dis_rebounds);
+		//dtreb = (TextView) findViewById(R.id.dis_treb);
+
+		dasts = initTV(R.id.dis_assists);
+		dstls = initTV(R.id.dis_steals);
+		dblks = initTV(R.id.dis_blocks);
+		dtos = initTV(R.id.dis_turnovers);
 		dfouls = initTV(R.id.dis_fouls);
-		dfgp = initTV(R.id.dis_fgp);
-		dfg3p = initTV(R.id.dis_fg3p);
-		dftp = initTV(R.id.dis_ftp);
+		//dfgp = initTV(R.id.dis_fgp);
+		//dfg3p = initTV(R.id.dis_fg3p);
+		//dftp = initTV(R.id.dis_ftp);
 
 		fg2md = setUpSeeks(R.id.ed_fg2md, 25);
 		fg2ms = setUpSeeks(R.id.ed_fg2ms, 25);
 		fg3md = setUpSeeks(R.id.ed_fg3md, 20);
 		fg3ms = setUpSeeks(R.id.ed_fg3ms, 20);
-		fg1md = setUpSeeks(R.id.ed_fg1md, 20);
-		fg1ms = setUpSeeks(R.id.ed_fg1ms, 20);
-		rebs_off = setUpSeeks(R.id.ed_rebs_off, 30);
-		rebs_def = setUpSeeks(R.id.ed_rebs_def, 30);
-		minutes = setUpSeeks(R.id.ed_min, 60);
-		assists = setUpSeeks(R.id.ed_asts, 25);
-		steals = setUpSeeks(R.id.ed_stls, 20);
-		blocks = setUpSeeks(R.id.ed_blks, 15);
+		fg1md = setUpSeeks(R.id.ed_ftmd, 20);
+		fg1ms = setUpSeeks(R.id.ed_ftms, 20);
+		rebs_off = setUpSeeks(R.id.ed_reb_off, 30);
+		rebs_def = setUpSeeks(R.id.ed_reb_def, 30);
+		minutes = setUpSeeks(R.id.ed_minutes, 60);
+		assists = setUpSeeks(R.id.ed_assists, 25);
+		steals = setUpSeeks(R.id.ed_steals, 20);
+		blocks = setUpSeeks(R.id.ed_blocks, 15);
 		turnovers = setUpSeeks(R.id.ed_turnovers, 15);
 		fouls = setUpSeeks(R.id.ed_fouls, 6);
 	}
@@ -119,7 +126,7 @@ public class PlayBall_GameStatsEdit extends Activity {
 			@Override
 			public void onStopTrackingTouch(SeekBar seekBar) {
 				// TODO Auto-generated method stub
-				seekPrint.setText(Integer.toString(showNum));
+				//seekPrint.setText(Integer.toString(showNum));
 				refactorStats();
 				
 			}
@@ -157,17 +164,22 @@ public class PlayBall_GameStatsEdit extends Activity {
 	public void renderPage(){
 
 		dmin.setText(dbGames.s_minutes);
-		dfgma.setText(dbGames.s_fgm + "-" + dbGames.s_fga);
-		dfg3ma.setText(dbGames.s_fg3m + "-" + dbGames.s_fg3a);
+		dfgma.setText(dbGames.s_fgm + "/" + dbGames.s_fga);
+		dfg3ma.setText(dbGames.s_fg3m + "/" + dbGames.s_fg3a);
 		dftma.setText(dbGames.s_ftm + "-" + dbGames.s_fta);
 		dpts.setText(dbGames.s_points);
-		doreb.setText(dbGames.s_reb_off);
-		dtreb.setText(dbGames.s_rebounds);
+		dreb.setText(dbGames.s_rebounds);
+		//dtreb.setText(dbGames.s_rebounds);
 		dasts.setText(dbGames.s_assists);
 		dstls.setText(dbGames.s_steals);
 		dblks.setText(dbGames.s_blocks);
 		dtos.setText(dbGames.s_turnovers);
 		dfouls.setText(dbGames.s_fouls);
+		
+		stline_pts.setText(dbGames.s_points);
+		stline_rebs.setText(dbGames.s_rebounds);
+		stline_asts.setText(dbGames.s_assists);
+		stline_stls.setText(dbGames.s_steals);
 		
 	}
 	
@@ -213,6 +225,30 @@ public class PlayBall_GameStatsEdit extends Activity {
 	protected void onRestoreInstanceState(Bundle savedInstanceState) {
 	    playbuzzer = savedInstanceState.getBoolean("playbuzzer");
 	    super.onRestoreInstanceState(savedInstanceState);
+	}
+	
+	public void resetStats(View v){
+		minutes.setProgress(0);
+		
+		fg2md.setProgress(0);
+		fg2ms.setProgress(0);
+		
+		fg3md.setProgress(0);
+		fg3ms.setProgress(0);
+		
+		fg1md.setProgress(0);
+		fg1ms.setProgress(0);
+		
+		rebs_def.setProgress(0);
+		rebs_off.setProgress(0);
+		
+		assists.setProgress(0);
+		steals.setProgress(0);
+		blocks.setProgress(0);
+		turnovers.setProgress(0);
+		fouls.setProgress(0);
+		
+		refactorStats();
 	}
 	
 	public void saveStats(View v){

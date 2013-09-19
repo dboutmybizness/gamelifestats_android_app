@@ -96,5 +96,6 @@
     <string name="done">Done</string>
     <string name="about">About</string>
     <string name="shooting">shooting</string>
+    <string name="reset">Reset</string>
 
 </resources>
