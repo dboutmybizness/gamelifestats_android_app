@@ -204,8 +204,6 @@ public class Statbook extends FragmentActivity implements ActionBar.TabListener 
 		public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState){
 			rootView = inflater.inflate(R.layout.avg_totals, container, false);
 			getParentContext = rootView.getContext();
-			//career = new Model_Career(getParentContext);
-			
 			return rootView;
 		}
 		

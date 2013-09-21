@@ -33,6 +33,7 @@
     <string name="avg_totals">AVG/TOTALS</string>
     <string name="avg">AVG</string>
     <string name="game_by_game">GAME BY GAME</string>
+    <string name="statline">full statline</string>
 
     <string-array name="positions_array">
         <item>Guard</item>
@@ -49,8 +50,10 @@
     <string-array name="playball_list">
         <item>upload game stats</item>
     </string-array>
-
-
+    
+    <string name="upload_gamestats">upload a game</string>
+    <string name="home_court">Home Court</string>
+	<string name="gms">GMS</string>
     <string name="pts">PTS</string>
     <string name="rebs">REB</string>
     <string name="oreb">OREB</string>

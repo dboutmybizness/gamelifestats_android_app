@@ -27,7 +27,7 @@ public abstract class StatsHelper {
 	
 	public static String float2Str(float f){
 		//return String.valueOf(f);
-		return roundToOneDigit(f);
+		return roundToOneDigit(f).trim();
 	}
 	
 }
