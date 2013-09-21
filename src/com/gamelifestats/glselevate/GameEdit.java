@@ -16,7 +16,7 @@ import android.widget.SeekBar;
 import android.widget.SeekBar.OnSeekBarChangeListener;
 import android.widget.TextView;
 
-public class PlayBall_GameStatsEdit extends Activity {
+public class GameEdit extends Activity {
 	
 	SeekBar fg1md, fg1ms, fg2md, fg2ms, fg3md, fg3ms;
 	SeekBar rebs_off, rebs_def;
@@ -28,6 +28,12 @@ public class PlayBall_GameStatsEdit extends Activity {
 	TextView dreb, dtreb;
 	TextView stline_pts, stline_rebs, stline_asts, stline_stls;
 	MGames dbGames;
+	
+	private final int THRESHOLD_SMALL = 10;
+	private final int THRESHOLD_MED = 15;
+	private final int THRESHOLD_LARGE = 20;
+	private final int THRESHOLD_XLARGE = 25;
+	
 	
 	@Override
 	protected void onCreate(Bundle savedInstanceState) {
@@ -71,7 +77,7 @@ public class PlayBall_GameStatsEdit extends Activity {
 		stline_asts = initTV(R.id.dis_sassists);
 		stline_stls = initTV(R.id.dis_ssteals);
 		
-		//seekPrint = (TextView) findViewById(R.id.seek_print);
+		seekPrint = (TextView) findViewById(R.id.seek_print);
 		dmin = (TextView) findViewById(R.id.dis_minutes);
 		dfgma = (TextView) findViewById(R.id.dis_fgs);
 		dfg3ma = (TextView) findViewById(R.id.dis_fg3s);
@@ -89,19 +95,19 @@ public class PlayBall_GameStatsEdit extends Activity {
 		//dfg3p = initTV(R.id.dis_fg3p);
 		//dftp = initTV(R.id.dis_ftp);
 
-		fg2md = setUpSeeks(R.id.ed_fg2md, 25);
-		fg2ms = setUpSeeks(R.id.ed_fg2ms, 25);
-		fg3md = setUpSeeks(R.id.ed_fg3md, 20);
-		fg3ms = setUpSeeks(R.id.ed_fg3ms, 20);
-		fg1md = setUpSeeks(R.id.ed_ftmd, 20);
-		fg1ms = setUpSeeks(R.id.ed_ftms, 20);
-		rebs_off = setUpSeeks(R.id.ed_reb_off, 30);
-		rebs_def = setUpSeeks(R.id.ed_reb_def, 30);
+		fg2md = setUpSeeks(R.id.ed_fg2md, THRESHOLD_MED);
+		fg2ms = setUpSeeks(R.id.ed_fg2ms, THRESHOLD_MED);
+		fg3md = setUpSeeks(R.id.ed_fg3md, THRESHOLD_MED);
+		fg3ms = setUpSeeks(R.id.ed_fg3ms, THRESHOLD_MED);
+		fg1md = setUpSeeks(R.id.ed_ftmd, THRESHOLD_MED);
+		fg1ms = setUpSeeks(R.id.ed_ftms, THRESHOLD_MED);
+		rebs_off = setUpSeeks(R.id.ed_reb_off, THRESHOLD_MED);
+		rebs_def = setUpSeeks(R.id.ed_reb_def, THRESHOLD_XLARGE);
 		minutes = setUpSeeks(R.id.ed_minutes, 60);
-		assists = setUpSeeks(R.id.ed_assists, 25);
-		steals = setUpSeeks(R.id.ed_steals, 20);
-		blocks = setUpSeeks(R.id.ed_blocks, 15);
-		turnovers = setUpSeeks(R.id.ed_turnovers, 15);
+		assists = setUpSeeks(R.id.ed_assists, THRESHOLD_MED);
+		steals = setUpSeeks(R.id.ed_steals, THRESHOLD_SMALL);
+		blocks = setUpSeeks(R.id.ed_blocks, THRESHOLD_SMALL);
+		turnovers = setUpSeeks(R.id.ed_turnovers, THRESHOLD_SMALL);
 		fouls = setUpSeeks(R.id.ed_fouls, 6);
 	}
 	
@@ -114,6 +120,7 @@ public class PlayBall_GameStatsEdit extends Activity {
 			public void onProgressChanged(SeekBar seekBar, int progress,
 					boolean fromUser) {
 				showNum = progress;
+				seekPrint.setText(Integer.toString(showNum));
 				
 			}
 

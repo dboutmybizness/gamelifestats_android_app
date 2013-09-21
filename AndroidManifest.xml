@@ -23,14 +23,6 @@
             </intent-filter>
         </activity>
         <activity
-            android:name="com.gamelifestats.glselevate.ScoutEdit"
-            android:label="@string/brand_name"
-            android:parentActivityName="com.gamelifestats.glselevate.Scout" >
-            <meta-data
-                android:name="android.support.PARENT_ACTIVITY"
-                android:value="com.gamelifestats.glselevate.GLS_Act_main" />
-        </activity>
-        <activity
             android:name="com.gamelifestats.glselevate.PlayBall_List"
             android:label="@string/brand_name"
             android:parentActivityName="com.gamelifestats.glselevate.GLS_Act_main" >
@@ -39,7 +31,7 @@
                 android:value="com.gamelifestats.glselevate.GLS_Act_main" />
         </activity>
         <activity
-            android:name="com.gamelifestats.glselevate.PlayBall_GameStatsEdit"
+            android:name="com.gamelifestats.glselevate.GameEdit"
             android:label="@string/brand_name"
             android:parentActivityName="com.gamelifestats.glselevate.PlayBall_List" >
             <meta-data
@@ -48,15 +40,23 @@
         </activity>
         <activity
             android:name="com.gamelifestats.glselevate.Statbook"
-            android:label="@string/brand_name"
+            android:label="@string/stats"
             android:parentActivityName="com.gamelifestats.glselevate.GLS_Act_main" >
             <meta-data
                 android:name="android.support.PARENT_ACTIVITY"
                 android:value="com.gamelifestats.glselevate.GLS_Act_main" />
         </activity>
         <activity
+            android:name="com.gamelifestats.glselevate.ScoutEdit"
+            android:label="@string/scout"
+            android:parentActivityName="com.gamelifestats.glselevate.Scout" >
+            <meta-data
+                android:name="android.support.PARENT_ACTIVITY"
+                android:value="com.gamelifestats.glselevate.GLS_Act_main" />
+        </activity>
+        <activity
             android:name="com.gamelifestats.glselevate.Scout"
-            android:label="@string/brand_name"
+            android:label="@string/scout"
             android:parentActivityName="com.gamelifestats.glselevate.GLS_Act_main" >
             <meta-data
                 android:name="android.support.PARENT_ACTIVITY"

@@ -11,7 +11,7 @@ import android.widget.Button;
 import android.widget.TextView;
 
 public class Scout extends Activity {
-	TextView name,nickname,position;
+	TextView name,nickname,position,jersey;
 	MScout db;
 	String [] positions;
 	Button edit;
@@ -43,13 +43,13 @@ public class Scout extends Activity {
 			@Override
 			public void onClick(View v) {
 				startActivity(new Intent(getBaseContext(), ScoutEdit.class));
-				
 			}
 		});
 		
 		name = (TextView) findViewById(R.id.v_name);
 		nickname = (TextView) findViewById(R.id.v_nickname);
 		position = (TextView) findViewById(R.id.v_position);
+		jersey = (TextView) findViewById(R.id.v_jersey);
 		
 	}
 	
@@ -57,6 +57,7 @@ public class Scout extends Activity {
 		name.setText(db.name);
 		nickname.setText(db.nickname);
 		position.setText(positions[db.position]);
+		jersey.setText(String.valueOf(db.jersey));
 	}
 	
 	/**

@@ -9,6 +9,8 @@ import android.view.MenuInflater;
 import android.view.MenuItem;
 import android.view.View;
 import android.widget.ArrayAdapter;
+import android.widget.SeekBar;
+import android.widget.SeekBar.OnSeekBarChangeListener;
 import android.widget.Spinner;
 import android.widget.TextView;
 import android.widget.Toast;
@@ -18,6 +20,8 @@ public class ScoutEdit extends Activity {
 	MScout scoutObj;
 	TextView name,nickname;
 	Spinner position;
+	SeekBar jersey_seek;
+	TextView jersey_print;
 	
 	
 	@Override
@@ -48,6 +52,35 @@ public class ScoutEdit extends Activity {
 	public void setupViews(){
 		name = (TextView) findViewById(R.id.e_name);
 		nickname = (TextView) findViewById(R.id.e_nickname);
+		jersey_seek = (SeekBar) findViewById(R.id.ed_jersey);
+		jersey_seek.setOnSeekBarChangeListener(new OnSeekBarChangeListener(){
+			@Override
+			public void onProgressChanged(SeekBar seekBar, int progress,
+					boolean fromUser) {
+				// TODO Auto-generated method stub
+				updateJersey();
+			}
+
+			@Override
+			public void onStartTrackingTouch(SeekBar seekBar) {
+				// TODO Auto-generated method stub
+				
+			}
+
+			@Override
+			public void onStopTrackingTouch(SeekBar seekBar) {
+				// TODO Auto-generated method stub
+				
+				
+			}
+			
+		});
+		jersey_print = (TextView) findViewById(R.id.jersey_print);
+	}
+	
+	public void updateJersey(){
+		int val = jersey_seek.getProgress();
+		jersey_print.setText(String.valueOf(val));
 	}
 
 	/**
@@ -105,6 +138,7 @@ public class ScoutEdit extends Activity {
 		scoutObj.name = name.getText().toString();
 		scoutObj.nickname = nickname.getText().toString();
 		scoutObj.position = position.getSelectedItemPosition();
+		scoutObj.jersey = jersey_seek.getProgress();
 	}
 	
 	private void loadScoutView(){
@@ -112,6 +146,8 @@ public class ScoutEdit extends Activity {
 			name.setText(scoutObj.name);
 			nickname.setText(scoutObj.nickname);
 			position.setSelection(scoutObj.position);
+			jersey_seek.setProgress(scoutObj.jersey);
+			updateJersey();
 		}
 	}
 

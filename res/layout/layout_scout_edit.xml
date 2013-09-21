@@ -1,72 +1,86 @@
-<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools"
     android:id="@+id/ScoutContainer"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:focusable="true"
+	android:focusableInTouchMode="true"
     android:orientation="vertical" >
 
     <ScrollView
         android:id="@+id/ScrollView1"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:layout_alignParentLeft="true"
-        android:layout_alignParentTop="true"
         android:layout_weight="1"
         tools:context=".ScoutEdit" >
 
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:orientation="vertical" >
-
-            <FrameLayout
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:layout_marginBottom="25dp"
-                android:padding="15dp" >
-
-                <TextView
-                    android:id="@+id/textView1"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:text="Build your scouting report so others can view facts about you." />
-            </FrameLayout>
+            android:orientation="vertical"
+            android:padding="15dp" >
 
             <EditText
                 android:id="@+id/e_name"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
+                android:layout_marginBottom="15dp"
                 android:hint="@string/name" />
 
             <EditText
                 android:id="@+id/e_nickname"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
+                android:layout_marginBottom="15dp"
                 android:hint="@string/nickname" />
 
             <Spinner
                 android:id="@+id/spinner_positions"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
+                android:layout_marginBottom="15dp"
                 android:spinnerMode="dialog" />
+
+            <TextView
+                android:id="@+id/lab_jersey"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@string/jersey"
+                android:textAppearance="?android:attr/textAppearanceMedium" />
+
+            <TableRow
+                android:id="@+id/tableRow1"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content" >
+
+                <TextView
+                    android:id="@+id/jersey_print"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center_horizontal"
+                    android:layout_weight="1"
+                    android:text="@string/zero"
+                    android:textAppearance="?android:attr/textAppearanceLarge" />
+
+                <SeekBar
+                    android:id="@+id/ed_jersey"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="3"
+                    android:max="99" />
+
+            </TableRow>
+
         </LinearLayout>
     </ScrollView>
 
-    <FrameLayout
-        android:id="@+id/FrameLayout1"
-        android:layout_width="match_parent"
+    <Button
+        android:id="@+id/save_scout"
+        android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_alignParentBottom="true"
-        android:layout_alignParentLeft="true"
-        android:layout_weight="4" >
+        android:layout_gravity="center_horizontal"
+        android:drawableLeft="@drawable/ic_menu_save"
+        android:onClick="saveScout"
+        android:text="@string/save" />
 
-        <Button
-            android:id="@+id/save_scout"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:onClick="saveScout"
-            android:text="@string/save" />
-
-    </FrameLayout>
-
-</RelativeLayout>
+</LinearLayout>

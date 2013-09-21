@@ -3,7 +3,7 @@
     android:id="@+id/scout_container"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:orientation="vertical"
+    android:orientation="horizontal"
     android:padding="15dp" >
 
     <ImageView
@@ -12,6 +12,7 @@
         android:layout_height="wrap_content"
         android:layout_gravity="center_horizontal"
         android:layout_marginBottom="20dp"
+        android:layout_marginRight="30dp"
         android:contentDescription="@string/brand_name"
         android:src="@drawable/bball_pro" />
 

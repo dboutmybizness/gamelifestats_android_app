@@ -26,7 +26,7 @@ public class ABSelect {
     	if ( current_selection.equals(ABSelect.ACT_YOUR_SCOUT)){
     		go_to = Scout.class;
     	} else if ( current_selection.equals(ABSelect.ACT_PLAY_BALL)){
-    		go_to = PlayBall_GameStatsEdit.class;
+    		go_to = GameEdit.class;
     	} else if ( current_selection.equals(ABSelect.ACT_STATBOOK)){
     		go_to = Statbook.class;
     	}

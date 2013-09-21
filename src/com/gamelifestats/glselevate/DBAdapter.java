@@ -15,6 +15,7 @@ public class DBAdapter {
 	
 	private String TABLE;
 	private String[] getFields;
+	private String ORDER_BY = "";
 	
 
 	static final String TAG = "DBAdapter";
@@ -144,22 +145,11 @@ public class DBAdapter {
 		return mCursor;
 	}
 	
-	/*/---below is public quering---
-	public boolean updateScout(String name, String position){
-		ContentValues args = new ContentValues();
-		args.put(KEY_NAME, name);
-		args.put(KEY_POSITION, position);
-		args.put(KEY_HAS_SCOUT, 1);
-		return db.update(DATABASE_TABLE, args, KEY_ROWID+"="+1, null) > 0;
-	}
-	public Cursor getScout() throws SQLException{
-		Cursor mCursor = 
-				db.query(true, DATABASE_TABLE, new String[] {KEY_ROWID, KEY_NAME, KEY_POSITION}, KEY_ROWID +"="+1, null, null, null, null, null);
-		if ( mCursor != null){
-			mCursor.moveToFirst();
-		}
+	protected Cursor getRowIds(){
+		String[] cols = {"_id"};
+		Cursor mCursor = db.query(true, this.TABLE, cols, null, null, null, null, this.ORDER_BY, null);
 		return mCursor;
 	}
-	*/
+	
 	
 }

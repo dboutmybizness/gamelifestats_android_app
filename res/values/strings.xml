@@ -1,6 +1,13 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
 
+    <string name="scout">Scout</string>
+    <string name="stats">Stats</string>
+    <string name="first">first</string>
+    <string name="prev">prev</string>
+    <string name="next">next</string>
+    <string name="last">last</string>
+    
     <string name="app_name">GLSElevate</string>
     <string name="brand_name">Elevate Your Game</string>
     <string name="action_settings">Settings</string>
@@ -20,7 +27,7 @@
     <string name="vertical_leap">Vertical Leap</string>
     <string name="shoesize">Shoe Size</string>
     <string name="nickname">Nickname</string>
-    <string name="jersey">#Jersey</string>
+    <string name="jersey">Jersey #</string>
     <string name="vertical">Vertical</string>
     <string name="active_status">Active Status</string>
     <string name="avg_totals">AVG/TOTALS</string>
@@ -43,6 +50,7 @@
         <item>upload game stats</item>
     </string-array>
 
+
     <string name="pts">PTS</string>
     <string name="rebs">REB</string>
     <string name="oreb">OREB</string>
@@ -56,7 +64,7 @@
     <string name="fgp">FG%</string>
     <string name="ftp">FT%</string>
     <string name="fg3p">3G%</string>
-    <string name="fls">FOULS</string>
+    <string name="fls">FLs</string>
     <string name="games">Games</string>
     <string name="points">Points</string>
     <string name="rebounds">Rebounds</string>

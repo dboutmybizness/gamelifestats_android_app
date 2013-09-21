@@ -305,6 +305,17 @@
             android:layout_gravity="center_vertical"
             android:text="@string/stl"
             android:textAppearance="?android:attr/textAppearanceSmall" />
+
+        <TextView
+            android:id="@+id/seek_print"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="20dp"
+            android:text="@string/zero"
+            android:textAppearance="?android:attr/textAppearanceLarge"
+            android:textColor="@color/WhiteSmoke"
+            android:textSize="40sp" />
+
     </TableRow>
 
     <ScrollView
@@ -360,7 +371,8 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_alignLeft="@+id/head_fg2"
-                android:layout_below="@+id/table_fg2made" >
+                android:layout_below="@+id/table_fg2made"
+                android:layout_marginBottom="15dp" >
 
                 <TextView
                     android:id="@+id/lab_fg2missed"
@@ -419,7 +431,8 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_alignLeft="@+id/head_fg2"
-                android:layout_below="@+id/table_fg3made" >
+                android:layout_below="@+id/table_fg3made"
+                android:layout_marginBottom="15dp" >
 
                 <TextView
                     android:id="@+id/lab_fg3missed"
@@ -478,7 +491,8 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_alignLeft="@+id/head_fg2"
-                android:layout_below="@+id/table_ftmade" >
+                android:layout_below="@+id/table_ftmade"
+                android:layout_marginBottom="15dp" >
 
                 <TextView
                     android:id="@+id/lab_ftmissed"
@@ -537,7 +551,8 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_alignLeft="@+id/head_fg2"
-                android:layout_below="@+id/table_oreb" >
+                android:layout_below="@+id/table_oreb"
+                android:layout_marginBottom="15dp" >
 
                 <TextView
                     android:id="@+id/lab_dreb"
@@ -562,7 +577,8 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_alignLeft="@+id/head_fg2"
-                android:layout_below="@+id/table_dreb" >
+                android:layout_below="@+id/table_dreb"
+                android:layout_marginBottom="15dp" >
 
                 <TextView
                     android:id="@+id/lab_seek_minutes"
@@ -585,7 +601,8 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_alignLeft="@+id/head_fg2"
-                android:layout_below="@+id/table_minutes" >
+                android:layout_below="@+id/table_minutes"
+                android:layout_marginBottom="15dp" >
 
                 <TextView
                     android:id="@+id/lab_seek_assists"
@@ -608,7 +625,8 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_alignLeft="@+id/head_fg2"
-                android:layout_below="@+id/table_assists" >
+                android:layout_below="@+id/table_assists"
+                android:layout_marginBottom="15dp" >
 
                 <TextView
                     android:id="@+id/lab_seek_steals"
@@ -631,7 +649,8 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_alignLeft="@+id/head_fg2"
-                android:layout_below="@+id/table_steals" >
+                android:layout_below="@+id/table_steals"
+                android:layout_marginBottom="15dp" >
 
                 <TextView
                     android:id="@+id/lab_seek_blocks"
@@ -654,7 +673,8 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_alignLeft="@+id/head_fg2"
-                android:layout_below="@+id/table_blocks" >
+                android:layout_below="@+id/table_blocks"
+                android:layout_marginBottom="15dp" >
 
                 <TextView
                     android:id="@+id/lab_seek_turnovers"
@@ -708,10 +728,10 @@
 
         <Button
             android:id="@+id/reset_button"
-            style="?android:attr/buttonBarButtonStyle"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:background="@android:drawable/btn_default"
+            android:drawableLeft="@drawable/ic_button_reset"
             android:onClick="resetStats"
             android:text="@string/reset" />
 

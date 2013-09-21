@@ -1,11 +1,11 @@
 package com.gamelifestats.glselevate;
 
 import java.sql.SQLException;
+import java.util.ArrayList;
 import java.util.HashMap;
 
 import android.content.Context;
 import android.database.Cursor;
-import android.widget.Toast;
 
 public class MGames extends DBAdapter {
 	static final String TABLE = "games";
@@ -155,9 +155,27 @@ public class MGames extends DBAdapter {
 		return getAllRowsWhere("userID=1");
 	}
 	
-	public Cursor getGame(int gameId) throws SQLException{
-		Cursor mCursor = super.getRow(gameId);
+	public Cursor getGame(int rowId) throws SQLException{
+		Cursor mCursor = super.getRow(rowId);
 		return mCursor;
+	}
+	
+	public ArrayList<Integer> gameHashMap() throws SQLException{
+		ArrayList<Integer> gamesList = new ArrayList<Integer>();
+		super.open();
+		Cursor c = getRowIds();
+		
+		if ( c.getCount() > 0){
+			c.moveToFirst();
+			do {
+				gamesList.add(c.getInt(0));
+			} while ( c.moveToNext());
+		}
+		
+		super.close();
+		
+
+		return gamesList;
 	}
 	
 

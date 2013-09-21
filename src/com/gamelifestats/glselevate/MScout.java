@@ -47,6 +47,7 @@ public class MScout extends DBAdapter {
 	String name = "";
 	String nickname = "";
 	int position;
+	int jersey = 0;
 	
 	
 	
@@ -70,6 +71,8 @@ public class MScout extends DBAdapter {
 		map.put(NAME, name);
 		map.put(NICKNAME, nickname);
 		map.put(POSITION, String.valueOf(position));
+		map.put(JERSEY, String.valueOf(jersey));
+		
 		
 		Boolean results = false;
 		
@@ -97,6 +100,7 @@ public class MScout extends DBAdapter {
 				name = c.getString(3);
 				nickname = c.getString(4);
 				position = c.getInt(5);
+				jersey = c.getInt(6);
 			}
 			
 			super.close();
@@ -107,15 +111,5 @@ public class MScout extends DBAdapter {
 		}
 		
 	}
-	
-	/*
-	public static HashMap<String, String> initializeApp(){
-		HashMap<String, String> m = new HashMap<String,String>();
-		m.put(ID, "1");
-		m.put(DB_VERSION, StatsHelper.int2Str(DBAdapter.DATABASE_VERSION));
-		m.put(APP_USER_ID, "1");
-		return m;
-		
-	}*/
-	
+
 }
