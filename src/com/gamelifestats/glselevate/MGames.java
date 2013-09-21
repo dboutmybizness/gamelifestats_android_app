@@ -217,7 +217,7 @@ public class MGames extends DBAdapter {
 		s_fg2ms =		mString(fg2ms);
 		s_fg2a =		mString(fg2a);
 		//s_fg2p =		mString(fg2p);
-		s_fg3m =		mString(fg2m);
+		s_fg3m =		mString(fg3m);
 		s_fg3ms =		mString(fg3ms);
 		s_fg3a =		mString(fg3a);
 		//s_fg3p;

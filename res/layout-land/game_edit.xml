@@ -501,7 +501,7 @@
                     android:layout_height="wrap_content"
                     android:layout_alignBaseline="@+id/lab_steals"
                     android:layout_alignLeft="@+id/lab_blocks"
-                    android:text="@string/steals"
+                    android:text="@string/minutes"
                     android:textAppearance="?android:attr/textAppearanceSmall" />
 
                 <TextView
