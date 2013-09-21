@@ -3,6 +3,7 @@
     android:id="@+id/LinearLayout1"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:gravity="center_horizontal"
     android:orientation="vertical"
     android:paddingBottom="25dp"
     tools:context=".GLS_Act_main" >
@@ -131,5 +132,18 @@
                 android:textAppearance="?android:attr/textAppearanceSmall" />
         </TableRow>
     </FrameLayout>
+    
+    <TextView
+        android:id="@+id/gls_com"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:background="@color/Black"
+        android:paddingBottom="2dp"
+        android:paddingLeft="10dp"
+        android:paddingRight="10dp"
+        android:text="@string/gls_com"
+        android:textAppearance="?android:attr/textAppearanceSmall"
+        android:textColor="@color/White"
+        android:textSize="14sp" />
 
 </LinearLayout>

@@ -86,23 +86,6 @@ public class GLS_Act_main extends Activity {
     		return true;
     	}
     	
-    	/*
-    	if ( item.getTitle().equals("About") ){
-    		AlertDialog.Builder ab = new AlertDialog.Builder(this);
-    		ab.setMessage("About APP")
-    		.setTitle("About GameLifeStats Elevate")
-    		.setCancelable(true)
-    		.setNegativeButton("OK", new DialogInterface.OnClickListener(){
-
-				@Override
-				public void onClick(DialogInterface dialog, int which) {
-					dialog.cancel();
-				}
-    			
-    		});
-    		ab.show();
-    	}*/
-    	
     	return super.onOptionsItemSelected(item);
 
     }

@@ -108,5 +108,6 @@
     <string name="about">About</string>
     <string name="shooting">shooting</string>
     <string name="reset">Reset</string>
+    <string name="gls_com">more @ GameLifeStats.com</string>
 
 </resources>
