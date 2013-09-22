@@ -3,12 +3,15 @@ package com.gamelifestats.glselevate;
 import android.app.ActionBar;
 import android.app.Activity;
 import android.content.Intent;
+import android.content.res.Resources;
+import android.net.Uri;
 import android.os.Bundle;
 import android.view.Menu;
 import android.view.MenuInflater;
 import android.view.MenuItem;
 import android.view.View;
 import android.view.View.OnClickListener;
+import android.view.View.OnLongClickListener;
 import android.widget.TextView;
 
 public class GLS_Act_main extends Activity {
@@ -16,6 +19,8 @@ public class GLS_Act_main extends Activity {
 	MCareer career;
 	
 	TextView points,rebounds,assists,games;
+	View elevate_link;
+	TextView gls_link;
 	
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -25,6 +30,22 @@ public class GLS_Act_main extends Activity {
         ActionBar actionBar = getActionBar();
         actionBar.setTitle(R.string.home_court);
         
+        elevate_link = (View) findViewById(R.id.elevate_child);
+        elevate_link.setOnLongClickListener(new OnLongClickListener(){
+			@Override
+			public boolean onLongClick(View v) {
+				goToGLS();
+				return false;
+			}
+        });
+        
+        gls_link = (TextView) findViewById(R.id.gls_com);
+        gls_link.setOnClickListener(new OnClickListener(){
+			@Override
+			public void onClick(View v) {
+				goToGLS();
+			}
+        });
         
         points = (TextView) findViewById(R.id.dis_points);
         games = (TextView) findViewById(R.id.dis_games);
@@ -85,9 +106,15 @@ public class GLS_Act_main extends Activity {
     		startActivity(new Intent(this, (Class<?>) cls));
     		return true;
     	}
-    	
     	return super.onOptionsItemSelected(item);
-
+    }
+    
+    private void goToGLS(){
+    	Resources res = getResources();
+    	String url = res.getString(R.string.gls_site);
+    	Intent i = new Intent(Intent.ACTION_VIEW);
+    	i.setData(Uri.parse(url));
+    	startActivity(i);
     }
     
 }

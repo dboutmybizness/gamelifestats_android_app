@@ -9,6 +9,8 @@
     <string name="last">last</string>
     <string name="by_gls">by: GameLifeStats.com</string>
     
+    <string name="gls_site">http://www.gamelifestats.com</string>
+    
     <string name="app_name">GLSElevate</string>
     <string name="brand_name">Elevate Your Game</string>
     <string name="action_settings">Settings</string>

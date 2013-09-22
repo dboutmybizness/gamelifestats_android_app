@@ -3,8 +3,9 @@
     android:id="@+id/ScoutContainer"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:background="@color/Orange"
     android:focusable="true"
-	android:focusableInTouchMode="true"
+    android:focusableInTouchMode="true"
     android:orientation="vertical" >
 
     <ScrollView
@@ -79,6 +80,7 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_gravity="center_horizontal"
+        android:background="@android:drawable/btn_default"
         android:drawableLeft="@drawable/ic_menu_save"
         android:onClick="saveScout"
         android:text="@string/save" />

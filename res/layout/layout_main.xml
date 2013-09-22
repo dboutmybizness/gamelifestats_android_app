@@ -49,94 +49,88 @@
 
     </TableRow>
 
-    <FrameLayout
-        android:id="@+id/framer"
+    <TableRow
+        android:id="@+id/sline1"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
+        android:layout_gravity="center_horizontal"
         android:layout_marginBottom="20dp"
         android:background="@color/cornsilk"
+        android:gravity="center_horizontal"
         android:padding="10dp" >
 
-        <TableRow
-            android:id="@+id/sline1"
+        <TextView
+            android:id="@+id/dis_games"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_gravity="center_horizontal"
-            android:gravity="center_horizontal" >
+            android:text="@string/zero"
+            android:textAppearance="?android:attr/textAppearanceLarge"
+            android:textColor="@color/WhiteSmoke"
+            android:textSize="40sp" />
 
-            <TextView
-                android:id="@+id/dis_games"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:text="@string/zero"
-                android:textAppearance="?android:attr/textAppearanceLarge"
-                android:textColor="@color/WhiteSmoke"
-                android:textSize="40sp" />
+        <TextView
+            android:id="@+id/lab_gms"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center_vertical"
+            android:text="@string/gms"
+            android:textAppearance="?android:attr/textAppearanceSmall"
+            android:textColor="@color/WhiteSmoke" />
 
-            <TextView
-                android:id="@+id/lab_gms"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_gravity="center_vertical"
-                android:text="@string/gms"
-                android:textAppearance="?android:attr/textAppearanceSmall"
-                android:textColor="@color/WhiteSmoke" />
+        <TextView
+            android:id="@+id/dis_points"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="15dp"
+            android:text="@string/zero"
+            android:textAppearance="?android:attr/textAppearanceLarge"
+            android:textSize="40sp" />
 
-            <TextView
-                android:id="@+id/dis_points"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_marginLeft="15dp"
-                android:text="@string/zero"
-                android:textAppearance="?android:attr/textAppearanceLarge"
-                android:textSize="40sp" />
+        <TextView
+            android:id="@+id/lab_pts"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center_vertical"
+            android:text="@string/pts"
+            android:textAppearance="?android:attr/textAppearanceSmall" />
 
-            <TextView
-                android:id="@+id/lab_pts"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_gravity="center_vertical"
-                android:text="@string/pts"
-                android:textAppearance="?android:attr/textAppearanceSmall" />
+        <TextView
+            android:id="@+id/dis_rebounds"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="15dp"
+            android:text="@string/zero"
+            android:textAppearance="?android:attr/textAppearanceLarge"
+            android:textSize="40sp" />
 
-            <TextView
-                android:id="@+id/dis_rebounds"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_marginLeft="15dp"
-                android:text="@string/zero"
-                android:textAppearance="?android:attr/textAppearanceLarge"
-                android:textSize="40sp" />
+        <TextView
+            android:id="@+id/lab_rebs"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center_vertical"
+            android:text="@string/rebs"
+            android:textAppearance="?android:attr/textAppearanceSmall" />
 
-            <TextView
-                android:id="@+id/lab_rebs"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_gravity="center_vertical"
-                android:text="@string/rebs"
-                android:textAppearance="?android:attr/textAppearanceSmall" />
+        <TextView
+            android:id="@+id/dis_assists"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="15dp"
+            android:text="@string/zero"
+            android:textAppearance="?android:attr/textAppearanceLarge"
+            android:textSize="40sp" />
 
-            <TextView
-                android:id="@+id/dis_assists"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_marginLeft="15dp"
-                android:text="@string/zero"
-                android:textAppearance="?android:attr/textAppearanceLarge"
-                android:textSize="40sp" />
-
-            <TextView
-                android:id="@+id/lab_asts"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_gravity="center_vertical"
-                android:text="@string/ast"
-                android:textAppearance="?android:attr/textAppearanceSmall" />
-        </TableRow>
-    </FrameLayout>
+        <TextView
+            android:id="@+id/lab_asts"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center_vertical"
+            android:text="@string/ast"
+            android:textAppearance="?android:attr/textAppearanceSmall" />
+    </TableRow>
 
     <LinearLayout
-        android:id="@+id/last_child"
+        android:id="@+id/elevate_child"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:background="@color/gls_blue"
