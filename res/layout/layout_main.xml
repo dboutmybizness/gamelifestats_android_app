@@ -22,8 +22,6 @@
         android:layout_height="wrap_content"
         android:layout_gravity="center_horizontal" >
 
-        
-
         <TextView
             android:id="@+id/upload_gamestats"
             android:layout_width="wrap_content"
@@ -34,19 +32,18 @@
             android:text="@string/upload_gamestats"
             android:textAppearance="?android:attr/textAppearanceSmall"
             android:textSize="14sp" />
-        
+
         <TextView
             android:id="@+id/statline"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:background="@color/Orange"
             android:layout_marginLeft="10dp"
+            android:background="@color/Orange"
             android:paddingLeft="10dp"
             android:paddingRight="10dp"
             android:text="@string/statline"
             android:textAppearance="?android:attr/textAppearanceSmall"
             android:textSize="14sp" />
-
     </TableRow>
 
     <TableRow
@@ -56,7 +53,6 @@
         android:layout_gravity="center_horizontal"
         android:layout_marginBottom="20dp"
         android:background="@color/cornsilk_opac"
-        android:gravity="center_horizontal"
         android:padding="10dp" >
 
         <TextView
@@ -77,56 +73,83 @@
             android:textAppearance="?android:attr/textAppearanceSmall"
             android:textColor="@color/WhiteSmoke" />
 
-        <TextView
-            android:id="@+id/dis_points"
+        <HorizontalScrollView
+            android:id="@+id/horizontalScrollView1"
             android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_marginLeft="15dp"
-            android:text="@string/zero"
-            android:textAppearance="?android:attr/textAppearanceLarge"
-            android:textSize="40sp" />
+            android:layout_height="wrap_content" >
 
-        <TextView
-            android:id="@+id/lab_pts"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_gravity="center_vertical"
-            android:text="@string/pts"
-            android:textAppearance="?android:attr/textAppearanceSmall" />
+            <TableRow
+                android:id="@+id/TableRow1"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal"
+                android:paddingLeft="15dp" >
 
-        <TextView
-            android:id="@+id/dis_rebounds"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_marginLeft="15dp"
-            android:text="@string/zero"
-            android:textAppearance="?android:attr/textAppearanceLarge"
-            android:textSize="40sp" />
+                <TextView
+                    android:id="@+id/dis_points"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="@string/zero"
+                    android:textAppearance="?android:attr/textAppearanceLarge"
+                    android:textSize="40sp" />
 
-        <TextView
-            android:id="@+id/lab_rebs"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_gravity="center_vertical"
-            android:text="@string/rebs"
-            android:textAppearance="?android:attr/textAppearanceSmall" />
+                <TextView
+                    android:id="@+id/lab_pts"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="@string/pts"
+                    android:textAppearance="?android:attr/textAppearanceSmall" />
 
-        <TextView
-            android:id="@+id/dis_assists"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_marginLeft="15dp"
-            android:text="@string/zero"
-            android:textAppearance="?android:attr/textAppearanceLarge"
-            android:textSize="40sp" />
+                <TextView
+                    android:id="@+id/dis_rebounds"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginLeft="15dp"
+                    android:text="@string/zero"
+                    android:textAppearance="?android:attr/textAppearanceLarge"
+                    android:textSize="40sp" />
 
-        <TextView
-            android:id="@+id/lab_asts"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_gravity="center_vertical"
-            android:text="@string/ast"
-            android:textAppearance="?android:attr/textAppearanceSmall" />
+                <TextView
+                    android:id="@+id/lab_rebs"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="@string/rebs"
+                    android:textAppearance="?android:attr/textAppearanceSmall" />
+
+                <TextView
+                    android:id="@+id/dis_assists"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginLeft="15dp"
+                    android:text="@string/zero"
+                    android:textAppearance="?android:attr/textAppearanceLarge"
+                    android:textSize="40sp" />
+
+                <TextView
+                    android:id="@+id/lab_asts"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="@string/ast"
+                    android:textAppearance="?android:attr/textAppearanceSmall" />
+                
+                <TextView
+                    android:id="@+id/dis_steals"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginLeft="15dp"
+                    android:text="@string/zero"
+                    android:textAppearance="?android:attr/textAppearanceLarge"
+                    android:textSize="40sp" />
+
+                <TextView
+                    android:id="@+id/lab_stls"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="@string/stl"
+                    android:textAppearance="?android:attr/textAppearanceSmall" />
+            </TableRow>
+
+        </HorizontalScrollView>
     </TableRow>
 
     <LinearLayout
@@ -153,7 +176,6 @@
             android:layout_marginLeft="20dp"
             android:text="@string/by_gls"
             android:textAppearance="?android:attr/textAppearanceSmall" />
-
     </LinearLayout>
 
     <TextView

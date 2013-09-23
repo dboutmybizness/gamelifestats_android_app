@@ -13,6 +13,351 @@
         android:layout_weight="2"
         android:orientation="horizontal" >
         
+        
+        <LinearLayout
+            android:id="@+id/view_all_stats"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_weight="1"
+            android:orientation="vertical" >
+            
+            
+
+            <RelativeLayout
+                android:id="@+id/child_container1"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginBottom="15dp"
+                android:padding="12dp" >
+
+                <TextView
+                    android:id="@+id/lab_points"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_alignParentLeft="true"
+                    android:layout_alignParentTop="true"
+                    android:text="@string/points"
+                    android:textAppearance="?android:attr/textAppearanceSmall" />
+
+                <TextView
+                    android:id="@+id/lab_rebounds"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_alignLeft="@+id/lab_points"
+                    android:layout_below="@+id/lab_points"
+                    android:layout_marginTop="3dp"
+                    android:text="@string/rebounds"
+                    android:textAppearance="?android:attr/textAppearanceSmall" />
+
+                <TextView
+                    android:id="@+id/lab_assists"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_alignLeft="@+id/lab_points"
+                    android:layout_below="@+id/lab_rebounds"
+                    android:layout_marginTop="3dp"
+                    android:text="@string/assists"
+                    android:textAppearance="?android:attr/textAppearanceSmall" />
+
+                <TextView
+                    android:id="@+id/lab_steals"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_alignLeft="@+id/lab_points"
+                    android:layout_below="@+id/lab_assists"
+                    android:layout_marginTop="3dp"
+                    android:text="@string/steals"
+                    android:textAppearance="?android:attr/textAppearanceSmall" />
+
+                <TextView
+                    android:id="@+id/lab_blocks"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_alignBaseline="@+id/lab_points"
+                    android:layout_marginLeft="60dp"
+                    android:layout_toRightOf="@+id/lab_rebounds"
+                    android:text="@string/blocks"
+                    android:textAppearance="?android:attr/textAppearanceSmall" />
+
+                <TextView
+                    android:id="@+id/lab_turnovers"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_alignBaseline="@+id/lab_rebounds"
+                    android:layout_alignLeft="@+id/lab_blocks"
+                    android:text="@string/turnovers"
+                    android:textAppearance="?android:attr/textAppearanceSmall" />
+
+                <TextView
+                    android:id="@+id/lab_fouls"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_alignBaseline="@+id/lab_assists"
+                    android:layout_alignLeft="@+id/lab_blocks"
+                    android:text="@string/fouls"
+                    android:textAppearance="?android:attr/textAppearanceSmall" />
+
+                <TextView
+                    android:id="@+id/lab_minutes"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_alignBaseline="@+id/lab_steals"
+                    android:layout_alignLeft="@+id/lab_blocks"
+                    android:text="@string/minutes"
+                    android:textAppearance="?android:attr/textAppearanceSmall" />
+
+                <TextView
+                    android:id="@+id/lab_fgs"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_alignBaseline="@+id/lab_points"
+                    android:layout_marginLeft="60dp"
+                    android:layout_toRightOf="@+id/lab_turnovers"
+                    android:text="@string/fgs"
+                    android:textAppearance="?android:attr/textAppearanceSmall" />
+
+                <TextView
+                    android:id="@+id/lab_fgp"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_alignBaseline="@+id/lab_turnovers"
+                    android:layout_alignLeft="@+id/lab_fgs"
+                    android:text="@string/fg3s"
+                    android:textAppearance="?android:attr/textAppearanceSmall" />
+
+                <TextView
+                    android:id="@+id/lab_fg3ma"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_alignBaseline="@+id/lab_assists"
+                    android:layout_alignLeft="@+id/lab_fgs"
+                    android:text="@string/fts"
+                    android:textAppearance="?android:attr/textAppearanceSmall" />
+
+                <TextView
+                    android:id="@+id/dis_points"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_alignBaseline="@+id/lab_points"
+                    android:layout_marginLeft="15dp"
+                    android:layout_toRightOf="@+id/lab_rebounds"
+                    android:text="@string/zero"
+                    android:textAppearance="?android:attr/textAppearanceSmall" />
+
+                <TextView
+                    android:id="@+id/dis_rebounds"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_alignBaseline="@+id/lab_rebounds"
+                    android:layout_alignBottom="@+id/lab_turnovers"
+                    android:layout_alignLeft="@+id/dis_points"
+                    android:text="@string/zero"
+                    android:textAppearance="?android:attr/textAppearanceSmall" />
+
+                <TextView
+                    android:id="@+id/dis_assists"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_alignBaseline="@+id/lab_assists"
+                    android:layout_alignLeft="@+id/dis_points"
+                    android:text="@string/zero"
+                    android:textAppearance="?android:attr/textAppearanceSmall" />
+
+                <TextView
+                    android:id="@+id/dis_steals"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_alignBaseline="@+id/lab_steals"
+                    android:layout_alignLeft="@+id/dis_points"
+                    android:text="@string/zero"
+                    android:textAppearance="?android:attr/textAppearanceSmall" />
+
+                <TextView
+                    android:id="@+id/dis_blocks"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_alignBaseline="@+id/lab_points"
+                    android:layout_marginLeft="15dp"
+                    android:layout_toRightOf="@+id/lab_turnovers"
+                    android:text="@string/zero"
+                    android:textAppearance="?android:attr/textAppearanceSmall" />
+
+                <TextView
+                    android:id="@+id/dis_turnovers"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_alignBaseline="@+id/lab_rebounds"
+                    android:layout_alignLeft="@+id/dis_blocks"
+                    android:text="@string/zero"
+                    android:textAppearance="?android:attr/textAppearanceSmall" />
+
+                <TextView
+                    android:id="@+id/dis_fouls"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_alignBaseline="@+id/lab_assists"
+                    android:layout_alignLeft="@+id/dis_blocks"
+                    android:text="@string/zero"
+                    android:textAppearance="?android:attr/textAppearanceSmall" />
+
+                <TextView
+                    android:id="@+id/dis_minutes"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_alignBaseline="@+id/lab_steals"
+                    android:layout_alignLeft="@+id/dis_blocks"
+                    android:text="@string/zero"
+                    android:textAppearance="?android:attr/textAppearanceSmall" />
+
+                <TextView
+                    android:id="@+id/dis_fgs"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_alignBaseline="@+id/lab_points"
+                    android:layout_marginLeft="15dp"
+                    android:layout_toRightOf="@+id/lab_fgs"
+                    android:text="@string/zero"
+                    android:textAppearance="?android:attr/textAppearanceSmall" />
+
+                <TextView
+                    android:id="@+id/dis_fg3s"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_alignBaseline="@+id/lab_rebounds"
+                    android:layout_alignLeft="@+id/dis_fgs"
+                    android:text="@string/zero"
+                    android:textAppearance="?android:attr/textAppearanceSmall" />
+
+                <TextView
+                    android:id="@+id/dis_fts"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_alignBaseline="@+id/lab_assists"
+                    android:layout_alignLeft="@+id/dis_fgs"
+                    android:text="@string/zero"
+                    android:textAppearance="?android:attr/textAppearanceSmall" />
+            </RelativeLayout>
+
+            <TableRow
+                android:id="@+id/tableRow2"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center_horizontal"
+                android:layout_marginBottom="15dp"
+                android:background="@color/cornsilk"
+                android:paddingBottom="3dp"
+                android:paddingLeft="15dp"
+                android:paddingRight="15dp"
+                android:paddingTop="3dp" >
+
+                <TextView
+                    android:id="@+id/dis_spoints"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="@string/zero"
+                    android:textAppearance="?android:attr/textAppearanceLarge"
+                    android:textSize="40sp" />
+
+                <TextView
+                    android:id="@+id/lab_spoints"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center_vertical"
+                    android:text="@string/pts"
+                    android:textAppearance="?android:attr/textAppearanceSmall" />
+
+                <TextView
+                    android:id="@+id/dis_srebounds"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginLeft="10dp"
+                    android:text="@string/zero"
+                    android:textAppearance="?android:attr/textAppearanceLarge"
+                    android:textSize="40sp" />
+
+                <TextView
+                    android:id="@+id/lab_srebounds"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center_vertical"
+                    android:text="@string/rebs"
+                    android:textAppearance="?android:attr/textAppearanceSmall" />
+
+                <TextView
+                    android:id="@+id/dis_sassists"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginLeft="10dp"
+                    android:text="@string/zero"
+                    android:textAppearance="?android:attr/textAppearanceLarge"
+                    android:textSize="40sp" />
+
+                <TextView
+                    android:id="@+id/lab_sassists"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center_vertical"
+                    android:text="@string/ast"
+                    android:textAppearance="?android:attr/textAppearanceSmall" />
+
+                <TextView
+                    android:id="@+id/dis_ssteals"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginLeft="10dp"
+                    android:text="@string/zero"
+                    android:textAppearance="?android:attr/textAppearanceLarge"
+                    android:textSize="40sp" />
+
+                <TextView
+                    android:id="@+id/lab_ssteals"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center_vertical"
+                    android:text="@string/stl"
+                    android:textAppearance="?android:attr/textAppearanceSmall" />
+            </TableRow>
+
+            <TableRow
+                android:id="@+id/child_container3"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center_horizontal"
+                android:layout_marginBottom="2dp"
+                android:layout_marginTop="7dp"
+                android:orientation="horizontal" >
+
+                <Button
+                    android:id="@+id/reset_button"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:background="@android:drawable/btn_default"
+                    android:drawableLeft="@drawable/ic_button_reset"
+                    android:onClick="resetStats"
+                    android:text="@string/reset" />
+
+                <Button
+                    android:id="@+id/save_button"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:background="@android:drawable/btn_default"
+                    android:drawableLeft="@drawable/ic_menu_done"
+                    android:onClick="saveStats"
+                    android:text="@string/save" />
+            </TableRow>
+
+            <TextView
+                android:id="@+id/seek_print"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center_horizontal"
+                android:text="@string/zero"
+                android:textAppearance="?android:attr/textAppearanceLarge"
+                android:textColor="@color/Gray"
+                android:textSize="50sp" />
+
+        </LinearLayout>
+        
         <ScrollView
             android:id="@+id/child_container2"
             android:layout_width="match_parent"
@@ -411,351 +756,6 @@
                 </TableRow>
             </RelativeLayout>
         </ScrollView>
-
-        <LinearLayout
-            android:id="@+id/view_all_stats"
-            android:layout_width="match_parent"
-            android:layout_height="match_parent"
-            android:layout_weight="1"
-            android:orientation="vertical" >
-            
-            
-
-            <RelativeLayout
-                android:id="@+id/child_container1"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:layout_marginBottom="15dp"
-                android:padding="12dp" >
-
-                <TextView
-                    android:id="@+id/lab_points"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_alignParentLeft="true"
-                    android:layout_alignParentTop="true"
-                    android:text="@string/points"
-                    android:textAppearance="?android:attr/textAppearanceSmall" />
-
-                <TextView
-                    android:id="@+id/lab_rebounds"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_alignLeft="@+id/lab_points"
-                    android:layout_below="@+id/lab_points"
-                    android:layout_marginTop="3dp"
-                    android:text="@string/rebounds"
-                    android:textAppearance="?android:attr/textAppearanceSmall" />
-
-                <TextView
-                    android:id="@+id/lab_assists"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_alignLeft="@+id/lab_points"
-                    android:layout_below="@+id/lab_rebounds"
-                    android:layout_marginTop="3dp"
-                    android:text="@string/assists"
-                    android:textAppearance="?android:attr/textAppearanceSmall" />
-
-                <TextView
-                    android:id="@+id/lab_steals"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_alignLeft="@+id/lab_points"
-                    android:layout_below="@+id/lab_assists"
-                    android:layout_marginTop="3dp"
-                    android:text="@string/steals"
-                    android:textAppearance="?android:attr/textAppearanceSmall" />
-
-                <TextView
-                    android:id="@+id/lab_blocks"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_alignBaseline="@+id/lab_points"
-                    android:layout_marginLeft="60dp"
-                    android:layout_toRightOf="@+id/lab_rebounds"
-                    android:text="@string/blocks"
-                    android:textAppearance="?android:attr/textAppearanceSmall" />
-
-                <TextView
-                    android:id="@+id/lab_turnovers"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_alignBaseline="@+id/lab_rebounds"
-                    android:layout_alignLeft="@+id/lab_blocks"
-                    android:text="@string/turnovers"
-                    android:textAppearance="?android:attr/textAppearanceSmall" />
-
-                <TextView
-                    android:id="@+id/lab_fouls"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_alignBaseline="@+id/lab_assists"
-                    android:layout_alignLeft="@+id/lab_blocks"
-                    android:text="@string/fouls"
-                    android:textAppearance="?android:attr/textAppearanceSmall" />
-
-                <TextView
-                    android:id="@+id/lab_minutes"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_alignBaseline="@+id/lab_steals"
-                    android:layout_alignLeft="@+id/lab_blocks"
-                    android:text="@string/minutes"
-                    android:textAppearance="?android:attr/textAppearanceSmall" />
-
-                <TextView
-                    android:id="@+id/lab_fgs"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_alignBaseline="@+id/lab_points"
-                    android:layout_marginLeft="60dp"
-                    android:layout_toRightOf="@+id/lab_turnovers"
-                    android:text="@string/fgs"
-                    android:textAppearance="?android:attr/textAppearanceSmall" />
-
-                <TextView
-                    android:id="@+id/lab_fgp"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_alignBaseline="@+id/lab_turnovers"
-                    android:layout_alignLeft="@+id/lab_fgs"
-                    android:text="@string/fg3s"
-                    android:textAppearance="?android:attr/textAppearanceSmall" />
-
-                <TextView
-                    android:id="@+id/lab_fg3ma"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_alignBaseline="@+id/lab_assists"
-                    android:layout_alignLeft="@+id/lab_fgs"
-                    android:text="@string/fts"
-                    android:textAppearance="?android:attr/textAppearanceSmall" />
-
-                <TextView
-                    android:id="@+id/dis_points"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_alignBaseline="@+id/lab_points"
-                    android:layout_marginLeft="15dp"
-                    android:layout_toRightOf="@+id/lab_rebounds"
-                    android:text="@string/zero"
-                    android:textAppearance="?android:attr/textAppearanceSmall" />
-
-                <TextView
-                    android:id="@+id/dis_rebounds"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_alignBaseline="@+id/lab_rebounds"
-                    android:layout_alignBottom="@+id/lab_turnovers"
-                    android:layout_alignLeft="@+id/dis_points"
-                    android:text="@string/zero"
-                    android:textAppearance="?android:attr/textAppearanceSmall" />
-
-                <TextView
-                    android:id="@+id/dis_assists"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_alignBaseline="@+id/lab_assists"
-                    android:layout_alignLeft="@+id/dis_points"
-                    android:text="@string/zero"
-                    android:textAppearance="?android:attr/textAppearanceSmall" />
-
-                <TextView
-                    android:id="@+id/dis_steals"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_alignBaseline="@+id/lab_steals"
-                    android:layout_alignLeft="@+id/dis_points"
-                    android:text="@string/zero"
-                    android:textAppearance="?android:attr/textAppearanceSmall" />
-
-                <TextView
-                    android:id="@+id/dis_blocks"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_alignBaseline="@+id/lab_points"
-                    android:layout_marginLeft="15dp"
-                    android:layout_toRightOf="@+id/lab_turnovers"
-                    android:text="@string/zero"
-                    android:textAppearance="?android:attr/textAppearanceSmall" />
-
-                <TextView
-                    android:id="@+id/dis_turnovers"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_alignBaseline="@+id/lab_rebounds"
-                    android:layout_alignLeft="@+id/dis_blocks"
-                    android:text="@string/zero"
-                    android:textAppearance="?android:attr/textAppearanceSmall" />
-
-                <TextView
-                    android:id="@+id/dis_fouls"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_alignBaseline="@+id/lab_assists"
-                    android:layout_alignLeft="@+id/dis_blocks"
-                    android:text="@string/zero"
-                    android:textAppearance="?android:attr/textAppearanceSmall" />
-
-                <TextView
-                    android:id="@+id/dis_minutes"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_alignBaseline="@+id/lab_steals"
-                    android:layout_alignLeft="@+id/dis_blocks"
-                    android:text="@string/zero"
-                    android:textAppearance="?android:attr/textAppearanceSmall" />
-
-                <TextView
-                    android:id="@+id/dis_fgs"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_alignBaseline="@+id/lab_points"
-                    android:layout_marginLeft="15dp"
-                    android:layout_toRightOf="@+id/lab_fgs"
-                    android:text="@string/zero"
-                    android:textAppearance="?android:attr/textAppearanceSmall" />
-
-                <TextView
-                    android:id="@+id/dis_fg3s"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_alignBaseline="@+id/lab_rebounds"
-                    android:layout_alignLeft="@+id/dis_fgs"
-                    android:text="@string/zero"
-                    android:textAppearance="?android:attr/textAppearanceSmall" />
-
-                <TextView
-                    android:id="@+id/dis_fts"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_alignBaseline="@+id/lab_assists"
-                    android:layout_alignLeft="@+id/dis_fgs"
-                    android:text="@string/zero"
-                    android:textAppearance="?android:attr/textAppearanceSmall" />
-            </RelativeLayout>
-
-            <TableRow
-                android:id="@+id/tableRow2"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_gravity="center_horizontal"
-                android:layout_marginBottom="15dp"
-                android:background="@color/cornsilk"
-                android:paddingBottom="3dp"
-                android:paddingLeft="15dp"
-                android:paddingRight="15dp"
-                android:paddingTop="3dp" >
-
-                <TextView
-                    android:id="@+id/dis_spoints"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:text="@string/zero"
-                    android:textAppearance="?android:attr/textAppearanceLarge"
-                    android:textSize="40sp" />
-
-                <TextView
-                    android:id="@+id/lab_spoints"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_gravity="center_vertical"
-                    android:text="@string/pts"
-                    android:textAppearance="?android:attr/textAppearanceSmall" />
-
-                <TextView
-                    android:id="@+id/dis_srebounds"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_marginLeft="10dp"
-                    android:text="@string/zero"
-                    android:textAppearance="?android:attr/textAppearanceLarge"
-                    android:textSize="40sp" />
-
-                <TextView
-                    android:id="@+id/lab_srebounds"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_gravity="center_vertical"
-                    android:text="@string/rebs"
-                    android:textAppearance="?android:attr/textAppearanceSmall" />
-
-                <TextView
-                    android:id="@+id/dis_sassists"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_marginLeft="10dp"
-                    android:text="@string/zero"
-                    android:textAppearance="?android:attr/textAppearanceLarge"
-                    android:textSize="40sp" />
-
-                <TextView
-                    android:id="@+id/lab_sassists"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_gravity="center_vertical"
-                    android:text="@string/ast"
-                    android:textAppearance="?android:attr/textAppearanceSmall" />
-
-                <TextView
-                    android:id="@+id/dis_ssteals"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_marginLeft="10dp"
-                    android:text="@string/zero"
-                    android:textAppearance="?android:attr/textAppearanceLarge"
-                    android:textSize="40sp" />
-
-                <TextView
-                    android:id="@+id/lab_ssteals"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_gravity="center_vertical"
-                    android:text="@string/stl"
-                    android:textAppearance="?android:attr/textAppearanceSmall" />
-            </TableRow>
-
-            <TableRow
-                android:id="@+id/child_container3"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_gravity="center_horizontal"
-                android:layout_marginBottom="2dp"
-                android:layout_marginTop="7dp"
-                android:orientation="horizontal" >
-
-                <Button
-                    android:id="@+id/reset_button"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:background="@android:drawable/btn_default"
-                    android:drawableLeft="@drawable/ic_button_reset"
-                    android:onClick="resetStats"
-                    android:text="@string/reset" />
-
-                <Button
-                    android:id="@+id/save_button"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:background="@android:drawable/btn_default"
-                    android:drawableLeft="@drawable/ic_menu_done"
-                    android:onClick="saveStats"
-                    android:text="@string/save" />
-            </TableRow>
-
-            <TextView
-                android:id="@+id/seek_print"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_gravity="center_horizontal"
-                android:text="@string/zero"
-                android:textAppearance="?android:attr/textAppearanceLarge"
-                android:textColor="@color/Gray"
-                android:textSize="50sp" />
-
-        </LinearLayout>
-
         
     </LinearLayout>
 
