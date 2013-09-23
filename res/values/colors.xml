@@ -1,6 +1,11 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
  <color name="gls_blue">#008ECF</color>
+ <color name="gls_blue_opac">#CC008ECF</color>
+ 
+ <color name="cornsilk">#8B8878</color>
+ <color name="cornsilk_opac">#CC8B8878</color>
+ 
  <color name="White">#FFFFFF</color>
  <color name="Ivory">#FFFFF0</color>
  <color name="LightYellow">#FFFFE0</color>
@@ -142,5 +147,5 @@
  <color name="Navy">#000080</color>
  <color name="Black">#000000</color>
  <color name="DarkGoldenRod3">#CD950C</color>
- <color name="cornsilk">#8B8878</color>
+
 </resources>

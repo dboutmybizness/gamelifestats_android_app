@@ -55,7 +55,7 @@
         android:layout_height="wrap_content"
         android:layout_gravity="center_horizontal"
         android:layout_marginBottom="20dp"
-        android:background="@color/cornsilk"
+        android:background="@color/cornsilk_opac"
         android:gravity="center_horizontal"
         android:padding="10dp" >
 
@@ -133,7 +133,7 @@
         android:id="@+id/elevate_child"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:background="@color/gls_blue"
+        android:background="@color/gls_blue_opac"
         android:orientation="vertical"
         android:padding="10dp" >
 

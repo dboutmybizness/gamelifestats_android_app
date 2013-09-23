@@ -204,6 +204,34 @@ public class Statbook extends FragmentActivity implements ActionBar.TabListener 
 		public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState){
 			rootView = inflater.inflate(R.layout.avg_totals, container, false);
 			getParentContext = rootView.getContext();
+			
+			tot_games = (TextView) rootView.findViewById(R.id.tot_games);
+			tot_minutes = (TextView) rootView.findViewById(R.id.tot_minutes);
+			tot_points = (TextView) rootView.findViewById(R.id.tot_points);
+			tot_rebounds = (TextView) rootView.findViewById(R.id.tot_rebounds);
+			tot_reb_off = (TextView) rootView.findViewById(R.id.tot_reb_off);
+			//tot_reb_def = (TextView) rootView.findViewById(R.id.tot_reb_def);
+			tot_assists = (TextView) rootView.findViewById(R.id.tot_assists);
+			tot_steals = (TextView) rootView.findViewById(R.id.tot_steals);
+			tot_blocks = (TextView) rootView.findViewById(R.id.tot_blocks);
+			tot_turnovers = (TextView) rootView.findViewById(R.id.tot_turnovers);
+			tot_fouls = (TextView) rootView.findViewById(R.id.tot_fouls);
+			
+			avg_games = (TextView) rootView.findViewById(R.id.avg_games);
+			avg_minutes = (TextView) rootView.findViewById(R.id.avg_minutes);
+			avg_points = (TextView) rootView.findViewById(R.id.avg_points);
+			avg_rebounds = (TextView) rootView.findViewById(R.id.avg_rebounds);
+			avg_reb_off = (TextView) rootView.findViewById(R.id.avg_reb_off);
+			//avg_reb_def = (TextView) rootView.findViewById(R.id.avg_reb_def);
+			avg_assists = (TextView) rootView.findViewById(R.id.avg_assists);
+			avg_steals = (TextView) rootView.findViewById(R.id.avg_steals);
+			avg_blocks = (TextView) rootView.findViewById(R.id.avg_blocks);
+			avg_turnovers = (TextView) rootView.findViewById(R.id.avg_turnovers);
+			avg_fouls = (TextView) rootView.findViewById(R.id.avg_fouls);
+			
+			
+			
+			
 			return rootView;
 		}
 		
@@ -211,31 +239,6 @@ public class Statbook extends FragmentActivity implements ActionBar.TabListener 
 		public void onResume(){
 			super.onResume();
 			career = new MCareer(getParentContext);
-			
-			tot_games = (TextView) getActivity().findViewById(R.id.tot_games);
-			tot_minutes = (TextView) getActivity().findViewById(R.id.tot_minutes);
-			tot_points = (TextView) getActivity().findViewById(R.id.tot_points);
-			tot_rebounds = (TextView) getActivity().findViewById(R.id.tot_rebounds);
-			tot_reb_off = (TextView) getActivity().findViewById(R.id.tot_reb_off);
-			//tot_reb_def = (TextView) getActivity().findViewById(R.id.tot_reb_def);
-			tot_assists = (TextView) getActivity().findViewById(R.id.tot_assists);
-			tot_steals = (TextView) getActivity().findViewById(R.id.tot_steals);
-			tot_blocks = (TextView) getActivity().findViewById(R.id.tot_blocks);
-			tot_turnovers = (TextView) getActivity().findViewById(R.id.tot_turnovers);
-			tot_fouls = (TextView) getActivity().findViewById(R.id.tot_fouls);
-			
-			avg_games = (TextView) getActivity().findViewById(R.id.avg_games);
-			avg_minutes = (TextView) getActivity().findViewById(R.id.avg_minutes);
-			avg_points = (TextView) getActivity().findViewById(R.id.avg_points);
-			avg_rebounds = (TextView) getActivity().findViewById(R.id.avg_rebounds);
-			avg_reb_off = (TextView) getActivity().findViewById(R.id.avg_reb_off);
-			//avg_reb_def = (TextView) getActivity().findViewById(R.id.avg_reb_def);
-			avg_assists = (TextView) getActivity().findViewById(R.id.avg_assists);
-			avg_steals = (TextView) getActivity().findViewById(R.id.avg_steals);
-			avg_blocks = (TextView) getActivity().findViewById(R.id.avg_blocks);
-			avg_turnovers = (TextView) getActivity().findViewById(R.id.avg_turnovers);
-			avg_fouls = (TextView) getActivity().findViewById(R.id.avg_fouls);
-
 			setUpCareer();
 		}
 		
@@ -284,6 +287,7 @@ public class Statbook extends FragmentActivity implements ActionBar.TabListener 
 		Button next,prev,first,last;
 		Boolean has_games = false;
 		ProgressBar game_progress;
+		TextView game_count;
 		
 		
 		@Override
@@ -311,6 +315,8 @@ public class Statbook extends FragmentActivity implements ActionBar.TabListener 
 		}
 		
 		public void setUpGames(){
+			game_count = (TextView) rootView.findViewById(R.id.game_count);
+			
 			points = (TextView) rootView.findViewById(R.id.dis_points);
 			rebounds = (TextView) rootView.findViewById(R.id.dis_rebounds);
 			assists = (TextView) rootView.findViewById(R.id.dis_assists);
@@ -384,6 +390,8 @@ public class Statbook extends FragmentActivity implements ActionBar.TabListener 
 						blocks.setText(c.getString(9));
 						turnovers.setText(c.getString(10));
 						fouls.setText(c.getString(11));
+						
+						game_count.setText((AtRegister+1) + " of " + TOTAL_GAMES );
 						
 					}
 				} catch (SQLException e) {
