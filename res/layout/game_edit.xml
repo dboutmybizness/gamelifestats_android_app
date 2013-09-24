@@ -328,19 +328,6 @@
                 android:layout_gravity="center_vertical"
                 android:text="@string/stl"
                 android:textAppearance="?android:attr/textAppearanceSmall" />
-
-            <TextView
-                android:id="@+id/seek_print"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_marginLeft="20dp"
-                android:background="@color/Cornsilk"
-                android:paddingLeft="5dp"
-                android:paddingRight="5dp"
-                android:text="@string/zero"
-                android:textAppearance="?android:attr/textAppearanceLarge"
-                android:textColor="@color/cornsilk"
-                android:textSize="40sp" />
         </TableRow>
     </FrameLayout>
 
@@ -743,32 +730,54 @@
         </RelativeLayout>
     </ScrollView>
 
-    <TableRow
-        android:id="@+id/child_container3"
+    <RelativeLayout
+        android:id="@+id/relativebottom"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_gravity="center_horizontal"
         android:layout_marginBottom="2dp"
-        android:layout_marginTop="7dp"
-        android:orientation="horizontal" >
+        android:layout_marginTop="7dp" >
 
-        <Button
-            android:id="@+id/reset_button"
+        <TextView
+            android:id="@+id/seek_print"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:background="@android:drawable/btn_default"
-            android:drawableLeft="@drawable/ic_button_reset"
-            android:onClick="resetStats"
-            android:text="@string/reset" />
+            android:layout_alignParentRight="true"
+            android:layout_centerVertical="true"
+            android:background="@color/Cornsilk"
+            android:paddingLeft="5dp"
+            android:paddingRight="5dp"
+            android:text="@string/zero"
+            android:textAppearance="?android:attr/textAppearanceLarge"
+            android:textColor="@color/cornsilk"
+            android:textSize="40sp" />
 
-        <Button
-            android:id="@+id/save_button"
+        <TableRow
+            android:id="@+id/child_container3"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:background="@android:drawable/btn_default"
-            android:drawableLeft="@drawable/ic_menu_done"
-            android:onClick="saveStats"
-            android:text="@string/save" />
-    </TableRow>
+            android:layout_centerHorizontal="true"
+            android:layout_centerVertical="true"
+            android:orientation="horizontal" >
+
+            <Button
+                android:id="@+id/reset_button"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:background="@android:drawable/btn_default"
+                android:drawableLeft="@drawable/ic_button_reset"
+                android:onClick="resetStats"
+                android:text="@string/reset" />
+
+            <Button
+                android:id="@+id/save_button"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:background="@android:drawable/btn_default"
+                android:drawableLeft="@drawable/ic_menu_done"
+                android:onClick="saveStats"
+                android:text="@string/save" />
+        </TableRow>
+    </RelativeLayout>
 
 </LinearLayout>
