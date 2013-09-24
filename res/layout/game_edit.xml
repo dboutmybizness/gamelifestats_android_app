@@ -243,103 +243,106 @@
                 android:layout_alignLeft="@+id/dis_fgs"
                 android:text="@string/zero"
                 android:textAppearance="?android:attr/textAppearanceSmall" />
-
         </RelativeLayout>
     </ScrollView>
 
-    <TableRow
-        android:id="@+id/tableRow2"
-        android:layout_width="wrap_content"
+    <FrameLayout
+        android:id="@+id/framer1"
+        android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_gravity="center_horizontal"
-        android:layout_marginBottom="15dp"
         android:background="@color/cornsilk"
-        android:paddingBottom="3dp"
-        android:paddingLeft="15dp"
-        android:paddingRight="15dp"
-        android:paddingTop="3dp" >
+        android:padding="3dp" >
 
-        <TextView
-            android:id="@+id/dis_spoints"
+        <TableRow
+            android:id="@+id/tableRow2"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="@string/zero"
-            android:textAppearance="?android:attr/textAppearanceLarge"
-            android:textSize="40sp" />
+            android:layout_gravity="center_horizontal"
+            android:paddingBottom="3dp"
+            android:paddingLeft="15dp"
+            android:paddingRight="15dp" >
 
-        <TextView
-            android:id="@+id/lab_spoints"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_gravity="center_vertical"
-            android:text="@string/pts"
-            android:textAppearance="?android:attr/textAppearanceSmall" />
+            <TextView
+                android:id="@+id/dis_spoints"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@string/zero"
+                android:textAppearance="?android:attr/textAppearanceLarge"
+                android:textSize="40sp" />
 
-        <TextView
-            android:id="@+id/dis_srebounds"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_marginLeft="10dp"
-            android:text="@string/zero"
-            android:textAppearance="?android:attr/textAppearanceLarge"
-            android:textSize="40sp" />
+            <TextView
+                android:id="@+id/lab_spoints"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center_vertical"
+                android:text="@string/pts"
+                android:textAppearance="?android:attr/textAppearanceSmall" />
 
-        <TextView
-            android:id="@+id/lab_srebounds"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_gravity="center_vertical"
-            android:text="@string/rebs"
-            android:textAppearance="?android:attr/textAppearanceSmall" />
+            <TextView
+                android:id="@+id/dis_srebounds"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="10dp"
+                android:text="@string/zero"
+                android:textAppearance="?android:attr/textAppearanceLarge"
+                android:textSize="40sp" />
 
-        <TextView
-            android:id="@+id/dis_sassists"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_marginLeft="10dp"
-            android:text="@string/zero"
-            android:textAppearance="?android:attr/textAppearanceLarge"
-            android:textSize="40sp" />
+            <TextView
+                android:id="@+id/lab_srebounds"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center_vertical"
+                android:text="@string/rebs"
+                android:textAppearance="?android:attr/textAppearanceSmall" />
 
-        <TextView
-            android:id="@+id/lab_sassists"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_gravity="center_vertical"
-            android:text="@string/ast"
-            android:textAppearance="?android:attr/textAppearanceSmall" />
+            <TextView
+                android:id="@+id/dis_sassists"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="10dp"
+                android:text="@string/zero"
+                android:textAppearance="?android:attr/textAppearanceLarge"
+                android:textSize="40sp" />
 
-        <TextView
-            android:id="@+id/dis_ssteals"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_marginLeft="10dp"
-            android:text="@string/zero"
-            android:textAppearance="?android:attr/textAppearanceLarge"
-            android:textSize="40sp" />
+            <TextView
+                android:id="@+id/lab_sassists"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center_vertical"
+                android:text="@string/ast"
+                android:textAppearance="?android:attr/textAppearanceSmall" />
 
-        <TextView
-            android:id="@+id/lab_ssteals"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_gravity="center_vertical"
-            android:text="@string/stl"
-            android:textAppearance="?android:attr/textAppearanceSmall" />
+            <TextView
+                android:id="@+id/dis_ssteals"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="10dp"
+                android:text="@string/zero"
+                android:textAppearance="?android:attr/textAppearanceLarge"
+                android:textSize="40sp" />
 
-        <TextView
-            android:id="@+id/seek_print"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_marginLeft="20dp"
-            android:background="@color/Cornsilk"
-            android:paddingLeft="5dp"
-            android:paddingRight="5dp"
-            android:text="@string/zero"
-            android:textAppearance="?android:attr/textAppearanceLarge"
-            android:textColor="@color/cornsilk"
-            android:textSize="40sp" />
+            <TextView
+                android:id="@+id/lab_ssteals"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center_vertical"
+                android:text="@string/stl"
+                android:textAppearance="?android:attr/textAppearanceSmall" />
 
-    </TableRow>
+            <TextView
+                android:id="@+id/seek_print"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="20dp"
+                android:background="@color/Cornsilk"
+                android:paddingLeft="5dp"
+                android:paddingRight="5dp"
+                android:text="@string/zero"
+                android:textAppearance="?android:attr/textAppearanceLarge"
+                android:textColor="@color/cornsilk"
+                android:textSize="40sp" />
+        </TableRow>
+    </FrameLayout>
 
     <ScrollView
         android:id="@+id/child_container2"
@@ -760,7 +763,6 @@
 
         <Button
             android:id="@+id/save_button"
-            
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:background="@android:drawable/btn_default"

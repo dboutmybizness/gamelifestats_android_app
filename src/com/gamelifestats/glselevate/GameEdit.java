@@ -13,6 +13,7 @@ import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
 import android.view.View.OnClickListener;
+import android.view.View.OnLongClickListener;
 import android.widget.SeekBar;
 import android.widget.SeekBar.OnSeekBarChangeListener;
 import android.widget.TextView;
@@ -89,6 +90,16 @@ public class GameEdit extends Activity {
 				seekPrinter(current_seek);
 				Toast.makeText(getBaseContext(), str+ ": " + current_seek, Toast.LENGTH_SHORT).show();
 				
+			}
+			
+		});
+		
+		tv.setOnLongClickListener(new OnLongClickListener(){
+
+			@Override
+			public boolean onLongClick(View v) {
+				//Toast.makeText(getBaseContext(), "dfs", Toast.LENGTH_SHORT).show();
+				return false;
 			}
 			
 		});
