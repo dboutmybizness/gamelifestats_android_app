@@ -11,6 +11,9 @@ public class MGames extends DBAdapter {
 	static final String TABLE = "games";
 
 	static final String ID = "_id";
+	static final String CREATED_TIME = "created_time";
+	static final String GAME_RESULT = "game_result";
+	static final String GAME_TYPE = "game_type";
 	static final String USERID = "userID";
 	static final String MINUTES = "minutes";
 	static final String POINTS = "points";
@@ -54,12 +57,19 @@ public class MGames extends DBAdapter {
 		FG3A+" text," +
 		
 		FTM+" text," +
-		FTA+" text" +
+		FTA+" text," +
 		
+		GAME_RESULT +" text," +
+		GAME_TYPE +" integer," +
+		CREATED_TIME +" integer" +
 		")";
 	
 	static final String[] getFields = {
-		ID,USERID,MINUTES,POINTS,REBOUNDS,REB_OFF,REB_DEF,ASSISTS,STEALS,BLOCKS,TURNOVERS,FOULS,FG2M,FG2A,FG3M,FG3A,FTM,FTA
+		ID,USERID,MINUTES,POINTS,REBOUNDS,
+		REB_OFF,REB_DEF,ASSISTS,
+		STEALS,BLOCKS,TURNOVERS,FOULS,FG2M,
+		FG2A,FG3M,FG3A,FTM,FTA,
+		GAME_RESULT, GAME_TYPE, CREATED_TIME
 	};
 
 	int gameID = 0;

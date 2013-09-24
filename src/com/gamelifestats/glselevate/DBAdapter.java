@@ -20,7 +20,7 @@ public class DBAdapter {
 
 	static final String TAG = "DBAdapter";
 	static final String DATABASE_NAME = "GLSDB";
-	static final int DATABASE_VERSION = 1;
+	static final int DATABASE_VERSION = 2;
 	
 
 	
@@ -68,8 +68,15 @@ public class DBAdapter {
 		@Override
 		public void onUpgrade(SQLiteDatabase db, int oldVersion, int newVersion){
 			Log.w(TAG, "Upgrading database from version "+ oldVersion + " to " + newVersion + ", which will destroy old data");
-			db.execSQL("DROP TABLE IF EXISTS scout");
-			onCreate(db);
+			if ( oldVersion == 1 ){
+				//need to add fields
+				
+				db.execSQL("ALTER TABLE "+MGames.TABLE+" ADD COLUMN "+MGames.GAME_RESULT+" TEXT");
+				db.execSQL("ALTER TABLE "+MGames.TABLE+" ADD COLUMN "+MGames.GAME_TYPE+" INTEGER");
+				db.execSQL("ALTER TABLE "+MGames.TABLE+" ADD COLUMN "+MGames.CREATED_TIME+" INTEGER");
+				db.execSQL("UPDATE "+MGames.TABLE+" SET "+MGames.GAME_RESULT+"='w', "+MGames.GAME_TYPE+"=0, "+MGames.CREATED_TIME+"=0");
+				
+			}
 		}
 	}
 	
