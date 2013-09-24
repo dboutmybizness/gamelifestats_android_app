@@ -18,7 +18,7 @@ public class GLS_Act_main extends Activity {
 	TextView statline,upload_stats;
 	MCareer career;
 	
-	TextView points,rebounds,assists,games,steals;
+	TextView points,rebounds,assists,games,steals,blocks,turnovers,fouls,minutes;
 	View elevate_link;
 	TextView gls_link;
 	
@@ -52,6 +52,10 @@ public class GLS_Act_main extends Activity {
         rebounds = (TextView) findViewById(R.id.dis_rebounds);
         assists = (TextView) findViewById(R.id.dis_assists);
         steals = (TextView) findViewById(R.id.dis_steals);
+        blocks = (TextView) findViewById(R.id.dis_blocks);
+        turnovers = (TextView) findViewById(R.id.dis_turnovers);
+        fouls = (TextView) findViewById(R.id.dis_fouls);
+        minutes = (TextView) findViewById(R.id.dis_minutes);
         
         career = new MCareer(this);
         
@@ -89,6 +93,10 @@ public class GLS_Act_main extends Activity {
     	rebounds.setText(StatsHelper.float2Str(career.avg_rebounds));
     	assists.setText(StatsHelper.float2Str(career.avg_assists));
     	steals.setText(StatsHelper.float2Str(career.avg_steals));
+    	blocks.setText(StatsHelper.float2Str(career.avg_blocks));
+    	turnovers.setText(StatsHelper.float2Str(career.avg_turnovers));
+    	fouls.setText(StatsHelper.float2Str(career.avg_fouls));
+    	minutes.setText(StatsHelper.float2Str(career.avg_minutes));
     }
 
 

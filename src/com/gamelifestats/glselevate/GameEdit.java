@@ -6,14 +6,17 @@ import android.app.Activity;
 import android.app.AlertDialog;
 import android.content.DialogInterface;
 import android.content.Intent;
+import android.content.res.Resources;
 import android.os.Bundle;
 import android.support.v4.app.NavUtils;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
+import android.view.View.OnClickListener;
 import android.widget.SeekBar;
 import android.widget.SeekBar.OnSeekBarChangeListener;
 import android.widget.TextView;
+import android.widget.Toast;
 
 public class GameEdit extends Activity {
 	
@@ -22,16 +25,22 @@ public class GameEdit extends Activity {
 	SeekBar minutes, assists, steals, blocks, turnovers, fouls;
 	TextView seekPrint;
 	Boolean playbuzzer = false;
-	TextView dmin,dfgma, dfg3ma, dftma, dfgp, dfg3p, dftp;
+	TextView dmin,dfgma, dfg3ma, dftma, dfgp, dfg3p, dftp, dfg2ma;
 	TextView dpts, dasts, dstls, dblks, dtos, dfouls;
 	TextView dreb, dtreb;
 	TextView stline_pts, stline_rebs, stline_asts, stline_stls;
+	
+	TextView lab_fg2made, lab_fg2missed, lab_fg3made, lab_fg3missed, lab_ftmade, lab_ftmissed, lab_oreb, lab_dreb;
+	TextView lab_minutes, lab_assists, lab_steals, lab_blocks, lab_turnovers, lab_fouls;
+	
 	MGames dbGames;
 	
 	private final int THRESHOLD_SMALL = 10;
 	private final int THRESHOLD_MED = 15;
 	private final int THRESHOLD_LARGE = 20;
 	private final int THRESHOLD_XLARGE = 25;
+	
+	Resources res;
 	
 	
 	@Override
@@ -70,7 +79,29 @@ public class GameEdit extends Activity {
 		return tv;
 	}
 	
+	private TextView makeLabelListener(int viewId, final SeekBar sb, final String str){
+		TextView tv = (TextView) findViewById(viewId);
+		tv.setOnClickListener(new OnClickListener(){
+
+			@Override
+			public void onClick(View v) {
+				int current_seek = ckSeekBar(sb);
+				seekPrinter(current_seek);
+				Toast.makeText(getBaseContext(), str+ ": " + current_seek, Toast.LENGTH_SHORT).show();
+				
+			}
+			
+		});
+		return tv;
+	}
+	
+	private int ckSeekBar(SeekBar sb){
+		return sb.getProgress();
+	}
+	
 	public void setUpAllStats(){
+		res = getResources();
+		
 		stline_pts = initTV(R.id.dis_spoints);
 		stline_rebs = initTV(R.id.dis_srebounds);
 		stline_asts = initTV(R.id.dis_sassists);
@@ -79,6 +110,7 @@ public class GameEdit extends Activity {
 		seekPrint = (TextView) findViewById(R.id.seek_print);
 		dmin = (TextView) findViewById(R.id.dis_minutes);
 		dfgma = (TextView) findViewById(R.id.dis_fgs);
+		dfg2ma = (TextView) findViewById(R.id.dis_fg2s);
 		dfg3ma = (TextView) findViewById(R.id.dis_fg3s);
 		dftma = (TextView) findViewById(R.id.dis_fts);
 		dpts = (TextView) findViewById(R.id.dis_points);
@@ -108,6 +140,26 @@ public class GameEdit extends Activity {
 		blocks = setUpSeeks(R.id.ed_blocks, THRESHOLD_SMALL);
 		turnovers = setUpSeeks(R.id.ed_turnovers, THRESHOLD_SMALL);
 		fouls = setUpSeeks(R.id.ed_fouls, 6);
+		
+		
+		lab_fg2made = makeLabelListener(R.id.lab_fg2made, fg2md, res.getString(R.string.pointers_2) + " " +res.getString(R.string.made) );
+		lab_fg2missed = makeLabelListener(R.id.lab_fg2missed, fg2ms, res.getString(R.string.pointers_2) + " " +res.getString(R.string.missed) );
+		
+		lab_fg3made = makeLabelListener(R.id.lab_fg3made, fg3md, res.getString(R.string.pointers_3) + " " +res.getString(R.string.made) );
+		lab_fg3missed = makeLabelListener(R.id.lab_fg3missed, fg3ms, res.getString(R.string.pointers_3) + " " +res.getString(R.string.missed) );
+		
+		lab_ftmade = makeLabelListener(R.id.lab_ftmade, fg1md, res.getString(R.string.free_throws) + " " +res.getString(R.string.made) );
+		lab_ftmissed = makeLabelListener(R.id.lab_ftmissed, fg1ms, res.getString(R.string.free_throws) + " " +res.getString(R.string.missed) );
+		
+		lab_oreb = makeLabelListener(R.id.lab_oreb, rebs_off, res.getString(R.string.rebounds) + " " + res.getString(R.string.offensive));
+		lab_dreb = makeLabelListener(R.id.lab_dreb, rebs_def, res.getString(R.string.rebounds) + " " + res.getString(R.string.defensive));
+		
+		lab_minutes = makeLabelListener(R.id.lab_seek_minutes, minutes, res.getString(R.string.minutes));
+		lab_assists = makeLabelListener(R.id.lab_seek_assists, assists, res.getString(R.string.assists));
+		lab_steals = makeLabelListener(R.id.lab_seek_steals, steals, res.getString(R.string.steals));
+		lab_blocks = makeLabelListener(R.id.lab_seek_blocks, blocks, res.getString(R.string.blocks));
+		lab_turnovers = makeLabelListener(R.id.lab_seek_turnovers, turnovers, res.getString(R.string.turnovers));
+		lab_fouls = makeLabelListener(R.id.lab_seek_fouls, fouls, res.getString(R.string.fouls));
 	}
 	
 	private SeekBar setUpSeeks(int Id, int max){
@@ -119,7 +171,8 @@ public class GameEdit extends Activity {
 			public void onProgressChanged(SeekBar seekBar, int progress,
 					boolean fromUser) {
 				showNum = progress;
-				seekPrint.setText(Integer.toString(showNum));
+				//seekPrint.setText(Integer.toString(showNum));
+				seekPrinter(showNum);
 				
 			}
 
@@ -139,6 +192,10 @@ public class GameEdit extends Activity {
 			
 		});
 		return sb;
+	}
+	
+	private void seekPrinter(int i){
+		seekPrint.setText(String.valueOf(i));
 	}
 	
 	private void refactorStats(){
@@ -171,11 +228,12 @@ public class GameEdit extends Activity {
 
 		dmin.setText(dbGames.s_minutes);
 		dfgma.setText(dbGames.s_fgm + "/" + dbGames.s_fga);
+		dfg2ma.setText(dbGames.s_fg2m + "/" + dbGames.s_fg2a);
 		dfg3ma.setText(dbGames.s_fg3m + "/" + dbGames.s_fg3a);
-		dftma.setText(dbGames.s_ftm + "-" + dbGames.s_fta);
+		dftma.setText(dbGames.s_ftm + "/" + dbGames.s_fta);
 		dpts.setText(dbGames.s_points);
 		dreb.setText(dbGames.s_rebounds);
-		//dtreb.setText(dbGames.s_rebounds);
+		
 		dasts.setText(dbGames.s_assists);
 		dstls.setText(dbGames.s_steals);
 		dblks.setText(dbGames.s_blocks);

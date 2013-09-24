@@ -82,6 +82,7 @@
     <string name="fouls">Fouls</string>
     <string name="minutes">Minutes</string>
     <string name="fgs">FGs</string>
+    <string name="fg2s">2FGs</string>
     <string name="fg3s">3Gs</string>
     <string name="fts">FTs</string>
     <string name="pointers_2">2-Pointers</string>

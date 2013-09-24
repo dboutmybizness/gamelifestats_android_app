@@ -14,8 +14,9 @@
 
         <RelativeLayout
             android:id="@+id/child_container1"
-            android:layout_width="match_parent"
+            android:layout_width="wrap_content"
             android:layout_height="wrap_content"
+            android:layout_gravity="center_horizontal"
             android:padding="12dp" >
 
             <TextView
@@ -62,7 +63,7 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_alignBaseline="@+id/lab_points"
-                android:layout_marginLeft="60dp"
+                android:layout_marginLeft="45dp"
                 android:layout_toRightOf="@+id/lab_rebounds"
                 android:text="@string/blocks"
                 android:textAppearance="?android:attr/textAppearanceSmall" />
@@ -99,7 +100,7 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_alignBaseline="@+id/lab_points"
-                android:layout_marginLeft="60dp"
+                android:layout_marginLeft="45dp"
                 android:layout_toRightOf="@+id/lab_turnovers"
                 android:text="@string/fgs"
                 android:textAppearance="?android:attr/textAppearanceSmall" />
@@ -117,7 +118,7 @@
                 android:id="@+id/lab_fg3ma"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_alignBaseline="@+id/lab_assists"
+                android:layout_alignBaseline="@+id/lab_steals"
                 android:layout_alignLeft="@+id/lab_fgs"
                 android:text="@string/fts"
                 android:textAppearance="?android:attr/textAppearanceSmall" />
@@ -127,7 +128,7 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_alignBaseline="@+id/lab_points"
-                android:layout_marginLeft="15dp"
+                android:layout_marginLeft="10dp"
                 android:layout_toRightOf="@+id/lab_rebounds"
                 android:text="@string/zero"
                 android:textAppearance="?android:attr/textAppearanceSmall" />
@@ -165,7 +166,7 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_alignBaseline="@+id/lab_points"
-                android:layout_marginLeft="15dp"
+                android:layout_marginLeft="10dp"
                 android:layout_toRightOf="@+id/lab_turnovers"
                 android:text="@string/zero"
                 android:textAppearance="?android:attr/textAppearanceSmall" />
@@ -202,7 +203,7 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_alignBaseline="@+id/lab_points"
-                android:layout_marginLeft="15dp"
+                android:layout_marginLeft="10dp"
                 android:layout_toRightOf="@+id/lab_fgs"
                 android:text="@string/zero"
                 android:textAppearance="?android:attr/textAppearanceSmall" />
@@ -220,10 +221,29 @@
                 android:id="@+id/dis_fts"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
+                android:layout_alignBaseline="@+id/lab_steals"
+                android:layout_alignLeft="@+id/dis_fgs"
+                android:text="@string/zero"
+                android:textAppearance="?android:attr/textAppearanceSmall" />
+
+            <TextView
+                android:id="@+id/lab_fg2ma"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_alignBaseline="@+id/lab_assists"
+                android:layout_alignLeft="@+id/lab_fgs"
+                android:text="@string/fg2s"
+                android:textAppearance="?android:attr/textAppearanceSmall" />
+
+            <TextView
+                android:id="@+id/dis_fg2s"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
                 android:layout_alignBaseline="@+id/lab_assists"
                 android:layout_alignLeft="@+id/dis_fgs"
                 android:text="@string/zero"
                 android:textAppearance="?android:attr/textAppearanceSmall" />
+
         </RelativeLayout>
     </ScrollView>
 
