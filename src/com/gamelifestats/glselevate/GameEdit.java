@@ -217,7 +217,6 @@ public class GameEdit extends Activity {
 	private String retRadioValue(){
 		int idOfRadio = winloss.getCheckedRadioButtonId();
 		RadioButton rb = (RadioButton) findViewById(idOfRadio);
-		Toast.makeText(this, rb.getText().toString(), Toast.LENGTH_SHORT).show();
 		return rb.getText().toString();
 	}
 	
