@@ -1,5 +1,9 @@
 package com.gamelifestats.glselevate;
 
+import java.sql.Date;
+import java.text.DateFormat;
+import java.text.SimpleDateFormat;
+
 public abstract class StatsHelper {
 	StatsHelper(){
 		
@@ -28,6 +32,16 @@ public abstract class StatsHelper {
 	public static String float2Str(float f){
 		//return String.valueOf(f);
 		return roundToOneDigit(f).trim();
+	}
+	
+	public static long getNowTime(){
+		return System.currentTimeMillis() / 1000L;
+	}
+	
+	public static String dateFromTime(String time){
+		Date dt = new Date(Long.parseLong(time) * 1000);
+		DateFormat df = new SimpleDateFormat("MMM dd, yyyy");
+		return df.format(dt);
 	}
 	
 }

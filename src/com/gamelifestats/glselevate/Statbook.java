@@ -287,7 +287,7 @@ public class Statbook extends FragmentActivity implements ActionBar.TabListener 
 		Button next,prev,first,last;
 		Boolean has_games = false;
 		ProgressBar game_progress;
-		TextView game_count;
+		TextView game_count, game_date;
 		
 		
 		@Override
@@ -316,6 +316,7 @@ public class Statbook extends FragmentActivity implements ActionBar.TabListener 
 		
 		public void setUpGames(){
 			game_count = (TextView) rootView.findViewById(R.id.game_count);
+			game_date = (TextView) rootView.findViewById(R.id.game_date);
 			
 			points = (TextView) rootView.findViewById(R.id.dis_points);
 			rebounds = (TextView) rootView.findViewById(R.id.dis_rebounds);
@@ -392,6 +393,9 @@ public class Statbook extends FragmentActivity implements ActionBar.TabListener 
 						fouls.setText(c.getString(11));
 						
 						game_count.setText((AtRegister+1) + " of " + TOTAL_GAMES );
+						
+						String date = StatsHelper.dateFromTime(c.getString(20));
+						game_date.setText(date);
 						
 					}
 				} catch (SQLException e) {

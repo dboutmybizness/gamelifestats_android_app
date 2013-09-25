@@ -66,12 +66,17 @@ public class MGames extends DBAdapter {
 	
 	static final String[] getFields = {
 		ID,USERID,MINUTES,POINTS,REBOUNDS,
-		REB_OFF,REB_DEF,ASSISTS,
-		STEALS,BLOCKS,TURNOVERS,FOULS,FG2M,
-		FG2A,FG3M,FG3A,FTM,FTA,
-		GAME_RESULT, GAME_TYPE, CREATED_TIME
+		REB_OFF,REB_DEF,ASSISTS,STEALS,BLOCKS,
+		TURNOVERS,FOULS,FG2M, FG2A,FG3M,
+		FG3A,FTM,FTA,GAME_RESULT, GAME_TYPE,
+		CREATED_TIME
 	};
-
+	
+	long created_time = 0;
+	int game_type = 0;
+	String game_result;
+	
+	
 	int gameID = 0;
 	int userID = 0;
 	int minutes = 0;
@@ -136,6 +141,8 @@ public class MGames extends DBAdapter {
 	}
 	
 	public void insertStats() throws SQLException{
+		created_time = StatsHelper.getNowTime();
+		
 		HashMap<String, String> m = new HashMap<String,String>();
 
 		m.put(USERID, "1");
@@ -148,6 +155,9 @@ public class MGames extends DBAdapter {
 		m.put(BLOCKS, s_blocks);
 		m.put(TURNOVERS, s_turnovers);
 		m.put(FOULS, s_fouls);
+		
+		m.put(GAME_TYPE, String.valueOf(game_type));
+		m.put(CREATED_TIME, String.valueOf(created_time));
 		super.create(m);
 
 		//get all games
