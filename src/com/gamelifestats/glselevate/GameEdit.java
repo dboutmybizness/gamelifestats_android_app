@@ -224,7 +224,7 @@ public class GameEdit extends Activity {
 	private void refactorStats(){
 		
 		
-		dbGames.game_result = (retRadioValue().equals("Win")) ? "w" : "l";
+		dbGames.game_result = (retRadioValue().equals("Win")) ? 1 : 0;
 		
 		dbGames.minutes = minutes.getProgress();
 		
