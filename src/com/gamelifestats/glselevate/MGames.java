@@ -140,6 +140,17 @@ public class MGames extends DBAdapter {
 		super.setGetFields(MGames.getFields);
 	}
 	
+	public String printWinLoss(String str){
+		String result = "";
+		String try_res = (!str.equals(""))?  str : this.game_result;
+		if ( try_res.equals("w")){
+			result = "win";
+		} else if ( try_res.equals("l")){
+			result = "loss";
+		}
+		return result;
+	}
+	
 	public void insertStats() throws SQLException{
 		created_time = StatsHelper.getNowTime();
 		
@@ -157,6 +168,7 @@ public class MGames extends DBAdapter {
 		m.put(FOULS, s_fouls);
 		
 		m.put(GAME_TYPE, String.valueOf(game_type));
+		m.put(GAME_RESULT, game_result);
 		m.put(CREATED_TIME, String.valueOf(created_time));
 		super.create(m);
 

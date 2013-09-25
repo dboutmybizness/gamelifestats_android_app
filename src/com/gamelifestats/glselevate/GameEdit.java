@@ -14,6 +14,8 @@ import android.view.MenuItem;
 import android.view.View;
 import android.view.View.OnClickListener;
 import android.view.View.OnLongClickListener;
+import android.widget.RadioButton;
+import android.widget.RadioGroup;
 import android.widget.SeekBar;
 import android.widget.SeekBar.OnSeekBarChangeListener;
 import android.widget.TextView;
@@ -33,6 +35,7 @@ public class GameEdit extends Activity {
 	
 	TextView lab_fg2made, lab_fg2missed, lab_fg3made, lab_fg3missed, lab_ftmade, lab_ftmissed, lab_oreb, lab_dreb;
 	TextView lab_minutes, lab_assists, lab_steals, lab_blocks, lab_turnovers, lab_fouls;
+	RadioGroup winloss;
 	
 	MGames dbGames;
 	
@@ -112,6 +115,8 @@ public class GameEdit extends Activity {
 	
 	public void setUpAllStats(){
 		res = getResources();
+		
+		winloss = (RadioGroup) findViewById(R.id.winlosegroup);
 		
 		stline_pts = initTV(R.id.dis_spoints);
 		stline_rebs = initTV(R.id.dis_srebounds);
@@ -209,7 +214,17 @@ public class GameEdit extends Activity {
 		seekPrint.setText(String.valueOf(i));
 	}
 	
+	private String retRadioValue(){
+		int idOfRadio = winloss.getCheckedRadioButtonId();
+		RadioButton rb = (RadioButton) findViewById(idOfRadio);
+		Toast.makeText(this, rb.getText().toString(), Toast.LENGTH_SHORT).show();
+		return rb.getText().toString();
+	}
+	
 	private void refactorStats(){
+		
+		
+		dbGames.game_result = (retRadioValue().equals("Win")) ? "w" : "l";
 		
 		dbGames.minutes = minutes.getProgress();
 		
@@ -360,6 +375,10 @@ public class GameEdit extends Activity {
 	
 	private void commitSave() throws SQLException{
 		dbGames.insertStats();
+	}
+	
+	public void openTips(View v){
+		//startActivity(new Intent(this, GameMeta.class));
 	}
 
 }

@@ -1,6 +1,10 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
 
+    <string name="win">Win</string>
+    <string name="loss">Loss</string>
+    <string name="tips">Tips</string>
+    <string name="meta">Meta</string>
     <string name="scout">Scout</string>
     <string name="stats">Stats</string>
     <string name="first">first</string>
@@ -8,9 +12,7 @@
     <string name="next">next</string>
     <string name="last">last</string>
     <string name="by_gls">by: GameLifeStats.com</string>
-    
     <string name="gls_site">http://www.gamelifestats.com</string>
-    
     <string name="app_name">GLSElevate</string>
     <string name="brand_name">Elevate Your Game</string>
     <string name="action_settings">Settings</string>
@@ -53,10 +55,10 @@
     <string-array name="playball_list">
         <item>upload game stats</item>
     </string-array>
-    
+
     <string name="upload_gamestats">upload a game</string>
     <string name="home_court">Home Court</string>
-	<string name="gms">GMS</string>
+    <string name="gms">GMS</string>
     <string name="pts">PTS</string>
     <string name="rebs">REB</string>
     <string name="oreb">OREB</string>
@@ -113,5 +115,6 @@
     <string name="shooting">shooting</string>
     <string name="reset">Reset</string>
     <string name="gls_com">more @ GameLifeStats.com</string>
+    <string name="title_activity_game_meta">GameMeta</string>
 
 </resources>

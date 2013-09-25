@@ -74,7 +74,7 @@ public class DBAdapter {
 				db.execSQL("ALTER TABLE "+MGames.TABLE+" ADD COLUMN "+MGames.GAME_RESULT+" TEXT");
 				db.execSQL("ALTER TABLE "+MGames.TABLE+" ADD COLUMN "+MGames.GAME_TYPE+" INTEGER");
 				db.execSQL("ALTER TABLE "+MGames.TABLE+" ADD COLUMN "+MGames.CREATED_TIME+" INTEGER");
-				db.execSQL("UPDATE "+MGames.TABLE+" SET "+MGames.GAME_RESULT+"='w', "+MGames.GAME_TYPE+"=0, "+MGames.CREATED_TIME+"=0");
+				db.execSQL("UPDATE "+MGames.TABLE+" SET "+MGames.GAME_RESULT+"=\"w\", "+MGames.GAME_TYPE+"=0, "+MGames.CREATED_TIME+"=0");
 				
 			}
 		}
