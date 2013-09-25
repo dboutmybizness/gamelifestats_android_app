@@ -71,13 +71,9 @@ public class DBAdapter {
 			if ( oldVersion == 1 ){
 				//need to add fields
 				
-				db.execSQL("ALTER TABLE "+MGames.TABLE+" ADD COLUMN "+MGames.GAME_RESULT+" TEXT");
+				db.execSQL("ALTER TABLE "+MGames.TABLE+" ADD COLUMN "+MGames.GAME_RESULT+" INTEGER");
 				db.execSQL("ALTER TABLE "+MGames.TABLE+" ADD COLUMN "+MGames.GAME_TYPE+" INTEGER");
 				db.execSQL("ALTER TABLE "+MGames.TABLE+" ADD COLUMN "+MGames.CREATED_TIME+" INTEGER");
-				
-				ContentValues args  = new ContentValues();
-				args.put(MGames.GAME_RESULT, "w");
-				db.update(MGames.TABLE, args, "", null);
 				
 			}
 		}

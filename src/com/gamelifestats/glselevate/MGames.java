@@ -34,6 +34,7 @@ public class MGames extends DBAdapter {
 	static final String FTP = "ftp";
 	static final String REB_OFF = "reb_off";
 	static final String REB_DEF = "reb_def";
+	static final String[] wOrl= { "Loss", "Win" };
 	
 	static final String CREATE_TABLE = 
 		"create table "+TABLE+" (" +
@@ -74,7 +75,7 @@ public class MGames extends DBAdapter {
 	
 	long created_time = 0;
 	int game_type = 0;
-	String game_result = "";
+	int game_result = 0;
 	
 	
 	int gameID = 0;
@@ -140,17 +141,6 @@ public class MGames extends DBAdapter {
 		super.setGetFields(MGames.getFields);
 	}
 	
-	public String printWinLoss(String str){
-		String result = "";
-		String try_res = (!str.equals(""))?  str : this.game_result;
-		if ( try_res.equals("w")){
-			result = "win";
-		} else if ( try_res.equals("l")){
-			result = "loss";
-		}
-		return result;
-	}
-	
 	public void insertStats() throws SQLException{
 		created_time = StatsHelper.getNowTime();
 		
@@ -168,7 +158,7 @@ public class MGames extends DBAdapter {
 		m.put(FOULS, s_fouls);
 		
 		m.put(GAME_TYPE, String.valueOf(game_type));
-		m.put(GAME_RESULT, game_result);
+		m.put(GAME_RESULT, String.valueOf(game_result));
 		m.put(CREATED_TIME, String.valueOf(created_time));
 		super.create(m);
 
