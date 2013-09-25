@@ -83,7 +83,7 @@ public class GameEdit extends Activity {
 		return tv;
 	}
 	
-	private TextView makeLabelListener(int viewId, final SeekBar sb, final String str){
+	private TextView makeLabelListener(int viewId, final SeekBar sb, final String str, boolean canIncrease){
 		TextView tv = (TextView) findViewById(viewId);
 		tv.setOnClickListener(new OnClickListener(){
 
@@ -96,17 +96,47 @@ public class GameEdit extends Activity {
 			}
 			
 		});
-		
-		tv.setOnLongClickListener(new OnLongClickListener(){
-
-			@Override
-			public boolean onLongClick(View v) {
-				//Toast.makeText(getBaseContext(), "dfs", Toast.LENGTH_SHORT).show();
-				return false;
-			}
-			
-		});
+		if ( canIncrease){
+			tv.setOnLongClickListener(new OnLongClickListener(){
+	
+				@Override
+				public boolean onLongClick(View v) {
+					increaseThreshold(sb, str);
+					return false;
+				}
+				
+			});
+		}
 		return tv;
+	}
+	
+	private void increaseThreshold(final SeekBar sb, String str){
+		AlertDialog.Builder alertDialogBuilder = new AlertDialog.Builder(this);
+		alertDialogBuilder
+			.setMessage("Increase "+str)
+			//.setCancelable(false)
+			.setNeutralButton("+5", new DialogInterface.OnClickListener() {
+				@Override
+				public void onClick(DialogInterface dialog, int which) {
+					sb.setMax(sb.getMax() + 5);
+				}
+			})
+			.setPositiveButton("+10", new DialogInterface.OnClickListener() {
+				
+				@Override
+				public void onClick(DialogInterface dialog, int which) {
+					sb.setMax(sb.getMax() + 10);
+				}
+			})
+			.setNegativeButton("Cancel", new DialogInterface.OnClickListener() {
+				
+				@Override
+				public void onClick(DialogInterface dialog, int which) {
+					dialog.cancel();
+				}
+			});
+		AlertDialog alertDialog = alertDialogBuilder.create();
+		alertDialog.show();
 	}
 	
 	private int ckSeekBar(SeekBar sb){
@@ -158,24 +188,24 @@ public class GameEdit extends Activity {
 		fouls = setUpSeeks(R.id.ed_fouls, 6);
 		
 		
-		lab_fg2made = makeLabelListener(R.id.lab_fg2made, fg2md, res.getString(R.string.pointers_2) + " " +res.getString(R.string.made) );
-		lab_fg2missed = makeLabelListener(R.id.lab_fg2missed, fg2ms, res.getString(R.string.pointers_2) + " " +res.getString(R.string.missed) );
+		lab_fg2made = makeLabelListener(R.id.lab_fg2made, fg2md, res.getString(R.string.pointers_2) + " " +res.getString(R.string.made) , true);
+		lab_fg2missed = makeLabelListener(R.id.lab_fg2missed, fg2ms, res.getString(R.string.pointers_2) + " " +res.getString(R.string.missed) , true);
 		
-		lab_fg3made = makeLabelListener(R.id.lab_fg3made, fg3md, res.getString(R.string.pointers_3) + " " +res.getString(R.string.made) );
-		lab_fg3missed = makeLabelListener(R.id.lab_fg3missed, fg3ms, res.getString(R.string.pointers_3) + " " +res.getString(R.string.missed) );
+		lab_fg3made = makeLabelListener(R.id.lab_fg3made, fg3md, res.getString(R.string.pointers_3) + " " +res.getString(R.string.made) , true);
+		lab_fg3missed = makeLabelListener(R.id.lab_fg3missed, fg3ms, res.getString(R.string.pointers_3) + " " +res.getString(R.string.missed) ,true);
 		
-		lab_ftmade = makeLabelListener(R.id.lab_ftmade, fg1md, res.getString(R.string.free_throws) + " " +res.getString(R.string.made) );
-		lab_ftmissed = makeLabelListener(R.id.lab_ftmissed, fg1ms, res.getString(R.string.free_throws) + " " +res.getString(R.string.missed) );
+		lab_ftmade = makeLabelListener(R.id.lab_ftmade, fg1md, res.getString(R.string.free_throws) + " " +res.getString(R.string.made) ,true);
+		lab_ftmissed = makeLabelListener(R.id.lab_ftmissed, fg1ms, res.getString(R.string.free_throws) + " " +res.getString(R.string.missed) ,true);
 		
-		lab_oreb = makeLabelListener(R.id.lab_oreb, rebs_off, res.getString(R.string.rebounds) + " " + res.getString(R.string.offensive));
-		lab_dreb = makeLabelListener(R.id.lab_dreb, rebs_def, res.getString(R.string.rebounds) + " " + res.getString(R.string.defensive));
+		lab_oreb = makeLabelListener(R.id.lab_oreb, rebs_off, res.getString(R.string.rebounds) + " " + res.getString(R.string.offensive), true);
+		lab_dreb = makeLabelListener(R.id.lab_dreb, rebs_def, res.getString(R.string.rebounds) + " " + res.getString(R.string.defensive), true);
 		
-		lab_minutes = makeLabelListener(R.id.lab_seek_minutes, minutes, res.getString(R.string.minutes));
-		lab_assists = makeLabelListener(R.id.lab_seek_assists, assists, res.getString(R.string.assists));
-		lab_steals = makeLabelListener(R.id.lab_seek_steals, steals, res.getString(R.string.steals));
-		lab_blocks = makeLabelListener(R.id.lab_seek_blocks, blocks, res.getString(R.string.blocks));
-		lab_turnovers = makeLabelListener(R.id.lab_seek_turnovers, turnovers, res.getString(R.string.turnovers));
-		lab_fouls = makeLabelListener(R.id.lab_seek_fouls, fouls, res.getString(R.string.fouls));
+		lab_minutes = makeLabelListener(R.id.lab_seek_minutes, minutes, res.getString(R.string.minutes), false);
+		lab_assists = makeLabelListener(R.id.lab_seek_assists, assists, res.getString(R.string.assists), true);
+		lab_steals = makeLabelListener(R.id.lab_seek_steals, steals, res.getString(R.string.steals), true);
+		lab_blocks = makeLabelListener(R.id.lab_seek_blocks, blocks, res.getString(R.string.blocks), true);
+		lab_turnovers = makeLabelListener(R.id.lab_seek_turnovers, turnovers, res.getString(R.string.turnovers), true);
+		lab_fouls = makeLabelListener(R.id.lab_seek_fouls, fouls, res.getString(R.string.fouls) ,false);
 	}
 	
 	private SeekBar setUpSeeks(int Id, int max){

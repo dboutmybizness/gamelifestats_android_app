@@ -395,7 +395,7 @@ public class Statbook extends FragmentActivity implements ActionBar.TabListener 
 						
 						String date = StatsHelper.dateFromTime(c.getString(20));
 						dbGames.game_result = c.getInt(18);
-						String winloss = String.valueOf(dbGames.wOrl[dbGames.game_result]);
+						String winloss = String.valueOf(MGames.wOrl[dbGames.game_result]);
 						game_date.setText(date + " ("+winloss+")");
 						
 					}

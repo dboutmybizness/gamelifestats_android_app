@@ -349,14 +349,16 @@
                 android:id="@+id/winlosegroup"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_alignParentLeft="true"
                 android:layout_alignParentTop="true"
-                android:layout_marginBottom="15dp" >
+                android:layout_centerInParent="true"
+                android:layout_marginBottom="15dp"
+                android:orientation="horizontal" >
 
                 <RadioButton
                     android:id="@+id/radio_win"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
+                    android:layout_marginRight="10dp"
                     android:checked="true"
                     android:text="@string/win" />
 
@@ -371,7 +373,7 @@
                 android:id="@+id/head_fg2"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_alignLeft="@+id/winlosegroup"
+                android:layout_alignParentLeft="true"
                 android:layout_below="@+id/winlosegroup"
                 android:layout_marginBottom="15dp"
                 android:text="@string/pointers_2"
@@ -782,15 +784,6 @@
             android:layout_centerHorizontal="true"
             android:layout_centerVertical="true"
             android:orientation="horizontal" >
-
-            <Button
-                android:id="@+id/tips_button"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:background="@android:drawable/btn_default"
-                android:drawableLeft="@drawable/button_game_meta"
-                android:onClick="openTips"
-                android:text="@string/empty" />
 
             <Button
                 android:id="@+id/reset_button"
