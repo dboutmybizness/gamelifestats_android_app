@@ -74,7 +74,7 @@ public class MGames extends DBAdapter {
 	
 	long created_time = 0;
 	int game_type = 0;
-	String game_result;
+	String game_result = "";
 	
 	
 	int gameID = 0;

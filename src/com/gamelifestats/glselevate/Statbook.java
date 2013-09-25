@@ -395,6 +395,8 @@ public class Statbook extends FragmentActivity implements ActionBar.TabListener 
 						game_count.setText((AtRegister+1) + " of " + TOTAL_GAMES );
 						
 						String date = StatsHelper.dateFromTime(c.getString(20));
+						dbGames.game_result = c.getString(18);
+						Toast.makeText(base, dbGames.game_result, Toast.LENGTH_SHORT).show();
 						String winloss = dbGames.printWinLoss(c.getString(18));
 						game_date.setText(date + " ("+winloss+")");
 						
