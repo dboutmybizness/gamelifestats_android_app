@@ -41,7 +41,9 @@ public class MCareer extends DBAdapter {
 		")";	
 
 	static final String[] getFields = {
-        	ID,USERID,TGAMES,TMINUTES,TPOINTS,TREBOUNDS,TREBS_OFF,TREBS_DEF,TASSISTS,TSTEALS,TBLOCKS,TTURNOVERS,TFOULS
+        	ID,USERID,TGAMES,TMINUTES,TPOINTS,
+        	TREBOUNDS,TREBS_OFF,TREBS_DEF,TASSISTS,TSTEALS,
+        	TBLOCKS,TTURNOVERS,TFOULS
 	};
 	
 	int tot_games = 0;
@@ -147,6 +149,7 @@ public class MCareer extends DBAdapter {
 				avg_points = gAvg(tot_points);
 				avg_rebounds = gAvg(tot_rebounds);
 				avg_reb_off = gAvg(tot_reb_off);
+				avg_reb_def = gAvg(tot_reb_def);
 				avg_assists = gAvg(tot_assists);
 				avg_steals = gAvg(tot_steals);
 				avg_blocks = gAvg(tot_blocks);

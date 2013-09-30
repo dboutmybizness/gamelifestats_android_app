@@ -182,7 +182,7 @@ public class Statbook extends FragmentActivity implements ActionBar.TabListener 
 			Locale l = Locale.getDefault();
 			switch (position) {
 			case 0:
-				return getString(R.string.avg_totals);
+				return getString(R.string.career);
 			case 1:
 				return getString(R.string.game_by_game);
 			case 2:
@@ -196,7 +196,7 @@ public class Statbook extends FragmentActivity implements ActionBar.TabListener 
 		Context getParentContext;
 		MCareer career;
 		View rootView;
-		TextView tot_games,tot_minutes,tot_points,tot_rebounds,tot_reb_off,tot_assists,tot_steals,tot_blocks,tot_turnovers,tot_fouls;
+		TextView tot_games,tot_minutes,tot_points,tot_rebounds,tot_reb_off,tot_reb_def,tot_assists,tot_steals,tot_blocks,tot_turnovers,tot_fouls;
 		TextView avg_games,avg_minutes,avg_points,avg_rebounds,avg_reb_off,avg_assists,avg_steals,avg_blocks,avg_turnovers,avg_fouls;
 		
 		@Override
@@ -204,34 +204,36 @@ public class Statbook extends FragmentActivity implements ActionBar.TabListener 
 			rootView = inflater.inflate(R.layout.avg_totals, container, false);
 			getParentContext = rootView.getContext();
 			
-			tot_games = (TextView) rootView.findViewById(R.id.tot_games);
-			tot_minutes = (TextView) rootView.findViewById(R.id.tot_minutes);
-			tot_points = (TextView) rootView.findViewById(R.id.tot_points);
-			tot_rebounds = (TextView) rootView.findViewById(R.id.tot_rebounds);
-			tot_reb_off = (TextView) rootView.findViewById(R.id.tot_reb_off);
-			//tot_reb_def = (TextView) rootView.findViewById(R.id.tot_reb_def);
-			tot_assists = (TextView) rootView.findViewById(R.id.tot_assists);
-			tot_steals = (TextView) rootView.findViewById(R.id.tot_steals);
-			tot_blocks = (TextView) rootView.findViewById(R.id.tot_blocks);
-			tot_turnovers = (TextView) rootView.findViewById(R.id.tot_turnovers);
-			tot_fouls = (TextView) rootView.findViewById(R.id.tot_fouls);
+			tot_games = setUpStat(R.id.tot_games);
+			tot_minutes = setUpStat(R.id.tot_minutes);
+			tot_points = setUpStat(R.id.tot_points);
+			tot_rebounds = setUpStat(R.id.tot_rebounds);
+			tot_reb_off = setUpStat(R.id.tot_reb_off);
+			tot_reb_def = setUpStat(R.id.tot_reb_def);
+			tot_assists = setUpStat(R.id.tot_assists);
+			tot_steals = setUpStat(R.id.tot_steals);
+			tot_blocks = setUpStat(R.id.tot_blocks);
+			tot_turnovers = setUpStat(R.id.tot_turnovers);
+			tot_fouls = setUpStat(R.id.tot_fouls);
 			
-			avg_games = (TextView) rootView.findViewById(R.id.avg_games);
-			avg_minutes = (TextView) rootView.findViewById(R.id.avg_minutes);
-			avg_points = (TextView) rootView.findViewById(R.id.avg_points);
-			avg_rebounds = (TextView) rootView.findViewById(R.id.avg_rebounds);
-			avg_reb_off = (TextView) rootView.findViewById(R.id.avg_reb_off);
-			//avg_reb_def = (TextView) rootView.findViewById(R.id.avg_reb_def);
-			avg_assists = (TextView) rootView.findViewById(R.id.avg_assists);
-			avg_steals = (TextView) rootView.findViewById(R.id.avg_steals);
-			avg_blocks = (TextView) rootView.findViewById(R.id.avg_blocks);
-			avg_turnovers = (TextView) rootView.findViewById(R.id.avg_turnovers);
-			avg_fouls = (TextView) rootView.findViewById(R.id.avg_fouls);
-			
-			
-			
+			avg_games = setUpStat(R.id.avg_games);
+			avg_minutes = setUpStat(R.id.avg_minutes);
+			avg_points = setUpStat(R.id.avg_points);
+			avg_rebounds = setUpStat(R.id.avg_rebounds);
+			avg_reb_off = setUpStat(R.id.avg_reb_off);
+			//avg_reb_def = setUpStat(R.id.avg_reb_def);
+			avg_assists = setUpStat(R.id.avg_assists);
+			avg_steals = setUpStat(R.id.avg_steals);
+			avg_blocks = setUpStat(R.id.avg_blocks);
+			avg_turnovers = setUpStat(R.id.avg_turnovers);
+			avg_fouls = setUpStat(R.id.avg_fouls);
 			
 			return rootView;
+		}
+		
+		public TextView setUpStat(int i){
+			TextView tv = (TextView) rootView.findViewById(i);
+			return tv;
 		}
 		
 		@Override
@@ -252,6 +254,7 @@ public class Statbook extends FragmentActivity implements ActionBar.TabListener 
 				tot_points.setText(StatsHelper.int2Str(career.tot_points));
 				tot_rebounds.setText(StatsHelper.int2Str(career.tot_rebounds));
 				tot_reb_off.setText(StatsHelper.int2Str(career.tot_reb_off));
+				tot_reb_def.setText(StatsHelper.int2Str(career.tot_reb_def));
 				tot_assists.setText(StatsHelper.int2Str(career.tot_assists));
 				tot_steals.setText(StatsHelper.int2Str(career.tot_steals));
 				tot_blocks.setText(StatsHelper.int2Str(career.tot_blocks));

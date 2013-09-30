@@ -41,7 +41,7 @@
             android:background="@color/Orange"
             android:paddingLeft="10dp"
             android:paddingRight="10dp"
-            android:text="@string/statline"
+            android:text="@string/game_stats_low"
             android:textAppearance="?android:attr/textAppearanceSmall"
             android:textSize="14sp" />
     </TableRow>

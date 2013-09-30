@@ -111,6 +111,7 @@ public class MGames extends DBAdapter {
 	String s_points;
 	String s_rebounds;
 	String s_reb_off;
+	String s_reb_def;
 	String s_assists;
 	String s_steals;
 	String s_blocks;
@@ -151,6 +152,7 @@ public class MGames extends DBAdapter {
 		m.put(POINTS, s_points);
 		m.put(REBOUNDS, s_rebounds);
 		m.put(REB_OFF, s_reb_off);
+		m.put(REB_DEF, s_reb_def);
 		m.put(ASSISTS, s_assists);
 		m.put(STEALS, s_steals);
 		m.put(BLOCKS, s_blocks);
@@ -229,6 +231,8 @@ public class MGames extends DBAdapter {
 		s_points = 		mString(points);
 		s_rebounds = 	mString(rebounds);
 		s_reb_off = 	mString(reb_off);
+		s_reb_def = 	mString(reb_def);
+		
 		s_assists = 	mString(assists);
 		s_steals =		mString(steals);
 		s_blocks =		mString(blocks);
