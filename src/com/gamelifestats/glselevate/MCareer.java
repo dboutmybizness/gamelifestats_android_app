@@ -40,7 +40,7 @@ public class MCareer extends DBAdapter {
 		TBLOCKS+" integer," +
 		TTURNOVERS+" integer,"+
 		TFOULS+" integer," +
-		TFG2M+" integer," +
+		TFG2M+" integer" +
 		")";	
 
 	static final String[] getFields = {

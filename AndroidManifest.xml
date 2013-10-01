@@ -34,7 +34,7 @@
             android:name="com.gamelifestats.glselevate.GameEdit"
             android:label="@string/brand_name"
             android:parentActivityName="com.gamelifestats.glselevate.PlayBall_List"
-            android:screenOrientation="portrait">
+            android:screenOrientation="portrait" >
             <meta-data
                 android:name="android.support.PARENT_ACTIVITY"
                 android:value="com.gamelifestats.glselevate.GLS_Act_PlayBall_List" />
@@ -67,6 +67,14 @@
             android:name="com.gamelifestats.glselevate.GameMeta"
             android:label="@string/title_activity_game_meta"
             android:theme="@android:style/Theme.Dialog" >
+        </activity>
+        <activity
+            android:name="com.gamelifestats.glselevate.GameManager"
+            android:label="@string/title_activity_game_manager"
+            android:parentActivityName="com.gamelifestats.glselevate.Statbook" >
+            <meta-data
+                android:name="android.support.PARENT_ACTIVITY"
+                android:value="com.gamelifestats.glselevate.Statbook" />
         </activity>
     </application>
 
