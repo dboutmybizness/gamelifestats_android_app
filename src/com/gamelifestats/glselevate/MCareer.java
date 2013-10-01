@@ -22,6 +22,8 @@ public class MCareer extends DBAdapter {
 	static final String TBLOCKS =	"tblocks";
 	static final String TTURNOVERS=	"tturnovers";
 	static final String TFOULS =	"tfouls";
+	
+	static final String TFG2M = "tfg2m";
 
 	static final String CREATE_TABLE =
 		"create table "+TABLE+" (" +
@@ -37,13 +39,14 @@ public class MCareer extends DBAdapter {
 		TSTEALS+" integer," +
 		TBLOCKS+" integer," +
 		TTURNOVERS+" integer,"+
-		TFOULS+" integer" +
+		TFOULS+" integer," +
+		TFG2M+" integer," +
 		")";	
 
 	static final String[] getFields = {
         	ID,USERID,TGAMES,TMINUTES,TPOINTS,
         	TREBOUNDS,TREBS_OFF,TREBS_DEF,TASSISTS,TSTEALS,
-        	TBLOCKS,TTURNOVERS,TFOULS
+        	TBLOCKS,TTURNOVERS,TFOULS,TFG2M
 	};
 	
 	int tot_games = 0;
@@ -57,6 +60,8 @@ public class MCareer extends DBAdapter {
 	int tot_blocks = 0;
 	int tot_turnovers = 0;
 	int tot_fouls = 0;
+	
+	int tot_fg2m = 0;
 	
 
 	float avg_minutes = 0;
@@ -96,6 +101,7 @@ public class MCareer extends DBAdapter {
 				tot_blocks += c.getInt(9);
 				tot_turnovers += c.getInt(10);
 				tot_fouls += c.getInt(11);
+				tot_fg2m += c.getInt(12);
 			} while (c.moveToNext());
 				
 		}
@@ -114,6 +120,7 @@ public class MCareer extends DBAdapter {
 		m.put(TBLOCKS, StatsHelper.int2Str(tot_blocks));
 		m.put(TTURNOVERS, StatsHelper.int2Str(tot_turnovers));
 		m.put(TFOULS, StatsHelper.int2Str(tot_fouls));
+		m.put(TFG2M, StatsHelper.int2Str(tot_fg2m));
 		
 		super.open();
 		super.update(m, USERID+"=1");
@@ -144,6 +151,7 @@ public class MCareer extends DBAdapter {
 				tot_blocks = c.getInt(10);
 				tot_turnovers = c.getInt(11);
 				tot_fouls = c.getInt(12);
+				tot_fg2m = c.getInt(13);
 				
 				avg_minutes = gAvg(tot_minutes);
 				avg_points = gAvg(tot_points);

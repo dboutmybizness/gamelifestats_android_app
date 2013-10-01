@@ -158,6 +158,7 @@ public class MGames extends DBAdapter {
 		m.put(BLOCKS, s_blocks);
 		m.put(TURNOVERS, s_turnovers);
 		m.put(FOULS, s_fouls);
+		m.put(FG2M, s_fg2m);
 		
 		m.put(GAME_TYPE, String.valueOf(game_type));
 		m.put(GAME_RESULT, String.valueOf(game_result));

@@ -20,7 +20,7 @@ public class DBAdapter {
 
 	static final String TAG = "DBAdapter";
 	static final String DATABASE_NAME = "GLSDB";
-	static final int DATABASE_VERSION = 2;
+	static final int DATABASE_VERSION = 3;
 	
 
 	
@@ -76,6 +76,12 @@ public class DBAdapter {
 				db.execSQL("ALTER TABLE "+MGames.TABLE+" ADD COLUMN "+MGames.CREATED_TIME+" INTEGER");
 				db.execSQL("UPDATE "+MGames.TABLE+" SET "+MGames.GAME_RESULT+" =0, "+MGames.GAME_TYPE+"=0, "+MGames.CREATED_TIME+"=0");
 				
+			}
+			
+			if ( oldVersion < 3){
+				//add new fields to 
+				db.execSQL("ALTER TABLE "+MCareer.TABLE+" ADD COLUMN "+MCareer.TFG2M+" INTEGER");
+				db.execSQL("UPDATE "+MCareer.TABLE+" SET "+MCareer.TFG2M+"=0");
 			}
 		}
 	}

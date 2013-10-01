@@ -197,7 +197,10 @@ public class Statbook extends FragmentActivity implements ActionBar.TabListener 
 		MCareer career;
 		View rootView;
 		TextView tot_games,tot_minutes,tot_points,tot_rebounds,tot_reb_off,tot_reb_def,tot_assists,tot_steals,tot_blocks,tot_turnovers,tot_fouls;
-		TextView avg_games,avg_minutes,avg_points,avg_rebounds,avg_reb_off,avg_assists,avg_steals,avg_blocks,avg_turnovers,avg_fouls;
+		TextView avg_games,avg_minutes,avg_points,avg_rebounds,avg_reb_off,avg_reb_def,avg_assists,avg_steals,avg_blocks,avg_turnovers,avg_fouls;
+		
+		TextView tot_fg2m;
+		Button manage_games;
 		
 		@Override
 		public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState){
@@ -216,17 +219,29 @@ public class Statbook extends FragmentActivity implements ActionBar.TabListener 
 			tot_turnovers = setUpStat(R.id.tot_turnovers);
 			tot_fouls = setUpStat(R.id.tot_fouls);
 			
-			avg_games = setUpStat(R.id.avg_games);
+			//avg_games = setUpStat(R.id.avg_games);
 			avg_minutes = setUpStat(R.id.avg_minutes);
 			avg_points = setUpStat(R.id.avg_points);
 			avg_rebounds = setUpStat(R.id.avg_rebounds);
 			avg_reb_off = setUpStat(R.id.avg_reb_off);
-			//avg_reb_def = setUpStat(R.id.avg_reb_def);
+			avg_reb_def = setUpStat(R.id.avg_reb_def);
 			avg_assists = setUpStat(R.id.avg_assists);
 			avg_steals = setUpStat(R.id.avg_steals);
 			avg_blocks = setUpStat(R.id.avg_blocks);
 			avg_turnovers = setUpStat(R.id.avg_turnovers);
 			avg_fouls = setUpStat(R.id.avg_fouls);
+			
+			tot_fg2m = setUpStat(R.id.tot_fg2m);
+			
+			manage_games = (Button) rootView.findViewById(R.id.button_manage_games);
+			manage_games.setOnClickListener(new OnClickListener(){
+
+				@Override
+				public void onClick(View v) {
+					startActivity(new Intent(getParentContext, GameManager.class));
+				}
+				
+			});
 			
 			return rootView;
 		}
@@ -260,11 +275,13 @@ public class Statbook extends FragmentActivity implements ActionBar.TabListener 
 				tot_blocks.setText(StatsHelper.int2Str(career.tot_blocks));
 				tot_turnovers.setText(StatsHelper.int2Str(career.tot_turnovers));
 				tot_fouls.setText(StatsHelper.int2Str(career.tot_fouls));
+				tot_fg2m.setText(StatsHelper.int2Str(career.tot_fg2m));
 				
 				avg_minutes.setText(StatsHelper.float2Str(career.avg_minutes));
 				avg_points.setText(StatsHelper.float2Str(career.avg_points));
 				avg_rebounds.setText(StatsHelper.float2Str(career.avg_rebounds));
 				avg_reb_off.setText(StatsHelper.float2Str(career.avg_reb_off));
+				avg_reb_def.setText(StatsHelper.float2Str(career.avg_reb_def));
 				avg_assists.setText(StatsHelper.float2Str(career.avg_assists));
 				avg_steals.setText(StatsHelper.float2Str(career.avg_steals));
 				avg_blocks.setText(StatsHelper.float2Str(career.avg_blocks));
@@ -273,6 +290,7 @@ public class Statbook extends FragmentActivity implements ActionBar.TabListener 
 			}
 		
 		}
+		
 	}
 	
 	public static class GAMEBYGAME extends Fragment {

@@ -1,18 +1,20 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
 
+    <string name="archived_games_with_colon">Archived:</string>
+    <string name="games_played_with_colon">Games Played:</string>
+    <string name="active_games_with_colon">Active:</string>
     <string name="career">Career</string>
     <string name="rundown">RUndown</string>
     <string name="averages_n_totals">Averages &amp; Totals</string>
     <string name="totals_sign">&#8721;</string>
     <string name="shooting_made_n_percentage">Shooting</string>
     <string name="game_stats_low">game stats</string>
-    
+    <string name="manage_games">Manage Games</string>
     <string name="two_s">2\'s</string>
     <string name="three_s">3\'s</string>
     <string name="attempts">Attempts</string>
     <string name="percent_sign">%</string>
-    
     <string name="win">Win</string>
     <string name="loss">Loss</string>
     <string name="tips">Tips</string>
@@ -129,5 +131,6 @@
     <string name="reset">Reset</string>
     <string name="gls_com">more @ GameLifeStats.com</string>
     <string name="title_activity_game_meta">GameMeta</string>
+    <string name="title_activity_game_manager">GameManager</string>
 
 </resources>
