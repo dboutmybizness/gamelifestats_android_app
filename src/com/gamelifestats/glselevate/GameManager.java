@@ -1,19 +1,28 @@
 package com.gamelifestats.glselevate;
 
-import android.os.Bundle;
 import android.app.Activity;
+import android.os.Bundle;
+import android.support.v4.app.NavUtils;
 import android.view.Menu;
 import android.view.MenuItem;
-import android.support.v4.app.NavUtils;
+import android.widget.ListView;
 
 public class GameManager extends Activity {
 
+	ListView lv;
+	
 	@Override
 	protected void onCreate(Bundle savedInstanceState) {
 		super.onCreate(savedInstanceState);
 		setContentView(R.layout.activity_game_manager);
 		// Show the Up button in the action bar.
 		setupActionBar();
+		
+		String[] values = new String[]{"d","dee"};
+		
+		lv = (ListView) findViewById(R.id.list_gm);
+		GameManagerArrayAdapter gm = new GameManagerArrayAdapter(this, values);
+		lv.setAdapter(gm);
 	}
 
 	/**
