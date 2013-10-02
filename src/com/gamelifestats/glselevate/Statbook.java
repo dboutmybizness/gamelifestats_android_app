@@ -199,7 +199,7 @@ public class Statbook extends FragmentActivity implements ActionBar.TabListener 
 		TextView tot_games,tot_minutes,tot_points,tot_rebounds,tot_reb_off,tot_reb_def,tot_assists,tot_steals,tot_blocks,tot_turnovers,tot_fouls;
 		TextView avg_games,avg_minutes,avg_points,avg_rebounds,avg_reb_off,avg_reb_def,avg_assists,avg_steals,avg_blocks,avg_turnovers,avg_fouls;
 		
-		TextView tot_fg2m;
+		TextView tot_fg2m,tot_fg2a;
 		Button manage_games;
 		
 		@Override
@@ -232,6 +232,7 @@ public class Statbook extends FragmentActivity implements ActionBar.TabListener 
 			avg_fouls = setUpStat(R.id.avg_fouls);
 			
 			tot_fg2m = setUpStat(R.id.tot_fg2m);
+			tot_fg2a = setUpStat(R.id.tot_fg2a);
 			
 			manage_games = (Button) rootView.findViewById(R.id.button_manage_games);
 			manage_games.setOnClickListener(new OnClickListener(){
@@ -276,6 +277,8 @@ public class Statbook extends FragmentActivity implements ActionBar.TabListener 
 				tot_turnovers.setText(StatsHelper.int2Str(career.tot_turnovers));
 				tot_fouls.setText(StatsHelper.int2Str(career.tot_fouls));
 				tot_fg2m.setText(StatsHelper.int2Str(career.tot_fg2m));
+				tot_fg2a.setText(StatsHelper.int2Str(career.tot_fg2a));
+				
 				
 				avg_minutes.setText(StatsHelper.float2Str(career.avg_minutes));
 				avg_points.setText(StatsHelper.float2Str(career.avg_points));

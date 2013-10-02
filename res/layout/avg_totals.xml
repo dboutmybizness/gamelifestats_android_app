@@ -497,7 +497,7 @@
                 android:textAppearance="?android:attr/textAppearanceMedium" />
 
             <TextView
-                android:id="@+id/dis_fg2a"
+                android:id="@+id/tot_fg2a"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_alignBaseline="@+id/lab_twos"
@@ -511,7 +511,7 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_alignBaseline="@+id/lab_threes"
-                android:layout_alignLeft="@+id/dis_fg2a"
+                android:layout_alignLeft="@+id/tot_fg2a"
                 android:text="@string/zero"
                 android:textAppearance="?android:attr/textAppearanceMedium" />
             
@@ -520,7 +520,7 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_alignBaseline="@+id/lab_fgs"
-                android:layout_alignLeft="@+id/dis_fg2a"
+                android:layout_alignLeft="@+id/tot_fg2a"
                 android:text="@string/zero"
                 android:textAppearance="?android:attr/textAppearanceMedium" />
             
@@ -529,7 +529,7 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_alignBaseline="@+id/lab_fts"
-                android:layout_alignLeft="@+id/dis_fg2a"
+                android:layout_alignLeft="@+id/tot_fg2a"
                 android:text="@string/zero"
                 android:textAppearance="?android:attr/textAppearanceMedium" />
 
