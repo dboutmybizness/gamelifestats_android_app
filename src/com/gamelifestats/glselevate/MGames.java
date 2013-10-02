@@ -29,6 +29,8 @@ public class MGames extends DBAdapter {
 	static final String FG3M = "fg3m";
 	static final String FG3A = "fg3a";
 	static final String FG3p = "fg3p";
+	static final String FGM = "fgm";
+	static final String FGA = "fga";
 	static final String FTM = "ftm";
 	static final String FTA = "fta";
 	static final String FTP = "ftp";
@@ -62,7 +64,10 @@ public class MGames extends DBAdapter {
 		
 		GAME_RESULT +" text," +
 		GAME_TYPE +" integer," +
-		CREATED_TIME +" integer" +
+		CREATED_TIME +" integer," +
+		
+		FGM+" text," +
+		FGA+" text" +
 		")";
 	
 	static final String[] getFields = {
@@ -70,7 +75,7 @@ public class MGames extends DBAdapter {
 		REB_OFF,REB_DEF,ASSISTS,STEALS,BLOCKS,
 		TURNOVERS,FOULS,FG2M, FG2A,FG3M,
 		FG3A,FTM,FTA,GAME_RESULT, GAME_TYPE,
-		CREATED_TIME
+		CREATED_TIME, FGM, FGA
 	};
 	
 	long created_time = 0;
@@ -159,6 +164,13 @@ public class MGames extends DBAdapter {
 		m.put(TURNOVERS, s_turnovers);
 		m.put(FOULS, s_fouls);
 		m.put(FG2M, s_fg2m);
+		m.put(FG2A, s_fg2a);
+		m.put(FG3M, s_fg3m);
+		m.put(FG3A, s_fg3a);
+		m.put(FGM, s_fgm);
+		m.put(FGA, s_fga);
+		m.put(FTM, s_ftm);
+		m.put(FTA, s_fta);
 		
 		m.put(GAME_TYPE, String.valueOf(game_type));
 		m.put(GAME_RESULT, String.valueOf(game_result));
