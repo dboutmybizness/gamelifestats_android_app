@@ -86,9 +86,9 @@ public class DBAdapter {
 				db.execSQL("UPDATE "+MCareer.TABLE+" SET "+MCareer.TFG2A+"=0");
 				
 				db.execSQL("ALTER TABLE "+MCareer.TABLE+" ADD COLUMN "+MCareer.TFG3M+" INTEGER");
-				db.execSQL("UPDATE "+MCareer.TABLE+" SET "+MCareer.TFG2M+"=0");
+				db.execSQL("UPDATE "+MCareer.TABLE+" SET "+MCareer.TFG3M+"=0");
 				db.execSQL("ALTER TABLE "+MCareer.TABLE+" ADD COLUMN "+MCareer.TFG3A+" INTEGER");
-				db.execSQL("UPDATE "+MCareer.TABLE+" SET "+MCareer.TFG2A+"=0");
+				db.execSQL("UPDATE "+MCareer.TABLE+" SET "+MCareer.TFG3A+"=0");
 				
 				db.execSQL("ALTER TABLE "+MCareer.TABLE+" ADD COLUMN "+MCareer.TFGM+" INTEGER");
 				db.execSQL("UPDATE "+MCareer.TABLE+" SET "+MCareer.TFGM+"=0");
