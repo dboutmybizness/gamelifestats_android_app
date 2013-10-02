@@ -45,16 +45,6 @@
                 android:text="@string/zero"
                 android:textAppearance="?android:attr/textAppearanceMedium" />
 
-            <Button
-                android:id="@+id/button_manage_games"
-                style="?android:attr/buttonStyleSmall"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_alignParentRight="true"
-                android:layout_centerVertical="true"
-                android:background="@android:drawable/btn_default"
-                android:text="@string/manage_games" />
-
         </RelativeLayout>
 
         <TextView
@@ -388,187 +378,21 @@
             android:text="@string/shooting_made_n_percentage"
             android:textAppearance="?android:attr/textAppearanceLarge"
             android:textColor="@color/WhiteSmoke" />
-
-        <RelativeLayout
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:padding="15dp" >
-
-            <TextView
-                android:id="@+id/lab_twos"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_alignParentLeft="true"
-                android:layout_below="@+id/lab_made"
-                android:layout_marginTop="5dp"
-                android:text="@string/two_s"
-                android:textAppearance="?android:attr/textAppearanceMedium" />
-
-            <TextView
-                android:id="@+id/lab_made"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_alignParentTop="true"
-                android:layout_marginLeft="25dp"
-                android:layout_toRightOf="@+id/lab_fgs"
-                android:text="@string/made"
-                android:textAppearance="?android:attr/textAppearanceSmall" />
-
-            <TextView
-                android:id="@+id/lab_threes"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_alignLeft="@+id/lab_twos"
-                android:layout_below="@+id/lab_twos"
-                android:text="@string/three_s"
-                android:textAppearance="?android:attr/textAppearanceMedium" />
-            
-            <TextView
-                android:id="@+id/lab_fgs"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_alignLeft="@+id/lab_twos"
-                android:layout_below="@+id/lab_threes"
-                android:text="@string/fgs"
-                android:textAppearance="?android:attr/textAppearanceMedium" />
-            
-            <TextView
-                android:id="@+id/lab_fts"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_alignLeft="@+id/lab_twos"
-                android:layout_below="@+id/lab_fgs"
-                android:text="@string/fts"
-                android:textAppearance="?android:attr/textAppearanceMedium" />
-
-            <TextView
-                android:id="@+id/lab_attempts"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_marginLeft="30dp"
-                android:layout_toRightOf="@+id/lab_made"
-                android:text="@string/attempts"
-                android:textAppearance="?android:attr/textAppearanceSmall" />
-
-            <TextView
-                android:id="@+id/lab_perc_sign"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_marginLeft="30dp"
-                android:layout_toRightOf="@+id/lab_attempts"
-                android:text="@string/percent_sign"
-                android:textAppearance="?android:attr/textAppearanceSmall" />
-
-            <TextView
-                android:id="@+id/tot_fg2m"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_alignBaseline="@+id/lab_twos"
-                android:layout_alignLeft="@+id/lab_made"
-                android:layout_marginLeft="10dp"
-                android:text="@string/zero"
-                android:textAppearance="?android:attr/textAppearanceMedium" />
-            
-            <TextView
-                android:id="@+id/dis_fg3m"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_alignBaseline="@+id/lab_threes"
-                android:layout_alignLeft="@+id/tot_fg2m"
-                android:text="@string/zero"
-                android:textAppearance="?android:attr/textAppearanceMedium" />
-            
-            <TextView
-                android:id="@+id/dis_fgm"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_alignBaseline="@+id/lab_fgs"
-                android:layout_alignLeft="@+id/tot_fg2m"
-                android:text="@string/zero"
-                android:textAppearance="?android:attr/textAppearanceMedium" />
-            
-            <TextView
-                android:id="@+id/dis_ftm"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_alignBaseline="@+id/lab_fts"
-                android:layout_alignLeft="@+id/tot_fg2m"
-                android:text="@string/zero"
-                android:textAppearance="?android:attr/textAppearanceMedium" />
-
-            <TextView
-                android:id="@+id/tot_fg2a"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_alignBaseline="@+id/lab_twos"
-                android:layout_alignLeft="@+id/lab_attempts"
-                android:layout_marginLeft="20dp"
-                android:text="@string/zero"
-                android:textAppearance="?android:attr/textAppearanceMedium" />
-            
-            <TextView
-                android:id="@+id/dis_fg3a"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_alignBaseline="@+id/lab_threes"
-                android:layout_alignLeft="@+id/tot_fg2a"
-                android:text="@string/zero"
-                android:textAppearance="?android:attr/textAppearanceMedium" />
-            
-            <TextView
-                android:id="@+id/dis_fga"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_alignBaseline="@+id/lab_fgs"
-                android:layout_alignLeft="@+id/tot_fg2a"
-                android:text="@string/zero"
-                android:textAppearance="?android:attr/textAppearanceMedium" />
-            
-            <TextView
-                android:id="@+id/dis_fta"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_alignBaseline="@+id/lab_fts"
-                android:layout_alignLeft="@+id/tot_fg2a"
-                android:text="@string/zero"
-                android:textAppearance="?android:attr/textAppearanceMedium" />
-
-            <TextView
-                android:id="@+id/dis_fg2p"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_alignBaseline="@+id/lab_twos"
-                android:layout_alignLeft="@+id/lab_perc_sign"
-                android:text="@string/zero"
-                android:textAppearance="?android:attr/textAppearanceMedium" />
-            
-            <TextView
-                android:id="@+id/dis_fg3p"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_alignBaseline="@+id/lab_threes"
-                android:layout_alignLeft="@+id/dis_fg2p"
-                android:text="@string/zero"
-                android:textAppearance="?android:attr/textAppearanceMedium" />
-            
-            <TextView
-                android:id="@+id/dis_fgp"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_alignBaseline="@+id/lab_fgs"
-                android:layout_alignLeft="@+id/dis_fg2p"
-                android:text="@string/zero"
-                android:textAppearance="?android:attr/textAppearanceMedium" />
-            
-            <TextView
-                android:id="@+id/dis_ftp"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_alignBaseline="@+id/lab_fts"
-                android:layout_alignLeft="@+id/dis_fg2p"
-                android:text="@string/zero"
-                android:textAppearance="?android:attr/textAppearanceMedium" />
-
+        <RelativeLayout android:layout_width="match_parent" android:layout_height="wrap_content" android:padding="15dp">
+            <TextView android:id="@+id/lab_twos" android:layout_width="wrap_content" android:layout_height="wrap_content" android:layout_alignParentLeft="true" android:layout_below="@+id/lab_made" android:layout_marginTop="5dp" android:text="@string/two_s" android:textAppearance="?android:attr/textAppearanceMedium"/>
+            <TextView android:id="@+id/lab_made" android:layout_width="wrap_content" android:layout_height="wrap_content" android:layout_alignParentTop="true" android:layout_marginLeft="25dp" android:layout_toRightOf="@+id/lab_fgs" android:text="@string/made" android:textAppearance="?android:attr/textAppearanceSmall"/>
+            <TextView android:id="@+id/lab_threes" android:layout_width="wrap_content" android:layout_height="wrap_content" android:layout_alignLeft="@+id/lab_twos" android:layout_below="@+id/lab_twos" android:text="@string/three_s" android:textAppearance="?android:attr/textAppearanceMedium"/>
+            <TextView android:id="@+id/lab_fgs" android:layout_width="wrap_content" android:layout_height="wrap_content" android:layout_alignLeft="@+id/lab_twos" android:layout_below="@+id/lab_threes" android:text="@string/fgs" android:textAppearance="?android:attr/textAppearanceMedium"/>
+            <TextView android:id="@+id/lab_fts" android:layout_width="wrap_content" android:layout_height="wrap_content" android:layout_alignLeft="@+id/lab_twos" android:layout_below="@+id/lab_fgs" android:text="@string/fts" android:textAppearance="?android:attr/textAppearanceMedium"/>
+            <TextView android:id="@+id/lab_attempts" android:layout_width="wrap_content" android:layout_height="wrap_content" android:layout_marginLeft="30dp" android:layout_toRightOf="@+id/lab_made" android:text="@string/attempts" android:textAppearance="?android:attr/textAppearanceSmall"/>
+            <TextView android:id="@+id/tot_fg2m" android:layout_width="wrap_content" android:layout_height="wrap_content" android:layout_alignBaseline="@+id/lab_twos" android:layout_alignLeft="@+id/lab_made" android:layout_marginLeft="10dp" android:text="@string/zero" android:textAppearance="?android:attr/textAppearanceMedium"/>
+            <TextView android:id="@+id/tot_fg3m" android:layout_width="wrap_content" android:layout_height="wrap_content" android:layout_alignBaseline="@+id/lab_threes" android:layout_alignLeft="@+id/tot_fg2m" android:text="@string/zero" android:textAppearance="?android:attr/textAppearanceMedium"/>
+            <TextView android:id="@+id/tot_fgm" android:layout_width="wrap_content" android:layout_height="wrap_content" android:layout_alignBaseline="@+id/lab_fgs" android:layout_alignLeft="@+id/tot_fg2m" android:text="@string/zero" android:textAppearance="?android:attr/textAppearanceMedium"/>
+            <TextView android:id="@+id/tot_ftm" android:layout_width="wrap_content" android:layout_height="wrap_content" android:layout_alignBaseline="@+id/lab_fts" android:layout_alignLeft="@+id/tot_fg2m" android:text="@string/zero" android:textAppearance="?android:attr/textAppearanceMedium"/>
+            <TextView android:id="@+id/tot_fg2a" android:layout_width="wrap_content" android:layout_height="wrap_content" android:layout_alignBaseline="@+id/lab_twos" android:layout_alignLeft="@+id/lab_attempts" android:layout_marginLeft="20dp" android:text="@string/zero" android:textAppearance="?android:attr/textAppearanceMedium"/>
+            <TextView android:id="@+id/tot_fg3a" android:layout_width="wrap_content" android:layout_height="wrap_content" android:layout_alignBaseline="@+id/lab_threes" android:layout_alignLeft="@+id/tot_fg2a" android:text="@string/zero" android:textAppearance="?android:attr/textAppearanceMedium"/>
+            <TextView android:id="@+id/tot_fga" android:layout_width="wrap_content" android:layout_height="wrap_content" android:layout_alignBaseline="@+id/lab_fgs" android:layout_alignLeft="@+id/tot_fg2a" android:text="@string/zero" android:textAppearance="?android:attr/textAppearanceMedium"/>
+            <TextView android:id="@+id/tot_fta" android:layout_width="wrap_content" android:layout_height="wrap_content" android:layout_alignBaseline="@+id/lab_fts" android:layout_alignLeft="@+id/tot_fg2a" android:text="@string/zero" android:textAppearance="?android:attr/textAppearanceMedium"/>
         </RelativeLayout>
 
     </LinearLayout>

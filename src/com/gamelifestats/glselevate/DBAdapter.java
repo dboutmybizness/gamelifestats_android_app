@@ -82,6 +82,25 @@ public class DBAdapter {
 				//add new fields to 
 				db.execSQL("ALTER TABLE "+MCareer.TABLE+" ADD COLUMN "+MCareer.TFG2M+" INTEGER");
 				db.execSQL("UPDATE "+MCareer.TABLE+" SET "+MCareer.TFG2M+"=0");
+				db.execSQL("ALTER TABLE "+MCareer.TABLE+" ADD COLUMN "+MCareer.TFG2A+" INTEGER");
+				db.execSQL("UPDATE "+MCareer.TABLE+" SET "+MCareer.TFG2A+"=0");
+				
+				db.execSQL("ALTER TABLE "+MCareer.TABLE+" ADD COLUMN "+MCareer.TFG3M+" INTEGER");
+				db.execSQL("UPDATE "+MCareer.TABLE+" SET "+MCareer.TFG2M+"=0");
+				db.execSQL("ALTER TABLE "+MCareer.TABLE+" ADD COLUMN "+MCareer.TFG3A+" INTEGER");
+				db.execSQL("UPDATE "+MCareer.TABLE+" SET "+MCareer.TFG2A+"=0");
+				
+				db.execSQL("ALTER TABLE "+MCareer.TABLE+" ADD COLUMN "+MCareer.TFGM+" INTEGER");
+				db.execSQL("UPDATE "+MCareer.TABLE+" SET "+MCareer.TFGM+"=0");
+				db.execSQL("ALTER TABLE "+MCareer.TABLE+" ADD COLUMN "+MCareer.TFGA+" INTEGER");
+				db.execSQL("UPDATE "+MCareer.TABLE+" SET "+MCareer.TFGA+"=0");
+				
+				db.execSQL("ALTER TABLE "+MCareer.TABLE+" ADD COLUMN "+MCareer.TFTM+" INTEGER");
+				db.execSQL("UPDATE "+MCareer.TABLE+" SET "+MCareer.TFTM+"=0");
+				db.execSQL("ALTER TABLE "+MCareer.TABLE+" ADD COLUMN "+MCareer.TFTA+" INTEGER");
+				db.execSQL("UPDATE "+MCareer.TABLE+" SET "+MCareer.TFTA+"=0");
+				
+				
 			}
 		}
 	}

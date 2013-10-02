@@ -25,6 +25,12 @@ public class MCareer extends DBAdapter {
 	
 	static final String TFG2M = "tfg2m";
 	static final String TFG2A = "tfg2a";
+	static final String TFG3M = "tfg3m";
+	static final String TFG3A = "tfg3a";
+	static final String TFGM = "tfgm";
+	static final String TFGA = "tfga";
+	static final String TFTM = "tftm";
+	static final String TFTA = "tfta";
 
 	static final String CREATE_TABLE =
 		"create table "+TABLE+" (" +
@@ -42,13 +48,20 @@ public class MCareer extends DBAdapter {
 		TTURNOVERS+" integer,"+
 		TFOULS+" integer," +
 		TFG2M+" integer," +
-		TFG2A+" integer" +
+		TFG2A+" integer," +
+		TFG3M+" integer," +
+		TFG3A+" integer," +
+		TFGM+" integer," +
+		TFGA+" integer," +
+		TFTM+" integer," +
+		TFTA+" integer" +
 		")";	
 
 	static final String[] getFields = {
         	ID,USERID,TGAMES,TMINUTES,TPOINTS,
         	TREBOUNDS,TREBS_OFF,TREBS_DEF,TASSISTS,TSTEALS,
-        	TBLOCKS,TTURNOVERS,TFOULS,TFG2M,TFG2A
+        	TBLOCKS,TTURNOVERS,TFOULS,TFG2M,TFG2A,
+        	TFG3M,TFG3A,TFGM,TFGA,TFTM,TFTA,
 	};
 	
 	int tot_games = 0;
@@ -65,6 +78,12 @@ public class MCareer extends DBAdapter {
 	
 	int tot_fg2m = 0;
 	int tot_fg2a = 0;
+	int tot_fg3m = 0;
+	int tot_fg3a = 0;
+	int tot_fgm = 0;
+	int tot_fga = 0;
+	int tot_ftm = 0;
+	int tot_fta = 0;
 	
 
 	float avg_minutes = 0;
@@ -106,6 +125,12 @@ public class MCareer extends DBAdapter {
 				tot_fouls += c.getInt(11);
 				tot_fg2m += c.getInt(12);
 				tot_fg2a += c.getInt(13);
+				tot_fg3m += c.getInt(14);
+				tot_fg3a += c.getInt(15);
+				tot_ftm += c.getInt(16);
+				tot_fta += c.getInt(17);
+				tot_fgm += c.getInt(21);
+				tot_fga += c.getInt(22);
 			} while (c.moveToNext());
 				
 		}
@@ -126,6 +151,12 @@ public class MCareer extends DBAdapter {
 		m.put(TFOULS, StatsHelper.int2Str(tot_fouls));
 		m.put(TFG2M, StatsHelper.int2Str(tot_fg2m));
 		m.put(TFG2A, StatsHelper.int2Str(tot_fg2a));
+		m.put(TFG3M, StatsHelper.int2Str(tot_fg3m));
+		m.put(TFG3A, StatsHelper.int2Str(tot_fg3a));
+		m.put(TFGM, StatsHelper.int2Str(tot_fgm));
+		m.put(TFGA, StatsHelper.int2Str(tot_fga));
+		m.put(TFTM, StatsHelper.int2Str(tot_ftm));
+		m.put(TFTA, StatsHelper.int2Str(tot_fta));
 		
 		super.open();
 		super.update(m, USERID+"=1");
@@ -158,6 +189,12 @@ public class MCareer extends DBAdapter {
 				tot_fouls = c.getInt(12);
 				tot_fg2m = c.getInt(13);
 				tot_fg2a = c.getInt(14);
+				tot_fg3m = c.getInt(15);
+				tot_fg3a = c.getInt(16);
+				tot_fgm = c.getInt(17);
+				tot_fga = c.getInt(18);
+				tot_ftm = c.getInt(19);
+				tot_fta = c.getInt(20);
 				
 				avg_minutes = gAvg(tot_minutes);
 				avg_points = gAvg(tot_points);
