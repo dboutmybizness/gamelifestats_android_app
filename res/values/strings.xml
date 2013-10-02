@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
 
-    <string name="archived_games_with_colon">Archived:</string>
+    <string name="archive">Archive</string>
     <string name="games_played_with_colon">Games Played:</string>
     <string name="active_games_with_colon">Active:</string>
     <string name="career">Career</string>

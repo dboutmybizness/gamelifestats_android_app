@@ -204,7 +204,7 @@ public class Statbook extends FragmentActivity implements ActionBar.TabListener 
 		TextView tot_fgm,tot_fga;
 		TextView tot_ftm,tot_fta;
 		
-		Button manage_games;
+		Button archived_games;
 		
 		@Override
 		public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState){
@@ -243,6 +243,16 @@ public class Statbook extends FragmentActivity implements ActionBar.TabListener 
 			tot_fga = setUpStat(R.id.tot_fga);
 			tot_ftm = setUpStat(R.id.tot_ftm);
 			tot_fta = setUpStat(R.id.tot_fta);
+			
+			archived_games = (Button) rootView.findViewById(R.id.button_archived);
+			archived_games.setOnClickListener(new OnClickListener(){
+
+				@Override
+				public void onClick(View v) {
+					startActivity(new Intent(getParentContext, GameManager.class));
+				}
+				
+			});
 			
 			return rootView;
 		}

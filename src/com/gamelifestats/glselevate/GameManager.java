@@ -1,11 +1,17 @@
 package com.gamelifestats.glselevate;
 
 import android.app.Activity;
+import android.content.res.Resources;
 import android.os.Bundle;
 import android.support.v4.app.NavUtils;
 import android.view.Menu;
 import android.view.MenuItem;
+import android.view.View;
+import android.widget.AdapterView;
+import android.widget.AdapterView.OnItemClickListener;
 import android.widget.ListView;
+import android.widget.TextView;
+import android.widget.Toast;
 
 public class GameManager extends Activity {
 
@@ -23,6 +29,21 @@ public class GameManager extends Activity {
 		lv = (ListView) findViewById(R.id.list_gm);
 		GameManagerArrayAdapter gm = new GameManagerArrayAdapter(this, values);
 		lv.setAdapter(gm);
+		lv.setOnItemClickListener(new OnItemClickListener() {
+			@Override
+			public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
+				Resources res = getResources();
+				//view.setBackgroundColor(res.getColor(R.color.AliceBlue));
+				//TextView tv = (TextView) parent.getChildAt(1);
+				//tv.setText("good times");
+				View v = parent.getChildAt(position);
+				TextView tv = (TextView) v.findViewById(R.id.gm_lab);
+				tv.setText("happy");
+				//v.setBackgroundColor(res.getColor(R.color.AliceBlue));
+				Toast.makeText(getApplicationContext(), ""+ parent.getChildCount(), Toast.LENGTH_SHORT).show();
+				
+			}
+		}); 
 	}
 
 	/**
