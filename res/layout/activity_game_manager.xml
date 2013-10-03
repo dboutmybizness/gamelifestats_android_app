@@ -15,7 +15,28 @@
     <ListView
         android:id="@+id/list_gm"
         android:layout_width="match_parent"
-        android:layout_height="wrap_content" >
+        android:layout_height="match_parent"
+        android:layout_weight="1" >
     </ListView>
+
+    <FrameLayout
+        android:id="@+id/button_holder"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="8dp"
+        android:background="@color/Orange"
+        android:padding="5dp" >
+
+        <Button
+            android:id="@+id/save_button"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center_horizontal"
+            android:background="@android:drawable/btn_default"
+            android:drawableLeft="@drawable/ic_menu_done"
+            android:onClick="saveArchive"
+            android:text="@string/save" />
+
+    </FrameLayout>
 
 </LinearLayout>

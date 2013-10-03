@@ -36,6 +36,8 @@ public class MGames extends DBAdapter {
 	static final String FTP = "ftp";
 	static final String REB_OFF = "reb_off";
 	static final String REB_DEF = "reb_def";
+	static final String ACTIVE_STATUS = "active_status";
+	
 	static final String[] wOrl= { "Loss", "Win" };
 	
 	static final String CREATE_TABLE = 
@@ -67,20 +69,24 @@ public class MGames extends DBAdapter {
 		CREATED_TIME +" integer," +
 		
 		FGM+" text," +
-		FGA+" text" +
+		FGA+" text," +
+		
+		ACTIVE_STATUS +" integer"+
+		
 		")";
 	
 	static final String[] getFields = {
 		ID,USERID,MINUTES,POINTS,REBOUNDS,
 		REB_OFF,REB_DEF,ASSISTS,STEALS,BLOCKS,
 		TURNOVERS,FOULS,FG2M, FG2A,FG3M,
-		FG3A,FTM,FTA,GAME_RESULT, GAME_TYPE,
-		CREATED_TIME, FGM, FGA
+		FG3A,FTM,FTA,GAME_RESULT,GAME_TYPE,
+		CREATED_TIME,FGM,FGA,ACTIVE_STATUS
 	};
 	
 	long created_time = 0;
 	int game_type = 0;
 	int game_result = 0;
+	int active_status = 0;
 	
 	
 	int gameID = 0;
@@ -149,9 +155,11 @@ public class MGames extends DBAdapter {
 	
 	public void insertStats() throws SQLException{
 		created_time = StatsHelper.getNowTime();
-		
+		active_status = 1;
 		HashMap<String, String> m = new HashMap<String,String>();
 
+		
+				
 		m.put(USERID, "1");
 		m.put(MINUTES, s_minutes);
 		m.put(POINTS, s_points);
@@ -175,6 +183,7 @@ public class MGames extends DBAdapter {
 		m.put(GAME_TYPE, String.valueOf(game_type));
 		m.put(GAME_RESULT, String.valueOf(game_result));
 		m.put(CREATED_TIME, String.valueOf(created_time));
+		m.put(ACTIVE_STATUS, String.valueOf(active_status));
 		super.create(m);
 
 		//get all games
@@ -272,6 +281,38 @@ public class MGames extends DBAdapter {
 	
 	private int getPointsFromFGS(int fg2m, int fg3m, int ftm){
 		return ftm + (fg2m * 2) + (fg3m * 3);
+	}
+	
+	public ArrayList<String> retArchive() throws SQLException{
+		super.open();
+		ArrayList<String> alist = new ArrayList<String>();
+		
+		Cursor c = getAllGames(1);
+		if ( c.getCount() > 0){
+			
+			c.moveToFirst();
+			do {
+				String id = c.getString(0);
+				String date = StatsHelper.dateFromTime(c.getString(20));
+				String active = c.getString(23);
+				alist.add(
+						id +"_"+date+"_"+active
+				);
+				
+			} while (c.moveToNext());
+		}
+		super.close();
+		return alist;
+	}
+	
+	public boolean updateArchive(ArrayList<Integer> ids, ArrayList<Boolean> bools){
+		HashMap<String,String> map = new HashMap<String,String>();
+		
+		//super.open();
+		
+		
+		//super.clone();
+		return false;
 	}
 
 }

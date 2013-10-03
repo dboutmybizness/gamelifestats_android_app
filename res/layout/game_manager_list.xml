@@ -7,10 +7,11 @@
     android:padding="8dp" >
 
     <TextView
-        android:id="@+id/gm_lab"
+        android:id="@+id/gm_item"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:text="@string/empty" >
+        android:text="@string/empty"
+        android:textAppearance="?android:attr/textAppearanceLarge" >
 
     </TextView>
 
