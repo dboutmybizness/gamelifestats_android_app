@@ -20,7 +20,7 @@ public class DBAdapter {
 
 	static final String TAG = "DBAdapter";
 	static final String DATABASE_NAME = "GLSDB";
-	static final int DATABASE_VERSION = 3;
+	static final int DATABASE_VERSION = 4;
 	
 
 	

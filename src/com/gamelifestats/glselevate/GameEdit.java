@@ -50,16 +50,16 @@ public class GameEdit extends Activity {
 	@Override
 	protected void onCreate(Bundle savedInstanceState) {
 		super.onCreate(savedInstanceState);
-		setContentView(R.layout.game_edit);
+		setContentView(R.layout.game_edit2);
 		// Show the Up button in the action bar.
 		setupActionBar();
 		
-		setUpAllStats();
-		dbGames = new MGames(this);
+		//setUpAllStats();
+		//dbGames = new MGames(this);
 		
-		renderPage();
+		//renderPage();
 	}
-	
+	/*
 	@Override
 	protected void onResume() {
 		super.onResume();
@@ -69,7 +69,7 @@ public class GameEdit extends Activity {
 		}
 		
 		refactorStats();
-	}
+	}*/
 	
 	public void playBuzzer(){
 		
