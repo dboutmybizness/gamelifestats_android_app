@@ -49,6 +49,41 @@
                         android:padding="10dp" >
 
                         <TextView
+                            android:id="@+id/TextView01"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:inputType="number|phone"
+                            android:maxLength="2"
+                            android:maxLines="1"
+                            android:text="@string/double_zero"
+                            android:textAppearance="?android:attr/textAppearanceLarge" />
+                    </FrameLayout>
+
+                    <TextView
+                        android:id="@+id/stat_fg2_made"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_below="@+id/box_fg2made"
+                        android:layout_centerInParent="true"
+                        android:text="made"
+                        android:textAppearance="?android:attr/textAppearanceSmall" />
+                </RelativeLayout>
+
+                <RelativeLayout
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:padding="5dp" >
+
+                    <FrameLayout
+                        android:id="@+id/box_fg2missed"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_alignParentTop="true"
+                        android:layout_centerHorizontal="true"
+                        android:background="@color/LightGrey"
+                        android:padding="10dp" >
+
+                        <TextView
                             android:id="@+id/TextView1"
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
@@ -64,7 +99,7 @@
                         android:id="@+id/textView2"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        android:layout_below="@+id/box_fg2made"
+                        android:layout_below="@+id/box_fg2missed"
                         android:layout_centerInParent="true"
                         android:text="made"
                         android:textAppearance="?android:attr/textAppearanceSmall" />
