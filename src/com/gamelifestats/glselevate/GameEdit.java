@@ -13,38 +13,24 @@ import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
 import android.view.View.OnClickListener;
-import android.view.View.OnLongClickListener;
 import android.widget.Button;
 import android.widget.RadioButton;
 import android.widget.RadioGroup;
 import android.widget.SeekBar;
 import android.widget.SeekBar.OnSeekBarChangeListener;
 import android.widget.TextView;
-import android.widget.Toast;
 
 public class GameEdit extends Activity {
-	
-	SeekBar fg1md, fg1ms, fg2md, fg2ms, fg3md, fg3ms;
-	SeekBar rebs_off, rebs_def;
-	SeekBar minutes, assists, steals, blocks, turnovers, fouls;
-	TextView seekPrint;
-	Boolean playbuzzer = false;
+
 	TextView dmin,dfgma, dfg3ma, dftma, dfgp, dfg3p, dftp, dfg2ma;
 	TextView dpts, dasts, dstls, dblks, dtos, dfouls;
 	TextView dreb, dtreb;
-	TextView stline_pts, stline_rebs, stline_asts, stline_stls;
 	
 	TextView lab_fg2made, lab_fg2missed, lab_fg3made, lab_fg3missed, lab_ftmade, lab_ftmissed, lab_oreb, lab_dreb;
 	TextView lab_minutes, lab_assists, lab_steals, lab_blocks, lab_turnovers, lab_fouls;
 	RadioGroup winloss;
-	
 	MGames db;
-	
-	private final int THRESHOLD_SMALL = 10;
-	private final int THRESHOLD_MED = 15;
-	private final int THRESHOLD_LARGE = 20;
-	private final int THRESHOLD_XLARGE = 25;
-	
+
 	Resources res;
 	int active_color;
 	
@@ -244,15 +230,10 @@ public class GameEdit extends Activity {
 	
 	@Override
 	protected void onSaveInstanceState(Bundle outState) {
-	    outState.putBoolean("playbuzzer", playbuzzer);
 	    super.onSaveInstanceState(outState);
 	}
 
-	@Override
-	protected void onRestoreInstanceState(Bundle savedInstanceState) {
-	    playbuzzer = savedInstanceState.getBoolean("playbuzzer");
-	    super.onRestoreInstanceState(savedInstanceState);
-	}
+
 	
 	public void resetStats(View v){
 		if ( active_stat != null){
