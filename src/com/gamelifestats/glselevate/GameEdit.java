@@ -52,23 +52,15 @@ public class GameEdit extends Activity {
 	protected void onCreate(Bundle savedInstanceState) {
 		super.onCreate(savedInstanceState);
 		setContentView(R.layout.game_edit);
-		// Show the Up button in the action bar.
+
 		setupActionBar();
 		
 		db = new MGames(this);
 		
 		res = getResources();
 		active_color = res.getColor(R.color.gls_blue);
-		
-		//setUpAllStats();
-		//dbGames = new MGames(this);
-		
-		//renderPage();
-		
 		setUpViews();
 	}
-	
-	
 	
 	public void updateActiveStat(int progress){
 		if ( active_stat == null) return;
