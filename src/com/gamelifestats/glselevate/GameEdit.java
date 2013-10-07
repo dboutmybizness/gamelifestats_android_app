@@ -14,17 +14,18 @@ import android.view.MenuItem;
 import android.view.View;
 import android.view.View.OnClickListener;
 import android.widget.Button;
+import android.widget.FrameLayout;
 import android.widget.RadioButton;
 import android.widget.RadioGroup;
 import android.widget.SeekBar;
 import android.widget.SeekBar.OnSeekBarChangeListener;
 import android.widget.TextView;
+import android.widget.Toast;
 
 public class GameEdit extends Activity {
 
-	TextView dmin,dfgma, dfg3ma, dftma, dfgp, dfg3p, dftp, dfg2ma;
-	TextView dpts, dasts, dstls, dblks, dtos, dfouls;
-	TextView dreb, dtreb;
+	TextView dfgm,dfga,d3m,d3a,dftm,dfta;
+	TextView dpts,dreb,dreb_off,dasts,dstls,dblks,dtos;
 	
 	TextView lab_fg2made, lab_fg2missed, lab_fg3made, lab_fg3missed, lab_ftmade, lab_ftmissed, lab_oreb, lab_dreb;
 	TextView lab_minutes, lab_assists, lab_steals, lab_blocks, lab_turnovers, lab_fouls;
@@ -46,6 +47,8 @@ public class GameEdit extends Activity {
 		stat_assists,stat_steals,stat_blocks,stat_turnovers;
 	SeekBar gseek;
 	Button plus1, minus1;
+	
+	FrameLayout swiper;
 	
 	
 	@Override
@@ -141,8 +144,6 @@ public class GameEdit extends Activity {
 	}
 	
 	private void refactorStats(){
-		
-		
 		//db.game_result = (retRadioValue().equals("Win")) ? 1 : 0;
 		
 		//db.minutes = minutes.getProgress();
@@ -157,8 +158,8 @@ public class GameEdit extends Activity {
 		db.ftm = Integer.parseInt(stat_ftmade.getText().toString());
 		db.ftms = Integer.parseInt(stat_ftmissed.getText().toString());
 		
-		db.reb_def = Integer.parseInt(stat_reboff.getText().toString());
-		db.reb_off = Integer.parseInt(stat_rebdef.getText().toString());
+		db.reb_def = Integer.parseInt(stat_rebdef.getText().toString());
+		db.reb_off = Integer.parseInt(stat_reboff.getText().toString());
 		
 		db.assists = Integer.parseInt(stat_assists.getText().toString());
 		db.steals = Integer.parseInt(stat_steals.getText().toString());
@@ -171,21 +172,21 @@ public class GameEdit extends Activity {
 	}
 	
 	public void renderPage(){
-
 		//dmin.setText(db.s_minutes);
-		dfgma.setText(db.s_fgm + "/" + db.s_fga);
-		dfg2ma.setText(db.s_fg2m + "/" + db.s_fg2a);
-		dfg3ma.setText(db.s_fg3m + "/" + db.s_fg3a);
-		dftma.setText(db.s_ftm + "/" + db.s_fta);
 		dpts.setText(db.s_points);
 		dreb.setText(db.s_rebounds);
-		
+		dreb_off.setText(db.s_reb_off);
 		dasts.setText(db.s_assists);
 		dstls.setText(db.s_steals);
 		dblks.setText(db.s_blocks);
 		dtos.setText(db.s_turnovers);
-		//dfouls.setText(db.s_fouls);
-		
+
+		dfgm.setText(db.s_fgm);
+		dfga.setText(db.s_fga);
+		d3m.setText(db.s_fg3m);
+		d3a.setText(db.s_fg3a);
+		dftm.setText(db.s_ftm);
+		dfta.setText(db.s_fta);
 	}
 	
 	/**
@@ -224,8 +225,6 @@ public class GameEdit extends Activity {
 	protected void onSaveInstanceState(Bundle outState) {
 	    super.onSaveInstanceState(outState);
 	}
-
-
 	
 	public void resetStats(View v){
 		if ( active_stat != null){
@@ -272,26 +271,46 @@ public class GameEdit extends Activity {
 		db.insertStats();
 	}
 	
-	public void openTips(View v){
-		//startActivity(new Intent(this, GameMeta.class));
+	private void plus1(){
+		if ( active_stat == null) return;
+		int current_progress = gseek.getProgress();
+		int new_progress = current_progress + 1;
+		if ( new_progress > gseek.getMax() ) gseek.setMax(new_progress);
+		active_textview.setText(makeDoubleZero(new_progress));
+		refactorStats();
+		setActiveStat(active_stat,active_textview);
+	}
+	
+	private void minus1(){
+		if ( active_stat == null) return;
+		int current_progress = gseek.getProgress();
+		int new_progress = current_progress - 1;
+		if ( new_progress < 0 ) return;
+		active_textview.setText(makeDoubleZero(new_progress));
+		refactorStats();
+		setActiveStat(active_stat,active_textview);
 	}
 	
 	public void setUpViews(){
 		//winloss = (RadioGroup) findViewById(R.id.winlosegroup);
 		//dmin = (TextView) findViewById(R.id.dis_minutes);
-		dfgma = initTV(R.id.dis_fgs);
-		dfg2ma = initTV(R.id.dis_fg2s);
-		dfg3ma = initTV(R.id.dis_fg3s);
-		dftma = initTV(R.id.dis_fts);
+		
 		dpts = initTV(R.id.dis_points);
-		dreb = initTV(R.id.dis_rebounds);
-		//dtreb = (TextView) findViewById(R.id.dis_treb);
+		dfgm = initTV(R.id.dis_fgm);
+		dfga = initTV(R.id.dis_fga);
+		d3m = initTV(R.id.dis_3m);
+		d3a = initTV(R.id.dis_3a);
+		dftm = initTV(R.id.dis_ftm);
+		dfta = initTV(R.id.dis_fta);
+		
+		dreb = initTV(R.id.dis_reb);
+		dreb_off = initTV(R.id.dis_reb_off);
 
 		dasts = initTV(R.id.dis_assists);
 		dstls = initTV(R.id.dis_steals);
 		dblks = initTV(R.id.dis_blocks);
 		dtos = initTV(R.id.dis_turnovers);
-		dfouls = initTV(R.id.dis_fouls);
+
 		
 		stat_fg2made = (TextView) findViewById(R.id.stat_fg2made);
 		press_fg2made = initStatButton(R.id.press_fg2made,0, stat_fg2made);
@@ -330,18 +349,12 @@ public class GameEdit extends Activity {
 		press_turnovers = initStatButton(R.id.press_turnovers,11,stat_turnovers);
 		
 		
+		
 		plus1 = (Button) findViewById(R.id.plus1);
 		plus1.setOnClickListener(new OnClickListener(){
 			@Override
 			public void onClick(View v) {
-				// TODO Auto-generated method stub
-				if ( active_stat == null) return;
-				int current_progress = gseek.getProgress();
-				int new_progress = current_progress + 1;
-				if ( new_progress > gseek.getMax() ) gseek.setMax(new_progress);
-				active_textview.setText(makeDoubleZero(new_progress));
-				refactorStats();
-				setActiveStat(active_stat,active_textview);
+				plus1();
 			}
 			
 		});
@@ -349,14 +362,7 @@ public class GameEdit extends Activity {
 		minus1.setOnClickListener(new OnClickListener(){
 			@Override
 			public void onClick(View v) {
-				// TODO Auto-generated method stub
-				if ( active_stat == null) return;
-				int current_progress = gseek.getProgress();
-				int new_progress = current_progress - 1;
-				if ( new_progress < 0 ) return;
-				active_textview.setText(makeDoubleZero(new_progress));
-				refactorStats();
-				setActiveStat(active_stat,active_textview);
+				minus1();
 			}
 			
 		});
@@ -386,6 +392,17 @@ public class GameEdit extends Activity {
 			}
 			
 		});
+		
+		swiper = (FrameLayout) findViewById(R.id.frame_swipe);
+		swiper.setOnTouchListener(new OnSwipeTouchListener(){
+			public void onSwipeRight() {
+		        plus1();
+		    }
+		    public void onSwipeLeft() {
+		        minus1();
+		    }
+		});
+		
 	}
 
 }

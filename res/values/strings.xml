@@ -1,9 +1,19 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
 
+    <string name="fgm">FGM</string>
+    <string name="fga">FGA</string>
+    <string name="threesm">3M</string>
+    <string name="threesa">3A</string>
+    <string name="ftm">FTM</string>
+	<string name="fta">FTA</string>
+	<string name="reb">REB</string>
+	<string name="off">OFF</string>
+	<string name="to">TO</string>
+    
+    <string name="swipe_here">swipe here</string>
     <string name="plus1">+1</string>
     <string name="minus1">-1</string>
-    
     <string name="twos_made">2\'s made</string>
     <string name="twos_missed">2\'s miss</string>
     <string name="threes_made">3\'s made</string>
@@ -12,7 +22,6 @@
     <string name="ft_miss">ft miss</string>
     <string name="reboff">reb off</string>
     <string name="rebdef">reb def</string>
-    
     <string name="archived_games_with_colon">Archived:</string>
     <string name="games_played_with_colon">Games Played:</string>
     <string name="active_games_with_colon">Active:</string>
@@ -144,5 +153,6 @@
     <string name="gls_com">more @ GameLifeStats.com</string>
     <string name="title_activity_game_meta">GameMeta</string>
     <string name="title_activity_game_manager">GameManager</string>
+    <string name="title_activity_play_dialog">PlayDialog</string>
 
 </resources>
