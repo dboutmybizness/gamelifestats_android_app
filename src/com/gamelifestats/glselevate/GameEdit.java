@@ -34,12 +34,14 @@ public class GameEdit extends Activity {
 
 	Resources res;
 	int active_color;
+	int default_color;
 	
 	final int[] stat_routines = {
 		0,1
 	};
 	Integer active_stat = null;
 	TextView active_textview;
+	TextView last_textview;
 	
 	Button press_fg2made,press_fg2missed,press_fg3made,press_fg3missed,press_ftmade, press_ftmissed, press_reboff,press_rebdef,
 		press_assists,press_steals,press_blocks,press_turnovers;
@@ -62,6 +64,7 @@ public class GameEdit extends Activity {
 		
 		res = getResources();
 		active_color = res.getColor(R.color.gls_blue);
+		default_color = res.getColor(R.color.Black);
 		setUpViews();
 	}
 	
@@ -124,12 +127,21 @@ public class GameEdit extends Activity {
 		return butt;
 	}
 	
+	public void setLastStat(TextView tv){
+		if (active_stat == null) return;
+		last_textview = active_textview;
+		last_textview.setTextColor(default_color);
+	}
+	
 	public void setActiveStat(int routine,TextView tv){
+		
+		setLastStat(tv);
 		active_stat = routine;
 		active_textview = tv;
-		//tv.setBackgroundColor(active_color);
+		active_textview.setTextColor(active_color);
 		int stat_value = Integer.parseInt(tv.getText().toString());
 		gseek.setProgress(stat_value);
+		
 	}
 	
 	public TextView initTV(int Id){
@@ -144,7 +156,7 @@ public class GameEdit extends Activity {
 	}
 	
 	private void refactorStats(){
-		//db.game_result = (retRadioValue().equals("Win")) ? 1 : 0;
+		db.game_result = (retRadioValue().equals("Win")) ? 1 : 0;
 		
 		//db.minutes = minutes.getProgress();
 		
@@ -292,7 +304,7 @@ public class GameEdit extends Activity {
 	}
 	
 	public void setUpViews(){
-		//winloss = (RadioGroup) findViewById(R.id.winlosegroup);
+		winloss = (RadioGroup) findViewById(R.id.winlosegroup);
 		//dmin = (TextView) findViewById(R.id.dis_minutes);
 		
 		dpts = initTV(R.id.dis_points);
