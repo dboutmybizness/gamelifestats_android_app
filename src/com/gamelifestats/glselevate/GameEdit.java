@@ -13,7 +13,8 @@ import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
 import android.view.View.OnClickListener;
-import android.view.View.OnLongClickListener;
+import android.widget.Button;
+import android.widget.FrameLayout;
 import android.widget.RadioButton;
 import android.widget.RadioGroup;
 import android.widget.SeekBar;
@@ -22,226 +23,130 @@ import android.widget.TextView;
 import android.widget.Toast;
 
 public class GameEdit extends Activity {
-	
-	SeekBar fg1md, fg1ms, fg2md, fg2ms, fg3md, fg3ms;
-	SeekBar rebs_off, rebs_def;
-	SeekBar minutes, assists, steals, blocks, turnovers, fouls;
-	TextView seekPrint;
-	Boolean playbuzzer = false;
-	TextView dmin,dfgma, dfg3ma, dftma, dfgp, dfg3p, dftp, dfg2ma;
-	TextView dpts, dasts, dstls, dblks, dtos, dfouls;
-	TextView dreb, dtreb;
-	TextView stline_pts, stline_rebs, stline_asts, stline_stls;
+
+	TextView dfgm,dfga,d3m,d3a,dftm,dfta;
+	TextView dpts,dreb,dreb_off,dasts,dstls,dblks,dtos;
 	
 	TextView lab_fg2made, lab_fg2missed, lab_fg3made, lab_fg3missed, lab_ftmade, lab_ftmissed, lab_oreb, lab_dreb;
 	TextView lab_minutes, lab_assists, lab_steals, lab_blocks, lab_turnovers, lab_fouls;
 	RadioGroup winloss;
-	
-	MGames dbGames;
-	
-	private final int THRESHOLD_SMALL = 10;
-	private final int THRESHOLD_MED = 15;
-	private final int THRESHOLD_LARGE = 20;
-	private final int THRESHOLD_XLARGE = 25;
-	
+	MGames db;
+
 	Resources res;
+	int active_color;
+	int default_color;
+	
+	final int[] stat_routines = {
+		0,1
+	};
+	Integer active_stat = null;
+	TextView active_textview;
+	TextView last_textview;
+	
+	Button press_fg2made,press_fg2missed,press_fg3made,press_fg3missed,press_ftmade, press_ftmissed, press_reboff,press_rebdef,
+		press_assists,press_steals,press_blocks,press_turnovers;
+	TextView stat_fg2made,stat_fg2missed,stat_fg3made,stat_fg3missed,stat_ftmade,stat_ftmissed,stat_reboff,stat_rebdef,
+		stat_assists,stat_steals,stat_blocks,stat_turnovers;
+	SeekBar gseek;
+	Button plus1, minus1;
+	
+	FrameLayout swiper;
 	
 	
 	@Override
 	protected void onCreate(Bundle savedInstanceState) {
 		super.onCreate(savedInstanceState);
 		setContentView(R.layout.game_edit);
-		// Show the Up button in the action bar.
+
 		setupActionBar();
 		
-		setUpAllStats();
-		dbGames = new MGames(this);
+		db = new MGames(this);
 		
-		renderPage();
+		res = getResources();
+		active_color = res.getColor(R.color.gls_blue);
+		default_color = res.getColor(R.color.Black);
+		setUpViews();
 	}
 	
-	@Override
-	protected void onResume() {
-		super.onResume();
-		if ( playbuzzer == false){
-			playBuzzer();
-			playbuzzer = true;
+	public void updateActiveStat(int progress){
+		if ( active_stat == null) return;
+		
+		TextView tv;
+		switch(active_stat){
+			case 0: tv = stat_fg2made;
+				break;
+			case 1: tv = stat_fg2missed;
+				break;
+			case 2: tv = stat_fg3made;
+				break; 
+			case 3: tv = stat_fg3missed;
+				break;
+			case 4: tv = stat_ftmade;
+				break;
+			case 5: tv = stat_ftmissed;
+				break;
+			case 6: tv = stat_reboff;
+				break;
+			case 7: tv = stat_rebdef;
+				break;
+			case 8: tv = stat_assists;
+				break;
+			case 9: tv = stat_steals;
+				break;
+			case 10: tv = stat_blocks;
+				break;
+			case 11: tv = stat_turnovers;
+				break;
+			default: tv = null;
+				break;
 		}
 		
-		refactorStats();
+		if (tv != null){
+			tv.setText(makeDoubleZero(progress));
+			refactorStats();
+		}
+	}
+
+	
+	public String makeDoubleZero(int i){
+		String num = String.valueOf(i);
+		if ( num.length() == 1) num = "0" +num;
+		return num;
 	}
 	
-	public void playBuzzer(){
+	public Button initStatButton(int button_view, final int routine, final TextView tv){
+		Button butt = (Button) findViewById(button_view);
+		butt.setOnClickListener(new OnClickListener(){
+
+			@Override
+			public void onClick(View v) {
+				setActiveStat(routine,tv);
+			}
+			
+		});
+		return butt;
+	}
+	
+	public void setLastStat(TextView tv){
+		if (active_stat == null) return;
+		last_textview = active_textview;
+		last_textview.setTextColor(default_color);
+	}
+	
+	public void setActiveStat(int routine,TextView tv){
 		
-		//MediaPlayer mp = MediaPlayer.create(getApplicationContext(), R.raw.buzzer);
-	    //mp.start();
-	    
+		setLastStat(tv);
+		active_stat = routine;
+		active_textview = tv;
+		active_textview.setTextColor(active_color);
+		int stat_value = Integer.parseInt(tv.getText().toString());
+		gseek.setProgress(stat_value);
+		
 	}
 	
 	public TextView initTV(int Id){
 		TextView tv = (TextView) findViewById(Id);
 		return tv;
-	}
-	
-	private TextView makeLabelListener(int viewId, final SeekBar sb, final String str, boolean canIncrease){
-		TextView tv = (TextView) findViewById(viewId);
-		tv.setOnClickListener(new OnClickListener(){
-
-			@Override
-			public void onClick(View v) {
-				int current_seek = ckSeekBar(sb);
-				seekPrinter(current_seek);
-				Toast.makeText(getBaseContext(), str+ ": " + current_seek, Toast.LENGTH_SHORT).show();
-				
-			}
-			
-		});
-		if ( canIncrease){
-			tv.setOnLongClickListener(new OnLongClickListener(){
-	
-				@Override
-				public boolean onLongClick(View v) {
-					increaseThreshold(sb, str);
-					return false;
-				}
-				
-			});
-		}
-		return tv;
-	}
-	
-	private void increaseThreshold(final SeekBar sb, String str){
-		AlertDialog.Builder alertDialogBuilder = new AlertDialog.Builder(this);
-		alertDialogBuilder
-			.setMessage("Increase "+str)
-			//.setCancelable(false)
-			.setNeutralButton("+5", new DialogInterface.OnClickListener() {
-				@Override
-				public void onClick(DialogInterface dialog, int which) {
-					sb.setMax(sb.getMax() + 5);
-				}
-			})
-			.setPositiveButton("+10", new DialogInterface.OnClickListener() {
-				
-				@Override
-				public void onClick(DialogInterface dialog, int which) {
-					sb.setMax(sb.getMax() + 10);
-				}
-			})
-			.setNegativeButton("Cancel", new DialogInterface.OnClickListener() {
-				
-				@Override
-				public void onClick(DialogInterface dialog, int which) {
-					dialog.cancel();
-				}
-			});
-		AlertDialog alertDialog = alertDialogBuilder.create();
-		alertDialog.show();
-	}
-	
-	private int ckSeekBar(SeekBar sb){
-		return sb.getProgress();
-	}
-	
-	public void setUpAllStats(){
-		res = getResources();
-		
-		winloss = (RadioGroup) findViewById(R.id.winlosegroup);
-		
-		stline_pts = initTV(R.id.dis_spoints);
-		stline_rebs = initTV(R.id.dis_srebounds);
-		stline_asts = initTV(R.id.dis_sassists);
-		stline_stls = initTV(R.id.dis_ssteals);
-		
-		seekPrint = (TextView) findViewById(R.id.seek_print);
-		dmin = (TextView) findViewById(R.id.dis_minutes);
-		dfgma = (TextView) findViewById(R.id.dis_fgs);
-		dfg2ma = (TextView) findViewById(R.id.dis_fg2s);
-		dfg3ma = (TextView) findViewById(R.id.dis_fg3s);
-		dftma = (TextView) findViewById(R.id.dis_fts);
-		dpts = (TextView) findViewById(R.id.dis_points);
-		dreb = (TextView) findViewById(R.id.dis_rebounds);
-		//dtreb = (TextView) findViewById(R.id.dis_treb);
-
-		dasts = initTV(R.id.dis_assists);
-		dstls = initTV(R.id.dis_steals);
-		dblks = initTV(R.id.dis_blocks);
-		dtos = initTV(R.id.dis_turnovers);
-		dfouls = initTV(R.id.dis_fouls);
-		//dfgp = initTV(R.id.dis_fgp);
-		//dfg3p = initTV(R.id.dis_fg3p);
-		//dftp = initTV(R.id.dis_ftp);
-
-		fg2md = setUpSeeks(R.id.ed_fg2md, THRESHOLD_MED);
-		fg2ms = setUpSeeks(R.id.ed_fg2ms, THRESHOLD_MED);
-		fg3md = setUpSeeks(R.id.ed_fg3md, THRESHOLD_MED);
-		fg3ms = setUpSeeks(R.id.ed_fg3ms, THRESHOLD_MED);
-		fg1md = setUpSeeks(R.id.ed_ftmd, THRESHOLD_MED);
-		fg1ms = setUpSeeks(R.id.ed_ftms, THRESHOLD_MED);
-		rebs_off = setUpSeeks(R.id.ed_reb_off, THRESHOLD_MED);
-		rebs_def = setUpSeeks(R.id.ed_reb_def, THRESHOLD_XLARGE);
-		minutes = setUpSeeks(R.id.ed_minutes, 60);
-		assists = setUpSeeks(R.id.ed_assists, THRESHOLD_MED);
-		steals = setUpSeeks(R.id.ed_steals, THRESHOLD_SMALL);
-		blocks = setUpSeeks(R.id.ed_blocks, THRESHOLD_SMALL);
-		turnovers = setUpSeeks(R.id.ed_turnovers, THRESHOLD_SMALL);
-		fouls = setUpSeeks(R.id.ed_fouls, 6);
-		
-		
-		lab_fg2made = makeLabelListener(R.id.lab_fg2made, fg2md, res.getString(R.string.pointers_2) + " " +res.getString(R.string.made) , true);
-		lab_fg2missed = makeLabelListener(R.id.lab_fg2missed, fg2ms, res.getString(R.string.pointers_2) + " " +res.getString(R.string.missed) , true);
-		
-		lab_fg3made = makeLabelListener(R.id.lab_fg3made, fg3md, res.getString(R.string.pointers_3) + " " +res.getString(R.string.made) , true);
-		lab_fg3missed = makeLabelListener(R.id.lab_fg3missed, fg3ms, res.getString(R.string.pointers_3) + " " +res.getString(R.string.missed) ,true);
-		
-		lab_ftmade = makeLabelListener(R.id.lab_ftmade, fg1md, res.getString(R.string.free_throws) + " " +res.getString(R.string.made) ,true);
-		lab_ftmissed = makeLabelListener(R.id.lab_ftmissed, fg1ms, res.getString(R.string.free_throws) + " " +res.getString(R.string.missed) ,true);
-		
-		lab_oreb = makeLabelListener(R.id.lab_oreb, rebs_off, res.getString(R.string.rebounds) + " " + res.getString(R.string.offensive), true);
-		lab_dreb = makeLabelListener(R.id.lab_dreb, rebs_def, res.getString(R.string.rebounds) + " " + res.getString(R.string.defensive), true);
-		
-		lab_minutes = makeLabelListener(R.id.lab_seek_minutes, minutes, res.getString(R.string.minutes), false);
-		lab_assists = makeLabelListener(R.id.lab_seek_assists, assists, res.getString(R.string.assists), true);
-		lab_steals = makeLabelListener(R.id.lab_seek_steals, steals, res.getString(R.string.steals), true);
-		lab_blocks = makeLabelListener(R.id.lab_seek_blocks, blocks, res.getString(R.string.blocks), true);
-		lab_turnovers = makeLabelListener(R.id.lab_seek_turnovers, turnovers, res.getString(R.string.turnovers), true);
-		lab_fouls = makeLabelListener(R.id.lab_seek_fouls, fouls, res.getString(R.string.fouls) ,false);
-	}
-	
-	private SeekBar setUpSeeks(int Id, int max){
-		SeekBar sb = (SeekBar) findViewById(Id);
-		sb.setMax(max);
-		sb.setOnSeekBarChangeListener(new OnSeekBarChangeListener(){
-			int showNum;
-			@Override
-			public void onProgressChanged(SeekBar seekBar, int progress,
-					boolean fromUser) {
-				showNum = progress;
-				//seekPrint.setText(Integer.toString(showNum));
-				seekPrinter(showNum);
-				
-			}
-
-			@Override
-			public void onStartTrackingTouch(SeekBar seekBar) {
-				// TODO Auto-generated method stub
-				
-			}
-
-			@Override
-			public void onStopTrackingTouch(SeekBar seekBar) {
-				// TODO Auto-generated method stub
-				//seekPrint.setText(Integer.toString(showNum));
-				refactorStats();
-				
-			}
-			
-		});
-		return sb;
-	}
-	
-	private void seekPrinter(int i){
-		seekPrint.setText(String.valueOf(i));
 	}
 	
 	private String retRadioValue(){
@@ -251,55 +156,49 @@ public class GameEdit extends Activity {
 	}
 	
 	private void refactorStats(){
+		db.game_result = (retRadioValue().equals("Win")) ? 1 : 0;
+		
+		//db.minutes = minutes.getProgress();
+		
+		db.fg2m = Integer.parseInt(stat_fg2made.getText().toString());
+		db.fg2ms = Integer.parseInt(stat_fg2missed.getText().toString());
 		
 		
-		dbGames.game_result = (retRadioValue().equals("Win")) ? 1 : 0;
+		db.fg3m = Integer.parseInt(stat_fg3made.getText().toString());
+		db.fg3ms = Integer.parseInt(stat_fg3missed.getText().toString());
 		
-		dbGames.minutes = minutes.getProgress();
+		db.ftm = Integer.parseInt(stat_ftmade.getText().toString());
+		db.ftms = Integer.parseInt(stat_ftmissed.getText().toString());
 		
-		dbGames.fg2m = fg2md.getProgress();
-		dbGames.fg2ms = fg2ms.getProgress();
+		db.reb_def = Integer.parseInt(stat_rebdef.getText().toString());
+		db.reb_off = Integer.parseInt(stat_reboff.getText().toString());
 		
-		dbGames.fg3m = fg3md.getProgress();
-		dbGames.fg3ms = fg3ms.getProgress();
+		db.assists = Integer.parseInt(stat_assists.getText().toString());
+		db.steals = Integer.parseInt(stat_steals.getText().toString());
+		db.blocks = Integer.parseInt(stat_blocks.getText().toString());
+		db.turnovers = Integer.parseInt(stat_turnovers.getText().toString());
+		//db.fouls = fouls.getProgress();
 		
-		dbGames.ftm = fg1md.getProgress();
-		dbGames.ftms = fg1ms.getProgress();
-		
-		dbGames.reb_def = rebs_def.getProgress();
-		dbGames.reb_off = rebs_off.getProgress();
-		
-		dbGames.assists = assists.getProgress();
-		dbGames.steals = steals.getProgress();
-		dbGames.blocks = blocks.getProgress();
-		dbGames.turnovers = turnovers.getProgress();
-		dbGames.fouls = fouls.getProgress();
-		
-		dbGames.renderStats();
+		db.renderStats();
 		renderPage();
 	}
 	
 	public void renderPage(){
+		//dmin.setText(db.s_minutes);
+		dpts.setText(db.s_points);
+		dreb.setText(db.s_rebounds);
+		dreb_off.setText(db.s_reb_off);
+		dasts.setText(db.s_assists);
+		dstls.setText(db.s_steals);
+		dblks.setText(db.s_blocks);
+		dtos.setText(db.s_turnovers);
 
-		dmin.setText(dbGames.s_minutes);
-		dfgma.setText(dbGames.s_fgm + "/" + dbGames.s_fga);
-		dfg2ma.setText(dbGames.s_fg2m + "/" + dbGames.s_fg2a);
-		dfg3ma.setText(dbGames.s_fg3m + "/" + dbGames.s_fg3a);
-		dftma.setText(dbGames.s_ftm + "/" + dbGames.s_fta);
-		dpts.setText(dbGames.s_points);
-		dreb.setText(dbGames.s_rebounds);
-		
-		dasts.setText(dbGames.s_assists);
-		dstls.setText(dbGames.s_steals);
-		dblks.setText(dbGames.s_blocks);
-		dtos.setText(dbGames.s_turnovers);
-		dfouls.setText(dbGames.s_fouls);
-		
-		stline_pts.setText(dbGames.s_points);
-		stline_rebs.setText(dbGames.s_rebounds);
-		stline_asts.setText(dbGames.s_assists);
-		stline_stls.setText(dbGames.s_steals);
-		
+		dfgm.setText(db.s_fgm);
+		dfga.setText(db.s_fga);
+		d3m.setText(db.s_fg3m);
+		d3a.setText(db.s_fg3a);
+		dftm.setText(db.s_ftm);
+		dfta.setText(db.s_fta);
 	}
 	
 	/**
@@ -336,38 +235,16 @@ public class GameEdit extends Activity {
 	
 	@Override
 	protected void onSaveInstanceState(Bundle outState) {
-	    outState.putBoolean("playbuzzer", playbuzzer);
 	    super.onSaveInstanceState(outState);
-	}
-
-	@Override
-	protected void onRestoreInstanceState(Bundle savedInstanceState) {
-	    playbuzzer = savedInstanceState.getBoolean("playbuzzer");
-	    super.onRestoreInstanceState(savedInstanceState);
 	}
 	
 	public void resetStats(View v){
-		minutes.setProgress(0);
+		if ( active_stat != null){
+			gseek.setProgress(0);
+			active_textview.setText("00");
+			refactorStats();
+		}
 		
-		fg2md.setProgress(0);
-		fg2ms.setProgress(0);
-		
-		fg3md.setProgress(0);
-		fg3ms.setProgress(0);
-		
-		fg1md.setProgress(0);
-		fg1ms.setProgress(0);
-		
-		rebs_def.setProgress(0);
-		rebs_off.setProgress(0);
-		
-		assists.setProgress(0);
-		steals.setProgress(0);
-		blocks.setProgress(0);
-		turnovers.setProgress(0);
-		fouls.setProgress(0);
-		
-		refactorStats();
 	}
 	
 	public void saveStats(View v){
@@ -403,11 +280,141 @@ public class GameEdit extends Activity {
 	}
 	
 	private void commitSave() throws SQLException{
-		dbGames.insertStats();
+		db.insertStats();
 	}
 	
-	public void openTips(View v){
-		//startActivity(new Intent(this, GameMeta.class));
+	private void plus1(){
+		if ( active_stat == null) return;
+		int current_progress = gseek.getProgress();
+		int new_progress = current_progress + 1;
+		if ( new_progress > gseek.getMax() ) gseek.setMax(new_progress);
+		active_textview.setText(makeDoubleZero(new_progress));
+		refactorStats();
+		setActiveStat(active_stat,active_textview);
+	}
+	
+	private void minus1(){
+		if ( active_stat == null) return;
+		int current_progress = gseek.getProgress();
+		int new_progress = current_progress - 1;
+		if ( new_progress < 0 ) return;
+		active_textview.setText(makeDoubleZero(new_progress));
+		refactorStats();
+		setActiveStat(active_stat,active_textview);
+	}
+	
+	public void setUpViews(){
+		winloss = (RadioGroup) findViewById(R.id.winlosegroup);
+		//dmin = (TextView) findViewById(R.id.dis_minutes);
+		
+		dpts = initTV(R.id.dis_points);
+		dfgm = initTV(R.id.dis_fgm);
+		dfga = initTV(R.id.dis_fga);
+		d3m = initTV(R.id.dis_3m);
+		d3a = initTV(R.id.dis_3a);
+		dftm = initTV(R.id.dis_ftm);
+		dfta = initTV(R.id.dis_fta);
+		
+		dreb = initTV(R.id.dis_reb);
+		dreb_off = initTV(R.id.dis_reb_off);
+
+		dasts = initTV(R.id.dis_assists);
+		dstls = initTV(R.id.dis_steals);
+		dblks = initTV(R.id.dis_blocks);
+		dtos = initTV(R.id.dis_turnovers);
+
+		
+		stat_fg2made = (TextView) findViewById(R.id.stat_fg2made);
+		press_fg2made = initStatButton(R.id.press_fg2made,0, stat_fg2made);
+		
+		stat_fg2missed = (TextView) findViewById(R.id.stat_fg2missed);
+		press_fg2missed = initStatButton(R.id.press_fg2missed,1, stat_fg2missed);
+		
+		stat_fg3made = (TextView) findViewById(R.id.stat_fg3made);
+		press_fg3made = initStatButton(R.id.press_fg3made,2, stat_fg3made);
+		
+		stat_fg3missed = (TextView) findViewById(R.id.stat_fg3missed);
+		press_fg3missed = initStatButton(R.id.press_fg3missed,3, stat_fg3missed);
+		
+		stat_ftmade = (TextView) findViewById(R.id.stat_ftmade);
+		press_ftmade = initStatButton(R.id.press_ftmade,4, stat_ftmade);
+		
+		stat_ftmissed = (TextView) findViewById(R.id.stat_ftmissed);
+		press_ftmissed = initStatButton(R.id.press_ftmissed,5, stat_ftmissed);
+		
+		stat_reboff = (TextView) findViewById(R.id.stat_reboff);
+		press_reboff = initStatButton(R.id.press_reboff,6, stat_reboff);
+		
+		stat_rebdef = (TextView) findViewById(R.id.stat_rebdef);
+		press_rebdef = initStatButton(R.id.press_rebdef,7,stat_rebdef);
+		
+		stat_assists = (TextView) findViewById(R.id.stat_assists);
+		press_assists = initStatButton(R.id.press_assists,8,stat_assists);
+		
+		stat_steals = (TextView) findViewById(R.id.stat_steals);
+		press_steals = initStatButton(R.id.press_steals,9,stat_steals);
+		
+		stat_blocks = (TextView) findViewById(R.id.stat_blocks);
+		press_blocks = initStatButton(R.id.press_blocks,10,stat_blocks);
+		
+		stat_turnovers = (TextView) findViewById(R.id.stat_turnovers);
+		press_turnovers = initStatButton(R.id.press_turnovers,11,stat_turnovers);
+		
+		
+		
+		plus1 = (Button) findViewById(R.id.plus1);
+		plus1.setOnClickListener(new OnClickListener(){
+			@Override
+			public void onClick(View v) {
+				plus1();
+			}
+			
+		});
+		minus1 = (Button) findViewById(R.id.minus1);
+		minus1.setOnClickListener(new OnClickListener(){
+			@Override
+			public void onClick(View v) {
+				minus1();
+			}
+			
+		});
+		
+		gseek = (SeekBar) findViewById(R.id.game_seek);
+		gseek.setMax(30);
+		gseek.setOnSeekBarChangeListener(new OnSeekBarChangeListener(){
+			int cont;
+			@Override
+			public void onProgressChanged(SeekBar seekBar, int progress,
+					boolean fromUser) {
+				// TODO Auto-generated method stub
+				cont = progress;
+				
+			}
+
+			@Override
+			public void onStartTrackingTouch(SeekBar seekBar) {
+				// TODO Auto-generated method stub
+				
+			}
+
+			@Override
+			public void onStopTrackingTouch(SeekBar seekBar) {
+				// TODO Auto-generated method stub
+				updateActiveStat(cont);
+			}
+			
+		});
+		
+		swiper = (FrameLayout) findViewById(R.id.frame_swipe);
+		swiper.setOnTouchListener(new OnSwipeTouchListener(){
+			public void onSwipeRight() {
+		        plus1();
+		    }
+		    public void onSwipeLeft() {
+		        minus1();
+		    }
+		});
+		
 	}
 
 }

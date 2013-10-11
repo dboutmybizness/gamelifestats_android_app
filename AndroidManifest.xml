@@ -76,6 +76,10 @@
                 android:name="android.support.PARENT_ACTIVITY"
                 android:value="com.gamelifestats.glselevate.Statbook" />
         </activity>
+        <activity
+            android:name="com.gamelifestats.glselevate.PlayDialog"
+            android:label="@string/title_activity_play_dialog" >
+        </activity>
     </application>
 
 </manifest>
