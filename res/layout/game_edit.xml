@@ -8,12 +8,41 @@
     android:focusableInTouchMode="true"
     android:orientation="vertical" >
 
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="@color/cornsilk"
+        android:padding="10dp" >
+
+        <RadioGroup
+            android:id="@+id/winlosegroup"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_centerInParent="true"
+            android:orientation="horizontal" >
+
+            <RadioButton
+                android:id="@+id/radio0"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:checked="true"
+                android:text="@string/win" />
+
+            <RadioButton
+                android:id="@+id/radio1"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@string/loss" />
+        </RadioGroup>
+
+    </RelativeLayout>
+
     <HorizontalScrollView
         android:id="@+id/framer1"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:background="@color/cornsilk"
-        android:padding="5dp" >
+        android:padding="10dp" >
 
         <TableLayout
             android:layout_width="wrap_content"
@@ -23,11 +52,12 @@
                 android:id="@+id/tableRow4"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content" >
-                
+
                 <TextView
                     android:id="@+id/lab_points"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
+                    android:layout_marginRight="8dp"
                     android:text="@string/pts"
                     android:textAppearance="?android:attr/textAppearanceSmall" />
 
@@ -35,84 +65,96 @@
                     android:id="@+id/lab_fgm"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
+                    android:layout_marginRight="8dp"
                     android:text="@string/fgm"
                     android:textAppearance="?android:attr/textAppearanceSmall" />
+
                 <TextView
                     android:id="@+id/lab_fga"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
+                    android:layout_marginRight="8dp"
                     android:text="@string/fga"
                     android:textAppearance="?android:attr/textAppearanceSmall" />
+
                 <TextView
                     android:id="@+id/lab_3m"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
+                    android:layout_marginRight="8dp"
                     android:text="@string/threesm"
                     android:textAppearance="?android:attr/textAppearanceSmall" />
-                
+
                 <TextView
                     android:id="@+id/lab_3a"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
+                    android:layout_marginRight="8dp"
                     android:text="@string/threesa"
                     android:textAppearance="?android:attr/textAppearanceSmall" />
+
                 <TextView
                     android:id="@+id/lab_ftm"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
+                    android:layout_marginRight="8dp"
                     android:text="@string/ftm"
                     android:textAppearance="?android:attr/textAppearanceSmall" />
-                
+
                 <TextView
                     android:id="@+id/lab_fta"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
+                    android:layout_marginRight="8dp"
                     android:text="@string/fta"
                     android:textAppearance="?android:attr/textAppearanceSmall" />
-                
+
                 <TextView
                     android:id="@+id/lab_rebounds"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
+                    android:layout_marginRight="8dp"
                     android:text="@string/reb"
                     android:textAppearance="?android:attr/textAppearanceSmall" />
-                
+
                 <TextView
                     android:id="@+id/lab_rebs_off"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
+                    android:layout_marginRight="8dp"
                     android:text="@string/off"
                     android:textAppearance="?android:attr/textAppearanceSmall" />
-                
+
                 <TextView
                     android:id="@+id/lab_assists"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
+                    android:layout_marginRight="8dp"
                     android:text="@string/ast"
                     android:textAppearance="?android:attr/textAppearanceSmall" />
-                
+
                 <TextView
                     android:id="@+id/lab_steals"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
+                    android:layout_marginRight="8dp"
                     android:text="@string/stl"
                     android:textAppearance="?android:attr/textAppearanceSmall" />
-                
-                 <TextView
+
+                <TextView
                     android:id="@+id/lab_blocks"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
+                    android:layout_marginRight="8dp"
                     android:text="@string/blk"
                     android:textAppearance="?android:attr/textAppearanceSmall" />
-                
+
                 <TextView
                     android:id="@+id/lab_turnovers"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:text="@string/to"
                     android:textAppearance="?android:attr/textAppearanceSmall" />
-                
-                
             </TableRow>
 
             <TableRow
@@ -133,49 +175,49 @@
                     android:layout_height="wrap_content"
                     android:text="@string/zero"
                     android:textAppearance="?android:attr/textAppearanceSmall" />
-                
+
                 <TextView
                     android:id="@+id/dis_fga"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:text="@string/zero"
                     android:textAppearance="?android:attr/textAppearanceSmall" />
-                
+
                 <TextView
                     android:id="@+id/dis_3m"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:text="@string/zero"
                     android:textAppearance="?android:attr/textAppearanceSmall" />
-                
+
                 <TextView
                     android:id="@+id/dis_3a"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:text="@string/zero"
                     android:textAppearance="?android:attr/textAppearanceSmall" />
-                
+
                 <TextView
                     android:id="@+id/dis_ftm"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:text="@string/zero"
                     android:textAppearance="?android:attr/textAppearanceSmall" />
-                
+
                 <TextView
                     android:id="@+id/dis_fta"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:text="@string/zero"
                     android:textAppearance="?android:attr/textAppearanceSmall" />
-                
+
                 <TextView
                     android:id="@+id/dis_reb"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:text="@string/zero"
                     android:textAppearance="?android:attr/textAppearanceSmall" />
-                
+
                 <TextView
                     android:id="@+id/dis_reb_off"
                     android:layout_width="wrap_content"
@@ -183,41 +225,37 @@
                     android:text="@string/zero"
                     android:textAppearance="?android:attr/textAppearanceSmall" />
 
-	            <TextView
-	                    android:id="@+id/dis_assists"
-	                    android:layout_width="wrap_content"
-	                    android:layout_height="wrap_content"
-	                    android:text="@string/zero"
-	                    android:textAppearance="?android:attr/textAppearanceSmall" />
-	            
-	            <TextView
-	                    android:id="@+id/dis_steals"
-	                    android:layout_width="wrap_content"
-	                    android:layout_height="wrap_content"
-	                    android:text="@string/zero"
-	                    android:textAppearance="?android:attr/textAppearanceSmall" />
-	            
-	            <TextView
-	                    android:id="@+id/dis_blocks"
-	                    android:layout_width="wrap_content"
-	                    android:layout_height="wrap_content"
-	                    android:text="@string/zero"
-	                    android:textAppearance="?android:attr/textAppearanceSmall" />
-	            
-	            <TextView
-	                    android:id="@+id/dis_turnovers"
-	                    android:layout_width="wrap_content"
-	                    android:layout_height="wrap_content"
-	                    android:text="@string/zero"
-	                    android:textAppearance="?android:attr/textAppearanceSmall" />
-            
-            </TableRow>
-            
-        </TableLayout>
+                <TextView
+                    android:id="@+id/dis_assists"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="@string/zero"
+                    android:textAppearance="?android:attr/textAppearanceSmall" />
 
+                <TextView
+                    android:id="@+id/dis_steals"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="@string/zero"
+                    android:textAppearance="?android:attr/textAppearanceSmall" />
+
+                <TextView
+                    android:id="@+id/dis_blocks"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="@string/zero"
+                    android:textAppearance="?android:attr/textAppearanceSmall" />
+
+                <TextView
+                    android:id="@+id/dis_turnovers"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="@string/zero"
+                    android:textAppearance="?android:attr/textAppearanceSmall" />
+            </TableRow>
+        </TableLayout>
     </HorizontalScrollView>
 
-    
     <ScrollView
         android:id="@+id/child_container2"
         android:layout_width="match_parent"
