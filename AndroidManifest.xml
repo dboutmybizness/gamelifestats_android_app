@@ -1,8 +1,8 @@
 <?xml version="1.0" encoding="utf-8"?>
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
     package="com.gamelifestats.glselevate"
-    android:versionCode="8"
-    android:versionName="1.0.7" >
+    android:versionCode="9"
+    android:versionName="1.0.8" >
 
     <uses-sdk
         android:minSdkVersion="11"
@@ -15,7 +15,8 @@
         android:theme="@style/AppTheme" >
         <activity
             android:name="com.gamelifestats.glselevate.GLS_Act_main"
-            android:label="@string/brand_name" >
+            android:label="@string/brand_name"
+            android:screenOrientation="portrait" >
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 

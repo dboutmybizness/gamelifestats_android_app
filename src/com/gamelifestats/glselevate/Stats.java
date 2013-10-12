@@ -81,10 +81,7 @@ public class Stats extends FragmentActivity {
         if (savedInstanceState == null) {
             selectItem(0);
         }
-        
-        openNavDrawer();
-        
-        
+        //openNavDrawer();
     }
     
     public void openNavDrawer(){
