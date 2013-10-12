@@ -181,10 +181,8 @@
     <string name="title_activity_game_meta">GameMeta</string>
     <string name="title_activity_game_manager">GameManager</string>
     <string name="title_activity_play_dialog">PlayDialog</string>
-<<<<<<< HEAD
+
     <string name="title_activity_bball_profile">BballProfile</string>
-=======
-    
->>>>>>> nav_drawer
+
 
 </resources>
