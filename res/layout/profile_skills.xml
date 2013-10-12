@@ -248,7 +248,6 @@
             android:layout_gravity="center_vertical|center_horizontal"
             android:background="@android:drawable/btn_default"
             android:drawableLeft="@drawable/ic_menu_save"
-            android:onClick="saveScout"
             android:text="@string/save" />
     </FrameLayout>
 
