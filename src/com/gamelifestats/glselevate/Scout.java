@@ -78,13 +78,13 @@ public class Scout extends Activity {
 
 	@Override
 	public boolean onOptionsItemSelected(MenuItem item) {
-		if ( item.getTitle().equals(ABSelect.ACT_YOUR_SCOUT)){
+		if ( item.getTitle().equals(ABSelect.ACT_BBall_Profile)){
 			startActivity(new Intent(this, ScoutEdit.class));
 			finish();
 			return true;
 		}
 		
-		ABSelect bar_select = new ABSelect(this, ABSelect.ACT_YOUR_SCOUT);
+		ABSelect bar_select = new ABSelect(this, ABSelect.ACT_BBall_Profile);
     	Object cls = bar_select.trySelected(item);
     	if ( cls != null ){
     		startActivity(new Intent(this, (Class<?>) cls));

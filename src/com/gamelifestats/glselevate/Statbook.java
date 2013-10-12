@@ -88,8 +88,6 @@ public class Statbook extends FragmentActivity implements ActionBar.TabListener 
 					.setTabListener(this));
 		}
 		
-		//dbGames = new Model_Games(this);
-		//setUpAVG();
 	}
 
 	@Override

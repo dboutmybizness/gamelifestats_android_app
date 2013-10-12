@@ -27,17 +27,17 @@ public class ScoutEdit extends Activity {
 	@Override
 	protected void onCreate(Bundle savedInstanceState) {
 		super.onCreate(savedInstanceState);
-		setContentView(R.layout.layout_scout_edit);
+		setContentView(R.layout.profile_bio);
 		// Show the Up button in the action bar.
 		setupActionBar();
 		
 		scoutObj = new MScout(this);
 		
-		position = (Spinner) findViewById(R.id.spinner_positions);
+		/*position = (Spinner) findViewById(R.id.spinner_positions);
 		ArrayAdapter<CharSequence> adapter = ArrayAdapter.createFromResource(this, R.array.positions_array, android.R.layout.simple_spinner_item);
 		adapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
 		position.setAdapter(adapter);
-		
+		*/
 		this.setupViews();
 		scoutObj.getScout();
 		this.loadScoutView();
@@ -50,10 +50,10 @@ public class ScoutEdit extends Activity {
 	}
 
 	public void setupViews(){
-		name = (TextView) findViewById(R.id.e_name);
-		nickname = (TextView) findViewById(R.id.e_nickname);
-		jersey_seek = (SeekBar) findViewById(R.id.ed_jersey);
-		jersey_seek.setOnSeekBarChangeListener(new OnSeekBarChangeListener(){
+		//name = (TextView) findViewById(R.id.e_name);
+		//nickname = (TextView) findViewById(R.id.e_nickname);
+		//jersey_seek = (SeekBar) findViewById(R.id.ed_jersey);
+		/*jersey_seek.setOnSeekBarChangeListener(new OnSeekBarChangeListener(){
 			@Override
 			public void onProgressChanged(SeekBar seekBar, int progress,
 					boolean fromUser) {
@@ -75,7 +75,7 @@ public class ScoutEdit extends Activity {
 			}
 			
 		});
-		jersey_print = (TextView) findViewById(R.id.jersey_print);
+		jersey_print = (TextView) findViewById(R.id.jersey_print);*/
 	}
 	
 	public void updateJersey(){

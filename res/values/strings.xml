@@ -1,17 +1,41 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
-
-	<string name="archive">Archive</string>
+    <string name="ball_handling">ball handle</string>
+    <string name="crossover">crossover</string>
+    <string name="ball_control">ball control</string>
+    <string name="scoring">scoring</string>
+    <string name="rebounding">rebounding</string>
+    <string name="finishing">finishing</string>
+    <string name="court_vision">court vision</string>
+    <string name="mid_range">mid_range</string>
+    <string name="long_range">long range</string>
+	<string name="dunk_layup">dunks / layups</string>
+    <string name="passing">passing</string>
+    <string name="range">Range</string>
+    <string name="best_defensive">Best Defensive</string>
+    <string name="best_offensive">Best Offensive</string>
+    <string name="assets">Assets</string>
+    <string name="game_type">Game Type</string>
+    <string name="style_of_play">Style of Play</string>
+    <string name="highest_level_played">Highest Level Played</string>
+    <string name="birthday">Birthday</string>
+    <string name="female">Female</string>
+    <string name="male">Male</string>
+    <string name="gender">Gender</string>
+    <string name="bio">bio</string>
+    <string name="skills">Skills</string>
+    <string name="favs">favs</string>
+    <string name="bball_profile">BBall Profile</string>
+    <string name="archive">Archive</string>
     <string name="fgm">FGM</string>
     <string name="fga">FGA</string>
     <string name="threesm">3M</string>
     <string name="threesa">3A</string>
     <string name="ftm">FTM</string>
-	<string name="fta">FTA</string>
-	<string name="reb">REB</string>
-	<string name="off">OFF</string>
-	<string name="to">TO</string>
-    
+    <string name="fta">FTA</string>
+    <string name="reb">REB</string>
+    <string name="off">OFF</string>
+    <string name="to">TO</string>
     <string name="swipe_here">swipe here</string>
     <string name="plus1">+1</string>
     <string name="minus1">-1</string>
@@ -155,5 +179,6 @@
     <string name="title_activity_game_meta">GameMeta</string>
     <string name="title_activity_game_manager">GameManager</string>
     <string name="title_activity_play_dialog">PlayDialog</string>
+    <string name="title_activity_bball_profile">BballProfile</string>
 
 </resources>
