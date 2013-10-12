@@ -20,7 +20,6 @@ import android.widget.RadioGroup;
 import android.widget.SeekBar;
 import android.widget.SeekBar.OnSeekBarChangeListener;
 import android.widget.TextView;
-import android.widget.Toast;
 
 public class GameEdit extends Activity {
 
@@ -259,7 +258,7 @@ public class GameEdit extends Activity {
 					// TODO Auto-generated method stub
 					try {
 						commitSave();
-						startActivity(new Intent(getBaseContext(), Statbook.class));
+						startActivity(new Intent(getBaseContext(), Stats.class));
 						finish();
 					} catch (SQLException e) {
 						// TODO Auto-generated catch block

@@ -38,7 +38,7 @@ public class MGames extends DBAdapter {
 	static final String REB_DEF = "reb_def";
 	static final String ACTIVE_STATUS = "active_status";
 	
-	static final String[] wOrl= { "Loss", "Win" };
+	public static final String[] wOrl= { "Loss", "Win" };
 	
 	static final String CREATE_TABLE = 
 		"create table "+TABLE+" (" +
@@ -85,7 +85,7 @@ public class MGames extends DBAdapter {
 	
 	long created_time = 0;
 	int game_type = 0;
-	int game_result = 0;
+	public int game_result = 0;
 	int active_status = 0;
 	
 	
@@ -146,7 +146,7 @@ public class MGames extends DBAdapter {
 	String s_fgp;
 
 	
-	MGames(Context context) {
+	public MGames(Context context) {
 		
 		super(context);
 		super.setTable(MGames.TABLE);

@@ -9,7 +9,7 @@
     <string name="court_vision">court vision</string>
     <string name="mid_range">mid_range</string>
     <string name="long_range">long range</string>
-	<string name="dunk_layup">dunks / layups</string>
+    <string name="dunk_layup">dunks / layups</string>
     <string name="passing">passing</string>
     <string name="range">Range</string>
     <string name="best_defensive">Best Defensive</string>
@@ -27,6 +27,8 @@
     <string name="favs">favs</string>
     <string name="bball_profile">BBall Profile</string>
     <string name="archive">Archive</string>
+    <string name="drawer_open">Open navigation drawer</string>
+    <string name="drawer_close">Close navigation drawer</string>
     <string name="fgm">FGM</string>
     <string name="fga">FGA</string>
     <string name="threesm">3M</string>
@@ -179,6 +181,10 @@
     <string name="title_activity_game_meta">GameMeta</string>
     <string name="title_activity_game_manager">GameManager</string>
     <string name="title_activity_play_dialog">PlayDialog</string>
+<<<<<<< HEAD
     <string name="title_activity_bball_profile">BballProfile</string>
+=======
+    
+>>>>>>> nav_drawer
 
 </resources>
