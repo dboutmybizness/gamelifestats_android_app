@@ -119,14 +119,14 @@ public class Statbook extends FragmentActivity implements ActionBar.TabListener 
 
 	@Override
 	public boolean onOptionsItemSelected(MenuItem item) {
-		if ( item.getTitle().equals(ABSelect.ACT_STATBOOK) ){
+		if ( item.getTitle().equals(ABSelect.ACT_STATS) ){
 			int goToTab = 0;
 			if ( mViewPager.getCurrentItem() == 0 ) goToTab = 1;
 			mViewPager.setCurrentItem(goToTab);
-
+			return true;
 		}
 		
-		ABSelect bar_select = new ABSelect(this, ABSelect.ACT_STATBOOK);
+		ABSelect bar_select = new ABSelect(this, ABSelect.ACT_STATS);
     	Object cls = bar_select.trySelected(item);
     	if ( cls != null ){
     		startActivity(new Intent(this, (Class<?>) cls));

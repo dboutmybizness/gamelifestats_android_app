@@ -64,38 +64,38 @@ public class MCareer extends DBAdapter {
         	TFG3M,TFG3A,TFGM,TFGA,TFTM,TFTA,
 	};
 	
-	int tot_games = 0;
-	int tot_minutes = 0;
-	int tot_points = 0;
-	int tot_rebounds = 0;
-	int tot_reb_off = 0;
-	int tot_reb_def = 0;
-	int tot_assists = 0;
-	int tot_steals = 0;
-	int tot_blocks = 0;
-	int tot_turnovers = 0;
-	int tot_fouls = 0;
+	public int tot_games = 0;
+	public int tot_minutes = 0;
+	public int tot_points = 0;
+	public int tot_rebounds = 0;
+	public int tot_reb_off = 0;
+	public int tot_reb_def = 0;
+	public int tot_assists = 0;
+	public int tot_steals = 0;
+	public int tot_blocks = 0;
+	public int tot_turnovers = 0;
+	public int tot_fouls = 0;
 	
-	int tot_fg2m = 0;
-	int tot_fg2a = 0;
-	int tot_fg3m = 0;
-	int tot_fg3a = 0;
-	int tot_fgm = 0;
-	int tot_fga = 0;
-	int tot_ftm = 0;
-	int tot_fta = 0;
+	public int tot_fg2m = 0;
+	public int tot_fg2a = 0;
+	public int tot_fg3m = 0;
+	public int tot_fg3a = 0;
+	public int tot_fgm = 0;
+	public int tot_fga = 0;
+	public int tot_ftm = 0;
+	public int tot_fta = 0;
 	
 
-	float avg_minutes = 0;
-	float avg_points = 0;
-	float avg_rebounds = 0;
-	float avg_reb_off = 0;
-	float avg_reb_def = 0;
-	float avg_assists = 0;
-	float avg_steals = 0;
-	float avg_blocks = 0;
-	float avg_turnovers = 0;
-	float avg_fouls = 0;
+	public float avg_minutes = 0;
+	public float avg_points = 0;
+	public float avg_rebounds = 0;
+	public float avg_reb_off = 0;
+	public float avg_reb_def = 0;
+	public float avg_assists = 0;
+	public float avg_steals = 0;
+	public float avg_blocks = 0;
+	public float avg_turnovers = 0;
+	public float avg_fouls = 0;
 	
 	
 	public MCareer(Context ctx) {

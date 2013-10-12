@@ -77,9 +77,14 @@
                 android:value="com.gamelifestats.glselevate.Statbook" />
         </activity>
         <activity
-            android:name="com.gamelifestats.glselevate.PlayDialog"
-            android:label="@string/title_activity_play_dialog" >
+            android:name="com.gamelifestats.glselevate.Stats"
+            android:label="@string/stats"
+            android:parentActivityName="com.gamelifestats.glselevate.GLS_Act_main" >
+            <meta-data
+                android:name="android.support.PARENT_ACTIVITY"
+                android:value="com.gamelifestats.glselevate.GLS_Act_main" />
         </activity>
+        
     </application>
 
 </manifest>

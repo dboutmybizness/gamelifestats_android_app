@@ -1,6 +1,8 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
 
+    <string name="drawer_open">Open navigation drawer</string>
+    <string name="drawer_close">Close navigation drawer</string>
 	<string name="archive">Archive</string>
     <string name="fgm">FGM</string>
     <string name="fga">FGA</string>
@@ -155,5 +157,6 @@
     <string name="title_activity_game_meta">GameMeta</string>
     <string name="title_activity_game_manager">GameManager</string>
     <string name="title_activity_play_dialog">PlayDialog</string>
+    
 
 </resources>

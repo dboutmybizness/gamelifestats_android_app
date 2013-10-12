@@ -12,7 +12,7 @@ public class ABSelect {
 	
 	public static final String ACT_YOUR_SCOUT = "Your Scout";
 	public static final String ACT_PLAY_BALL = "Play Ball";
-	public static final String ACT_STATBOOK = "Statbook";
+	public static final String ACT_STATS = "Stats";
 	
 	ABSelect(Context ctx, String current){
 		this.ctx = ctx;
@@ -27,8 +27,8 @@ public class ABSelect {
     		go_to = Scout.class;
     	} else if ( current_selection.equals(ABSelect.ACT_PLAY_BALL)){
     		go_to = GameEdit.class;
-    	} else if ( current_selection.equals(ABSelect.ACT_STATBOOK)){
-    		go_to = Statbook.class;
+    	} else if ( current_selection.equals(ABSelect.ACT_STATS)){
+    		go_to = Stats.class;
     	}
     	
     	return go_to;
