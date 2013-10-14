@@ -10,6 +10,8 @@ import android.database.sqlite.SQLiteDatabase;
 import android.database.sqlite.SQLiteOpenHelper;
 import android.util.Log;
 
+import com.gamelifestats.glselevate.models.MProfile;
+
 
 public class DBAdapter {
 	
@@ -22,7 +24,9 @@ public class DBAdapter {
 	static final String DATABASE_NAME = "GLSDB";
 	static final int DATABASE_VERSION = 4;
 	
-
+	public static String[] FIELD_TYPES_ARRAY = {
+		"integer primary key autoincrement", "integer", "text", "float"
+	};
 	
 	final Context context;
 	DatabaseHelper DBHelper;
@@ -38,12 +42,33 @@ public class DBAdapter {
 	
 	
 	private static class DatabaseHelper extends SQLiteOpenHelper{
+
 		DatabaseHelper(Context context){
 			super(context, DATABASE_NAME, null, DATABASE_VERSION);
 		}
 		
 		@Override
 		public void onCreate(SQLiteDatabase db){
+			
+			
+			ModelBase[] tables = new ModelBase[]{
+				new MProfile()
+			};
+			
+			for (int i=0; i < tables.length; i++){
+				ModelBase obj = tables[i];
+				db.execSQL(obj.getCreateStatement());
+				HashMap<String,String> map = obj.insertInitial();
+				if ( map != null) {
+					ContentValues args = new ContentValues();
+					for (HashMap.Entry <String, String> entry : map.entrySet()) {
+					    args.put(entry.getKey(), entry.getValue());
+					}
+					db.insert(obj.TABLE, null, args);
+				}
+			}
+
+			
 			
 			String[] TABLES_TO_CREATE = new String[]{
 					MAppMeta.CREATE_TABLE,
