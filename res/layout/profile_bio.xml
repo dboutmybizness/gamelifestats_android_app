@@ -28,7 +28,7 @@
                 android:textAppearance="?android:attr/textAppearanceSmall" />
 
             <EditText
-                android:id="@+id/editText1"
+                android:id="@+id/editName"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:ems="10" >
@@ -42,7 +42,7 @@
                 android:textAppearance="?android:attr/textAppearanceSmall" />
 
             <EditText
-                android:id="@+id/EditText01"
+                android:id="@+id/editNickName"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_weight="1"
@@ -165,13 +165,14 @@
         android:padding="5dp" >
 
         <Button
-            android:id="@+id/save_scout"
+            android:id="@+id/save_bio"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_gravity="center_vertical|center_horizontal"
             android:background="@android:drawable/btn_default"
             android:drawableLeft="@drawable/ic_menu_save"
             android:text="@string/save" />
+
     </FrameLayout>
 
 </LinearLayout>

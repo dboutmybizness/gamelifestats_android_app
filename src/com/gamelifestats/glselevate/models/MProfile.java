@@ -2,6 +2,8 @@ package com.gamelifestats.glselevate.models;
 
 import java.util.HashMap;
 
+import android.content.Context;
+
 import com.gamelifestats.glselevate.ModelBase;
 
 public class MProfile extends ModelBase {
@@ -49,6 +51,11 @@ public class MProfile extends ModelBase {
 		map.put(FIELD_NAMES.get(1), "1");
 		map.put(FIELD_NAMES.get(2), "0");
 		return map;
+	}
+	
+	public void updateProfile(Context ctx){
+		FIELD_VALUES.put(FIELD_NAMES.get(2), "1");
+		super.update(ctx, "_id=1");
 	}
 	
 

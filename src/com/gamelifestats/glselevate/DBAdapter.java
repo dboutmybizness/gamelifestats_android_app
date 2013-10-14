@@ -201,6 +201,16 @@ public class DBAdapter {
 
 	}
 	
+	protected Boolean update(String tablename, HashMap<String,String> map, String where) throws SQLException{
+
+		ContentValues args = new ContentValues();
+		for (HashMap.Entry <String, String> entry : map.entrySet()) {
+		    args.put(entry.getKey(), entry.getValue());
+		}
+		return db.update(tablename, args, where, null) > 0;
+
+	}
+	
 	protected Cursor getRow(long rowId) throws SQLException{
 		Cursor mCursor = db.query(true, this.TABLE, this.getFields, "_id="+rowId, null, null, null, null, null);
 		return mCursor;
