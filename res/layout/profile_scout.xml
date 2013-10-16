@@ -118,6 +118,7 @@
                     android:layout_height="wrap_content" />
             </TableRow>
 
+            <!-- 
             <TextView
                 android:id="@+id/textView9"
                 android:layout_width="wrap_content"
@@ -191,6 +192,7 @@
                 android:layout_height="wrap_content"
                 android:text="@string/skills"
                 android:textAppearance="?android:attr/textAppearanceSmall" />
+            -->
         </LinearLayout>
 
     </ScrollView>

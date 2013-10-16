@@ -44,4 +44,12 @@ public abstract class StatsHelper {
 		return df.format(dt);
 	}
 	
+	public static String inches_to_feet(int inches){
+		int feet = inches / 12;
+		int rem_inches = inches % 12;
+		String s_inches = (rem_inches < 1) ? "" : String.valueOf(rem_inches) + "\"";
+		return String.valueOf(feet) + "\'" + s_inches;
+		
+	}
+	
 }

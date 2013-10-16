@@ -14,32 +14,10 @@ public class MProfile extends ModelBase {
 		"user_id:1", "has_profile:1", "name:2", "nickname:2", "hometown:1",
 		"gender:2", "dob_mon:1", "dob_day:1", "active_status:1", "highest_level:2",
 		"jersey:1", "position:2", "height:1", "weight:1", "vertical_leap:1",
-		"best_offensive:2", "best_defensive:2", "range:2", "style_of_play:2", "sk_scoring:2"
+		"best_offensive:2", "best_defensive:2", "range:2", "style_of_play:2", "sk_scoring:2",
+		"sk_shooting:2", "sk_midrange:2", "sk_longrange:2", "sk_dunkslayups:2", "sk_ballcontrol:2",
+		"sk_ballhandle:2", "sk_crossover:2", "sk_courtvision:2", "sk_passing:2"
 	};
-
-	int _id = 0;
-	int user_id = 1;
-	int has_profile = 0;
-	String name = "";
-	String nickname = "";
-	int hometown = 0;
-	int gender = 0;
-	int dob_mon = 0;
-	int dob_day = 0;
-	int active_status = 0;
-	String highest_level = "";
-	int jersey = 0;
-	int height = 0;
-	int weight = 0;
-	int vertical_leap = 0;
-	String best_offensive = "";
-	String best_defensive = "";
-	String range = "";
-	String style_of_play = "";
-	String sk_scoring = "";
-	
-	
-	//int position;
 	
 	public MProfile() {
 		super(FIELDS_ARRAY, TABLE);
@@ -53,10 +31,16 @@ public class MProfile extends ModelBase {
 		return map;
 	}
 	
-	public void updateProfile(Context ctx){
+	public Boolean updateProfile(Context ctx){
 		FIELD_VALUES.put(FIELD_NAMES.get(2), "1");
-		super.update(ctx, "_id=1");
+		return super.update(ctx, "_id=1");
 	}
+	
+	public Boolean getUserProfile(Context ctx){
+		return super.readRow(ctx, "_id=1");
+	}
+	
+	
 	
 
 }

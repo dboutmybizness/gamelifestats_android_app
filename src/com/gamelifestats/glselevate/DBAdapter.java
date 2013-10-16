@@ -219,6 +219,11 @@ public class DBAdapter {
 		Cursor mCursor = db.query(true, this.TABLE, this.getFields, row+"="+rowId, null, null, null, null, null);
 		return mCursor;
 	}
+	protected Cursor getRow(String tablename,String[] getFields, String where) throws SQLException{
+		Cursor mCursor = db.query(true, tablename, getFields, where, null, null, null, null, null);
+		return mCursor;
+	}
+	
 
 	protected Cursor getAllRowsWhere(String whereStatement){
 		Cursor mCursor = db.query(true, this.TABLE, this.getFields, whereStatement, null,null,null,null,null);

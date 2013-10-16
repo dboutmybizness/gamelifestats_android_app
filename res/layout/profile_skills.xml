@@ -45,7 +45,7 @@
                         android:textAppearance="?android:attr/textAppearanceSmall" />
 
                     <RatingBar
-                        android:id="@+id/RatingBar09"
+                        android:id="@+id/RatingScoring"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content" />
                 </TableRow>
@@ -65,7 +65,7 @@
                         android:textAppearance="?android:attr/textAppearanceSmall" />
 
                     <RatingBar
-                        android:id="@+id/RatingBar08"
+                        android:id="@+id/RatingShooting"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content" />
                 </TableRow>
@@ -85,7 +85,7 @@
                         android:textAppearance="?android:attr/textAppearanceSmall" />
 
                     <RatingBar
-                        android:id="@+id/RatingBar07"
+                        android:id="@+id/RatingMidRange"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content" />
                 </TableRow>
@@ -105,7 +105,7 @@
                         android:textAppearance="?android:attr/textAppearanceSmall" />
 
                     <RatingBar
-                        android:id="@+id/RatingBar06"
+                        android:id="@+id/RatingLongRange"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content" />
                 </TableRow>
@@ -125,7 +125,7 @@
                         android:textAppearance="?android:attr/textAppearanceSmall" />
 
                     <RatingBar
-                        android:id="@+id/RatingBar05"
+                        android:id="@+id/RatingDunksLayups"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content" />
                 </TableRow>
@@ -145,7 +145,7 @@
                         android:textAppearance="?android:attr/textAppearanceSmall" />
 
                     <RatingBar
-                        android:id="@+id/RatingBar04"
+                        android:id="@+id/RatingBallControl"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content" />
                 </TableRow>
@@ -165,7 +165,7 @@
                         android:textAppearance="?android:attr/textAppearanceSmall" />
 
                     <RatingBar
-                        android:id="@+id/RatingBar03"
+                        android:id="@+id/RatingBallHandle"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content" />
                 </TableRow>
@@ -185,7 +185,7 @@
                         android:textAppearance="?android:attr/textAppearanceSmall" />
 
                     <RatingBar
-                        android:id="@+id/RatingBar02"
+                        android:id="@+id/RatingCrossover"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content" />
                 </TableRow>
@@ -205,7 +205,7 @@
                         android:textAppearance="?android:attr/textAppearanceSmall" />
 
                     <RatingBar
-                        android:id="@+id/ratingBar1"
+                        android:id="@+id/RatingCourtVision"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content" />
                 </TableRow>
@@ -225,7 +225,7 @@
                         android:textAppearance="?android:attr/textAppearanceSmall" />
 
                     <RatingBar
-                        android:id="@+id/RatingBar01"
+                        android:id="@+id/RatingPassing"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content" />
                 </TableRow>
@@ -242,7 +242,7 @@
         android:padding="5dp" >
 
         <Button
-            android:id="@+id/save_scout"
+            android:id="@+id/save_skills"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_gravity="center_vertical|center_horizontal"

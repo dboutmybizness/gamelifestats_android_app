@@ -5,6 +5,7 @@ import java.util.ArrayList;
 import java.util.HashMap;
 
 import android.content.Context;
+import android.database.Cursor;
 
 import com.gamelifestats.glselevate.interfaces.ModelSetup;
 import com.gamelifestats.glselevate.interfaces.ModelTransactions;
@@ -15,12 +16,14 @@ public class ModelBase implements ModelSetup, ModelTransactions{
 	protected String[] FIELDS_ARRAY;
 	protected ArrayList<String> FIELD_NAMES = new ArrayList<String>();
 	protected ArrayList<String> FIELD_TYPES = new ArrayList<String>();
+	protected String[] FIELDS_LIST_ARRAY;
 	public HashMap<String,String> FIELD_VALUES = new HashMap<String,String>();
 	
 	public ModelBase(String[] dbconfig, String tablename){
 		this.FIELDS_ARRAY = dbconfig;
 		this.TABLE = tablename;
 		parseFields();
+		setFields();
 	}
 	
 	@Override
@@ -55,8 +58,8 @@ public class ModelBase implements ModelSetup, ModelTransactions{
 	}
 	
 	@Override
-	public String[] setFields(){
-		return FIELD_NAMES.toArray(new String[FIELD_NAMES.size()]);
+	public void setFields(){
+		FIELDS_LIST_ARRAY = FIELD_NAMES.toArray(new String[FIELD_NAMES.size()]);
 	}
 
 	@Override
@@ -69,9 +72,7 @@ public class ModelBase implements ModelSetup, ModelTransactions{
 		if (FIELD_VALUES.size() < 1) return null;
 
 		Boolean val = false;
-		
 		DBAdapter db = new DBAdapter(ctx);
-		
 		try {
 			db.open();
 			val = db.update(TABLE, FIELD_VALUES, where);
@@ -81,7 +82,32 @@ public class ModelBase implements ModelSetup, ModelTransactions{
 		}
 		db.close();
 		return val;
-
 	}
+
+	@Override
+	public Boolean readRow(Context ctx, String where) {
+		Cursor cursor = null;
+		Boolean has_row = false;
+		DBAdapter db = new DBAdapter(ctx);
+		
+		try {
+			db.open();
+			cursor = db.getRow(TABLE, FIELDS_LIST_ARRAY, "_id=1");
+			if ( cursor.getCount() > 0){
+				has_row = true;
+				cursor.moveToFirst();
+				for ( int i=0; i < FIELDS_LIST_ARRAY.length; i++){
+					FIELD_VALUES.put(FIELD_NAMES.get(i), cursor.getString(i));
+				}
+			}
+		} catch (SQLException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+		db.close();
+		return has_row;
+	}
+	
+	
 
 }

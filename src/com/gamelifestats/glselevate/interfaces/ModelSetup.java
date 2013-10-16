@@ -6,6 +6,6 @@ import java.util.HashMap;
 public interface ModelSetup {
 	String getCreateStatement();
 	void parseFields();
-	String[] setFields();
+	void setFields();
 	HashMap<String,String> insertInitial();
 }
