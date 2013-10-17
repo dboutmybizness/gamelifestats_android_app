@@ -18,6 +18,7 @@ import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
 import android.widget.ListView;
 
+import com.gamelifestats.glselevate.frags.GameManager;
 import com.gamelifestats.glselevate.frags.Stats_career;
 import com.gamelifestats.glselevate.frags.Stats_gamebrowser;
 
@@ -33,7 +34,7 @@ public class Stats extends FragmentActivity {
     private CharSequence mDrawerTitle;
     private CharSequence mTitle;
 
-    private final String[] stat_pages = {"Career","Game Browser"};
+    private final String[] stat_pages = {"Career","Game Browser","Archive"};
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -140,7 +141,15 @@ public class Stats extends FragmentActivity {
     private void selectItem(int position) {
         // update the main content by replacing fragments
     	
-    	Fragment fragment = (position == 0) ? new Stats_career() : new Stats_gamebrowser();
+    	Fragment fragment = null;
+    	switch (position){
+    		case 0: fragment = new Stats_career();
+    			break;
+    		case 1: fragment = new Stats_gamebrowser();
+    			break;
+    		case 2: fragment = new GameManager();
+    			break;
+    	}
     	
         FragmentManager fragmentManager = getSupportFragmentManager();
         fragmentManager.beginTransaction().replace(R.id.content_frame, fragment).commit();

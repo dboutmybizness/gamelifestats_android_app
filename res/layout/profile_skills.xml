@@ -10,21 +10,22 @@
         android:id="@+id/scroll_container"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:layout_weight="1" >
+        android:layout_weight="1"
+        android:padding="15dp" >
 
         <LinearLayout
             android:id="@+id/sk_contain"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_marginLeft="20dp"
             android:orientation="vertical" >
 
             <TextView
                 android:id="@+id/textView1"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
+                android:layout_gravity="center_horizontal"
                 android:text="@string/offensive"
-                android:textAppearance="?android:attr/textAppearanceSmall" />
+                android:textAppearance="?android:attr/textAppearanceLarge" />
 
             <TableLayout
                 android:layout_width="match_parent"
@@ -229,8 +230,175 @@
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content" />
                 </TableRow>
+                <TableRow
+                    android:id="@+id/tableRow4"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content" >
+
+                    <TextView
+                        android:id="@+id/TextView01"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_gravity="center_vertical"
+                        android:layout_weight="1"
+                        android:text="@string/awareness"
+                        android:textAppearance="?android:attr/textAppearanceSmall" />
+
+                    <RatingBar
+                        android:id="@+id/RatingOffensiveAwareness"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content" />
+                </TableRow>
+                <TableRow
+                    android:id="@+id/tableRow4"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content" >
+
+                    <TextView
+                        android:id="@+id/TextView01"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_gravity="center_vertical"
+                        android:layout_weight="1"
+                        android:text="@string/fatigue"
+                        android:textAppearance="?android:attr/textAppearanceSmall" />
+
+                    <RatingBar
+                        android:id="@+id/RatingOffensiveFatigue"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content" />
+                </TableRow>
             </TableLayout>
 
+            <TextView
+                android:id="@+id/textView1"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center_horizontal"
+                android:text="@string/defensive"
+                android:textAppearance="?android:attr/textAppearanceLarge" />
+
+            <TableLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content" >
+
+                <TableRow
+                    android:id="@+id/TableRow08"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content" >
+
+                    <TextView
+                        android:id="@+id/TextView09"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_gravity="center_vertical"
+                        android:layout_weight="1"
+                        android:text="@string/man_d"
+                        android:textAppearance="?android:attr/textAppearanceSmall" />
+
+                    <RatingBar
+                        android:id="@+id/RatingMan_d"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content" />
+                </TableRow>
+				<TableRow
+                    android:id="@+id/TableRow08"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content" >
+                    
+                    <TextView
+                        android:id="@+id/TextView09"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_gravity="center_vertical"
+                        android:layout_weight="1"
+                        android:text="@string/team_d"
+                        android:textAppearance="?android:attr/textAppearanceSmall" />
+				
+                    
+                    <RatingBar
+                        android:id="@+id/RatingTeam_d"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content" />
+                </TableRow>
+				<TableRow
+                    android:id="@+id/TableRow08"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content" >
+                    
+                    <TextView
+                        android:id="@+id/TextView09"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_gravity="center_vertical"
+                        android:layout_weight="1"
+                        android:text="@string/post_d"
+                        android:textAppearance="?android:attr/textAppearanceSmall" />
+                    <RatingBar
+                        android:id="@+id/RatingPost_d"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content" />
+				</TableRow>
+				<TableRow
+                    android:id="@+id/TableRow08"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content" >
+                    
+                    
+                    <TextView
+                        android:id="@+id/TextView09"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_gravity="center_vertical"
+                        android:layout_weight="1"
+                        android:text="@string/closeouts"
+                        android:textAppearance="?android:attr/textAppearanceSmall" />
+
+                    <RatingBar
+                        android:id="@+id/RatingCloseouts"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content" />
+				
+               	</TableRow>
+				<TableRow
+                    android:id="@+id/TableRow08"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content" >
+                    
+                    <TextView
+                        android:id="@+id/TextView09"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_gravity="center_vertical"
+                        android:layout_weight="1"
+                        android:text="@string/recovery"
+                        android:textAppearance="?android:attr/textAppearanceSmall" />
+
+                    <RatingBar
+                        android:id="@+id/RatingRecovery"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content" />
+             	</TableRow>
+				<TableRow
+                    android:id="@+id/TableRow08"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content" >
+                    <TextView
+                        android:id="@+id/TextView09"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_gravity="center_vertical"
+                        android:layout_weight="1"
+                        android:text="@string/awareness"
+                        android:textAppearance="?android:attr/textAppearanceSmall" />
+
+                    <RatingBar
+                        android:id="@+id/RatingDefensiveAwareness"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content" />
+                </TableRow>
+                
+           	</TableLayout>
         </LinearLayout>
     </ScrollView>
 

@@ -1,5 +1,13 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
+    
+    <string name="closeouts">Closeouts</string>
+    <string name="recovery">Recovery</string>
+    <string name="post_d">Post D</string>
+    <string name="man_d">Man D</string>
+    <string name="fatigue">Fatigue</string>
+    <string name="team_d">Team D</string>
+    <string name="awareness">Awareness</string>
     <string name="ball_handling">ball handle</string>
     <string name="crossover">crossover</string>
     <string name="ball_control">ball control</string>

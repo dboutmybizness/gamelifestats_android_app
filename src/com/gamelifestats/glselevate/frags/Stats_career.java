@@ -1,17 +1,14 @@
 package com.gamelifestats.glselevate.frags;
 
 import android.content.Context;
-import android.content.Intent;
 import android.os.Bundle;
 import android.support.v4.app.Fragment;
 import android.view.LayoutInflater;
 import android.view.View;
-import android.view.View.OnClickListener;
 import android.view.ViewGroup;
 import android.widget.Button;
 import android.widget.TextView;
 
-import com.gamelifestats.glselevate.GameManager;
 import com.gamelifestats.glselevate.MCareer;
 import com.gamelifestats.glselevate.R;
 import com.gamelifestats.glselevate.StatsHelper;
@@ -68,16 +65,6 @@ public class Stats_career extends Fragment {
 		tot_fga = setUpStat(R.id.tot_fga);
 		tot_ftm = setUpStat(R.id.tot_ftm);
 		tot_fta = setUpStat(R.id.tot_fta);
-		
-		archived_games = (Button) rootView.findViewById(R.id.button_archived);
-		archived_games.setOnClickListener(new OnClickListener(){
-
-			@Override
-			public void onClick(View v) {
-				startActivity(new Intent(getParentContext, GameManager.class));
-			}
-			
-		});
 		
 		return rootView;
 	}

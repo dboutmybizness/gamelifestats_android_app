@@ -70,7 +70,7 @@
             android:theme="@android:style/Theme.Dialog" >
         </activity>
         <activity
-            android:name="com.gamelifestats.glselevate.GameManager"
+            android:name="com.gamelifestats.glselevate.frags.GameManager"
             android:label="@string/title_activity_game_manager"
             android:parentActivityName="com.gamelifestats.glselevate.Statbook" >
             <meta-data

@@ -22,7 +22,7 @@ public class DBAdapter {
 
 	static final String TAG = "DBAdapter";
 	static final String DATABASE_NAME = "GLSDB";
-	static final int DATABASE_VERSION = 4;
+	static final int DATABASE_VERSION = 5;
 	
 	public static String[] FIELD_TYPES_ARRAY = {
 		"integer primary key autoincrement", "integer", "text", "float"
@@ -139,6 +139,25 @@ public class DBAdapter {
 			if ( oldVersion < 4){
 				db.execSQL("ALTER TABLE "+MGames.TABLE+" ADD COLUMN "+MGames.ACTIVE_STATUS+" INTEGER");
 				db.execSQL("UPDATE "+MGames.TABLE+" SET "+MGames.ACTIVE_STATUS+" = 1");
+			}
+			
+			if ( oldVersion < 5){
+				ModelBase[] tables = new ModelBase[]{
+					new MProfile()
+				};
+					
+				for (int i=0; i < tables.length; i++){
+					ModelBase obj = tables[i];
+					db.execSQL(obj.getCreateStatement());
+					HashMap<String,String> map = obj.insertInitial();
+					if ( map != null) {
+						ContentValues args = new ContentValues();
+						for (HashMap.Entry <String, String> entry : map.entrySet()) {
+						    args.put(entry.getKey(), entry.getValue());
+						}
+						db.insert(obj.TABLE, null, args);
+					}
+				}
 			}
 		}
 	}

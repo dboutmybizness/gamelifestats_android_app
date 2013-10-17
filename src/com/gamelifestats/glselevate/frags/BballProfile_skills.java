@@ -64,6 +64,13 @@ public class BballProfile_skills extends Fragment {
 		bar_k_v.put("sk_crossover", R.id.RatingCrossover);
 		bar_k_v.put("sk_courtvision", R.id.RatingCourtVision);
 		bar_k_v.put("sk_passing", R.id.RatingPassing);
+		bar_k_v.put("sk_off_awareness", R.id.RatingOffensiveAwareness);
+		bar_k_v.put("sk_man_d", R.id.RatingMan_d);
+		bar_k_v.put("sk_team_d", R.id.RatingTeam_d);
+		bar_k_v.put("sk_post_d", R.id.RatingPost_d);
+		bar_k_v.put("sk_closeouts", R.id.RatingCloseouts);
+		bar_k_v.put("sk_recovery", R.id.RatingRecovery);
+		bar_k_v.put("sk_def_awareness", R.id.RatingDefensiveAwareness);
 
 		for (HashMap.Entry <String, Integer> entry : bar_k_v.entrySet()) {
 		    bar_items.add((RatingBar) rootView.findViewById(entry.getValue()));

@@ -242,15 +242,7 @@ public class Statbook extends FragmentActivity implements ActionBar.TabListener 
 			tot_ftm = setUpStat(R.id.tot_ftm);
 			tot_fta = setUpStat(R.id.tot_fta);
 			
-			archived_games = (Button) rootView.findViewById(R.id.button_archived);
-			archived_games.setOnClickListener(new OnClickListener(){
-
-				@Override
-				public void onClick(View v) {
-					startActivity(new Intent(getParentContext, GameManager.class));
-				}
-				
-			});
+			
 			
 			return rootView;
 		}

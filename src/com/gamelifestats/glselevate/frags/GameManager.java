@@ -1,21 +1,25 @@
-package com.gamelifestats.glselevate;
+package com.gamelifestats.glselevate.frags;
 
 import java.sql.SQLException;
 import java.util.ArrayList;
 
-import android.app.Activity;
+import android.content.Context;
 import android.content.res.Resources;
 import android.os.Bundle;
-import android.support.v4.app.NavUtils;
-import android.view.Menu;
-import android.view.MenuItem;
+import android.support.v4.app.Fragment;
+import android.view.LayoutInflater;
 import android.view.View;
+import android.view.ViewGroup;
 import android.widget.AdapterView;
 import android.widget.AdapterView.OnItemClickListener;
 import android.widget.ListView;
 import android.widget.TextView;
 
-public class GameManager extends Activity {
+import com.gamelifestats.glselevate.GameManagerArrayAdapter;
+import com.gamelifestats.glselevate.MGames;
+import com.gamelifestats.glselevate.R;
+
+public class GameManager extends Fragment {
 
 	ListView lv;
 	ArrayList<String> data;
@@ -24,22 +28,21 @@ public class GameManager extends Activity {
 	ArrayList<String> itemStrings;
 	ArrayList<Boolean> itemBoolean;
 	Resources res;
-	
+	View rootView;
+	Context PContext;
 	
 	@Override
-	protected void onCreate(Bundle savedInstanceState) {
-		super.onCreate(savedInstanceState);
-		setContentView(R.layout.activity_game_manager);
-		// Show the Up button in the action bar.
-		setupActionBar();
+	public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState){
+		rootView = inflater.inflate(R.layout.activity_game_manager, container, false);
+		PContext = rootView.getContext();
 		
 		
 		if (pullData()){
 			popListElements(data);
 			res = getResources();
 			
-			lv = (ListView) findViewById(R.id.list_gm);
-			GameManagerArrayAdapter gm = new GameManagerArrayAdapter(this, itemStrings, itemBoolean);
+			lv = (ListView) rootView.findViewById(R.id.list_gm);
+			GameManagerArrayAdapter gm = new GameManagerArrayAdapter(PContext, itemStrings, itemBoolean);
 			lv.setAdapter(gm);
 			lv.setOnItemClickListener(new OnItemClickListener() {
 				@Override
@@ -49,6 +52,7 @@ public class GameManager extends Activity {
 				}
 			}); 
 		}
+		return rootView;
 	}
 	
 	private void popListElements(ArrayList<String> data){
@@ -67,7 +71,7 @@ public class GameManager extends Activity {
 	}
 	
 	private boolean pullData(){
-		games = new MGames(this);
+		games = new MGames(PContext);
 		try {
 			data = games.retArchive();
 		} catch (SQLException e) {
@@ -91,38 +95,6 @@ public class GameManager extends Activity {
 		}
 	}
 
-	/**
-	 * Set up the {@link android.app.ActionBar}.
-	 */
-	private void setupActionBar() {
-
-		getActionBar().setDisplayHomeAsUpEnabled(true);
-
-	}
-
-	@Override
-	public boolean onCreateOptionsMenu(Menu menu) {
-		// Inflate the menu; this adds items to the action bar if it is present.
-		getMenuInflater().inflate(R.menu.edit_game, menu);
-		return true;
-	}
-
-	@Override
-	public boolean onOptionsItemSelected(MenuItem item) {
-		switch (item.getItemId()) {
-		case android.R.id.home:
-			// This ID represents the Home or Up button. In the case of this
-			// activity, the Up button is shown. Use NavUtils to allow users
-			// to navigate up one level in the application structure. For
-			// more details, see the Navigation pattern on Android Design:
-			//
-			// http://developer.android.com/design/patterns/navigation.html#up-vs-back
-			//
-			NavUtils.navigateUpFromSameTask(this);
-			return true;
-		}
-		return super.onOptionsItemSelected(item);
-	}
 	
 	public void saveArchive(View v){
 		commitSave();

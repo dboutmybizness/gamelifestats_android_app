@@ -38,7 +38,7 @@
                     android:textAppearance="?android:attr/textAppearanceLarge" />
 
                 <SeekBar
-                    android:id="@+id/seekBar1"
+                    android:id="@+id/EditHeight"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content" />
             </TableRow>
@@ -63,7 +63,7 @@
                     android:textAppearance="?android:attr/textAppearanceLarge" />
 
                 <SeekBar
-                    android:id="@+id/SeekBar01"
+                    android:id="@+id/EditWeight"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content" />
             </TableRow>
@@ -88,7 +88,7 @@
                     android:textAppearance="?android:attr/textAppearanceLarge" />
 
                 <SeekBar
-                    android:id="@+id/SeekBar03"
+                    android:id="@+id/EditVerticalLeap"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content" />
             </TableRow>
@@ -113,7 +113,7 @@
                     android:textAppearance="?android:attr/textAppearanceLarge" />
 
                 <SeekBar
-                    android:id="@+id/SeekBar02"
+                    android:id="@+id/EditWingSpan"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content" />
             </TableRow>

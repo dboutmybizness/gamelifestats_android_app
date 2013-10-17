@@ -305,14 +305,6 @@ public class MGames extends DBAdapter {
 		return alist;
 	}
 	
-	public boolean updateArchive(ArrayList<Integer> ids, ArrayList<Boolean> bools){
-		HashMap<String,String> map = new HashMap<String,String>();
-		
-		//super.open();
-		
-		
-		//super.clone();
-		return false;
-	}
+	
 
 }
