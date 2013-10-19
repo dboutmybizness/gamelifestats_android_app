@@ -32,6 +32,10 @@ public class ViewsHelper {
 		textView.setText(str);
 	}
 	
+	public void rViews(TextView textView, int i){
+		rViews(textView, String.valueOf(i));
+	}
+	
 	
 
 

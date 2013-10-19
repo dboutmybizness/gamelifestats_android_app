@@ -12,9 +12,12 @@ import android.view.View.OnClickListener;
 import android.view.ViewGroup;
 import android.widget.Button;
 import android.widget.SeekBar;
+import android.widget.TextView;
 import android.widget.Toast;
 
+import com.gamelifestats.glselevate.CallBackHelper;
 import com.gamelifestats.glselevate.R;
+import com.gamelifestats.glselevate.SetUpPageView;
 import com.gamelifestats.glselevate.interfaces.ViewsHelper;
 import com.gamelifestats.glselevate.models.MProfile;
 
@@ -29,12 +32,24 @@ public class BballProfile_scout extends Fragment {
 	
 	ViewsHelper VH;
 	
+	SetUpPageView SPV;
+	
+	
 	@Override
 	public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState){
 		rootView = inflater.inflate(R.layout.profile_scout, container, false);
 		PContext = rootView.getContext();
+		
+		
+		
+		SPV = new SetUpPageView();
+		if(profile.getUserProfile(PContext)){
+			SPV.setOnCreateFieldsHash(profile.FIELD_VALUES);
+		}
+		SPV.addView((SeekBar) rootView.findViewById(R.id.EditHeight),60, new CallBackHelper((TextView) rootView.findViewById(R.id.printHeight),1,36),"height");
+		
 		VH = new ViewsHelper();
-		setUpViews();
+		//setUpViews();
 		return rootView;
 	}
 	

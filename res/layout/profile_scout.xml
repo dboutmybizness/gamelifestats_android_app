@@ -31,7 +31,7 @@
                 android:layout_height="wrap_content" >
 
                 <TextView
-                    android:id="@+id/textView6"
+                    android:id="@+id/printHeight"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:text="@string/double_zero"
