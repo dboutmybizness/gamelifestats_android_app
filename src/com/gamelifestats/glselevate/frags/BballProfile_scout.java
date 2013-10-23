@@ -46,7 +46,15 @@ public class BballProfile_scout extends Fragment {
 		if(profile.getUserProfile(PContext)){
 			SPV.setOnCreateFieldsHash(profile.FIELD_VALUES);
 		}
-		SPV.addView((SeekBar) rootView.findViewById(R.id.EditHeight),60, new CallBackHelper((TextView) rootView.findViewById(R.id.printHeight),1,36),"height");
+		SPV.addView((SeekBar) rootView.findViewById(R.id.EditHeight),60,
+				new CallBackHelper((TextView) rootView.findViewById(R.id.printHeight),1,36),"height");
+		SPV.addView((SeekBar) rootView.findViewById(R.id.EditWeight), 262,
+				new CallBackHelper((TextView) rootView.findViewById(R.id.printWeight),3,88),"weight");
+		SPV.addView((SeekBar) rootView.findViewById(R.id.EditVerticalLeap),60,
+				new CallBackHelper((TextView) rootView.findViewById(R.id.printVertical),2,12),"vertical_leap");
+		SPV.addView((SeekBar) rootView.findViewById(R.id.EditWingSpan),60,
+				new CallBackHelper((TextView) rootView.findViewById(R.id.printWingspan),2,36),"wingspan");
+		
 		
 		VH = new ViewsHelper();
 		//setUpViews();

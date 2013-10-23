@@ -43,12 +43,12 @@ public class SetUpPageView {
 		}
 		
 		v.setOnSeekBarChangeListener(new OnSeekBarChangeListener(){
-			int p;
+
 			@Override
 			public void onProgressChanged(SeekBar seekBar, int progress,
 					boolean fromUser) {
 				// TODO Auto-generated method stub
-				p = progress;
+				callback.updateView(progress);
 			}
 
 			@Override
@@ -60,7 +60,7 @@ public class SetUpPageView {
 			@Override
 			public void onStopTrackingTouch(SeekBar seekBar) {
 				// TODO Auto-generated method stub
-				callback.updateView(p);
+				
 			}
 			
 		});

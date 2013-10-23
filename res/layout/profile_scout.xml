@@ -16,7 +16,8 @@
             android:id="@+id/skills_container"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:orientation="vertical" >
+            android:orientation="vertical"
+            android:padding="15dp" >
 
             <TextView
                 android:id="@+id/textView5"
@@ -28,19 +29,27 @@
             <TableRow
                 android:id="@+id/tableRow1"
                 android:layout_width="match_parent"
-                android:layout_height="wrap_content" >
-
-                <TextView
-                    android:id="@+id/printHeight"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:text="@string/double_zero"
-                    android:textAppearance="?android:attr/textAppearanceLarge" />
+                android:layout_height="wrap_content"
+                android:layout_marginBottom="8dp" >
 
                 <SeekBar
                     android:id="@+id/EditHeight"
                     android:layout_width="match_parent"
-                    android:layout_height="wrap_content" />
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center_vertical"
+                    android:layout_weight="1" />
+                
+                <TextView
+                    android:id="@+id/printHeight"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:text="@string/double_zero"
+                    android:textAppearance="?android:attr/textAppearanceLarge"
+                    android:textSize="40sp" />
+
+                
+
             </TableRow>
 
             <TextView
@@ -55,17 +64,25 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content" >
 
-                <TextView
-                    android:id="@+id/TextView02"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:text="@string/double_zero"
-                    android:textAppearance="?android:attr/textAppearanceLarge" />
-
                 <SeekBar
                     android:id="@+id/EditWeight"
                     android:layout_width="match_parent"
-                    android:layout_height="wrap_content" />
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center_vertical"
+                    android:layout_weight="1" />
+                
+                
+                <TextView
+                    android:id="@+id/printWeight"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:text="@string/double_zero"
+                    android:textAppearance="?android:attr/textAppearanceLarge"
+                    android:textSize="40sp" />
+
+                
+
             </TableRow>
 
             <TextView
@@ -80,17 +97,22 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content" >
 
-                <TextView
-                    android:id="@+id/TextView05"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:text="@string/double_zero"
-                    android:textAppearance="?android:attr/textAppearanceLarge" />
-
                 <SeekBar
                     android:id="@+id/EditVerticalLeap"
                     android:layout_width="match_parent"
-                    android:layout_height="wrap_content" />
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center_vertical"
+                    android:layout_weight="1" />
+
+                <TextView
+                    android:id="@+id/printVertical"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:text="@string/double_zero"
+                    android:textAppearance="?android:attr/textAppearanceLarge"
+                    android:textSize="40sp" />
+                
             </TableRow>
 
             <TextView
@@ -105,17 +127,22 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content" >
 
-                <TextView
-                    android:id="@+id/TextView03"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:text="@string/double_zero"
-                    android:textAppearance="?android:attr/textAppearanceLarge" />
-
                 <SeekBar
                     android:id="@+id/EditWingSpan"
                     android:layout_width="match_parent"
-                    android:layout_height="wrap_content" />
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center_vertical"
+                    android:layout_weight="1" />
+                
+                <TextView
+                    android:id="@+id/printWingspan"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:text="@string/double_zero"
+                    android:textAppearance="?android:attr/textAppearanceLarge"
+                    android:textSize="40sp" />
+                
             </TableRow>
 
             <!-- 
