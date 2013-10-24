@@ -20,9 +20,9 @@ import com.gamelifestats.glselevate.models.MProfile;
 public class BballProfile_scout extends Fragment {
 	View rootView;
 	Context PContext;
-	Button save_button;
 	MProfile profile = new MProfile();
 	SetUpPageView SPV;
+	Button save_button;
 	
 	
 	@Override

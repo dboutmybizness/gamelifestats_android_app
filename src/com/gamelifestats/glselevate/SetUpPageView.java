@@ -5,6 +5,8 @@ import java.util.HashMap;
 
 import android.util.SparseArray;
 import android.view.View;
+import android.widget.EditText;
+import android.widget.RatingBar;
 import android.widget.SeekBar;
 import android.widget.SeekBar.OnSeekBarChangeListener;
 
@@ -27,12 +29,22 @@ public class SetUpPageView {
 		this.fieldsHash = map;
 	}
 	
-	private void _addView(View v, String fieldname){
+	private void _addView(View v, String fieldname, final CallBackHelper callback){
 		views_on_page.add(v);
 		if ( fieldname != null) {
 			int view_id = v.getId();
 			db_field_map.put(view_id, fieldname);
 			db_field_map_view_ids.add(view_id);
+		}
+		this._renderView(fieldname, callback, v);
+	}
+	
+	private void _renderView(String fieldname, final CallBackHelper callback, View v){
+		if ( fieldname == null) return;
+		String fieldval = this.fieldsHash.get(fieldname);
+		if (fieldval != null){
+			VH.rViews(v, fieldval);
+			if ( callback != null ) callback.updateView(fieldval);
 		}
 	}
 	
@@ -42,14 +54,7 @@ public class SetUpPageView {
 	}
 	
 	public void addView(SeekBar v, final CallBackHelper callback, String fieldname){
-		_addView(v, fieldname);
-		if (fieldname != null) {
-			String fieldstr = this.fieldsHash.get(fieldname);
-			if (fieldstr != null) {
-				v.setProgress(Integer.parseInt(this.fieldsHash.get(fieldname)));
-				callback.updateView(v.getProgress());
-			}
-		}
+		_addView(v, fieldname, callback);
 		
 		v.setOnSeekBarChangeListener(new OnSeekBarChangeListener(){
 
@@ -73,6 +78,14 @@ public class SetUpPageView {
 			}
 			
 		});
+	}
+	
+	public void addView(RatingBar v, final CallBackHelper callback, String fieldname){
+		this._addView(v, fieldname, callback);
+	}
+	
+	public void addView(EditText v, final CallBackHelper callback, String fieldname){
+		this._addView(v, fieldname, callback);
 	}
 	
 	public void loadSaveable(){

@@ -28,7 +28,7 @@ public class CallBackHelper {
 		this.addition = addition;
 	}
 
-	public void updateView(String str){
+	private void _updateView(String str){
 		switch (this.callBackType){
 			case 0: this.val = str;
 				break;
@@ -38,11 +38,17 @@ public class CallBackHelper {
 				break;
 			case 3: this.val = str + " lbs.";
 				break;
+			case 4: if(str.equals("100")) str = "00";
+					this.val = "#" + str;
+				break;
 		}
 		VH.rViews(this.textView, this.val);
 	}
-
+	public void updateView(String str){
+		_updateView(String.valueOf(this.addition + Integer.parseInt(str)));
+	}
+	
 	public void updateView(int i){
-		this.updateView(String.valueOf(i + addition));
+		this._updateView(String.valueOf(i + addition));
 	}
 }

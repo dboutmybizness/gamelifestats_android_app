@@ -87,7 +87,6 @@ public class DBAdapter {
 				// TODO Auto-generated catch block
 				e.printStackTrace();
 			}
-			
 		}
 		
 		@Override

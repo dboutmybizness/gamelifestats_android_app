@@ -1,6 +1,5 @@
 package com.gamelifestats.glselevate.frags;
 
-import java.util.ArrayList;
 import java.util.HashMap;
 
 import android.content.Context;
@@ -15,6 +14,7 @@ import android.widget.RatingBar;
 import android.widget.Toast;
 
 import com.gamelifestats.glselevate.R;
+import com.gamelifestats.glselevate.SetUpPageView;
 import com.gamelifestats.glselevate.interfaces.ViewsHelper;
 import com.gamelifestats.glselevate.models.MProfile;
 
@@ -22,11 +22,11 @@ public class BballProfile_skills extends Fragment {
 	View rootView;
 	Context PContext;
 	MProfile profile = new MProfile();
-	
-	ArrayList<RatingBar> bar_items = new ArrayList<RatingBar>();
-	ArrayList<String> db_fields = new ArrayList<String>();
-	HashMap <String,Integer> bar_k_v = new HashMap<String,Integer>();
+	SetUpPageView SPV;
 	Button save_button;
+	
+	HashMap <String,Integer> bar_k_v = new HashMap<String,Integer>();
+	
 	ViewsHelper VH;
 	
 	
@@ -34,25 +34,6 @@ public class BballProfile_skills extends Fragment {
 	public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState){
 		rootView = inflater.inflate(R.layout.profile_skills, container, false);
 		PContext = rootView.getContext();
-		VH = new ViewsHelper();
-		
-		setUpViews();
-		return rootView;
-	}
-	
-	public void saveSkills(){
-		
-		profile.FIELD_VALUES.clear();
-		for(int i = 0; i < db_fields.size(); i++){
-			profile.FIELD_VALUES.put(db_fields.get(i), VH.getText2Str(bar_items.get(i)));
-		}
-
-		if ( profile.updateProfile(PContext) ){
-			Toast.makeText(PContext, "saved", Toast.LENGTH_SHORT).show();
-		}
-	}
-	
-	public void setUpViews(){
 		
 		bar_k_v.put("sk_scoring", R.id.RatingScoring);
 		bar_k_v.put("sk_shooting", R.id.RatingShooting);
@@ -71,12 +52,17 @@ public class BballProfile_skills extends Fragment {
 		bar_k_v.put("sk_closeouts", R.id.RatingCloseouts);
 		bar_k_v.put("sk_recovery", R.id.RatingRecovery);
 		bar_k_v.put("sk_def_awareness", R.id.RatingDefensiveAwareness);
-
-		for (HashMap.Entry <String, Integer> entry : bar_k_v.entrySet()) {
-		    bar_items.add((RatingBar) rootView.findViewById(entry.getValue()));
-		    db_fields.add(entry.getKey());
+		
+		SPV = new SetUpPageView();
+		if(profile.getUserProfile(PContext)){
+			SPV.setOnCreateFieldsHash(profile.FIELD_VALUES);
 		}
-
+		
+		for (HashMap.Entry <String, Integer> entry : bar_k_v.entrySet()) {
+			SPV.addView((RatingBar) rootView.findViewById(entry.getValue()), null, entry.getKey());
+		}
+		SPV.addView((RatingBar) rootView.findViewById(R.id.RatingScoring), null,"sk_scoring");
+		
 		save_button = (Button) rootView.findViewById(R.id.save_skills);
 		save_button.setOnClickListener(new OnClickListener(){
 
@@ -87,10 +73,18 @@ public class BballProfile_skills extends Fragment {
 			
 		});
 		
-		if ( profile.getUserProfile(PContext)){
-			for (int i=0; i<bar_items.size(); i++){
-				VH.rViews(bar_items.get(i),profile.FIELD_VALUES.get(db_fields.get(i)));
-			}
+		VH = new ViewsHelper();
+		
+		//setUpViews();
+		return rootView;
+	}
+	
+	public void saveSkills(){
+		SPV.loadSaveable();
+		
+		profile.FIELD_VALUES = SPV.Saveable_fieldHash;
+		if ( profile.updateProfile(PContext) ){
+			Toast.makeText(PContext, "saved", Toast.LENGTH_SHORT).show();
 		}
 	}
 	
