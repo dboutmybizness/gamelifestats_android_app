@@ -1,5 +1,6 @@
 package com.gamelifestats.glselevate.interfaces;
 
+import android.view.View;
 import android.widget.EditText;
 import android.widget.RatingBar;
 import android.widget.SeekBar;
@@ -7,6 +8,17 @@ import android.widget.TextView;
 
 public class ViewsHelper {
 
+	public String getText2Str(View v){
+		if (v instanceof TextView) {
+			return getText2Str((TextView) v);
+		} else if (v instanceof SeekBar){
+			return getText2Str((SeekBar) v);
+		} else if (v instanceof RatingBar){
+			return getText2Str((RatingBar) v);
+		}
+		return null;
+	}
+	
 	public String getText2Str(TextView tv) {
 		return tv.getText().toString();
 	}
