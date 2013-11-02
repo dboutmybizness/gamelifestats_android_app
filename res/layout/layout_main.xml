@@ -6,7 +6,6 @@
     android:background="@drawable/centered"
     android:gravity="center_horizontal"
     android:orientation="vertical"
-    android:paddingBottom="25dp"
     tools:context=".GLS_Act_main" >
 
     <LinearLayout
@@ -17,42 +16,12 @@
     </LinearLayout>
 
     <TableRow
-        android:id="@+id/trow"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_gravity="center_horizontal" >
-
-        <TextView
-            android:id="@+id/upload_gamestats"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:background="@color/Orange"
-            android:paddingLeft="10dp"
-            android:paddingRight="10dp"
-            android:text="@string/upload_gamestats"
-            android:textAppearance="?android:attr/textAppearanceSmall"
-            android:textSize="14sp" />
-
-        <TextView
-            android:id="@+id/statline"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_marginLeft="10dp"
-            android:background="@color/Orange"
-            android:paddingLeft="10dp"
-            android:paddingRight="10dp"
-            android:text="@string/game_stats_low"
-            android:textAppearance="?android:attr/textAppearanceSmall"
-            android:textSize="14sp" />
-    </TableRow>
-
-    <TableRow
         android:id="@+id/sline1"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_gravity="center_horizontal"
         android:layout_marginBottom="20dp"
-        android:background="@color/cornsilk_opac"
+        android:background="@color/gls_blue_opac"
         android:padding="10dp" >
 
         <TextView
@@ -61,7 +30,7 @@
             android:layout_height="wrap_content"
             android:text="@string/zero"
             android:textAppearance="?android:attr/textAppearanceLarge"
-            android:textColor="@color/WhiteSmoke"
+            android:textColor="@color/Orange"
             android:textSize="40sp" />
 
         <TextView
@@ -131,7 +100,7 @@
                     android:layout_height="wrap_content"
                     android:text="@string/ast"
                     android:textAppearance="?android:attr/textAppearanceSmall" />
-                
+
                 <TextView
                     android:id="@+id/dis_steals"
                     android:layout_width="wrap_content"
@@ -147,7 +116,7 @@
                     android:layout_height="wrap_content"
                     android:text="@string/stl"
                     android:textAppearance="?android:attr/textAppearanceSmall" />
-                
+
                 <TextView
                     android:id="@+id/dis_blocks"
                     android:layout_width="wrap_content"
@@ -163,7 +132,7 @@
                     android:layout_height="wrap_content"
                     android:text="@string/blk"
                     android:textAppearance="?android:attr/textAppearanceSmall" />
-                
+
                 <TextView
                     android:id="@+id/dis_turnovers"
                     android:layout_width="wrap_content"
@@ -179,7 +148,7 @@
                     android:layout_height="wrap_content"
                     android:text="@string/tos"
                     android:textAppearance="?android:attr/textAppearanceSmall" />
-                
+
                 <TextView
                     android:id="@+id/dis_fouls"
                     android:layout_width="wrap_content"
@@ -195,7 +164,7 @@
                     android:layout_height="wrap_content"
                     android:text="@string/fls"
                     android:textAppearance="?android:attr/textAppearanceSmall" />
-                
+
                 <TextView
                     android:id="@+id/dis_minutes"
                     android:layout_width="wrap_content"
@@ -211,52 +180,44 @@
                     android:layout_height="wrap_content"
                     android:text="@string/min"
                     android:textAppearance="?android:attr/textAppearanceSmall" />
-                
-                
             </TableRow>
-            
-            
-
         </HorizontalScrollView>
     </TableRow>
 
-    <LinearLayout
-        android:id="@+id/elevate_child"
+    <FrameLayout
+        android:id="@+id/botframe"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:background="@color/gls_blue_opac"
-        android:orientation="vertical"
-        android:padding="10dp" >
-
-        <TextView
-            android:id="@+id/textView1"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_marginBottom="5dp"
-            android:text="@string/brand_name"
-            android:textAppearance="?android:attr/textAppearanceMedium"
-            android:textColor="@color/White" />
-
-        <TextView
-            android:id="@+id/textView2"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_marginLeft="20dp"
-            android:text="@string/by_gls"
-            android:textAppearance="?android:attr/textAppearanceSmall" />
-    </LinearLayout>
-
-    <TextView
-        android:id="@+id/gls_com"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
         android:background="@color/Black"
-        android:paddingBottom="2dp"
-        android:paddingLeft="10dp"
-        android:paddingRight="10dp"
-        android:text="@string/gls_com"
-        android:textAppearance="?android:attr/textAppearanceSmall"
-        android:textColor="@color/White"
-        android:textSize="14sp" />
+        android:paddingBottom="3dp"
+        android:paddingTop="3dp" >
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:background="@color/DarkGray"
+            android:gravity="bottom" >
+
+            <Button   
+                android:id="@+id/button_upload_game"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:background="@color/Black"
+                android:text="@string/upload_gamestats"
+                android:textAppearance="?android:attr/textAppearanceLarge"
+                android:textSize="16sp" />
+
+            <Button
+                android:id="@+id/button_stats"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="1dp"
+                android:layout_weight="1"
+                android:textAppearance="?android:attr/textAppearanceLarge"
+                android:background="@color/Black"
+                android:text="@string/stats"
+                android:textSize="16sp" />
+        </LinearLayout>
+    </FrameLayout>
 
 </LinearLayout>

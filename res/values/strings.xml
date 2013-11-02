@@ -126,7 +126,7 @@
         <item>upload game stats</item>
     </string-array>
 
-    <string name="upload_gamestats">upload a game</string>
+    <string name="upload_gamestats">Upload a game</string>
     <string name="home_court">Home Court</string>
     <string name="gms">GMS</string>
     <string name="pts">PTS</string>
