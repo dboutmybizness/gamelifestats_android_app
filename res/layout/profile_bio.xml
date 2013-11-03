@@ -175,19 +175,12 @@
 
     <FrameLayout
         android:id="@+id/save_frame"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:background="@color/Orange"
-        android:padding="5dp" >
+        style="@style/bottom_buttons_bar">
 
         <Button
             android:id="@+id/save_bio"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_gravity="center_vertical|center_horizontal"
-            android:background="@android:drawable/btn_default"
-            android:drawableLeft="@drawable/ic_menu_save"
-            android:text="@string/save" />
+            android:text="@string/save"
+            style="@style/bottom_buttons" />
 
     </FrameLayout>
 

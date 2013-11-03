@@ -22,7 +22,11 @@ public abstract class StatsHelper {
 		if ( l  < 1) return 0;
 		Float f = ((l * 1.0f) / b);
 		if( f == 100) return 100;
-		return f;
+		return Float.valueOf(roundToOneDigit(f));
+	}
+	
+	public static float divPerc(int stat, String string) {
+		return StatsHelper.divPerc(stat, Integer.parseInt(string));
 	}
 	
 	public static String roundToOneDigit(float paramFloat) {

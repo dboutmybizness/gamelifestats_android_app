@@ -9,6 +9,7 @@ import android.widget.EditText;
 import android.widget.RatingBar;
 import android.widget.SeekBar;
 import android.widget.SeekBar.OnSeekBarChangeListener;
+import android.widget.TextView;
 
 import com.gamelifestats.glselevate.interfaces.ViewsHelper;
 
@@ -88,6 +89,10 @@ public class SetUpPageView {
 		this._addView(v, fieldname, callback);
 	}
 	
+	public void addView(TextView v, final CallBackHelper callback, String fieldname){
+		this._addView(v, fieldname, callback);
+	}
+	
 	public void loadSaveable(){
 		for (int i=0; i < views_on_page.size(); i++){
 			if ( db_field_map_view_ids.contains(views_on_page.get(i).getId())){
@@ -98,6 +103,5 @@ public class SetUpPageView {
 			}
 		}
 	}
-	
 
 }

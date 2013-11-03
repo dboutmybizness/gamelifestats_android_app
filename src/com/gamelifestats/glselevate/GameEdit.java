@@ -63,7 +63,7 @@ public class GameEdit extends Activity {
 		
 		res = getResources();
 		active_color = res.getColor(R.color.gls_blue);
-		default_color = res.getColor(R.color.Black);
+		default_color = res.getColor(R.color.White);
 		setUpViews();
 	}
 	

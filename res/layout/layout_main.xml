@@ -20,7 +20,6 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_gravity="center_horizontal"
-        android:layout_marginBottom="20dp"
         android:background="@color/gls_blue_opac"
         android:padding="10dp" >
 
@@ -184,40 +183,20 @@
         </HorizontalScrollView>
     </TableRow>
 
-    <FrameLayout
-        android:id="@+id/botframe"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:background="@color/Black"
-        android:paddingBottom="3dp"
-        android:paddingTop="3dp" >
+    <LinearLayout
+        style="@style/bottom_buttons_bar" >
 
-        <LinearLayout
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:background="@color/DarkGray"
-            android:gravity="bottom" >
+        <Button
+            android:id="@+id/button_upload_game"
+            android:text="@string/upload_gamestats"
+            style="@style/bottom_buttons" />
 
-            <Button   
-                android:id="@+id/button_upload_game"
-                android:layout_height="wrap_content"
-                android:layout_weight="1"
-                android:background="@color/Black"
-                android:text="@string/upload_gamestats"
-                android:textAppearance="?android:attr/textAppearanceLarge"
-                android:textSize="16sp" />
+        <include layout="@layout/button_divider" />
 
-            <Button
-                android:id="@+id/button_stats"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_marginLeft="1dp"
-                android:layout_weight="1"
-                android:textAppearance="?android:attr/textAppearanceLarge"
-                android:background="@color/Black"
-                android:text="@string/stats"
-                android:textSize="16sp" />
-        </LinearLayout>
-    </FrameLayout>
+        <Button
+            android:id="@+id/button_stats"
+            android:text="@string/stats"
+            style="@style/bottom_buttons" />
+    </LinearLayout>
 
 </LinearLayout>

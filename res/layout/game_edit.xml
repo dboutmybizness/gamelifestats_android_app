@@ -3,7 +3,6 @@
     android:id="@+id/parent_container"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="@color/Orange"
     android:focusable="true"
     android:focusableInTouchMode="true"
     android:orientation="vertical" >
@@ -11,7 +10,6 @@
     <RelativeLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:background="@color/cornsilk"
         android:padding="10dp" >
 
         <RadioGroup
@@ -41,7 +39,6 @@
         android:id="@+id/framer1"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:background="@color/cornsilk"
         android:padding="10dp" >
 
         <TableLayout
@@ -255,17 +252,16 @@
             </TableRow>
         </TableLayout>
     </HorizontalScrollView>
+    
+    <include layout="@layout/ll_divider"/>
 
     <ScrollView
         android:id="@+id/child_container2"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:layout_weight="1"
-        android:background="@color/WhiteSmoke"
-        android:paddingBottom="15dp"
         android:paddingLeft="10dp"
         android:paddingRight="10dp"
-        android:paddingTop="15dp"
         android:scrollbars="vertical|horizontal" >
 
         <TableLayout
@@ -689,11 +685,14 @@
         </TableLayout>
     </ScrollView>
 
+    <include layout="@layout/ll_divider"/>
+    
     <RelativeLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:background="@color/LightGrey"
-        android:padding="10dp" >
+        android:paddingBottom="10dp"
+        android:paddingLeft="10dp"
+        android:paddingRight="10dp" >
 
         <FrameLayout
             android:id="@+id/frame_swipe"
@@ -734,7 +733,6 @@
                 android:layout_marginLeft="5dp"
                 android:layout_marginRight="5dp"
                 android:layout_weight="1"
-                android:background="@color/White"
                 android:padding="8dp" >
 
                 <SeekBar
@@ -752,38 +750,23 @@
         </TableRow>
     </RelativeLayout>
 
-    <FrameLayout
-        android:id="@+id/relativebottom"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_gravity="center_horizontal"
-        android:layout_marginBottom="2dp"
-        android:layout_marginTop="7dp" >
+    <LinearLayout
+        style="@style/bottom_buttons_bar" >
 
-        <TableRow
-            android:id="@+id/child_container3"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:orientation="horizontal" >
-
-            <Button
-                android:id="@+id/reset_button"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:background="@android:drawable/btn_default"
-                android:drawableLeft="@drawable/ic_button_reset"
-                android:onClick="resetStats"
-                android:text="@string/reset" />
-
-            <Button
-                android:id="@+id/save_button"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:background="@android:drawable/btn_default"
-                android:drawableLeft="@drawable/ic_menu_done"
-                android:onClick="saveStats"
-                android:text="@string/save" />
-        </TableRow>
-    </FrameLayout>
+		<Button
+		    android:id="@+id/reset_button"
+		    style="@style/bottom_buttons"
+		    android:onClick="resetStats"
+		    android:text="@string/reset" />
+		
+		<include layout="@layout/button_divider" />
+		
+		<Button
+		    android:id="@+id/save_button"
+		    style="@style/bottom_buttons"
+		    android:onClick="saveStats"
+		    android:text="@string/save" />
+            
+        </LinearLayout>
 
 </LinearLayout>
