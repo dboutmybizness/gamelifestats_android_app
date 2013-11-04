@@ -1,6 +1,8 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
-    
+
+    <string name="fgzero">0 / 0 (0%)</string>
+    <string name="other">other</string>
     <string name="closeouts">Closeouts</string>
     <string name="recovery">Recovery</string>
     <string name="post_d">Post D</string>
@@ -45,6 +47,7 @@
     <string name="fta">FTA</string>
     <string name="reb">REB</string>
     <string name="off">OFF</string>
+    <string name="def">DEF</string>
     <string name="to">TO</string>
     <string name="swipe_here">swipe here</string>
     <string name="plus1">+1</string>

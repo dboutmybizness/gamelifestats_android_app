@@ -32,5 +32,28 @@
         <item name="android:textAppearance">?android:attr/textAppearanceLarge</item>
         <item name="android:textSize">16sp</item>
     </style>
+
+    <style name="statline_gls_blue">
+        <item name="android:padding">10dp</item>
+        <item name="android:background">@color/gls_blue_opac</item>
+    </style>
+
+    <style name="statline_number">
+        <item name="android:textSize">40sp</item>
+    </style>
+
+    <style name="statline_label">
+        <item name="android:textAppearance">?android:attr/textAppearanceSmall</item>
+        <item name="android:layout_marginRight">15dp</item>
+        <item name="android:textColor">@color/Black</item>
+        <item name="android:textSize">10sp</item>
+    </style>
+
+    <style name="header_label_small">
+        <item name="android:textAppearance">?android:attr/textAppearanceLarge</item>
+        <item name="android:textSize">12sp</item>
+        <item name="android:textColor">@color/Orange</item>
+        <item name="android:layout_marginBottom">5dp</item>
+    </style>
     
 </resources>

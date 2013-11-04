@@ -20,8 +20,7 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_gravity="center_horizontal"
-        android:background="@color/gls_blue_opac"
-        android:padding="10dp" >
+        style="@style/statline_gls_blue">
 
         <TextView
             android:id="@+id/dis_games"
@@ -65,8 +64,7 @@
                     android:id="@+id/lab_pts"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:text="@string/pts"
-                    android:textAppearance="?android:attr/textAppearanceSmall" />
+                    android:text="@string/pts" />
 
                 <TextView
                     android:id="@+id/dis_rebounds"
