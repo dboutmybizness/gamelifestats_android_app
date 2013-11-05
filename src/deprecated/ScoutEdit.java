@@ -1,4 +1,4 @@
-package com.gamelifestats.glselevate;
+package deprecated;
 
 import android.app.Activity;
 import android.content.Intent;
@@ -12,6 +12,8 @@ import android.widget.SeekBar;
 import android.widget.Spinner;
 import android.widget.TextView;
 import android.widget.Toast;
+
+import com.gamelifestats.glselevate.R;
 
 public class ScoutEdit extends Activity {
 
@@ -133,13 +135,16 @@ public class ScoutEdit extends Activity {
 	
 	
 	private void loadScoutObj(){
+		/*
 		scoutObj.name = name.getText().toString();
 		scoutObj.nickname = nickname.getText().toString();
 		scoutObj.position = position.getSelectedItemPosition();
 		scoutObj.jersey = jersey_seek.getProgress();
+		*/
 	}
 	
 	private void loadScoutView(){
+		/*
 		if ( scoutObj.has_profile > 0){
 			name.setText(scoutObj.name);
 			nickname.setText(scoutObj.nickname);
@@ -147,6 +152,7 @@ public class ScoutEdit extends Activity {
 			jersey_seek.setProgress(scoutObj.jersey);
 			updateJersey();
 		}
+		*/
 	}
 
 }

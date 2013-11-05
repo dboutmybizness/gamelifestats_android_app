@@ -1,11 +1,12 @@
 package com.gamelifestats.glselevate.models;
 
+import helper.StatsHelper;
+
 import java.util.HashMap;
 
 import android.content.Context;
 
 import com.gamelifestats.glselevate.ModelBase;
-import com.gamelifestats.glselevate.StatsHelper;
 
 public class MStatsCareer extends ModelBase {
 

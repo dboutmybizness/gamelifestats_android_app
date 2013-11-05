@@ -1,4 +1,4 @@
-package com.gamelifestats.glselevate;
+package deprecated;
 
 import android.content.Intent;
 import android.content.res.Configuration;
@@ -18,7 +18,8 @@ import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
 import android.widget.ListView;
 
-import com.gamelifestats.glselevate.frags.GameManager;
+import com.gamelifestats.glselevate.ABSelect;
+import com.gamelifestats.glselevate.R;
 import com.gamelifestats.glselevate.frags.Stats_career;
 import com.gamelifestats.glselevate.frags.Stats_gamebrowser;
 

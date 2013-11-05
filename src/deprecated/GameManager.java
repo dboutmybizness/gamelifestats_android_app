@@ -1,4 +1,4 @@
-package com.gamelifestats.glselevate.frags;
+package deprecated;
 
 import java.sql.SQLException;
 import java.util.ArrayList;
@@ -15,9 +15,9 @@ import android.widget.AdapterView.OnItemClickListener;
 import android.widget.ListView;
 import android.widget.TextView;
 
-import com.gamelifestats.glselevate.GameManagerArrayAdapter;
 import com.gamelifestats.glselevate.MGames;
 import com.gamelifestats.glselevate.R;
+
 
 public class GameManager extends Fragment {
 

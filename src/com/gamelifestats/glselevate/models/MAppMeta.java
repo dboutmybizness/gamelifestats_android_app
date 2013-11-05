@@ -5,6 +5,7 @@ import java.util.HashMap;
 
 import com.gamelifestats.glselevate.ModelBase;
 
+
 public class MAppMeta extends ModelBase {
 
 	static final String TABLE = "app_meta";

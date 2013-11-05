@@ -14,7 +14,7 @@ public class ABSelect {
 	public static final String ACT_PLAY_BALL = "Play Ball";
 	public static final String ACT_STATS = "Stats";
 	
-	ABSelect(Context ctx, String current){
+	public ABSelect(Context ctx, String current){
 		this.ctx = ctx;
 		this.current_activity = current;
 	}

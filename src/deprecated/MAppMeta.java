@@ -1,10 +1,12 @@
-package com.gamelifestats.glselevate;
+package deprecated;
 
 /*deprecated*/
 
 import java.util.HashMap;
 
 import android.content.Context;
+
+import com.gamelifestats.glselevate.DBAdapter;
 
 public class MAppMeta extends DBAdapter {
 	static final String TABLE = "app_meta";
@@ -57,7 +59,7 @@ public class MAppMeta extends DBAdapter {
 	public static HashMap<String, String> initializeApp(){
 		HashMap<String, String> m = new HashMap<String,String>();
 		m.put(ID, "1");
-		m.put(DB_VERSION, StatsHelper.int2Str(DBAdapter.DATABASE_VERSION));
+		//m.put(DB_VERSION, StatsHelper.int2Str(DBAdapter.DATABASE_VERSION));
 		m.put(APP_USER_ID, "1");
 		return m;
 		

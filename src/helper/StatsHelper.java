@@ -1,4 +1,4 @@
-package com.gamelifestats.glselevate;
+package helper;
 
 import java.sql.Date;
 import java.text.DateFormat;

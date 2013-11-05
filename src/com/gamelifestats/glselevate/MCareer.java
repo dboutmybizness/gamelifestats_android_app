@@ -1,5 +1,7 @@
 package com.gamelifestats.glselevate;
 
+import helper.StatsHelper;
+
 import java.sql.SQLException;
 import java.util.HashMap;
 

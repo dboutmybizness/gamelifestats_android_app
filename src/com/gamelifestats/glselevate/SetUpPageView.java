@@ -1,5 +1,8 @@
 package com.gamelifestats.glselevate;
 
+import helper.CallBackHelper;
+import helper.ViewsHelper;
+
 import java.util.ArrayList;
 import java.util.HashMap;
 
@@ -11,7 +14,6 @@ import android.widget.SeekBar;
 import android.widget.SeekBar.OnSeekBarChangeListener;
 import android.widget.TextView;
 
-import com.gamelifestats.glselevate.interfaces.ViewsHelper;
 
 public class SetUpPageView {
 	ViewsHelper VH = new ViewsHelper();

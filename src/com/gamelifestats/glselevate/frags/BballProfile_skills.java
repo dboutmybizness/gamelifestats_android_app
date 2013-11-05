@@ -1,5 +1,7 @@
 package com.gamelifestats.glselevate.frags;
 
+import helper.ViewsHelper;
+
 import java.util.HashMap;
 
 import android.content.Context;
@@ -15,7 +17,6 @@ import android.widget.Toast;
 
 import com.gamelifestats.glselevate.R;
 import com.gamelifestats.glselevate.SetUpPageView;
-import com.gamelifestats.glselevate.interfaces.ViewsHelper;
 import com.gamelifestats.glselevate.models.MProfile;
 
 public class BballProfile_skills extends Fragment {

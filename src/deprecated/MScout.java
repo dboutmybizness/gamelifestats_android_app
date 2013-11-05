@@ -1,7 +1,9 @@
-package com.gamelifestats.glselevate;
+package deprecated;
 
 import java.sql.SQLException;
 import java.util.HashMap;
+
+import com.gamelifestats.glselevate.DBAdapter;
 
 import android.content.Context;
 import android.database.Cursor;

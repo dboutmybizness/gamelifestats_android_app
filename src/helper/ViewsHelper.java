@@ -1,4 +1,4 @@
-package com.gamelifestats.glselevate.interfaces;
+package helper;
 
 import android.view.View;
 import android.widget.EditText;

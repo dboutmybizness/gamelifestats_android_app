@@ -1,5 +1,6 @@
 package com.gamelifestats.glselevate.frags;
 
+import helper.StatsHelper;
 import android.content.Context;
 import android.os.Bundle;
 import android.support.v4.app.Fragment;
@@ -11,7 +12,6 @@ import android.widget.TextView;
 
 import com.gamelifestats.glselevate.MCareer;
 import com.gamelifestats.glselevate.R;
-import com.gamelifestats.glselevate.StatsHelper;
 
 
 public class Stats_career extends Fragment {

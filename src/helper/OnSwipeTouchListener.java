@@ -1,4 +1,4 @@
-package com.gamelifestats.glselevate;
+package helper;
 
 import android.view.GestureDetector;
 import android.view.GestureDetector.SimpleOnGestureListener;

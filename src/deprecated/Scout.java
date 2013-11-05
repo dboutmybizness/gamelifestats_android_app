@@ -1,4 +1,4 @@
-package com.gamelifestats.glselevate;
+package deprecated;
 
 import android.app.Activity;
 import android.content.Intent;
@@ -9,6 +9,9 @@ import android.view.MenuItem;
 import android.view.View;
 import android.widget.Button;
 import android.widget.TextView;
+
+import com.gamelifestats.glselevate.ABSelect;
+import com.gamelifestats.glselevate.R;
 
 public class Scout extends Activity {
 	TextView name,nickname,position,jersey;
@@ -54,10 +57,10 @@ public class Scout extends Activity {
 	}
 	
 	private void loadViews(){
-		name.setText(db.name);
+		/*name.setText(db.name);
 		nickname.setText(db.nickname);
 		position.setText(positions[db.position]);
-		jersey.setText(String.valueOf(db.jersey));
+		jersey.setText(String.valueOf(db.jersey));*/
 	}
 	
 	/**

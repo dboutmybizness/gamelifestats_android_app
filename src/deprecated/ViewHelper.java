@@ -1,4 +1,4 @@
-package com.gamelifestats.glselevate.interfaces;
+package deprecated;
 
 import android.widget.TextView;
 

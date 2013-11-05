@@ -2,9 +2,10 @@ package com.gamelifestats.glselevate.models;
 
 import java.util.HashMap;
 
+import com.gamelifestats.glselevate.ModelBase;
+
 import android.content.Context;
 
-import com.gamelifestats.glselevate.ModelBase;
 
 public class MProfile extends ModelBase {
 

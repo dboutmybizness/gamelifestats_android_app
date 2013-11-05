@@ -1,8 +1,7 @@
-package com.gamelifestats.glselevate;
+package helper;
 
 import android.widget.TextView;
 
-import com.gamelifestats.glselevate.interfaces.ViewsHelper;
 
 public class CallBackHelper {
 	private TextView textView;

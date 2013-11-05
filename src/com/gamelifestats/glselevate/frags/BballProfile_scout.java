@@ -1,5 +1,6 @@
 package com.gamelifestats.glselevate.frags;
 
+import helper.CallBackHelper;
 import android.content.Context;
 import android.os.Bundle;
 import android.support.v4.app.Fragment;
@@ -12,7 +13,6 @@ import android.widget.SeekBar;
 import android.widget.TextView;
 import android.widget.Toast;
 
-import com.gamelifestats.glselevate.CallBackHelper;
 import com.gamelifestats.glselevate.R;
 import com.gamelifestats.glselevate.SetUpPageView;
 import com.gamelifestats.glselevate.models.MProfile;

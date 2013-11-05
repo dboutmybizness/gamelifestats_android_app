@@ -1,4 +1,4 @@
-package com.gamelifestats.glselevate;
+package deprecated;
 
 import java.util.ArrayList;
 
@@ -9,6 +9,8 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ArrayAdapter;
 import android.widget.TextView;
+
+import com.gamelifestats.glselevate.R;
 
 public class GameManagerArrayAdapter extends ArrayAdapter<String>{
 

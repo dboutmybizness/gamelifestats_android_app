@@ -49,15 +49,15 @@
                 android:value="com.gamelifestats.glselevate.GLS_Act_main" />
         </activity>
         <activity
-            android:name="com.gamelifestats.glselevate.ScoutEdit"
+            android:name="deprecated.ScoutEdit"
             android:label="@string/scout"
-            android:parentActivityName="com.gamelifestats.glselevate.Scout" >
+            android:parentActivityName="deprecated.Scout" >
             <meta-data
                 android:name="android.support.PARENT_ACTIVITY"
                 android:value="com.gamelifestats.glselevate.GLS_Act_main" />
         </activity>
         <activity
-            android:name="com.gamelifestats.glselevate.Scout"
+            android:name="deprecated.Scout"
             android:label="@string/scout"
             android:parentActivityName="com.gamelifestats.glselevate.GLS_Act_main" >
             <meta-data
@@ -65,12 +65,12 @@
                 android:value="com.gamelifestats.glselevate.GLS_Act_main" />
         </activity>
         <activity
-            android:name="com.gamelifestats.glselevate.GameMeta"
+            android:name="deprecated.GameMeta"
             android:label="@string/title_activity_game_meta"
             android:theme="@android:style/Theme.Dialog" >
         </activity>
         <activity
-            android:name="com.gamelifestats.glselevate.frags.GameManager"
+            android:name="deprecated.GameManager"
             android:label="@string/title_activity_game_manager"
             android:parentActivityName="com.gamelifestats.glselevate.Statbook" >
             <meta-data
@@ -78,7 +78,7 @@
                 android:value="com.gamelifestats.glselevate.Statbook" />
         </activity>
         <activity
-            android:name="com.gamelifestats.glselevate.Stats"
+            android:name="deprecated.Stats"
             android:label="@string/stats"
             android:parentActivityName="com.gamelifestats.glselevate.GLS_Act_main" >
             <meta-data
