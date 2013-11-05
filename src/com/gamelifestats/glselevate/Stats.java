@@ -110,11 +110,13 @@ public class Stats extends FragmentActivity implements ActionBar.TabListener {
 
 	@Override
 	public boolean onOptionsItemSelected(MenuItem item) {
-		if ( item.getTitle().equals(ABSelect.ACT_STATS) ){
-			int goToTab = 0;
-			if ( mViewPager.getCurrentItem() == 0 ) goToTab = 1;
-			mViewPager.setCurrentItem(goToTab);
-			return true;
+		if ( item.getItemId() != android.R.id.home){
+			if ( item.getTitle().equals(ABSelect.ACT_STATS) ){
+				int goToTab = 0;
+				if ( mViewPager.getCurrentItem() == 0 ) goToTab = 1;
+				mViewPager.setCurrentItem(goToTab);
+				return true;
+			}
 		}
 		
 		ABSelect bar_select = new ABSelect(this, ABSelect.ACT_STATS);
