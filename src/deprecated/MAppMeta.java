@@ -6,7 +6,7 @@ import java.util.HashMap;
 
 import android.content.Context;
 
-import com.gamelifestats.glselevate.DBAdapter;
+import com.gamelifestats.glselevate.models.DBAdapter;
 
 public class MAppMeta extends DBAdapter {
 	static final String TABLE = "app_meta";

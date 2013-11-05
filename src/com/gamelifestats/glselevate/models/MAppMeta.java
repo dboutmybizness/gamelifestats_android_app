@@ -3,7 +3,6 @@ package com.gamelifestats.glselevate.models;
 import java.util.Date;
 import java.util.HashMap;
 
-import com.gamelifestats.glselevate.ModelBase;
 
 
 public class MAppMeta extends ModelBase {

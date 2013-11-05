@@ -1,9 +1,10 @@
-package com.gamelifestats.glselevate;
+package com.gamelifestats.glselevate.models;
 
 import helper.StatsHelper;
 
 import java.sql.SQLException;
 import java.util.HashMap;
+
 
 import android.content.Context;
 import android.database.Cursor;

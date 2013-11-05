@@ -1,10 +1,11 @@
-package com.gamelifestats.glselevate;
+package com.gamelifestats.glselevate.models;
 
 import helper.StatsHelper;
 
 import java.sql.SQLException;
 import java.util.ArrayList;
 import java.util.HashMap;
+
 
 import android.content.Context;
 import android.database.Cursor;
@@ -96,24 +97,24 @@ public class MGames extends DBAdapter {
 	int minutes = 0;
 	int points = 0;
 	int rebounds = 0;
-	int reb_def = 0;
-	int reb_off = 0;
-	int assists = 0;
-	int steals = 0;
-	int blocks = 0;
-	int turnovers = 0;
+	public int reb_def = 0;
+	public int reb_off = 0;
+	public int assists = 0;
+	public int steals = 0;
+	public int blocks = 0;
+	public int turnovers = 0;
 	int fouls = 0;
 	
-	int fg2m = 0;
-	int fg2ms = 0;
+	public int fg2m = 0;
+	public int fg2ms = 0;
 	int fg2a = 0;
 	float fg2p = 0;
-	int fg3m = 0;
-	int fg3ms = 0;
+	public int fg3m = 0;
+	public int fg3ms = 0;
 	int fg3a = 0;
 	float fg3p = 0;
-	int ftm = 0;
-	int ftms = 0;
+	public int ftm = 0;
+	public int ftms = 0;
 	int fta = 0;
 	float ftp = 0;
 	int fgm = 0;
@@ -121,30 +122,30 @@ public class MGames extends DBAdapter {
 	float fgp = 0;
 	
 	String s_minutes;
-	String s_points;
-	String s_rebounds;
-	String s_reb_off;
+	public String s_points;
+	public String s_rebounds;
+	public String s_reb_off;
 	String s_reb_def;
-	String s_assists;
-	String s_steals;
-	String s_blocks;
-	String s_turnovers;
+	public String s_assists;
+	public String s_steals;
+	public String s_blocks;
+	public String s_turnovers;
 	String s_fouls;
 	
 	String s_fg2m;
 	String s_fg2ms;
 	String s_fg2a;
 	String s_fg2p;
-	String s_fg3m;
+	public String s_fg3m;
 	String s_fg3ms;
-	String s_fg3a;
+	public String s_fg3a;
 	String s_fg3p;
-	String s_ftm;
+	public String s_ftm;
 	String s_ftms;
-	String s_fta;
+	public String s_fta;
 	String s_ftp;
-	String s_fgm;
-	String s_fga;
+	public String s_fgm;
+	public String s_fga;
 	String s_fgp;
 
 	

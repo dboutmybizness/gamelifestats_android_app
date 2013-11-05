@@ -6,7 +6,6 @@ import java.util.HashMap;
 
 import android.content.Context;
 
-import com.gamelifestats.glselevate.ModelBase;
 
 public class MStatsCareer extends ModelBase {
 

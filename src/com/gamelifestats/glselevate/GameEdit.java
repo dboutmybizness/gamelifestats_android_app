@@ -21,6 +21,8 @@ import android.widget.SeekBar;
 import android.widget.SeekBar.OnSeekBarChangeListener;
 import android.widget.TextView;
 
+import com.gamelifestats.glselevate.models.MGames;
+
 public class GameEdit extends Activity {
 
 	TextView dfgm,dfga,d3m,d3a,dftm,dfta;
@@ -258,7 +260,7 @@ public class GameEdit extends Activity {
 					// TODO Auto-generated method stub
 					try {
 						commitSave();
-						Intent i = new Intent(getBaseContext(), Statbook.class);
+						Intent i = new Intent(getBaseContext(), Stats.class);
 						i.putExtra("nav_action", 1);
 						startActivity(i);
 						finish();

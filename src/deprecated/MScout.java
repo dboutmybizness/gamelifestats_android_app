@@ -3,7 +3,7 @@ package deprecated;
 import java.sql.SQLException;
 import java.util.HashMap;
 
-import com.gamelifestats.glselevate.DBAdapter;
+import com.gamelifestats.glselevate.models.DBAdapter;
 
 import android.content.Context;
 import android.database.Cursor;

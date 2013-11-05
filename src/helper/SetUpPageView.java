@@ -1,7 +1,5 @@
-package com.gamelifestats.glselevate;
+package helper;
 
-import helper.CallBackHelper;
-import helper.ViewsHelper;
 
 import java.util.ArrayList;
 import java.util.HashMap;

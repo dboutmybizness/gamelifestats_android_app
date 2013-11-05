@@ -10,8 +10,8 @@ import android.view.ViewGroup;
 import android.widget.Button;
 import android.widget.TextView;
 
-import com.gamelifestats.glselevate.MCareer;
 import com.gamelifestats.glselevate.R;
+import com.gamelifestats.glselevate.models.MCareer;
 
 
 public class Stats_career extends Fragment {

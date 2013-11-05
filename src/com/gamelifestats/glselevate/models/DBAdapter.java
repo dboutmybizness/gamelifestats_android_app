@@ -1,4 +1,4 @@
-package com.gamelifestats.glselevate;
+package com.gamelifestats.glselevate.models;
 
 import java.sql.SQLException;
 import java.util.HashMap;
@@ -10,7 +10,6 @@ import android.database.sqlite.SQLiteDatabase;
 import android.database.sqlite.SQLiteOpenHelper;
 import android.util.Log;
 
-import com.gamelifestats.glselevate.models.MProfile;
 
 
 public class DBAdapter {

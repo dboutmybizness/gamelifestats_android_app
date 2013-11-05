@@ -1,4 +1,4 @@
-package com.gamelifestats.glselevate;
+package com.gamelifestats.glselevate.models;
 
 import java.sql.SQLException;
 import java.util.ArrayList;

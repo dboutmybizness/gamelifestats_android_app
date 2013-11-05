@@ -15,8 +15,8 @@ import android.widget.AdapterView.OnItemClickListener;
 import android.widget.ListView;
 import android.widget.TextView;
 
-import com.gamelifestats.glselevate.MGames;
 import com.gamelifestats.glselevate.R;
+import com.gamelifestats.glselevate.models.MGames;
 
 
 public class GameManager extends Fragment {

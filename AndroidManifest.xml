@@ -41,7 +41,7 @@
                 android:value="com.gamelifestats.glselevate.GLS_Act_PlayBall_List" />
         </activity>
         <activity
-            android:name="com.gamelifestats.glselevate.Statbook"
+            android:name="com.gamelifestats.glselevate.Stats"
             android:label="@string/stats"
             android:parentActivityName="com.gamelifestats.glselevate.GLS_Act_main" >
             <meta-data
@@ -72,7 +72,7 @@
         <activity
             android:name="deprecated.GameManager"
             android:label="@string/title_activity_game_manager"
-            android:parentActivityName="com.gamelifestats.glselevate.Statbook" >
+            android:parentActivityName="com.gamelifestats.glselevate.Stats" >
             <meta-data
                 android:name="android.support.PARENT_ACTIVITY"
                 android:value="com.gamelifestats.glselevate.Statbook" />
