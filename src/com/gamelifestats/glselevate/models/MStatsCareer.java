@@ -48,6 +48,8 @@ public class MStatsCareer extends ModelBase {
 		boolean result = super.readRow(ctx, "_id=1");
 		
 		if (result){
+			if ( FIELD_VALUES.get("tgames").equals("0") ) return false;
+			
 			for (HashMap.Entry <String, String> entry : extrafields.entrySet()) {
 			    FIELD_VALUES.put(entry.getKey(), gAvg(Integer.valueOf(FIELD_VALUES.get(entry.getValue()))));
 			}

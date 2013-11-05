@@ -258,7 +258,7 @@ public class GameEdit extends Activity {
 					// TODO Auto-generated method stub
 					try {
 						commitSave();
-						Intent i = new Intent(getBaseContext(), Stats.class);
+						Intent i = new Intent(getBaseContext(), Statbook.class);
 						i.putExtra("nav_action", 1);
 						startActivity(i);
 						finish();
@@ -305,19 +305,20 @@ public class GameEdit extends Activity {
 	}
 	
 	public void setUpViews(){
-		winloss = (RadioGroup) findViewById(R.id.winlosegroup);
+		//winloss = (RadioGroup) findViewById(R.id.winlosegroup);
 		//dmin = (TextView) findViewById(R.id.dis_minutes);
 		
 		dpts = initTV(R.id.dis_points);
+		/*
 		dfgm = initTV(R.id.dis_fgm);
 		dfga = initTV(R.id.dis_fga);
 		d3m = initTV(R.id.dis_3m);
 		d3a = initTV(R.id.dis_3a);
 		dftm = initTV(R.id.dis_ftm);
-		dfta = initTV(R.id.dis_fta);
+		dfta = initTV(R.id.dis_fta);*/
 		
 		dreb = initTV(R.id.dis_reb);
-		dreb_off = initTV(R.id.dis_reb_off);
+		//dreb_off = initTV(R.id.dis_reb_off);
 
 		dasts = initTV(R.id.dis_assists);
 		dstls = initTV(R.id.dis_steals);
@@ -406,7 +407,7 @@ public class GameEdit extends Activity {
 			
 		});
 		
-		swiper = (FrameLayout) findViewById(R.id.frame_swipe);
+		/*swiper = (FrameLayout) findViewById(R.id.frame_swipe);
 		swiper.setOnTouchListener(new OnSwipeTouchListener(){
 			public void onSwipeRight() {
 		        plus1();
@@ -414,7 +415,7 @@ public class GameEdit extends Activity {
 		    public void onSwipeLeft() {
 		        minus1();
 		    }
-		});
+		});*/
 		
 	}
 

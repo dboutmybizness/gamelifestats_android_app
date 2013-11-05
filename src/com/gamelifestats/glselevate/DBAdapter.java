@@ -189,6 +189,7 @@ public class DBAdapter {
 		// insert career
 		ContentValues argus = new ContentValues();
 		argus.put(MCareer.USERID, "1");
+		argus.put(MCareer.TGAMES, "0");
 		db.insert(MCareer.TABLE, null, argus);
 		
 		// insert scout

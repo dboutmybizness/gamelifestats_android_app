@@ -1,12 +1,7 @@
 package com.gamelifestats.glselevate;
 
-import java.sql.SQLException;
-import java.util.ArrayList;
-import java.util.Locale;
-
 import android.app.ActionBar;
 import android.app.FragmentTransaction;
-import android.content.Context;
 import android.content.Intent;
 import android.database.Cursor;
 import android.os.Bundle;
@@ -16,15 +11,11 @@ import android.support.v4.app.FragmentManager;
 import android.support.v4.app.FragmentPagerAdapter;
 import android.support.v4.app.NavUtils;
 import android.support.v4.view.ViewPager;
-import android.view.LayoutInflater;
 import android.view.Menu;
 import android.view.MenuItem;
-import android.view.View;
-import android.view.View.OnClickListener;
-import android.view.ViewGroup;
-import android.widget.Button;
-import android.widget.ProgressBar;
-import android.widget.TextView;
+
+import com.gamelifestats.glselevate.frags.Stats_career;
+import com.gamelifestats.glselevate.frags.Stats_gamebrowser;
 
 public class Statbook extends FragmentActivity implements ActionBar.TabListener {
 
@@ -151,22 +142,13 @@ public class Statbook extends FragmentActivity implements ActionBar.TabListener 
 
 		@Override
 		public Fragment getItem(int position) {
-			//Toast.makeText(getBaseContext(), ""+position, Toast.LENGTH_SHORT).show();
-			// getItem is called to instantiate the fragment for the given page.
-			// Return a DummySectionFragment (defined as a static inner class
-			// below) with the page number as its lone argument.
 			Fragment fm;
 			if ( position == 0){
-				fm = new AVGTOT();
+				fm = new Stats_career();
 			} else {
-				fm = new GAMEBYGAME();
+				fm = new Stats_gamebrowser();
 			}
 			return fm;
-			/*Fragment fragment = new DummySectionFragment();
-			Bundle args = new Bundle();
-			args.putInt(DummySectionFragment.ARG_SECTION_NUMBER, position + 1);
-			fragment.setArguments(args);
-			return fragment;*/
 		}
 
 		@Override
@@ -177,290 +159,17 @@ public class Statbook extends FragmentActivity implements ActionBar.TabListener 
 
 		@Override
 		public CharSequence getPageTitle(int position) {
-			Locale l = Locale.getDefault();
+			//Locale l = Locale.getDefault();
 			switch (position) {
 			case 0:
-				return getString(R.string.career);
+				return getString(R.string.avg_totals);
 			case 1:
 				return getString(R.string.game_by_game);
-			case 2:
-				return getString(R.string.title_section3).toUpperCase(l);
+			//case 2:
+			//	return getString(R.string.title_section3).toUpperCase(l);
 			}
 			return null;
 		}
-	}
-	
-	public static class AVGTOT extends Fragment {
-		Context getParentContext;
-		MCareer career;
-		View rootView;
-		TextView tot_games,tot_minutes,tot_points,tot_rebounds,tot_reb_off,tot_reb_def,tot_assists,tot_steals,tot_blocks,tot_turnovers,tot_fouls;
-		TextView avg_games,avg_minutes,avg_points,avg_rebounds,avg_reb_off,avg_reb_def,avg_assists,avg_steals,avg_blocks,avg_turnovers,avg_fouls;
-		
-		TextView tot_fg2m,tot_fg2a;
-		TextView tot_fg3m,tot_fg3a;
-		TextView tot_fgm,tot_fga;
-		TextView tot_ftm,tot_fta;
-		
-		Button archived_games;
-		
-		@Override
-		public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState){
-			rootView = inflater.inflate(R.layout.avg_totals, container, false);
-			getParentContext = rootView.getContext();
-			
-			tot_games = setUpStat(R.id.tot_games);
-			tot_minutes = setUpStat(R.id.tot_minutes);
-			tot_points = setUpStat(R.id.tot_points);
-			tot_rebounds = setUpStat(R.id.tot_rebounds);
-			tot_reb_off = setUpStat(R.id.tot_reb_off);
-			tot_reb_def = setUpStat(R.id.tot_reb_def);
-			tot_assists = setUpStat(R.id.tot_assists);
-			tot_steals = setUpStat(R.id.tot_steals);
-			tot_blocks = setUpStat(R.id.tot_blocks);
-			tot_turnovers = setUpStat(R.id.tot_turnovers);
-			tot_fouls = setUpStat(R.id.tot_fouls);
-			
-			//avg_games = setUpStat(R.id.avg_games);
-			avg_minutes = setUpStat(R.id.avg_minutes);
-			avg_points = setUpStat(R.id.avg_points);
-			avg_rebounds = setUpStat(R.id.avg_rebounds);
-			avg_reb_off = setUpStat(R.id.avg_reb_off);
-			avg_reb_def = setUpStat(R.id.avg_reb_def);
-			avg_assists = setUpStat(R.id.avg_assists);
-			avg_steals = setUpStat(R.id.avg_steals);
-			avg_blocks = setUpStat(R.id.avg_blocks);
-			avg_turnovers = setUpStat(R.id.avg_turnovers);
-			avg_fouls = setUpStat(R.id.avg_fouls);
-			
-			tot_fg2m = setUpStat(R.id.tot_fg2m);
-			tot_fg2a = setUpStat(R.id.tot_fg2a);
-			tot_fg3m = setUpStat(R.id.tot_fg3m);
-			tot_fg3a = setUpStat(R.id.tot_fg3a);
-			tot_fgm = setUpStat(R.id.tot_fgm);
-			tot_fga = setUpStat(R.id.tot_fga);
-			tot_ftm = setUpStat(R.id.tot_ftm);
-			tot_fta = setUpStat(R.id.tot_fta);
-			
-			
-			
-			return rootView;
-		}
-		
-		public TextView setUpStat(int i){
-			TextView tv = (TextView) rootView.findViewById(i);
-			return tv;
-		}
-		
-		@Override
-		public void onResume(){
-			super.onResume();
-			career = new MCareer(getParentContext);
-			setUpCareer();
-		}
-		
-		private void setUpCareer(){
-			Boolean has_career;
-			
-			has_career = career.loadSavedCareer();
-			
-			if ( has_career ){
-				tot_games.setText(StatsHelper.int2Str(career.tot_games));
-				tot_minutes.setText(StatsHelper.int2Str(career.tot_minutes));
-				tot_points.setText(StatsHelper.int2Str(career.tot_points));
-				tot_rebounds.setText(StatsHelper.int2Str(career.tot_rebounds));
-				tot_reb_off.setText(StatsHelper.int2Str(career.tot_reb_off));
-				tot_reb_def.setText(StatsHelper.int2Str(career.tot_reb_def));
-				tot_assists.setText(StatsHelper.int2Str(career.tot_assists));
-				tot_steals.setText(StatsHelper.int2Str(career.tot_steals));
-				tot_blocks.setText(StatsHelper.int2Str(career.tot_blocks));
-				tot_turnovers.setText(StatsHelper.int2Str(career.tot_turnovers));
-				tot_fouls.setText(StatsHelper.int2Str(career.tot_fouls));
-				tot_fg2m.setText(StatsHelper.int2Str(career.tot_fg2m));
-				tot_fg2a.setText(StatsHelper.int2Str(career.tot_fg2a));
-				tot_fg3m.setText(StatsHelper.int2Str(career.tot_fg3m));
-				tot_fg3a.setText(StatsHelper.int2Str(career.tot_fg3a));
-				tot_fgm.setText(StatsHelper.int2Str(career.tot_fgm));
-				tot_fga.setText(StatsHelper.int2Str(career.tot_fga));
-				tot_ftm.setText(StatsHelper.int2Str(career.tot_ftm));
-				tot_fta.setText(StatsHelper.int2Str(career.tot_fta));
-				
-				
-				avg_minutes.setText(StatsHelper.float2Str(career.avg_minutes));
-				avg_points.setText(StatsHelper.float2Str(career.avg_points));
-				avg_rebounds.setText(StatsHelper.float2Str(career.avg_rebounds));
-				avg_reb_off.setText(StatsHelper.float2Str(career.avg_reb_off));
-				avg_reb_def.setText(StatsHelper.float2Str(career.avg_reb_def));
-				avg_assists.setText(StatsHelper.float2Str(career.avg_assists));
-				avg_steals.setText(StatsHelper.float2Str(career.avg_steals));
-				avg_blocks.setText(StatsHelper.float2Str(career.avg_blocks));
-				avg_turnovers.setText(StatsHelper.float2Str(career.avg_turnovers));
-				avg_fouls.setText(StatsHelper.float2Str(career.avg_fouls));
-			}
-		
-		}
-		
-	}
-	
-	public static class GAMEBYGAME extends Fragment {
-		MGames dbGames;
-		Cursor mCursor;
-		View rootView;
-		Context base;
-		TextView points,rebounds,assists,steals,blocks,turnovers,fouls,minutes;
-		ArrayList<Integer> games;
-		int AtRegister = 0;
-		private int TOTAL_GAMES;
-		private int LAST_GAME;
-		private final int FIRST_GAME = 0;
-		Button next,prev,first,last;
-		Boolean has_games = false;
-		ProgressBar game_progress;
-		TextView game_count, game_date;
-		
-		
-		@Override
-		public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState){
-			rootView = inflater.inflate(R.layout.game_by_game, container, false);
-			base = rootView.getContext();
-			
-			dbGames = new MGames(base);
-			getGames();
-			
-			if ( has_games ) setUpGames();
-			return rootView;
-		}
-		
-		public void getGames(){
-			try {
-				games = dbGames.gameHashMap();
-				TOTAL_GAMES = games.size();
-				if ( TOTAL_GAMES > 0) has_games = true;
-				LAST_GAME = TOTAL_GAMES - 1;
-			} catch (SQLException e) {
-				// TODO Auto-generated catch block
-				e.printStackTrace();
-			}
-		}
-		
-		public void setUpGames(){
-			game_count = (TextView) rootView.findViewById(R.id.game_count);
-			game_date = (TextView) rootView.findViewById(R.id.game_date);
-			
-			points = (TextView) rootView.findViewById(R.id.dis_points);
-			rebounds = (TextView) rootView.findViewById(R.id.dis_rebounds);
-			assists = (TextView) rootView.findViewById(R.id.dis_assists);
-			steals = (TextView) rootView.findViewById(R.id.dis_steals);
-			blocks = (TextView) rootView.findViewById(R.id.dis_blocks);
-			turnovers = (TextView) rootView.findViewById(R.id.dis_turnovers);
-			fouls = (TextView) rootView.findViewById(R.id.dis_fouls);
-			minutes = (TextView) rootView.findViewById(R.id.dis_minutes);
-			
-			game_progress = (ProgressBar) rootView.findViewById(R.id.game_progress);
-			game_progress.setMax(LAST_GAME);
-			
-			
-			next = (Button) rootView.findViewById(R.id.next_button);
-			next.setOnClickListener(new OnClickListener(){
-
-				@Override
-				public void onClick(View arg0) {
-					// TODO Auto-generated method stub
-					updateRegister(1);
-				}
-			});
-			prev = (Button) rootView.findViewById(R.id.prev_button);
-			prev.setOnClickListener(new OnClickListener(){
-
-				@Override
-				public void onClick(View v) {
-					updateRegister(-1);
-				}
-				
-			});
-			first = (Button) rootView.findViewById(R.id.first_button);
-			first.setOnClickListener(new OnClickListener(){
-
-				@Override
-				public void onClick(View v) {
-					// TODO Auto-generated method stub
-					updateRegister(FIRST_GAME, true);
-				}
-				
-			});
-			last = (Button) rootView.findViewById(R.id.last_button);
-			last.setOnClickListener(new OnClickListener(){
-
-				@Override
-				public void onClick(View v) {
-					updateRegister(LAST_GAME, true);
-					
-				}
-				
-			});
-			if ( TOTAL_GAMES  > 0){
-				updateRegister(LAST_GAME, true);
-			}
-			
-			
-		}
-		
-		public void produceGame(int g){
-			if ( TOTAL_GAMES > 0){
-				try {
-					dbGames.open();
-					Cursor c = dbGames.getGame(g);
-					if ( c.getCount() > 0){
-						c.moveToFirst();
-						minutes.setText(c.getString(2));
-						points.setText(c.getString(3));
-						rebounds.setText(c.getString(4));
-						assists.setText(c.getString(7));
-						steals.setText(c.getString(8));
-						blocks.setText(c.getString(9));
-						turnovers.setText(c.getString(10));
-						fouls.setText(c.getString(11));
-						
-						game_count.setText((AtRegister+1) + " of " + TOTAL_GAMES );
-						
-						String date = StatsHelper.dateFromTime(c.getString(20));
-						dbGames.game_result = c.getInt(18);
-						String winloss = String.valueOf(MGames.wOrl[dbGames.game_result]);
-						game_date.setText(date + " ("+winloss+")");
-						
-					}
-				} catch (SQLException e) {
-					// TODO Auto-generated catch block
-					e.printStackTrace();
-				}
-				
-				dbGames.close();
-			}
-		}
-
-		
-		private void updateRegister(int i){
-			Boolean is_ok = false;
-			switch(i){
-			case -1: if (AtRegister > 0) is_ok = true;
-				break;
-			case 1: if ( AtRegister < LAST_GAME) is_ok = true;
-				break;
-			default:
-				break;
-			}
-			if ( !is_ok ) return;
-			
-			AtRegister += i;
-			game_progress.setProgress(AtRegister);
-			produceGame(games.get(AtRegister));
-		}
-		private void updateRegister(int i, Boolean override){
-			AtRegister = i;
-			game_progress.setProgress(AtRegister);
-			produceGame(games.get(AtRegister));
-		}
-		
 	}
 
 }
