@@ -52,7 +52,8 @@ public class DBAdapter {
 			
 			
 			ModelBase[] tables = new ModelBase[]{
-				new MProfile()
+				new MProfile(),
+				new com.gamelifestats.glselevate.models.MAppMeta()
 			};
 			
 			for (int i=0; i < tables.length; i++){
@@ -71,10 +72,8 @@ public class DBAdapter {
 			
 			
 			String[] TABLES_TO_CREATE = new String[]{
-					MAppMeta.CREATE_TABLE,
 					MGames.CREATE_TABLE,
 					MCareer.CREATE_TABLE,
-					MScout.CREATE_TABLE
 			};
 			
 			for ( int i = 0; i< TABLES_TO_CREATE.length; i++){
@@ -142,7 +141,8 @@ public class DBAdapter {
 			
 			if ( oldVersion < 5){
 				ModelBase[] tables = new ModelBase[]{
-					new MProfile()
+					new MProfile(),
+					new com.gamelifestats.glselevate.models.MAppMeta()
 				};
 					
 				for (int i=0; i < tables.length; i++){
@@ -178,25 +178,12 @@ public class DBAdapter {
 	}
 	
 	private static void createInitial(SQLiteDatabase db) throws SQLException{
-		// insert app meta
-		HashMap <String,String> meta = MAppMeta.initializeApp();
-		ContentValues args = new ContentValues();
-		for (HashMap.Entry <String, String> entry : meta.entrySet()) {
-		    args.put(entry.getKey(), entry.getValue());
-		}
-		db.insert(MAppMeta.TABLE, null, args);
 		
 		// insert career
 		ContentValues argus = new ContentValues();
 		argus.put(MCareer.USERID, "1");
 		argus.put(MCareer.TGAMES, "0");
 		db.insert(MCareer.TABLE, null, argus);
-		
-		// insert scout
-		ContentValues s_args = new ContentValues();
-		s_args.put(MScout.USERID, "1");
-		s_args.put(MScout.HASPRO, "0");
-		db.insert(MScout.TABLE, null, s_args);
 		
 	}
 	

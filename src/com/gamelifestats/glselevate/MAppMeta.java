@@ -1,5 +1,7 @@
 package com.gamelifestats.glselevate;
 
+/*deprecated*/
+
 import java.util.HashMap;
 
 import android.content.Context;
