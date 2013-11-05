@@ -40,7 +40,7 @@ public class GLS_Act_main extends Activity {
 
 			@Override
 			public void onClick(View v) {
-				startActivity(new Intent(getBaseContext(), Statbook.class));
+				startActivity(new Intent(getBaseContext(), Stats.class));
 			}
         });
         upload_game = (Button) findViewById(R.id.button_upload_game);
