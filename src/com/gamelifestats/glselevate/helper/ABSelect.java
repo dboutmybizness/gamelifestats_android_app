@@ -1,8 +1,8 @@
-package helper;
+package com.gamelifestats.glselevate.helper;
 
 import com.gamelifestats.glselevate.BballProfile;
 import com.gamelifestats.glselevate.GameEdit;
-import com.gamelifestats.glselevate.Stats;
+import com.gamelifestats.glselevate.Statbook;
 
 import android.content.Context;
 import android.view.MenuItem;
@@ -32,7 +32,7 @@ public class ABSelect {
     	} else if ( current_selection.equals(ABSelect.ACT_PLAY_BALL)){
     		go_to = GameEdit.class;
     	} else if ( current_selection.equals(ABSelect.ACT_STATS)){
-    		go_to = Stats.class;
+    		go_to = Statbook.class;
     	}
     	
     	return go_to;

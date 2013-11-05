@@ -1,6 +1,5 @@
 package deprecated;
 
-import helper.ABSelect;
 import android.app.Activity;
 import android.content.Intent;
 import android.os.Bundle;
@@ -12,6 +11,7 @@ import android.widget.Button;
 import android.widget.TextView;
 
 import com.gamelifestats.glselevate.R;
+import com.gamelifestats.glselevate.helper.ABSelect;
 
 public class Scout extends Activity {
 	TextView name,nickname,position,jersey;

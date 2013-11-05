@@ -1,8 +1,9 @@
 package com.gamelifestats.glselevate.models;
 
-import helper.StatsHelper;
 
 import java.util.HashMap;
+
+import com.gamelifestats.glselevate.helper.StatsHelper;
 
 import android.content.Context;
 

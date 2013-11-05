@@ -1,12 +1,12 @@
 package com.gamelifestats.glselevate;
 
-import helper.ABSelect;
 
 import java.util.Locale;
 
 import com.gamelifestats.glselevate.frags.BballProfile_bio;
 import com.gamelifestats.glselevate.frags.BballProfile_scout;
 import com.gamelifestats.glselevate.frags.BballProfile_skills;
+import com.gamelifestats.glselevate.helper.ABSelect;
 
 import android.app.ActionBar;
 import android.app.FragmentTransaction;

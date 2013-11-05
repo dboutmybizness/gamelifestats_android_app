@@ -1,6 +1,5 @@
 package com.gamelifestats.glselevate.frags;
 
-import helper.StatsHelper;
 
 import java.sql.SQLException;
 import java.util.ArrayList;
@@ -18,6 +17,7 @@ import android.widget.ProgressBar;
 import android.widget.TextView;
 
 import com.gamelifestats.glselevate.R;
+import com.gamelifestats.glselevate.helper.StatsHelper;
 import com.gamelifestats.glselevate.models.MGames;
 
 

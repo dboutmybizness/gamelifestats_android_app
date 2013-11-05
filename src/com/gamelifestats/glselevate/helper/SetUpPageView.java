@@ -1,4 +1,4 @@
-package helper;
+package com.gamelifestats.glselevate.helper;
 
 
 import java.util.ArrayList;

@@ -260,7 +260,7 @@ public class GameEdit extends Activity {
 					// TODO Auto-generated method stub
 					try {
 						commitSave();
-						Intent i = new Intent(getBaseContext(), Stats.class);
+						Intent i = new Intent(getBaseContext(), Statbook.class);
 						i.putExtra("nav_action", 1);
 						startActivity(i);
 						finish();

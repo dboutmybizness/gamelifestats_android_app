@@ -1,6 +1,5 @@
 package com.gamelifestats.glselevate;
 
-import helper.ABSelect;
 import android.app.ActionBar;
 import android.app.FragmentTransaction;
 import android.content.Intent;
@@ -17,9 +16,10 @@ import android.view.MenuItem;
 
 import com.gamelifestats.glselevate.frags.Stats_career;
 import com.gamelifestats.glselevate.frags.Stats_gamebrowser;
+import com.gamelifestats.glselevate.helper.ABSelect;
 import com.gamelifestats.glselevate.models.MGames;
 
-public class Stats extends FragmentActivity implements ActionBar.TabListener {
+public class Statbook extends FragmentActivity implements ActionBar.TabListener {
 
 	/**
 	 * The {@link android.support.v4.view.PagerAdapter} that will provide

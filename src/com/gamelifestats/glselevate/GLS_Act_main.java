@@ -1,7 +1,5 @@
 package com.gamelifestats.glselevate;
 
-import helper.ABSelect;
-import helper.SetUpPageView;
 import android.app.ActionBar;
 import android.app.Activity;
 import android.content.Intent;
@@ -15,6 +13,8 @@ import android.view.View.OnClickListener;
 import android.widget.Button;
 import android.widget.TextView;
 
+import com.gamelifestats.glselevate.helper.ABSelect;
+import com.gamelifestats.glselevate.helper.SetUpPageView;
 import com.gamelifestats.glselevate.models.MStatsCareer;
 
 public class GLS_Act_main extends Activity {
@@ -40,7 +40,7 @@ public class GLS_Act_main extends Activity {
 
 			@Override
 			public void onClick(View v) {
-				startActivity(new Intent(getBaseContext(), Stats.class));
+				startActivity(new Intent(getBaseContext(), Statbook.class));
 			}
         });
         upload_game = (Button) findViewById(R.id.button_upload_game);
