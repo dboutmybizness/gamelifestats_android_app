@@ -70,7 +70,7 @@
                     android:text="@string/pts" />
 
                 <TextView
-                    android:id="@+id/dis_reb"
+                    android:id="@+id/dis_rebounds"
                     style="@style/statline_number"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
@@ -256,14 +256,14 @@
                         >
 
                         <TextView
-                            android:id="@+id/lab_turnover"
+                            android:id="@+id/lab_turnovers"
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
                             android:layout_marginRight="5dp"
                             android:text="@string/tos" />
 
                         <TextView
-                            android:id="@+id/stat_turnover"
+                            android:id="@+id/stat_turnovers"
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
                             android:text="@string/zero" />
