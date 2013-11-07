@@ -1,8 +1,14 @@
 package com.gamelifestats.glselevate;
 
 import android.app.Activity;
+import android.app.AlertDialog;
+import android.content.DialogInterface;
+import android.content.Intent;
+import android.database.SQLException;
 import android.os.Bundle;
+import android.view.View;
 import android.widget.Button;
+import android.widget.FrameLayout;
 
 import com.gamelifestats.glselevate.helper.SetUpStatView;
 import com.gamelifestats.glselevate.models.MStatsGames;
@@ -24,6 +30,8 @@ public class GameEdit extends Activity {
 		
 		Statview.setMinusButton((Button) findViewById(R.id.minus1));
 		Statview.setPlusButton((Button) findViewById(R.id.plus1));
+		Statview.setSwipe((FrameLayout) findViewById(R.id.swiper));
+		
 		
 		
 		Statview.addView("fg2m", R.id.press_fg2made, 
@@ -65,6 +73,50 @@ public class GameEdit extends Activity {
 		
 		Statview.addView("fouls", R.id.press_fouls, 
 				new Integer[]{ R.id.lab_fouls, R.id.stat_fouls });
+	}
+	
+	public void saveStats(View v){
+
+        AlertDialog.Builder alertDialogBuilder = new AlertDialog.Builder(this);
+        alertDialogBuilder
+            .setMessage("Finished?")
+            //.setCancelable(false)
+            .setPositiveButton("OK, save game", new DialogInterface.OnClickListener() {
+                @Override
+                public void onClick(DialogInterface dialog, int which) {
+                    try {
+                        commitSave();
+                        Intent i = new Intent(getBaseContext(), Stats.class);
+                        i.putExtra("nav_action", 1);
+                        startActivity(i);
+                        finish();
+                    } catch (SQLException e) {
+                        e.printStackTrace();
+                    }
+                }
+            })
+            .setNegativeButton("Back", new DialogInterface.OnClickListener() {
+
+                @Override
+                public void onClick(DialogInterface dialog, int which) {
+                    dialog.cancel();
+
+                }
+            });
+        AlertDialog alertDialog = alertDialogBuilder.create();
+        alertDialog.show();
+    }
+
+	public void commitSave(){
+		Statview.setSavable(new String[]{
+			"points", "rebounds", "reb_off", "reb_def", "assists",
+			"steals", "blocks", "turnovers", "fouls", "fg2m",
+			"fg2a", "fg3m", "fg3a", "fgm", "fga",
+			"ftm", "fta"
+		});
+		Statview.loadSaveable(1);
+		gs.FIELD_VALUES = Statview.Saveable_fieldHash;
+		gs.saveGame(this);
 	}
 	
 

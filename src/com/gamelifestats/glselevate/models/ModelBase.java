@@ -108,6 +108,20 @@ public class ModelBase implements ModelSetup, ModelTransactions{
 		return has_row;
 	}
 	
+	public void createRow(Context ctx){
+		DBAdapter db = new DBAdapter(ctx);
+		try{
+			db.open();
+			db.create(TABLE, FIELD_VALUES);
+		} catch (SQLException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+		db.close();
+		
+		
+	}
+	
 	
 
 }

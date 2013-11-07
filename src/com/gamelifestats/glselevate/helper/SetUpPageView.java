@@ -20,6 +20,7 @@ public class SetUpPageView {
 	public ArrayList <Integer> db_field_map_view_ids = new ArrayList<Integer>();
 	public HashMap<String,String> fieldsHash = new HashMap<String,String>();
 	public HashMap<String, String> Saveable_fieldHash = new HashMap<String,String>();
+	public ArrayList<String> Saveable_fields = new ArrayList<String>();
 	
 	
 	public SetUpPageView(){
@@ -103,5 +104,22 @@ public class SetUpPageView {
 			}
 		}
 	}
+	public void loadSaveable(int rnull){
+		if ( Saveable_fields.size() > 0){
+			for(int i = 0; i < Saveable_fields.size(); i++){
+				String sval = Saveable_fields.get(i);
+				Saveable_fieldHash.put(sval, this.fieldsHash.get(sval));
+			}
+		}
+	}
+	
+	public void setSavable(String[] savable){
+		if ( savable.length > 0){
+			for(int i=0;i<savable.length; i++){
+				Saveable_fields.add(savable[i]);
+			}
+		}
+	}
+	
 
 }

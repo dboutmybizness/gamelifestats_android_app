@@ -216,6 +216,14 @@ public class DBAdapter {
 
 	}
 	
+	protected void create(String tablename, HashMap<String,String> map){
+		ContentValues args = new ContentValues();
+		for (HashMap.Entry <String, String> entry : map.entrySet()) {
+		    args.put(entry.getKey(), entry.getValue());
+		}
+		db.insert(tablename, null, args);
+	}
+	
 	protected Cursor getRow(long rowId) throws SQLException{
 		Cursor mCursor = db.query(true, this.TABLE, this.getFields, "_id="+rowId, null, null, null, null, null);
 		return mCursor;

@@ -6,6 +6,7 @@ import android.util.SparseArray;
 import android.view.View;
 import android.view.View.OnClickListener;
 import android.widget.Button;
+import android.widget.FrameLayout;
 import android.widget.TextView;
 
 import com.gamelifestats.glselevate.R;
@@ -206,6 +207,17 @@ public class SetUpStatView extends SetUpPageView{
 		
 		
 		
+	}
+	
+	public void setSwipe(FrameLayout swiper){
+		swiper.setOnTouchListener(new OnSwipeTouchListener(){
+			public void onSwipeRight(){
+				changeStat(1);
+			}
+			public void onSwipeLeft(){
+				changeStat(-1);
+			}
+		});
 	}
 	
 	public void setPlusButton(Button button){

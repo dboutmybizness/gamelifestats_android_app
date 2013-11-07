@@ -2,6 +2,10 @@ package com.gamelifestats.glselevate.models;
 
 import java.util.HashMap;
 
+import android.content.Context;
+
+import com.gamelifestats.glselevate.helper.StatsHelper;
+
 
 
 
@@ -25,6 +29,17 @@ public class MStatsGames extends ModelBase {
 		FIELD_VALUES.put("fg3ms", "0");
 		FIELD_VALUES.put("ftms", "0");
 
+	}
+	
+	public void saveGame(Context ctx){
+		FIELD_VALUES.put("created_time", String.valueOf(StatsHelper.getNowTime()));
+		FIELD_VALUES.put("active_status", "1");
+		FIELD_VALUES.put("user_id", "1");
+		FIELD_VALUES.put("minutes", "40");
+		FIELD_VALUES.put("game_type", "0");
+		FIELD_VALUES.put("game_result", "w");
+		
+		super.createRow(ctx);
 	}
 	
 	/*
