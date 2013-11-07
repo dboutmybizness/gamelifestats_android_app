@@ -53,18 +53,18 @@ public class GameEdit extends Activity {
 		
 		Statview.addView("assists", R.id.press_assists, 
 				new Integer[]{ R.id.dis_assists });
-		/*
-		Statview.addView(R.id.press_steals, 
+		
+		Statview.addView("steals", R.id.press_steals, 
 				new Integer[]{ R.id.dis_steals });
 		
-		Statview.addView(R.id.press_blocks, 
+		Statview.addView("blocks", R.id.press_blocks, 
 				new Integer[]{ R.id.dis_blocks });
 		
-		Statview.addView(R.id.press_turnovers, 
+		Statview.addView("turnovers", R.id.press_turnovers, 
 				new Integer[]{ R.id.lab_turnovers, R.id.stat_turnovers });
 		
-		Statview.addView(R.id.press_fouls, 
-				new Integer[]{ R.id.lab_fouls, R.id.stat_fouls });*/
+		Statview.addView("fouls", R.id.press_fouls, 
+				new Integer[]{ R.id.lab_fouls, R.id.stat_fouls });
 	}
 	
 

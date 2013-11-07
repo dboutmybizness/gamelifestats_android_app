@@ -80,6 +80,10 @@ public class SetUpStatView extends SetUpPageView{
 	}
 	
 	private void setActiveButton(Button b){
+		if(ActiveStatButton == b){
+			changeStat(1);
+			return;
+		}
 		
 		ActiveStatButton = b;
 		b.setTextColor(orange);
@@ -137,6 +141,10 @@ public class SetUpStatView extends SetUpPageView{
 			int reb_def = rHash("reb_def");
 			
 			wHash("assists", rHash("assists"));
+			wHash("steals", rHash("steals"));
+			wHash("blocks", rHash("blocks"));
+			wHash("turnovers", rHash("turnovers"));
+			wHash("fouls", rHash("fouls"));
 			
 			fg2a = fg2m + fg2ms;
 			fg3a = fg3m + fg3ms;
@@ -172,6 +180,10 @@ public class SetUpStatView extends SetUpPageView{
 			VH.rViews(this.act.findViewById(R.id.stat_off), this.fieldsHash.get("reb_off"));
 			VH.rViews(this.act.findViewById(R.id.dis_points), this.fieldsHash.get("points"));
 			VH.rViews(this.act.findViewById(R.id.dis_assists), this.fieldsHash.get("assists"));
+			VH.rViews(this.act.findViewById(R.id.dis_steals), this.fieldsHash.get("steals"));
+			VH.rViews(this.act.findViewById(R.id.dis_blocks), this.fieldsHash.get("blocks"));
+			VH.rViews(this.act.findViewById(R.id.stat_turnovers), this.fieldsHash.get("turnovers"));
+			VH.rViews(this.act.findViewById(R.id.stat_fouls), this.fieldsHash.get("fouls"));
 		}
 		/*
 		fg2a = fg2m + fg2ms;
