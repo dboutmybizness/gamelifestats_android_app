@@ -326,7 +326,7 @@ public class GameEdit extends Activity {
 		dstls = initTV(R.id.dis_steals);
 		dblks = initTV(R.id.dis_blocks);
 		dtos = initTV(R.id.dis_turnovers);
-
+/*
 		
 		stat_fg2made = (TextView) findViewById(R.id.stat_fg2made);
 		press_fg2made = initStatButton(R.id.press_fg2made,0, stat_fg2made);
@@ -364,7 +364,7 @@ public class GameEdit extends Activity {
 		stat_turnovers = (TextView) findViewById(R.id.stat_turnovers);
 		press_turnovers = initStatButton(R.id.press_turnovers,11,stat_turnovers);
 		
-		
+		*/
 		
 		plus1 = (Button) findViewById(R.id.plus1);
 		plus1.setOnClickListener(new OnClickListener(){

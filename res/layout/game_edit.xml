@@ -7,7 +7,7 @@
     android:focusableInTouchMode="true"
     android:orientation="vertical" >
 
-       <!--
+    <!--
     <RelativeLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
@@ -37,791 +37,402 @@
 
 
     </RelativeLayout>
-        -->
+    -->
 
     <FrameLayout
+        style="@style/statline_gls_blue"
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        style="@style/statline_gls_blue">
+        android:layout_height="wrap_content" >
 
         <HorizontalScrollView
+            android:id="@+id/horizontalScrollView"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:id="@+id/horizontalScrollView"
-            android:layout_gravity="center_horizontal">
+            android:layout_gravity="center_horizontal" >
 
             <TableRow
                 android:layout_width="fill_parent"
-                android:layout_height="fill_parent">
+                android:layout_height="fill_parent" >
 
                 <TextView
                     android:id="@+id/dis_points"
+                    style="@style/statline_number"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:text="@string/zero"
-                    android:textAppearance="?android:attr/textAppearanceSmall"
-                    style="@style/statline_number" />
+                    android:textAppearance="?android:attr/textAppearanceSmall" />
 
                 <TextView
                     android:id="@+id/lab_points"
+                    style="@style/statline_label"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:text="@string/pts"
-                    style="@style/statline_label" />
+                    android:text="@string/pts" />
 
                 <TextView
                     android:id="@+id/dis_reb"
+                    style="@style/statline_number"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:text="@string/zero"
-                    android:textAppearance="?android:attr/textAppearanceSmall"
-                    style="@style/statline_number" />
+                    android:textAppearance="?android:attr/textAppearanceSmall" />
 
                 <TextView
                     android:id="@+id/lab_rebounds"
+                    style="@style/statline_label"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:text="@string/reb"
-                    style="@style/statline_label" />
+                    android:text="@string/reb" />
 
                 <TextView
                     android:id="@+id/dis_assists"
+                    style="@style/statline_number"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:text="@string/zero"
-                    android:textAppearance="?android:attr/textAppearanceSmall"
-                    style="@style/statline_number" />
+                    android:textAppearance="?android:attr/textAppearanceSmall" />
 
                 <TextView
                     android:id="@+id/lab_assists"
+                    style="@style/statline_label"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:text="@string/ast"
-                    style="@style/statline_label" />
+                    android:text="@string/ast" />
 
                 <TextView
                     android:id="@+id/dis_steals"
+                    style="@style/statline_number"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:text="@string/zero"
-                    android:textAppearance="?android:attr/textAppearanceSmall"
-                    style="@style/statline_number" />
+                    android:textAppearance="?android:attr/textAppearanceSmall" />
 
                 <TextView
                     android:id="@+id/lab_steals"
+                    style="@style/statline_label"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:text="@string/stl"
-                    style="@style/statline_label" />
+                    android:text="@string/stl" />
 
                 <TextView
                     android:id="@+id/dis_blocks"
+                    style="@style/statline_number"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:text="@string/zero"
-                    android:textAppearance="?android:attr/textAppearanceSmall"
-                    style="@style/statline_number" />
+                    android:textAppearance="?android:attr/textAppearanceSmall" />
 
                 <TextView
                     android:id="@+id/lab_blocks"
+                    style="@style/statline_label"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:text="@string/blk"
-                    style="@style/statline_label" />
+                    android:text="@string/blk" />
             </TableRow>
         </HorizontalScrollView>
     </FrameLayout>
 
-    <HorizontalScrollView
-        android:id="@+id/framer1"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:padding="10dp"
-        android:layout_gravity="center_horizontal">
-
-    </HorizontalScrollView>
-
-    <LinearLayout
+    <ScrollView
+        android:id="@+id/sc_mid_container"
         android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:layout_weight="1">
+        android:layout_height="0dip"
+        android:layout_weight="1" >
 
-        <LinearLayout
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:orientation="vertical">
-
-
-            <LinearLayout
-                android:orientation="vertical"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:layout_weight="1">
-
-                <TextView
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:text="@string/shooting"
-                    android:id="@+id/textView"
-                    style="@style/header_label_small" />
-
-                <TableRow
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content">
-
-                    <TextView
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:text="@string/fgs"
-                        android:id="@+id/textView2"
-                        android:layout_marginRight="10dp" />
-
-                    <TextView
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:text="@string/zero"
-                        android:id="@+id/textView11" />
-                </TableRow>
-
-                <TextView
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:text="@string/fg3s"
-                    android:id="@+id/textView5" />
-
-                <TextView
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:text="@string/fts"
-                    android:id="@+id/textView6" />
-            </LinearLayout>
-
-            <LinearLayout
-                android:orientation="vertical"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:id="@+id/linearLayout2"
-                android:layout_weight="1">
-
-                <TextView
-                    style="@style/header_label_small"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:text="@string/rebounding"
-                    android:id="@+id/textView8" />
-
-                <TextView
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:text="@string/off"
-                    android:id="@+id/textView9" />
-
-                <TextView
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:text="@string/def"
-                    android:id="@+id/textView10" />
-            </LinearLayout>
-
-            <LinearLayout
-                android:orientation="vertical"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:id="@+id/linearLayout"
-                android:layout_weight="1">
-
-                <TextView
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:text="@string/other"
-                    android:id="@+id/textView3"
-                    style="@style/header_label_small" />
-
-                <TextView
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:text="@string/min"
-                    android:id="@+id/textView4" />
-
-                <TextView
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:text="@string/tos"
-                    android:id="@+id/textView7" />
-
-                <TextView
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:text="@string/fls"
-                    android:id="@+id/textView12" />
-            </LinearLayout>
-            <!--
-            <TableRow
-                android:id="@+id/tableRow4"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content" >
-
-                <TextView
-                    android:id="@+id/lab_fgm"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_marginRight="8dp"
-                    android:text="@string/fgm"
-                    android:textAppearance="?android:attr/textAppearanceSmall" />
-
-                <TextView
-                    android:id="@+id/lab_fga"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_marginRight="8dp"
-                    android:text="@string/fga"
-                    android:textAppearance="?android:attr/textAppearanceSmall" />
-
-                <TextView
-                    android:id="@+id/lab_3m"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_marginRight="8dp"
-                    android:text="@string/threesm"
-                    android:textAppearance="?android:attr/textAppearanceSmall" />
-
-                <TextView
-                    android:id="@+id/lab_3a"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_marginRight="8dp"
-                    android:text="@string/threesa"
-                    android:textAppearance="?android:attr/textAppearanceSmall" />
-
-                <TextView
-                    android:id="@+id/lab_ftm"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_marginRight="8dp"
-                    android:text="@string/ftm"
-                    android:textAppearance="?android:attr/textAppearanceSmall" />
-
-                <TextView
-                    android:id="@+id/lab_fta"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_marginRight="8dp"
-                    android:text="@string/fta"
-                    android:textAppearance="?android:attr/textAppearanceSmall" />
-
-                <TextView
-                    android:id="@+id/lab_rebs_off"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_marginRight="8dp"
-                    android:text="@string/off"
-                    android:textAppearance="?android:attr/textAppearanceSmall" />
-
-                <TextView
-                    android:id="@+id/lab_turnovers"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:text="@string/to"
-                    android:textAppearance="?android:attr/textAppearanceSmall" />
-            </TableRow>
-
-            <TableRow
-                android:id="@+id/tableRow5"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content" >
-
-                <TextView
-                    android:id="@+id/dis_fgm"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:text="@string/zero"
-                    android:textAppearance="?android:attr/textAppearanceSmall" />
-
-                <TextView
-                    android:id="@+id/dis_fga"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:text="@string/zero"
-                    android:textAppearance="?android:attr/textAppearanceSmall" />
-
-                <TextView
-                    android:id="@+id/dis_3m"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:text="@string/zero"
-                    android:textAppearance="?android:attr/textAppearanceSmall" />
-
-                <TextView
-                    android:id="@+id/dis_3a"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:text="@string/zero"
-                    android:textAppearance="?android:attr/textAppearanceSmall" />
-
-                <TextView
-                    android:id="@+id/dis_ftm"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:text="@string/zero"
-                    android:textAppearance="?android:attr/textAppearanceSmall" />
-
-                <TextView
-                    android:id="@+id/dis_fta"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:text="@string/zero"
-                    android:textAppearance="?android:attr/textAppearanceSmall" />
-
-                <TextView
-                    android:id="@+id/dis_reb_off"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:text="@string/zero"
-                    android:textAppearance="?android:attr/textAppearanceSmall" />
-
-                <TextView
-                    android:id="@+id/dis_turnovers"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:text="@string/zero"
-                    android:textAppearance="?android:attr/textAppearanceSmall" />
-            </TableRow>
-            -->
-        </LinearLayout>
-
-        <ScrollView
-            android:id="@+id/child_container2"
+        <RelativeLayout
+            android:id="@+id/stat_mid"
             android:layout_width="match_parent"
-            android:layout_height="match_parent"
-            android:layout_weight="1"
-            android:paddingLeft="10dp"
-            android:paddingRight="10dp"
-            android:scrollbars="vertical|horizontal" >
+            android:layout_height="wrap_content" >
 
-            <TableLayout
+            <LinearLayout
+                android:id="@+id/left_stat"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="15dp"
+                android:orientation="vertical" >
+
+                <TableLayout
+                    android:id="@+id/sc_mid"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content" >
+
+                    <TableRow style="@style/stat_left_row" >
+
+                        <TextView
+                            android:id="@+id/lab_fgs"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="@string/fgs" />
+
+                        <TextView
+                            android:id="@+id/stat_fgs"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="@string/zero" />
+                    </TableRow>
+
+                    <TableRow style="@style/stat_left_row" >
+
+                        <TextView
+                            android:id="@+id/lab_fg2s"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="@string/fg2s" />
+
+                        <TextView
+                            android:id="@+id/stat_fg2s"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="@string/zero" />
+                    </TableRow>
+
+                    <TableRow style="@style/stat_left_row" >
+
+                        <TextView
+                            android:id="@+id/lab_fg3s"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="@string/fg3s" />
+
+                        <TextView
+                            android:id="@+id/stat_fg3s"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="@string/zero" />
+                    </TableRow>
+
+                    <TableRow style="@style/stat_left_row" >
+
+                        <TextView
+                            android:id="@+id/lab_fts"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="@string/fts" />
+
+                        <TextView
+                            android:id="@+id/stat_fts"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="@string/zero" />
+                    </TableRow>
+
+                   
+
+                    <TableRow
+                        style="@style/stat_left_row"
+                         >
+
+                        <TextView
+                            android:id="@+id/lab_def"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="@string/def" />
+
+                        <TextView
+                            android:id="@+id/stat_def"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="@string/zero" />
+                    </TableRow>
+
+                    <TableRow
+                        style="@style/stat_left_row"
+                         >
+
+                        <TextView
+                            android:id="@+id/lab_off"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="@string/off" />
+
+                        <TextView
+                            android:id="@+id/stat_off"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="@string/zero" />
+                    </TableRow>
+
+                    <TableRow
+                        style="@style/stat_left_row"
+                        >
+
+                        <TextView
+                            android:id="@+id/lab_turnover"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_marginRight="5dp"
+                            android:text="@string/tos" />
+
+                        <TextView
+                            android:id="@+id/stat_turnover"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="@string/zero" />
+                    </TableRow>
+
+                    <TableRow
+                        style="@style/stat_left_row"
+                        android:layout_width="match_parent" >
+
+                        <TextView
+                            android:id="@+id/lab_fouls"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="@string/fls" />
+
+                        <TextView
+                            android:id="@+id/stat_fouls"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="@string/zero" />
+                    </TableRow>
+                </TableLayout>
+
+            </LinearLayout>
+
+            <FrameLayout
+                android:id="@+id/secondframe"
                 android:layout_width="match_parent"
-                android:layout_height="match_parent"
-                android:layout_gravity="center_vertical" >
+                android:layout_height="wrap_content"
+                android:layout_toRightOf="@+id/left_stat" >
 
-                <TableRow
-                    android:id="@+id/tableRow2"
+                <RelativeLayout
+                    android:id="@+id/secondrel"
                     android:layout_width="wrap_content"
-                    android:layout_height="wrap_content" >
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center_horizontal" >
 
-                    <RelativeLayout
-                        android:layout_width="match_parent"
-                        android:layout_height="wrap_content"
-                        android:layout_weight="1"
-                        android:padding="5dp" >
+                    <TextView
+                        android:id="@+id/lab_pointer2"
+                        style="@style/stat_button_header"
+                        android:layout_alignParentLeft="true"
+                        android:layout_alignParentTop="true"
+                        android:layout_marginLeft="10dp"
+                        android:layout_marginTop="15dp"
+                        android:text="@string/pointers_2" />
 
-                        <FrameLayout
-                            android:id="@+id/FrameLayout01"
-                            android:layout_width="wrap_content"
-                            android:layout_height="wrap_content"
-                            android:layout_alignParentTop="true"
-                            android:layout_centerHorizontal="true" >
+                    <Button
+                        android:id="@+id/press_fg2made"
+                        style="@style/stat_button_right"
+                        android:layout_alignLeft="@+id/lab_pointer2"
+                        android:layout_below="@+id/lab_pointer2"
+                        android:text="@string/made" />
 
-                            <TextView
-                                android:id="@+id/stat_fg2made"
-                                android:layout_width="wrap_content"
-                                android:layout_height="wrap_content"
-                                android:maxLength="2"
-                                android:maxLines="1"
-                                android:text="@string/double_zero"
-                                android:textAppearance="?android:attr/textAppearanceLarge" />
-                        </FrameLayout>
+                    <Button
+                        android:id="@+id/press_fg2missed"
+                        style="@style/stat_button_right"
+                        android:layout_alignBaseline="@+id/press_fg2made"
+                        android:layout_marginLeft="5dp"
+                        android:layout_toRightOf="@+id/press_fg2made"
+                        android:text="@string/missed" />
 
-                        <Button
-                            android:id="@+id/press_fg2made"
-                            android:layout_width="fill_parent"
-                            android:layout_height="wrap_content"
-                            android:layout_below="@+id/FrameLayout01"
-                            android:minHeight="24dp"
-                            android:text="@string/twos_made"
-                            android:textAppearance="?android:attr/textAppearanceSmall" />
-                    </RelativeLayout>
+                    <TextView
+                        android:id="@+id/lab_pointer3"
+                        style="@style/stat_button_header"
+                        android:layout_alignLeft="@+id/lab_pointer2"
+                        android:layout_below="@+id/press_fg2made"
+                        android:layout_marginTop="5dp"
+                        android:text="@string/pointers_3" />
 
-                    <RelativeLayout
-                        android:layout_width="match_parent"
-                        android:layout_height="wrap_content"
-                        android:layout_weight="1"
-                        android:padding="5dp" >
+                    <Button
+                        android:id="@+id/press_fg3made"
+                        style="@style/stat_button_right"
+                        android:layout_alignLeft="@+id/lab_pointer2"
+                        android:layout_below="@+id/lab_pointer3"
+                        android:text="@string/made" />
 
-                        <FrameLayout
-                            android:id="@+id/box_fg2made"
-                            android:layout_width="wrap_content"
-                            android:layout_height="wrap_content"
-                            android:layout_alignParentTop="true"
-                            android:layout_centerHorizontal="true" >
+                    <Button
+                        android:id="@+id/press_fg3missed"
+                        style="@style/stat_button_right"
+                        android:layout_alignBaseline="@+id/press_fg3made"
+                        android:layout_marginLeft="5dp"
+                        android:layout_toRightOf="@+id/press_fg3made"
+                        android:text="@string/missed" />
 
-                            <TextView
-                                android:id="@+id/stat_fg2missed"
-                                android:layout_width="wrap_content"
-                                android:layout_height="wrap_content"
-                                android:maxLength="2"
-                                android:maxLines="1"
-                                android:text="@string/double_zero"
-                                android:textAppearance="?android:attr/textAppearanceLarge" />
-                        </FrameLayout>
+                    <TextView
+                        android:id="@+id/lab_freethrows"
+                        style="@style/stat_button_header"
+                        android:layout_alignLeft="@+id/lab_pointer2"
+                        android:layout_below="@+id/press_fg3made"
+                        android:layout_marginTop="5dp"
+                        android:text="@string/free_throws" />
 
-                        <Button
-                            android:id="@+id/press_fg2missed"
-                            android:layout_width="fill_parent"
-                            android:layout_height="wrap_content"
-                            android:layout_below="@+id/box_fg2made"
-                            android:minHeight="24dp"
-                            android:text="@string/twos_missed"
-                            android:textAppearance="?android:attr/textAppearanceSmall" />
-                    </RelativeLayout>
+                    <Button
+                        android:id="@+id/press_ftmade"
+                        style="@style/stat_button_right"
+                        android:layout_alignLeft="@+id/lab_pointer2"
+                        android:layout_below="@+id/lab_freethrows"
+                        android:text="@string/made" />
 
-                    <RelativeLayout
-                        android:layout_width="match_parent"
-                        android:layout_height="wrap_content"
-                        android:layout_weight="1"
-                        android:padding="5dp" >
+                    <Button
+                        android:id="@+id/press_ftmissed"
+                        style="@style/stat_button_right"
+                        android:layout_alignBaseline="@+id/press_ftmade"
+                        android:layout_marginLeft="5dp"
+                        android:layout_toRightOf="@+id/press_ftmade"
+                        android:text="@string/missed" />
 
-                        <FrameLayout
-                            android:id="@+id/FrameLayout03"
-                            android:layout_width="wrap_content"
-                            android:layout_height="wrap_content"
-                            android:layout_alignParentTop="true"
-                            android:layout_centerHorizontal="true" >
+                    <TextView
+                        android:id="@+id/lab_rebounding"
+                        style="@style/stat_button_header"
+                        android:layout_alignLeft="@+id/lab_pointer2"
+                        android:layout_below="@+id/press_ftmade"
+                        android:layout_marginTop="5dp"
+                        android:text="@string/rebounding" />
 
-                            <TextView
-                                android:id="@+id/stat_fg3made"
-                                android:layout_width="wrap_content"
-                                android:layout_height="wrap_content"
-                                android:maxLength="2"
-                                android:maxLines="1"
-                                android:text="@string/double_zero"
-                                android:textAppearance="?android:attr/textAppearanceLarge" />
-                        </FrameLayout>
+                    <Button
+                        android:id="@+id/press_rebdef"
+                        style="@style/stat_button_right"
+                        android:layout_alignLeft="@+id/lab_pointer2"
+                        android:layout_below="@+id/lab_rebounding"
+                        android:text="@string/def" />
 
-                        <Button
-                            android:id="@+id/press_fg3made"
-                            android:layout_width="fill_parent"
-                            android:layout_height="wrap_content"
-                            android:layout_below="@+id/FrameLayout03"
-                            android:minHeight="24dp"
-                            android:text="@string/threes_made"
-                            android:textAppearance="?android:attr/textAppearanceSmall" />
-                    </RelativeLayout>
+                    <Button
+                        android:id="@+id/press_reboff"
+                        style="@style/stat_button_right"
+                        android:layout_alignBaseline="@+id/press_rebdef"
+                        android:layout_marginLeft="5dp"
+                        android:layout_toRightOf="@+id/press_rebdef"
+                        android:text="@string/off" />
 
-                    <RelativeLayout
-                        android:layout_width="match_parent"
-                        android:layout_height="wrap_content"
-                        android:layout_weight="1"
-                        android:padding="5dp" >
+                    <Button
+                        android:id="@+id/press_assists"
+                        style="@style/stat_button_right"
+                        android:layout_alignTop="@+id/press_fg2made"
+                        android:layout_marginLeft="5dp"
+                        android:layout_toRightOf="@+id/press_fg2missed"
+                        android:text="@string/assists" />
 
-                        <FrameLayout
-                            android:id="@+id/FrameLayout02"
-                            android:layout_width="wrap_content"
-                            android:layout_height="wrap_content"
-                            android:layout_alignParentTop="true"
-                            android:layout_centerHorizontal="true" >
+                    <Button
+                        android:id="@+id/press_steals"
+                        style="@style/stat_button_right"
+                        android:layout_alignLeft="@+id/press_assists"
+                        android:layout_below="@+id/press_assists"
+                        android:text="@string/steals" />
 
-                            <TextView
-                                android:id="@+id/stat_fg3missed"
-                                android:layout_width="wrap_content"
-                                android:layout_height="wrap_content"
-                                android:maxLength="2"
-                                android:maxLines="1"
-                                android:text="@string/double_zero"
-                                android:textAppearance="?android:attr/textAppearanceLarge" />
-                        </FrameLayout>
+                    <Button
+                        android:id="@+id/press_blocks"
+                        style="@style/stat_button_right"
+                        android:layout_alignLeft="@+id/press_assists"
+                        android:layout_below="@+id/press_steals"
+                        android:text="@string/blocks" />
 
-                        <Button
-                            android:id="@+id/press_fg3missed"
-                            android:layout_width="fill_parent"
-                            android:layout_height="wrap_content"
-                            android:layout_below="@+id/FrameLayout02"
-                            android:minHeight="24dp"
-                            android:text="@string/threes_missed"
-                            android:textAppearance="?android:attr/textAppearanceSmall" />
-                    </RelativeLayout>
-                </TableRow>
+                    <Button
+                        android:id="@+id/press_turnovers"
+                        style="@style/stat_button_right"
+                        android:layout_alignLeft="@+id/press_assists"
+                        android:layout_below="@+id/press_blocks"
+                        android:text="@string/tos" />
 
-                <TableRow
-                    android:id="@+id/TableRow01"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content" >
-
-                    <RelativeLayout
-                        android:layout_width="match_parent"
-                        android:layout_height="wrap_content"
-                        android:layout_weight="1"
-                        android:padding="5dp" >
-
-                        <FrameLayout
-                            android:id="@+id/FrameLayout07"
-                            android:layout_width="wrap_content"
-                            android:layout_height="wrap_content"
-                            android:layout_alignParentTop="true"
-                            android:layout_centerHorizontal="true" >
-
-                            <TextView
-                                android:id="@+id/stat_ftmade"
-                                android:layout_width="wrap_content"
-                                android:layout_height="wrap_content"
-                                android:maxLength="2"
-                                android:maxLines="1"
-                                android:text="@string/double_zero"
-                                android:textAppearance="?android:attr/textAppearanceLarge" />
-                        </FrameLayout>
-
-                        <Button
-                            android:id="@+id/press_ftmade"
-                            android:layout_width="fill_parent"
-                            android:layout_height="wrap_content"
-                            android:layout_below="@+id/FrameLayout07"
-                            android:minHeight="24dp"
-                            android:text="@string/ft_made"
-                            android:textAppearance="?android:attr/textAppearanceSmall" />
-                    </RelativeLayout>
-
-                    <RelativeLayout
-                        android:layout_width="match_parent"
-                        android:layout_height="wrap_content"
-                        android:layout_weight="1"
-                        android:padding="5dp" >
-
-                        <FrameLayout
-                            android:id="@+id/FrameLayout06"
-                            android:layout_width="wrap_content"
-                            android:layout_height="wrap_content"
-                            android:layout_alignParentTop="true"
-                            android:layout_centerHorizontal="true" >
-
-                            <TextView
-                                android:id="@+id/stat_ftmissed"
-                                android:layout_width="wrap_content"
-                                android:layout_height="wrap_content"
-                                android:maxLength="2"
-                                android:maxLines="1"
-                                android:text="@string/double_zero"
-                                android:textAppearance="?android:attr/textAppearanceLarge" />
-                        </FrameLayout>
-
-                        <Button
-                            android:id="@+id/press_ftmissed"
-                            android:layout_width="fill_parent"
-                            android:layout_height="wrap_content"
-                            android:layout_below="@+id/FrameLayout06"
-                            android:minHeight="24dp"
-                            android:text="@string/ft_miss"
-                            android:textAppearance="?android:attr/textAppearanceSmall" />
-                    </RelativeLayout>
-
-                    <RelativeLayout
-                        android:layout_width="match_parent"
-                        android:layout_height="wrap_content"
-                        android:layout_weight="1"
-                        android:padding="5dp" >
-
-                        <FrameLayout
-                            android:id="@+id/FrameLayout04"
-                            android:layout_width="wrap_content"
-                            android:layout_height="wrap_content"
-                            android:layout_alignParentTop="true"
-                            android:layout_centerHorizontal="true" >
-
-                            <TextView
-                                android:id="@+id/stat_reboff"
-                                android:layout_width="wrap_content"
-                                android:layout_height="wrap_content"
-                                android:maxLength="2"
-                                android:maxLines="1"
-                                android:text="@string/double_zero"
-                                android:textAppearance="?android:attr/textAppearanceLarge" />
-                        </FrameLayout>
-
-                        <Button
-                            android:id="@+id/press_reboff"
-                            android:layout_width="fill_parent"
-                            android:layout_height="wrap_content"
-                            android:layout_below="@+id/FrameLayout04"
-                            android:minHeight="24dp"
-                            android:text="@string/reboff"
-                            android:textAppearance="?android:attr/textAppearanceSmall" />
-                    </RelativeLayout>
-
-                    <RelativeLayout
-                        android:layout_width="match_parent"
-                        android:layout_height="wrap_content"
-                        android:layout_weight="1"
-                        android:padding="5dp" >
-
-                        <FrameLayout
-                            android:id="@+id/FrameLayout05"
-                            android:layout_width="wrap_content"
-                            android:layout_height="wrap_content"
-                            android:layout_alignParentTop="true"
-                            android:layout_centerHorizontal="true" >
-
-                            <TextView
-                                android:id="@+id/stat_rebdef"
-                                android:layout_width="wrap_content"
-                                android:layout_height="wrap_content"
-                                android:maxLength="2"
-                                android:maxLines="1"
-                                android:text="@string/double_zero"
-                                android:textAppearance="?android:attr/textAppearanceLarge" />
-                        </FrameLayout>
-
-                        <Button
-                            android:id="@+id/press_rebdef"
-                            android:layout_width="fill_parent"
-                            android:layout_height="wrap_content"
-                            android:layout_below="@+id/FrameLayout05"
-                            android:minHeight="24dp"
-                            android:text="@string/rebdef"
-                            android:textAppearance="?android:attr/textAppearanceSmall" />
-                    </RelativeLayout>
-                </TableRow>
-
-                <TableRow
-                    android:id="@+id/TableRow02"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content" >
-
-                    <RelativeLayout
-                        android:layout_width="match_parent"
-                        android:layout_height="wrap_content"
-                        android:layout_weight="1"
-                        android:padding="5dp" >
-
-                        <FrameLayout
-                            android:id="@+id/FrameLayout04"
-                            android:layout_width="wrap_content"
-                            android:layout_height="wrap_content"
-                            android:layout_alignParentTop="true"
-                            android:layout_centerHorizontal="true" >
-
-                            <TextView
-                                android:id="@+id/stat_assists"
-                                android:layout_width="wrap_content"
-                                android:layout_height="wrap_content"
-                                android:maxLength="2"
-                                android:maxLines="1"
-                                android:text="@string/double_zero"
-                                android:textAppearance="?android:attr/textAppearanceLarge" />
-                        </FrameLayout>
-
-                        <Button
-                            android:id="@+id/press_assists"
-                            android:layout_width="fill_parent"
-                            android:layout_height="wrap_content"
-                            android:layout_below="@+id/FrameLayout04"
-                            android:minHeight="24dp"
-                            android:text="@string/ast"
-                            android:textAppearance="?android:attr/textAppearanceSmall" />
-                    </RelativeLayout>
-
-                    <RelativeLayout
-                        android:layout_width="match_parent"
-                        android:layout_height="wrap_content"
-                        android:layout_weight="1"
-                        android:padding="5dp" >
-
-                        <FrameLayout
-                            android:id="@+id/FrameLayout05"
-                            android:layout_width="wrap_content"
-                            android:layout_height="wrap_content"
-                            android:layout_alignParentTop="true"
-                            android:layout_centerHorizontal="true" >
-
-                            <TextView
-                                android:id="@+id/stat_steals"
-                                android:layout_width="wrap_content"
-                                android:layout_height="wrap_content"
-                                android:maxLength="2"
-                                android:maxLines="1"
-                                android:text="@string/double_zero"
-                                android:textAppearance="?android:attr/textAppearanceLarge" />
-                        </FrameLayout>
-
-                        <Button
-                            android:id="@+id/press_steals"
-                            android:layout_width="fill_parent"
-                            android:layout_height="wrap_content"
-                            android:layout_below="@+id/FrameLayout05"
-                            android:minHeight="24dp"
-                            android:text="@string/stl"
-                            android:textAppearance="?android:attr/textAppearanceSmall" />
-                    </RelativeLayout>
-
-                    <RelativeLayout
-                        android:layout_width="match_parent"
-                        android:layout_height="wrap_content"
-                        android:layout_weight="1"
-                        android:padding="5dp" >
-
-                        <FrameLayout
-                            android:id="@+id/FrameLayout08"
-                            android:layout_width="wrap_content"
-                            android:layout_height="wrap_content"
-                            android:layout_alignParentTop="true"
-                            android:layout_centerHorizontal="true" >
-
-                            <TextView
-                                android:id="@+id/stat_blocks"
-                                android:layout_width="wrap_content"
-                                android:layout_height="wrap_content"
-                                android:maxLength="2"
-                                android:maxLines="1"
-                                android:text="@string/double_zero"
-                                android:textAppearance="?android:attr/textAppearanceLarge" />
-                        </FrameLayout>
-
-                        <Button
-                            android:id="@+id/press_blocks"
-                            android:layout_width="fill_parent"
-                            android:layout_height="wrap_content"
-                            android:layout_below="@+id/FrameLayout08"
-                            android:minHeight="24dp"
-                            android:text="@string/blk"
-                            android:textAppearance="?android:attr/textAppearanceSmall" />
-                    </RelativeLayout>
-
-                    <RelativeLayout
-                        android:layout_width="match_parent"
-                        android:layout_height="wrap_content"
-                        android:layout_weight="1"
-                        android:padding="5dp" >
-
-                        <FrameLayout
-                            android:id="@+id/FrameLayout09"
-                            android:layout_width="wrap_content"
-                            android:layout_height="wrap_content"
-                            android:layout_alignParentTop="true"
-                            android:layout_centerHorizontal="true" >
-
-                            <TextView
-                                android:id="@+id/stat_turnovers"
-                                android:layout_width="wrap_content"
-                                android:layout_height="wrap_content"
-                                android:maxLength="2"
-                                android:maxLines="1"
-                                android:text="@string/double_zero"
-                                android:textAppearance="?android:attr/textAppearanceLarge" />
-                        </FrameLayout>
-
-                        <Button
-                            android:id="@+id/press_turnovers"
-                            android:layout_width="fill_parent"
-                            android:layout_height="wrap_content"
-                            android:layout_below="@+id/FrameLayout09"
-                            android:minHeight="24dp"
-                            android:text="@string/tos"
-                            android:textAppearance="?android:attr/textAppearanceSmall" />
-                    </RelativeLayout>
-                </TableRow>
-            </TableLayout>
-        </ScrollView>
-
-    </LinearLayout>
-
-    <include layout="@layout/ll_divider"/>
+                    <Button
+                        android:id="@+id/press_fouls"
+                        style="@style/stat_button_right"
+                        android:layout_alignLeft="@+id/press_assists"
+                        android:layout_below="@+id/press_turnovers"
+                        android:text="@string/fouls" />
+                </RelativeLayout>
+            </FrameLayout>
+        </RelativeLayout>
+    </ScrollView>
 
     <RelativeLayout
         android:layout_width="match_parent"
@@ -867,24 +478,24 @@
                 android:text="@string/plus1" />
         </TableRow>
     </RelativeLayout>
+	<!--  
+    <include layout="@layout/ll_divider" />-->
 
-    <LinearLayout
-        style="@style/bottom_buttons_bar" >
+    <LinearLayout style="@style/bottom_buttons_bar" >
 
-		<Button
-		    android:id="@+id/reset_button"
-		    style="@style/bottom_buttons"
-		    android:onClick="resetStats"
-		    android:text="@string/reset" />
+        <Button
+            android:id="@+id/reset_button"
+            style="@style/bottom_buttons"
+            android:onClick="resetStats"
+            android:text="@string/reset" />
 
-		<include layout="@layout/button_divider" />
+        <include layout="@layout/button_divider" />
 
-		<Button
-		    android:id="@+id/save_button"
-		    style="@style/bottom_buttons"
-		    android:onClick="saveStats"
-		    android:text="@string/save" />
-            
-        </LinearLayout>
+        <Button
+            android:id="@+id/save_button"
+            style="@style/bottom_buttons"
+            android:onClick="saveStats"
+            android:text="@string/save" />
+    </LinearLayout>
 
 </LinearLayout>
