@@ -10,7 +10,7 @@ public abstract class StatsHelper {
 	}
 	
 	public static float getPercent(int a, int b){
-		if ( a == 0 || b == 0 ) return (float)0;
+		if ( a == 0 || b == 0 ) return 0;
 		return (float)(a/b);
 	}
 	
@@ -25,12 +25,26 @@ public abstract class StatsHelper {
 		return Float.valueOf(roundToOneDigit(f));
 	}
 	
+	public static String divPerc(int l, int b, String nuller){
+		return String.valueOf(divPerc(l,b));
+	}
+	
 	public static float divPerc(int stat, String string) {
 		return StatsHelper.divPerc(stat, Integer.parseInt(string));
 	}
 	
 	public static String roundToOneDigit(float paramFloat) {
 	    return String.format("%.1f%n", paramFloat);
+	}
+	
+	public static String percentWithSign(int l, int b){
+		if (l == 0 || b == 0 ) return "0%";
+		if (l == b ) return "100%";
+		Float f = (float) (l / (double)b);
+		int i =  (int)Math.round(f * 100);
+		return String.valueOf(i) + "%";
+
+		
 	}
 	
 	public static String float2Str(float f){

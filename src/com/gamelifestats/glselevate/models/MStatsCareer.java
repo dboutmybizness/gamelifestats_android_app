@@ -34,6 +34,17 @@ public class MStatsCareer extends ModelBase {
 		extrafields.put("aturnovers", "tturnovers");
 		extrafields.put("afouls", "tfouls");
 		extrafields.put("aminutes", "tminutes");
+		extrafields.put("arebs_off", "trebs_off");
+		extrafields.put("arebs_def", "trebs_def");
+		
+		extrafields.put("afgm", "tfgm");
+        extrafields.put("afg2m", "tfg2m");
+        extrafields.put("afg3m", "tfg3m");
+        extrafields.put("aftm", "tftm");
+        extrafields.put("afga", "tfga");
+        extrafields.put("afg2a", "tfg2a");
+        extrafields.put("afg3a", "tfg3a");
+        extrafields.put("afta", "tfta");
 	}
 	
 	@Override
@@ -125,17 +136,31 @@ public class MStatsCareer extends ModelBase {
 		return result;
 	}
 	
-	public Boolean addNewGame(Context ctx, HashMap<String,String> game_map){
-		this.getCareer(ctx);
-		
-		int games = Integer.parseInt(FIELD_VALUES.get("tgames")) +1;
-		FIELD_VALUES.put("tgames", String.valueOf(games));
-		return saveCareer(ctx);
-	}
-	
 	private String gAvg(int stat){
 		float val = StatsHelper.divPerc(stat, FIELD_VALUES.get("tgames"));
 		return String.valueOf(val);
+	}
+	
+	public void getPercentages(){
+		Statline st_obj = new Statline();
+		st_obj.setStattype(1);
+		String[] flds = new String[]{"tfgm","tfga","tfg3m","tfg3a","tftm","tfta"};
+		HashMap<String,String> iniB = new HashMap<String,String>();
+		
+		for (int i =0; i<flds.length; i++){
+			iniB.put(flds[i], FIELD_VALUES.get(flds[i]));
+		}
+		
+		st_obj.loadstats(iniB, null);
+		iniB = st_obj.calReturn();
+		
+		String[] renF = new String[]{"fgp", "fg3p", "ftp"};
+		
+		for(int i = 0; i < renF.length; i++){
+			FIELD_VALUES.put(renF[i], iniB.get(renF[i]));
+		}
+		
+		
 	}
 	
 	

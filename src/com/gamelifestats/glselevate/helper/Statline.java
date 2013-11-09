@@ -15,14 +15,19 @@ public class Statline {
 	
 	public HashMap<String,Integer> stat_as_ints = new HashMap<String,Integer>();
 	public HashMap<String,String> stat_as_strings = new HashMap<String,String>();
+	public HashMap<String,String> stat_as_float = new HashMap<String,String>();
 	
 	public Statline(){
 		
 	}
 	
 	public Statline(int stattype){
-		this.stattype = stattype;
+		setStattype(stattype);
 		initial_build();
+	}
+	
+	public void setStattype(int stattype){
+		this.stattype = stattype;
 	}
 	
 	private void initial_build(){
@@ -69,6 +74,14 @@ public class Statline {
 	}
 	
 	private void calculate_stats(){
+		
+		int fgm = 0;
+		int fga = 0;
+		int fg3m = 0;
+		int fg3a = 0;
+		int ftm = 0;
+		int fta = 0;
+		
 		switch(this.stattype){
 			case 0:
 				int rebounds = stat_as_ints.get("reb_off") + stat_as_ints.get("reb_def");
@@ -78,16 +91,16 @@ public class Statline {
 				int fg2ms = stat_as_ints.get("fg2ms");
 				int fg2a =  fg2m + fg2ms;
 				
-				int fg3m = stat_as_ints.get("fg3m");
+				fg3m = stat_as_ints.get("fg3m");
 				int fg3ms = stat_as_ints.get("fg3ms");
-				int fg3a =  fg3m + fg3ms;
+				fg3a =  fg3m + fg3ms;
 				
-				int ftm = stat_as_ints.get("ftm");
+				ftm = stat_as_ints.get("ftm");
 				int ftms = stat_as_ints.get("ftms");
-				int fta =  ftm + ftms;
+				fta =  ftm + ftms;
 				
-				int fgm = fg2m + fg3m;
-				int fga = fg2a + fg3a;
+				fgm = fg2m + fg3m;
+				fga = fg2a + fg3a;
 				
 				int points = (fg2m *2) + (fg3m *3) + ftm;
 				
@@ -102,8 +115,26 @@ public class Statline {
 				stat_as_ints.put("fgm", fgm);
 				
 				break;
+			case 1:
+				fgm = stat_as_ints.get("tfgm");
+				fga = stat_as_ints.get("tfga");
+				fg3m = stat_as_ints.get("tfg3m");
+				fg3a = stat_as_ints.get("tfg3a");
+				ftm = stat_as_ints.get("tftm");
+				fta = stat_as_ints.get("tfta");
+				
+				stat_as_float.put("fgp", StatsHelper.percentWithSign(fgm, fga));
+				stat_as_float.put("fg3p", StatsHelper.percentWithSign(fg3m, fg3a));
+				stat_as_float.put("ftp", StatsHelper.percentWithSign(ftm, fta));
+			break;
 		}
 		
+		
 		render_strings();
+	}
+	
+	public HashMap<String,String> calReturn(){
+		calculate_stats();
+		return stat_as_float;
 	}
 }

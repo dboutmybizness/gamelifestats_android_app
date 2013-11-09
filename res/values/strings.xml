@@ -194,6 +194,11 @@
     <string name="title_activity_play_dialog">PlayDialog</string>
 
     <string name="title_activity_bball_profile">BballProfile</string>
+    <string name="fg2m">FG2M</string>
+    <string name="fg3m">FG3M</string>
+    <string name="fg3a">FG3A</string>
+    <string name="fg2a">FG2A</string>
+    <string name="shooting_summary">Shooting Summary</string>
 
 
 </resources>

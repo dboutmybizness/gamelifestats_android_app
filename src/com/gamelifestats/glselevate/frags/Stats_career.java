@@ -3,123 +3,93 @@ package com.gamelifestats.glselevate.frags;
 import android.content.Context;
 import android.os.Bundle;
 import android.support.v4.app.Fragment;
+import android.util.SparseArray;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
-import android.widget.Button;
 import android.widget.TextView;
 
 import com.gamelifestats.glselevate.R;
-import com.gamelifestats.glselevate.helper.StatsHelper;
-import com.gamelifestats.glselevate.models.MCareer;
+import com.gamelifestats.glselevate.helper.SetUpPageView;
+import com.gamelifestats.glselevate.models.MStatsCareer;
 
 
 public class Stats_career extends Fragment {
-	Context getParentContext;
-	MCareer career;
+	
+	MStatsCareer career = new MStatsCareer();
+	SetUpPageView SPV;
+	
+	Context ctx;
 	View rootView;
-	TextView tot_games,tot_minutes,tot_points,tot_rebounds,tot_reb_off,tot_reb_def,tot_assists,tot_steals,tot_blocks,tot_turnovers,tot_fouls;
-	TextView avg_games,avg_minutes,avg_points,avg_rebounds,avg_reb_off,avg_reb_def,avg_assists,avg_steals,avg_blocks,avg_turnovers,avg_fouls;
-	
-	TextView tot_fg2m,tot_fg2a;
-	TextView tot_fg3m,tot_fg3a;
-	TextView tot_fgm,tot_fga;
-	TextView tot_ftm,tot_fta;
-	
-	Button archived_games;
 	
 	@Override
 	public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState){
 		rootView = inflater.inflate(R.layout.avg_totals, container, false);
-		getParentContext = rootView.getContext();
+		ctx = rootView.getContext();
+		SPV = new SetUpPageView();
 		
-		tot_games = setUpStat(R.id.tot_games);
-		tot_minutes = setUpStat(R.id.tot_minutes);
-		tot_points = setUpStat(R.id.tot_points);
-		tot_rebounds = setUpStat(R.id.tot_rebounds);
-		tot_reb_off = setUpStat(R.id.tot_reb_off);
-		tot_reb_def = setUpStat(R.id.tot_reb_def);
-		tot_assists = setUpStat(R.id.tot_assists);
-		tot_steals = setUpStat(R.id.tot_steals);
-		tot_blocks = setUpStat(R.id.tot_blocks);
-		tot_turnovers = setUpStat(R.id.tot_turnovers);
-		tot_fouls = setUpStat(R.id.tot_fouls);
-		
-		//avg_games = setUpStat(R.id.avg_games);
-		avg_minutes = setUpStat(R.id.avg_minutes);
-		avg_points = setUpStat(R.id.avg_points);
-		avg_rebounds = setUpStat(R.id.avg_rebounds);
-		avg_reb_off = setUpStat(R.id.avg_reb_off);
-		avg_reb_def = setUpStat(R.id.avg_reb_def);
-		avg_assists = setUpStat(R.id.avg_assists);
-		avg_steals = setUpStat(R.id.avg_steals);
-		avg_blocks = setUpStat(R.id.avg_blocks);
-		avg_turnovers = setUpStat(R.id.avg_turnovers);
-		avg_fouls = setUpStat(R.id.avg_fouls);
-		
-		tot_fg2m = setUpStat(R.id.tot_fg2m);
-		tot_fg2a = setUpStat(R.id.tot_fg2a);
-		tot_fg3m = setUpStat(R.id.tot_fg3m);
-		tot_fg3a = setUpStat(R.id.tot_fg3a);
-		tot_fgm = setUpStat(R.id.tot_fgm);
-		tot_fga = setUpStat(R.id.tot_fga);
-		tot_ftm = setUpStat(R.id.tot_ftm);
-		tot_fta = setUpStat(R.id.tot_fta);
-		
+		if ( career.getCareer(ctx) ){
+			career.getPercentages();
+        	SPV.setOnCreateFieldsHash(career.FIELD_VALUES);
+        	
+	        SparseArray<String> pageview = new SparseArray<String>();
+	        pageview.put(R.id.tot_games, "tgames");
+
+	        pageview.put(R.id.tot_minutes, "tminutes");
+	        pageview.put(R.id.tot_points, "tpoints");
+	        pageview.put(R.id.tot_rebounds, "trebounds");
+	        pageview.put(R.id.tot_reb_off, "trebs_off");
+	        pageview.put(R.id.tot_reb_def, "trebs_def");
+	        pageview.put(R.id.tot_assists, "tassists");
+	        pageview.put(R.id.tot_steals, "tsteals");
+	        pageview.put(R.id.tot_blocks, "tblocks");
+	        pageview.put(R.id.tot_turnovers, "tturnovers");
+	        pageview.put(R.id.tot_fouls, "tfouls");
+	        
+	        pageview.put(R.id.avg_minutes, "aminutes");
+	        pageview.put(R.id.avg_points, "apoints");
+	        pageview.put(R.id.avg_rebounds, "arebounds");
+	        pageview.put(R.id.avg_reb_off, "arebs_off");
+	        pageview.put(R.id.avg_reb_def, "arebs_def");
+	        pageview.put(R.id.avg_assists, "aassists");
+	        pageview.put(R.id.avg_steals, "asteals");
+	        pageview.put(R.id.avg_blocks, "ablocks");
+	        pageview.put(R.id.avg_turnovers, "aturnovers");
+	        pageview.put(R.id.avg_fouls, "afouls");
+	        
+	        pageview.put(R.id.tot_fgm, "tfgm");
+	        pageview.put(R.id.tot_fg2m, "tfg2m");
+	        pageview.put(R.id.tot_fg3m, "tfg3m");
+	        pageview.put(R.id.tot_ftm, "tftm");
+	        pageview.put(R.id.tot_fga, "tfga");
+	        pageview.put(R.id.tot_fg2a, "tfg2a");
+	        pageview.put(R.id.tot_fg3a, "tfg3a");
+	        pageview.put(R.id.tot_fta, "tfta");
+	        
+	        pageview.put(R.id.avg_fgm, "afgm");
+	        pageview.put(R.id.avg_fg2m, "afg2m");
+	        pageview.put(R.id.avg_fg3m, "afg3m");
+	        pageview.put(R.id.avg_ftm, "aftm");
+	        pageview.put(R.id.avg_fga, "afga");
+	        pageview.put(R.id.avg_fg2a, "afg2a");
+	        pageview.put(R.id.avg_fg3a, "afg3a");
+	        pageview.put(R.id.avg_fta, "afta");
+	        
+	        pageview.put(R.id.dis_fgp, "fgp");
+	        pageview.put(R.id.dis_fg3p, "fg3p");
+	        pageview.put(R.id.dis_ftp, "ftp");
+
+	        
+	        for(int i = 0; i < pageview.size(); i++) {
+	        	int key = pageview.keyAt(i);
+	        	String val = pageview.get(key);
+			    SPV.addView((TextView)rootView.findViewById(key), null, val);
+			}
+        }	
 		return rootView;
 	}
 	
-	public TextView setUpStat(int i){
-		TextView tv = (TextView) rootView.findViewById(i);
-		return tv;
-	}
+
 	
-	@Override
-	public void onResume(){
-		super.onResume();
-		career = new MCareer(getParentContext);
-		setUpCareer();
-	}
-	
-	private void setUpCareer(){
-		Boolean has_career;
-		
-		has_career = career.loadSavedCareer();
-		
-		if ( has_career ){
-			tot_games.setText(StatsHelper.int2Str(career.tot_games));
-			tot_minutes.setText(StatsHelper.int2Str(career.tot_minutes));
-			tot_points.setText(StatsHelper.int2Str(career.tot_points));
-			tot_rebounds.setText(StatsHelper.int2Str(career.tot_rebounds));
-			tot_reb_off.setText(StatsHelper.int2Str(career.tot_reb_off));
-			tot_reb_def.setText(StatsHelper.int2Str(career.tot_reb_def));
-			tot_assists.setText(StatsHelper.int2Str(career.tot_assists));
-			tot_steals.setText(StatsHelper.int2Str(career.tot_steals));
-			tot_blocks.setText(StatsHelper.int2Str(career.tot_blocks));
-			tot_turnovers.setText(StatsHelper.int2Str(career.tot_turnovers));
-			tot_fouls.setText(StatsHelper.int2Str(career.tot_fouls));
-			tot_fg2m.setText(StatsHelper.int2Str(career.tot_fg2m));
-			tot_fg2a.setText(StatsHelper.int2Str(career.tot_fg2a));
-			tot_fg3m.setText(StatsHelper.int2Str(career.tot_fg3m));
-			tot_fg3a.setText(StatsHelper.int2Str(career.tot_fg3a));
-			tot_fgm.setText(StatsHelper.int2Str(career.tot_fgm));
-			tot_fga.setText(StatsHelper.int2Str(career.tot_fga));
-			tot_ftm.setText(StatsHelper.int2Str(career.tot_ftm));
-			tot_fta.setText(StatsHelper.int2Str(career.tot_fta));
-			
-			
-			avg_minutes.setText(StatsHelper.float2Str(career.avg_minutes));
-			avg_points.setText(StatsHelper.float2Str(career.avg_points));
-			avg_rebounds.setText(StatsHelper.float2Str(career.avg_rebounds));
-			avg_reb_off.setText(StatsHelper.float2Str(career.avg_reb_off));
-			avg_reb_def.setText(StatsHelper.float2Str(career.avg_reb_def));
-			avg_assists.setText(StatsHelper.float2Str(career.avg_assists));
-			avg_steals.setText(StatsHelper.float2Str(career.avg_steals));
-			avg_blocks.setText(StatsHelper.float2Str(career.avg_blocks));
-			avg_turnovers.setText(StatsHelper.float2Str(career.avg_turnovers));
-			avg_fouls.setText(StatsHelper.float2Str(career.avg_fouls));
-		}
-	
-	}
 		
 }
