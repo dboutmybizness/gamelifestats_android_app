@@ -18,7 +18,7 @@ public class MGames extends DBAdapter {
 	static final String CREATED_TIME = "created_time";
 	static final String GAME_RESULT = "game_result";
 	static final String GAME_TYPE = "game_type";
-	static final String USERID = "userID";
+	static final String USERID = "user_id";
 	static final String MINUTES = "minutes";
 	static final String POINTS = "points";
 	static final String REBOUNDS = "rebounds";

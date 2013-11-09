@@ -108,7 +108,9 @@ public class ModelBase implements ModelSetup, ModelTransactions{
 		return has_row;
 	}
 	
-	public void createRow(Context ctx){
+	
+	public Boolean createRow(Context ctx){
+		Boolean result = true;
 		DBAdapter db = new DBAdapter(ctx);
 		try{
 			db.open();
@@ -116,12 +118,25 @@ public class ModelBase implements ModelSetup, ModelTransactions{
 		} catch (SQLException e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
+			result = false;
 		}
 		db.close();
-		
-		
+		return result;
 	}
 	
+	public Cursor getAll(Context ctx, String where){
+		Cursor c = null;
+		DBAdapter db = new DBAdapter(ctx);
+		try{
+			db.open();
+			c = db.getAllRows(this.TABLE, this.FIELDS_LIST_ARRAY, where);
+		} catch (SQLException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+		db.close();
+		return c;
+	}
 	
 
 }

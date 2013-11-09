@@ -1,5 +1,7 @@
 package com.gamelifestats.glselevate.helper;
 
+import java.util.HashMap;
+
 import android.app.Activity;
 import android.content.res.Resources;
 import android.util.SparseArray;
@@ -22,11 +24,14 @@ public class SetUpStatView extends SetUpPageView{
 	SparseArray<Button> vHolderButtons;
 	SparseArray<TextView> vHolderTextViews;
 	SparseArray<String> fHolder;
+	HashMap<String,String> stat_holder;
 	
 	Button plus1;
 	Button minus1;
 	
 	private int statScreenType;
+	
+	Statline sline;
 	
 	public SetUpStatView(Activity activity, int statScreenType){
 		this.act = activity;
@@ -39,6 +44,8 @@ public class SetUpStatView extends SetUpPageView{
 		vHolderTextViews = new SparseArray<TextView>();
 		viewCallback = new SparseArray<Integer[]>();
 		fHolder = new SparseArray<String>();
+		sline = new Statline(this.statScreenType);
+		stat_holder = new HashMap<String,String>();
 	}
 	
 	private Button breturn(int button_int){
@@ -113,64 +120,11 @@ public class SetUpStatView extends SetUpPageView{
 		renderStats();
 	}
 	
-	private void wHash(String key, int val){
-		this.fieldsHash.put(key, String.valueOf(val));
-	}
-	
-	private int rHash(String key){
-		return Integer.parseInt(this.fieldsHash.get(key)); 
-	}
-	
 	private void renderStats(){
+		
 		if ( this.statScreenType == 0){
-			int fg2m = rHash("fg2m");
-			int fg2ms = rHash("fg2ms");
-			int fg2a = rHash("fg2a");
 			
-			int fg3m = rHash("fg3m");
-			int fg3ms = rHash("fg3ms");
-			int fg3a = rHash("fg3a");
-			
-			int ftm = rHash("ftm");
-			int ftms = rHash("ftms");
-			int fta = rHash("fta");
-			
-			int fgm = rHash("fgm");
-			int fga = rHash("fga");
-			
-			int reb_off = rHash("reb_off");
-			int reb_def = rHash("reb_def");
-			
-			wHash("assists", rHash("assists"));
-			wHash("steals", rHash("steals"));
-			wHash("blocks", rHash("blocks"));
-			wHash("turnovers", rHash("turnovers"));
-			wHash("fouls", rHash("fouls"));
-			
-			fg2a = fg2m + fg2ms;
-			fg3a = fg3m + fg3ms;
-			fta = ftm + ftms;
-			
-			fgm = fg2m + fg3m;
-			fga = fg2a + fg3a;
-			
-			
-			int points = (fg2m * 2) + (fg3m *3) + ftm;
-			int rebounds = reb_off + reb_def;
-			
-			wHash("fgm", fgm);
-			wHash("fga", fga);
-			wHash("fg2m", fg2m);
-			wHash("fg2a", fg2a);
-			wHash("fg3m", fg3m);
-			wHash("fg3a", fg3a);
-			wHash("ftm", ftm);
-			wHash("fta", fta);
-			wHash("reb_def", reb_def);
-			wHash("reb_off", reb_off);
-			wHash("rebounds", rebounds);
-			
-			wHash("points", points);
+			this.fieldsHash = sline.build_from_input(this.fieldsHash, null);
 			
 			VH.rViews(this.act.findViewById(R.id.stat_fgs), this.fieldsHash.get("fgm")+ '-' + this.fieldsHash.get("fga"));
 			VH.rViews(this.act.findViewById(R.id.stat_fg2s), this.fieldsHash.get("fg2m")+ '-' + this.fieldsHash.get("fg2a"));
@@ -186,26 +140,6 @@ public class SetUpStatView extends SetUpPageView{
 			VH.rViews(this.act.findViewById(R.id.stat_turnovers), this.fieldsHash.get("turnovers"));
 			VH.rViews(this.act.findViewById(R.id.stat_fouls), this.fieldsHash.get("fouls"));
 		}
-		/*
-		fg2a = fg2m + fg2ms;
-		fg3a = fg3m + fg3ms;
-		fta = ftm + ftms;
-		
-		fga = fg2a + fg3a;
-		fgm = fg2m + fg3m;
-		
-		//percentages
-		fg2p = StatsHelper.getPercent(fg2m, fg2a);
-		fg3p = StatsHelper.getPercent(fg3m, fg3a);
-		ftp = StatsHelper.getPercent(ftm, fta);
-		fgp = StatsHelper.getPercent(fgm, fga);
-		
-		rebounds = reb_off + reb_def;
-		points = getPointsFromFGS(fg2m, fg3m, ftm);*/
-
-		
-		
-		
 		
 	}
 	

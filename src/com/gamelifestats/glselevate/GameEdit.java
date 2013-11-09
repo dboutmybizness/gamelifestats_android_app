@@ -9,6 +9,7 @@ import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
 import android.widget.FrameLayout;
+import android.widget.Toast;
 
 import com.gamelifestats.glselevate.helper.SetUpStatView;
 import com.gamelifestats.glselevate.models.MStatsGames;
@@ -116,7 +117,9 @@ public class GameEdit extends Activity {
 		});
 		Statview.loadSaveable(1);
 		gs.FIELD_VALUES = Statview.Saveable_fieldHash;
-		gs.saveGame(this);
+		if (gs.saveGame(this)){
+			Toast.makeText(this, "game saved", Toast.LENGTH_SHORT).show();
+		}
 	}
 	
 

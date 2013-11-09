@@ -17,8 +17,8 @@ public class MStatsGames extends ModelBase {
 		"user_id:1", "minutes:1", "points:1", "rebounds:1", "reb_off:1",
 		"reb_def:1", "assists:1", "steals:1", "blocks:1", "turnovers:1",
 		"fouls:1", "fg2m:1", "fg2a:1", "fg3m:1", "fg3a:1",
-		"ftm:1", "fta:1", "game_result:2", "game_type:1", "created_time:1",
-		"fgm:1", "fga:1", "active_status:1"
+		"ftm:1", "fta:1", "fgm:1", "fga:1", "game_result:2", 
+		"game_type:1", "created_time:1", "active_status:1"
 	};
 	
 	final HashMap<String,String> extrafields = new HashMap<String,String>();
@@ -31,7 +31,7 @@ public class MStatsGames extends ModelBase {
 
 	}
 	
-	public void saveGame(Context ctx){
+	public Boolean saveGame(Context ctx){
 		FIELD_VALUES.put("created_time", String.valueOf(StatsHelper.getNowTime()));
 		FIELD_VALUES.put("active_status", "1");
 		FIELD_VALUES.put("user_id", "1");
@@ -39,7 +39,15 @@ public class MStatsGames extends ModelBase {
 		FIELD_VALUES.put("game_type", "0");
 		FIELD_VALUES.put("game_result", "w");
 		
-		super.createRow(ctx);
+		if (super.createRow(ctx)){
+			MStatsCareer career = new MStatsCareer();
+			career.saveCareer(ctx);
+		}
+		return false;
+	}
+	/*
+	public MStatsGames[] getAllGames(Context ctx){
+		
 	}
 	
 	/*

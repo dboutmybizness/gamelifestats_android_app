@@ -19,10 +19,9 @@ import com.gamelifestats.glselevate.models.MStatsCareer;
 
 public class GLS_Act_main extends Activity {
 	Button stats,upload_game;
-	//MCareer career;
 	MStatsCareer career = new MStatsCareer();
 	SetUpPageView SPV;
-	//TextView points,rebounds,assists,games,steals,blocks,turnovers,fouls,minutes;
+	
 
 	
     @Override

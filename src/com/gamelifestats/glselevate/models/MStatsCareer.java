@@ -1,11 +1,14 @@
 package com.gamelifestats.glselevate.models;
 
 
+import java.sql.SQLException;
 import java.util.HashMap;
 
-import com.gamelifestats.glselevate.helper.StatsHelper;
-
 import android.content.Context;
+import android.database.Cursor;
+
+import com.gamelifestats.glselevate.helper.Statline;
+import com.gamelifestats.glselevate.helper.StatsHelper;
 
 
 public class MStatsCareer extends ModelBase {
@@ -15,9 +18,10 @@ public class MStatsCareer extends ModelBase {
 		"_id:0",
 		"user_id:1", "tgames:1", "tminutes:1", "tpoints:1", "trebounds:1",
 		"trebs_off:1", "trebs_def:1", "tassists:1", "tsteals:1", "tblocks:1",
-		"tturnovers:1", "tfouls:1"
+		"tturnovers:1", "tfouls:1", "tfg2m:1", "tfg2a:1", "tfg3m:1",
+		"tfg3a:1", "tfgm:1", "tfga:1", "tftm:1", "tfta:1"
 	};
-	
+
 	final HashMap<String,String> extrafields = new HashMap<String,String>();
 	
 	public MStatsCareer() {
@@ -39,11 +43,72 @@ public class MStatsCareer extends ModelBase {
 		map.put(FIELD_NAMES.get(2), "0");
 		return map;
 	}
-	/*
-	public Boolean updateProfile(Context ctx){
-		FIELD_VALUES.put(FIELD_NAMES.get(2), "1");
-		return super.update(ctx, "_id=1");
-	}*/
+	
+	
+	public Boolean saveCareer(Context ctx){
+		MStatsGames games = new MStatsGames();
+
+		DBAdapter db = new DBAdapter(ctx);
+		try{
+			db.open();
+			Cursor all_games = db.getAllRows(MStatsGames.TABLE, games.FIELDS_LIST_ARRAY, "user_id=1");
+			
+			int tgames = all_games.getCount();
+			if ( tgames > 0){
+				
+				Statline st_obj = new Statline();
+				st_obj.loadstats(games.FIELD_VALUES, null);
+				all_games.moveToFirst();
+				do {
+					for(int i = 2; i < 20; i++){
+						int curr = st_obj.stat_as_ints.get(games.FIELDS_LIST_ARRAY[i]);
+						
+						st_obj.stat_as_ints.put(games.FIELDS_LIST_ARRAY[i], curr + all_games.getInt(i));
+					}
+					
+				} while(all_games.moveToNext());
+				
+				st_obj.render_strings();
+				
+				FIELD_VALUES.clear();
+				FIELD_VALUES.put("tgames", String.valueOf(tgames));
+				
+				HashMap<String,String> fvals = new HashMap<String,String>();
+				fvals.put("tpoints", "points");
+				fvals.put("trebounds", "rebounds");
+				fvals.put("trebs_off", "reb_off");
+				fvals.put("trebs_def", "reb_def");
+				fvals.put("tassists", "assists");
+				fvals.put("tsteals", "steals");
+				fvals.put("tblocks", "blocks");
+				fvals.put("tturnovers", "turnovers");
+				fvals.put("tfouls", "fouls");
+				fvals.put("tminutes", "minutes");
+				
+				fvals.put("tfg2m", "fg2m");
+				fvals.put("tfg2a", "fg2a");
+				fvals.put("tfg3m", "fg3m");
+				fvals.put("tfg3a", "fg3a");
+				fvals.put("tftm", "ftm");
+				fvals.put("tfta", "fta");
+				fvals.put("tfgm", "fgm");
+				fvals.put("tfga", "fga");
+				
+				
+				for (HashMap.Entry <String, String> entry : fvals.entrySet()) {
+				    FIELD_VALUES.put(entry.getKey(), st_obj.stat_as_strings.get(entry.getValue()));
+				}
+				
+			}
+		} catch (SQLException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+		db.close();
+		
+		//FIELD_VALUES.put("user_id", "1");
+		return super.update(ctx, "user_id=1");
+	}
 	
 	public Boolean getCareer(Context ctx){
 		boolean result = super.readRow(ctx, "_id=1");
@@ -52,11 +117,20 @@ public class MStatsCareer extends ModelBase {
 			if ( FIELD_VALUES.get("tgames").equals("0") ) return false;
 			
 			for (HashMap.Entry <String, String> entry : extrafields.entrySet()) {
+				if ( FIELD_VALUES.get(entry.getValue()) == null) continue;
 			    FIELD_VALUES.put(entry.getKey(), gAvg(Integer.valueOf(FIELD_VALUES.get(entry.getValue()))));
 			}
 		}
 		
 		return result;
+	}
+	
+	public Boolean addNewGame(Context ctx, HashMap<String,String> game_map){
+		this.getCareer(ctx);
+		
+		int games = Integer.parseInt(FIELD_VALUES.get("tgames")) +1;
+		FIELD_VALUES.put("tgames", String.valueOf(games));
+		return saveCareer(ctx);
 	}
 	
 	private String gAvg(int stat){

@@ -52,7 +52,9 @@ public class DBAdapter {
 			
 			ModelBase[] tables = new ModelBase[]{
 				new MProfile(),
-				new com.gamelifestats.glselevate.models.MAppMeta()
+				new com.gamelifestats.glselevate.models.MAppMeta(),
+				new MStatsCareer(),
+				new MStatsGames()
 			};
 			
 			for (int i=0; i < tables.length; i++){
@@ -68,23 +70,6 @@ public class DBAdapter {
 				}
 			}
 
-			
-			
-			String[] TABLES_TO_CREATE = new String[]{
-					MGames.CREATE_TABLE,
-					MCareer.CREATE_TABLE,
-			};
-			
-			for ( int i = 0; i< TABLES_TO_CREATE.length; i++){
-				db.execSQL(TABLES_TO_CREATE[i]);
-			}
-			
-			try {
-				createInitial(db);
-			} catch (SQLException e) {
-				// TODO Auto-generated catch block
-				e.printStackTrace();
-			}
 		}
 		
 		@Override
@@ -176,16 +161,6 @@ public class DBAdapter {
 		this.getFields = s;
 	}
 	
-	private static void createInitial(SQLiteDatabase db) throws SQLException{
-		
-		// insert career
-		ContentValues argus = new ContentValues();
-		argus.put(MCareer.USERID, "1");
-		argus.put(MCareer.TGAMES, "0");
-		db.insert(MCareer.TABLE, null, argus);
-		
-	}
-	
 	protected void create(HashMap<String, String> map) throws SQLException{
 		open();
 		ContentValues args = new ContentValues();
@@ -240,6 +215,11 @@ public class DBAdapter {
 
 	protected Cursor getAllRowsWhere(String whereStatement){
 		Cursor mCursor = db.query(true, this.TABLE, this.getFields, whereStatement, null,null,null,null,null);
+		return mCursor;
+	}
+	
+	protected Cursor getAllRows(String tablename, String[] getFields, String where){
+		Cursor mCursor = db.query(true, tablename, getFields, where, null,null,null,null,null);
 		return mCursor;
 	}
 	
