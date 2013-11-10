@@ -418,7 +418,9 @@
                     <TextView
                         android:id="@+id/avg_ftm"
                         style="@style/table_item_text"
-                        android:text="@string/zero" />
+                        android:text="@string/zero"
+                        tools:ignore="TooManyViews" />
+
                 </TableRow>
 
                 <TableRow

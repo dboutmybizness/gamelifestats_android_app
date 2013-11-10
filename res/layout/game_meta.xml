@@ -1,0 +1,100 @@
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/LinearLayout1"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    tools:context=".GameMeta" >
+
+    <ScrollView
+        android:id="@+id/scv1"
+        style="@style/padded_block"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_weight="1" >
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical" >
+
+            <TextView
+                android:id="@+id/textView1"
+                style="@style/form_header_text"
+                android:text="@string/minutes" />
+
+            <TableRow
+                android:id="@+id/tableRow1"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content" >
+
+                <FrameLayout
+                    android:id="@+id/min_frame"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="2" >
+
+                    <TextView
+                        android:id="@+id/print_min"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_gravity="right"
+                        android:layout_marginRight="25dp"
+                        android:text="@string/double_zero"
+                        android:textAppearance="?android:attr/textAppearanceLarge" />
+                </FrameLayout>
+
+                <SeekBar
+                    android:id="@+id/seek_minutes"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:max="60" />
+
+            </TableRow>
+
+            <TextView
+                android:id="@+id/TextView01"
+                style="@style/form_header_text"
+                android:layout_marginTop="20dp"
+                android:text="@string/game_result" />
+            
+            <RadioGroup
+                android:id="@+id/winlosegroup"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal" >
+
+            <RadioButton
+                android:id="@+id/win"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:checked="true"
+                android:text="@string/win" />
+
+            <RadioButton
+                android:id="@+id/loss"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:text="@string/loss" />
+
+        </RadioGroup>
+            
+        </LinearLayout>
+    </ScrollView>
+
+    <FrameLayout
+        android:id="@+id/done_frame"
+        style="@style/bottom_buttons_bar" >
+
+        <Button
+            android:id="@+id/done_meta"
+            style="@style/bottom_buttons"
+            android:onClick="doneMeta"
+            android:text="@string/done" />
+
+    </FrameLayout>
+
+</LinearLayout>

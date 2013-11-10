@@ -7,38 +7,6 @@
     android:focusableInTouchMode="true"
     android:orientation="vertical" >
 
-    <!--
-    <RelativeLayout
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:padding="10dp" >
-
-
-        <RadioGroup
-            android:id="@+id/winlosegroup"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_centerInParent="true"
-            android:orientation="horizontal" >
-
-            <RadioButton
-                android:id="@+id/radio0"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:checked="true"
-                android:text="@string/win" />
-
-            <RadioButton
-                android:id="@+id/radio1"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:text="@string/loss" />
-        </RadioGroup>
-
-
-    </RelativeLayout>
-    -->
-
     <FrameLayout
         style="@style/statline_gls_blue"
         android:layout_width="match_parent"
@@ -215,11 +183,7 @@
                             android:text="@string/zero" />
                     </TableRow>
 
-                   
-
-                    <TableRow
-                        style="@style/stat_left_row"
-                         >
+                    <TableRow style="@style/stat_left_row" >
 
                         <TextView
                             android:id="@+id/lab_def"
@@ -234,9 +198,7 @@
                             android:text="@string/zero" />
                     </TableRow>
 
-                    <TableRow
-                        style="@style/stat_left_row"
-                         >
+                    <TableRow style="@style/stat_left_row" >
 
                         <TextView
                             android:id="@+id/lab_off"
@@ -251,9 +213,7 @@
                             android:text="@string/zero" />
                     </TableRow>
 
-                    <TableRow
-                        style="@style/stat_left_row"
-                        >
+                    <TableRow style="@style/stat_left_row" >
 
                         <TextView
                             android:id="@+id/lab_turnovers"
@@ -286,7 +246,6 @@
                             android:text="@string/zero" />
                     </TableRow>
                 </TableLayout>
-
             </LinearLayout>
 
             <FrameLayout
@@ -459,9 +418,9 @@
                 android:id="@+id/swiper"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
+                android:layout_gravity="center_vertical|center_horizontal"
                 android:layout_marginLeft="5dp"
                 android:layout_marginRight="5dp"
-                android:layout_gravity="center_vertical|center_horizontal"
                 android:layout_weight="1"
                 android:padding="10dp" >
 
@@ -470,8 +429,8 @@
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_gravity="center_vertical|center_horizontal"
-                    android:text="@string/swipe_here" />
-
+                    android:text="@string/swipe_here"
+                    android:textColor="@color/Orange" />
             </FrameLayout>
 
             <Button
@@ -482,16 +441,61 @@
                 android:text="@string/plus1" />
         </TableRow>
     </RelativeLayout>
-	<!--  
-    <include layout="@layout/ll_divider" />-->
+    <!-- <include layout="@layout/ll_divider" /> -->
+
+    <include layout="@layout/ll_divider" />
+
+    <HorizontalScrollView
+        android:id="@+id/metascroll"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content" >
+
+        <LinearLayout
+            android:id="@+id/metabar"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content" >
+
+            <TextView
+                android:id="@+id/lab_meta"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginRight="5dp"
+                android:text="@string/minutes"
+                android:textAppearance="?android:attr/textAppearanceSmall" />
+
+            <TextView
+                android:id="@+id/dis_minutes"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginRight="10dp"
+                android:text="@string/double_zero"
+                android:textAppearance="?android:attr/textAppearanceSmall" />
+
+            <TextView
+                android:id="@+id/textView2"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginRight="5dp"
+                android:text="@string/game_result"
+                android:textAppearance="?android:attr/textAppearanceSmall" />
+
+            <TextView
+                android:id="@+id/dis_game_result"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@string/empty"
+                android:textAppearance="?android:attr/textAppearanceSmall" />
+
+        </LinearLayout>
+    </HorizontalScrollView>
 
     <LinearLayout style="@style/bottom_buttons_bar" >
 
         <Button
-            android:id="@+id/reset_button"
+            android:id="@+id/meta_button"
             style="@style/bottom_buttons"
-            android:onClick="resetStats"
-            android:text="@string/reset" />
+            android:onClick="addMeta"
+            android:text="@string/add_meta" />
 
         <include layout="@layout/button_divider" />
 

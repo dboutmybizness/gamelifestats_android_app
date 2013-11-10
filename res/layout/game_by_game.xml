@@ -11,17 +11,43 @@
         android:layout_width="match_parent"
         android:layout_height="0dip"
         android:layout_weight="1"
-        android:orientation="vertical"
-        android:paddingTop="15dp" >
+        android:orientation="vertical" >
 
-        <TextView
-            android:id="@+id/game_date"
+        <LinearLayout
+            android:id="@+id/meta_block"
+            style="@style/padded_block"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="@string/empty"
-            android:textAppearance="?android:attr/textAppearanceSmall" />
+            android:orientation="vertical" >
+
+            <TextView
+                android:id="@+id/head_game_meta"
+                style="@style/h1_blue"
+                android:text="@string/meta" />
+
+            <TextView
+                android:id="@+id/game_date"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@string/empty"
+                android:textAppearance="?android:attr/textAppearanceSmall" />
+
+        </LinearLayout>
 
         <include layout="@layout/ll_divider" />
+
+        <LinearLayout
+            style="@style/padded_block"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:orientation="vertical" >
+
+            <TextView
+                android:id="@+id/head_stats"
+                style="@style/h1_blue"
+                android:text="@string/stats" />
+
+        </LinearLayout>
 
         <TableRow
             android:id="@+id/sline1"
@@ -97,8 +123,6 @@
                 android:layout_gravity="center_vertical"
                 android:text="@string/min"
                 android:textAppearance="?android:attr/textAppearanceSmall" />
-
-            
         </TableRow>
 
         <TableRow
@@ -110,13 +134,13 @@
             android:gravity="center_vertical|center_horizontal"
             android:padding="10dp" >
 
-           <TextView
-               android:id="@+id/dis_blocks"
-               android:layout_width="wrap_content"
-               android:layout_height="wrap_content"
-               android:text="@string/zero"
-               android:textAppearance="?android:attr/textAppearanceLarge"
-               android:textSize="40sp" />
+            <TextView
+                android:id="@+id/dis_blocks"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@string/zero"
+                android:textAppearance="?android:attr/textAppearanceLarge"
+                android:textSize="40sp" />
 
             <TextView
                 android:id="@+id/lab_blks"
@@ -125,7 +149,7 @@
                 android:layout_gravity="center_vertical"
                 android:text="@string/blk"
                 android:textAppearance="?android:attr/textAppearanceSmall" />
-            
+
             <TextView
                 android:id="@+id/dis_steals"
                 android:layout_width="wrap_content"
@@ -142,7 +166,7 @@
                 android:layout_gravity="center_vertical"
                 android:text="@string/stl"
                 android:textAppearance="?android:attr/textAppearanceSmall" />
-            
+
             <TextView
                 android:id="@+id/dis_turnovers"
                 android:layout_width="wrap_content"
@@ -159,7 +183,7 @@
                 android:layout_gravity="center_vertical"
                 android:text="@string/tos"
                 android:textAppearance="?android:attr/textAppearanceSmall" />
-            
+
             <TextView
                 android:id="@+id/dis_fouls"
                 android:layout_width="wrap_content"
@@ -176,9 +200,7 @@
                 android:layout_gravity="center_vertical"
                 android:text="@string/fls"
                 android:textAppearance="?android:attr/textAppearanceSmall" />
-            
         </TableRow>
-
     </LinearLayout>
 
     <ProgressBar
@@ -203,7 +225,7 @@
             android:layout_height="wrap_content"
             android:background="@android:drawable/btn_default"
             android:drawableLeft="@drawable/button_first" />
-        
+
         <Button
             android:id="@+id/prev_button"
             style="?android:attr/buttonStyleSmall"
@@ -211,7 +233,7 @@
             android:layout_height="wrap_content"
             android:background="@android:drawable/btn_default"
             android:drawableLeft="@drawable/button_prev" />
-        
+
         <Button
             android:id="@+id/next_button"
             style="?android:attr/buttonStyleSmall"
@@ -219,7 +241,7 @@
             android:layout_height="wrap_content"
             android:background="@android:drawable/btn_default"
             android:drawableRight="@drawable/button_next" />
-        
+
         <Button
             android:id="@+id/last_button"
             style="?android:attr/buttonStyleSmall"
@@ -227,7 +249,6 @@
             android:layout_height="wrap_content"
             android:background="@android:drawable/btn_default"
             android:drawableRight="@drawable/button_last" />
-
     </TableRow>
 
     <TextView

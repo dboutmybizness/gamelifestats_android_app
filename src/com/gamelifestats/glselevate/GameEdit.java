@@ -7,17 +7,22 @@ import android.content.Intent;
 import android.database.SQLException;
 import android.os.Bundle;
 import android.view.View;
+import android.view.View.OnLongClickListener;
 import android.widget.Button;
 import android.widget.FrameLayout;
+import android.widget.LinearLayout;
+import android.widget.TextView;
 import android.widget.Toast;
 
 import com.gamelifestats.glselevate.helper.SetUpStatView;
+import com.gamelifestats.glselevate.helper.ViewsHelper;
 import com.gamelifestats.glselevate.models.MStatsGames;
 
 public class GameEdit extends Activity {
 	
 	SetUpStatView Statview;
 	MStatsGames gs = new MStatsGames();
+	ViewsHelper VH = new ViewsHelper();
 	
 	@Override
 	protected void onCreate(Bundle savedInstanceState) {
@@ -74,6 +79,16 @@ public class GameEdit extends Activity {
 		
 		Statview.addView("fouls", R.id.press_fouls, 
 				new Integer[]{ R.id.lab_fouls, R.id.stat_fouls });
+		LinearLayout lp = (LinearLayout) findViewById(R.id.metabar);
+		lp.setOnLongClickListener(new OnLongClickListener(){
+
+			@Override
+			public boolean onLongClick(View v) {
+				addMeta(v);
+				return false;
+			}
+			
+		});
 	}
 	
 	public void saveStats(View v){
@@ -107,18 +122,40 @@ public class GameEdit extends Activity {
         AlertDialog alertDialog = alertDialogBuilder.create();
         alertDialog.show();
     }
+	
+	public void addMeta(View v){
+		Intent i = new Intent(this,GameMeta.class);
+		i.putExtra("minutes", gs.FIELD_VALUES.get("minutes"));
+		i.putExtra("game_result", gs.FIELD_VALUES.get("game_result"));
+		startActivityForResult(i, 1);
+	}
 
 	public void commitSave(){
 		Statview.setSavable(new String[]{
 			"points", "rebounds", "reb_off", "reb_def", "assists",
 			"steals", "blocks", "turnovers", "fouls", "fg2m",
 			"fg2a", "fg3m", "fg3a", "fgm", "fga",
-			"ftm", "fta"
+			"ftm", "fta", "minutes", "game_result"
 		});
 		Statview.loadSaveable(1);
 		gs.FIELD_VALUES = Statview.Saveable_fieldHash;
 		if (gs.saveGame(this)){
 			Toast.makeText(this, "game saved", Toast.LENGTH_SHORT).show();
+		}
+	}
+	
+	public void onActivityResult(int requestCode, int resultCode, Intent data){
+		if ( requestCode == 1){
+			if ( resultCode == RESULT_OK) {
+				
+				gs.FIELD_VALUES.put("minutes", data.getStringExtra("minutes"));
+				
+				int game_result = data.getIntExtra("game_result", 0);
+				gs.FIELD_VALUES.put("game_result", String.valueOf(game_result));
+				
+				VH.rViews((TextView)findViewById(R.id.dis_minutes), gs.FIELD_VALUES.get("minutes"));
+				VH.rViews((TextView)findViewById(R.id.dis_game_result), MStatsGames.wOrl[game_result]);
+			}
 		}
 	}
 	

@@ -93,6 +93,11 @@
                 android:name="android.support.PARENT_ACTIVITY"
                 android:value="com.gamelifestats.glselevate.GLS_Act_main" />
         </activity>
+        <activity
+            android:name="com.gamelifestats.glselevate.GameMeta"
+            android:label="@string/title_activity_game_meta"
+            >
+        </activity>
     </application>
 
 </manifest>

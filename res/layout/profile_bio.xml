@@ -7,8 +7,9 @@
 
     <ScrollView
         android:id="@+id/ScrollView1"
+        style="@style/padded_block"
         android:layout_width="match_parent"
-        android:layout_height="match_parent"
+        android:layout_height="0dp"
         android:layout_weight="1"
         tools:context=".Bball_Profile" >
 
@@ -18,42 +19,29 @@
             android:orientation="vertical"
             android:focusable="true"
     		android:focusableInTouchMode="true"
-            android:padding="15dp" >
+            >
 
             <TextView
                 android:id="@+id/textView1"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:text="@string/name"
-                android:textAppearance="?android:attr/textAppearanceSmall" />
+                style="@style/form_header_text"
+                android:text="@string/name" />
 
             <EditText
                 android:id="@+id/editName"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:layout_marginBottom="12dp"
-                android:ems="10"
-                android:textAppearance="?android:attr/textAppearanceLarge"
-                android:textSize="35sp" >
+                style="@style/editTextField"
+                android:hint="@string/qfullname" >
 
             </EditText>
 
             <TextView
                 android:id="@+id/textView2"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:text="@string/nickname"
-                android:textAppearance="?android:attr/textAppearanceSmall" />
+                style="@style/form_header_text"
+                android:text="@string/nickname" />
 
             <EditText
                 android:id="@+id/editNickName"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:layout_marginBottom="12dp"
-                android:layout_weight="1"
-                android:ems="10"
-                android:textAppearance="?android:attr/textAppearanceLarge"
-                android:textSize="35sp" />
+                style="@style/editTextField"
+                android:hint="@string/qnickname" />
 
            	<!-- 
             <TextView
@@ -140,12 +128,11 @@
 
             
                 -->
+
 			<TextView
-                android:id="@+id/textView5"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:text="@string/jersey"
-                android:textAppearance="?android:attr/textAppearanceSmall" />
+			    android:id="@+id/textView5"
+			    style="@style/form_header_text"
+			    android:text="@string/jersey" />
 			
             <TableRow
                 android:id="@+id/tableRow2"

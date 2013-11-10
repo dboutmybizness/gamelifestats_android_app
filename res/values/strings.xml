@@ -199,6 +199,12 @@
     <string name="fg3a">FG3A</string>
     <string name="fg2a">FG2A</string>
     <string name="shooting_summary">Shooting Summary</string>
+    <string name="game_meta">Game Meta</string>
+    <string name="qfullname">your name?</string>
+    <string name="qnickname">nickname?</string>
+    <string name="test_meta">Minutes: 40, Result: W, Opponent: Wildcats</string>
+    <string name="add_meta">Add Meta</string>
+    <string name="game_result">Game Result</string>
 
 
 </resources>
