@@ -33,13 +33,34 @@ public class MStatsGames extends ModelBase {
 
 	}
 	
+	public Boolean is_Saveable(){
+		int ck = 0;
+		
+		int min = Integer.parseInt(FIELD_VALUES.get("minutes"));
+		if ( min < 1) ck++;
+		
+		HashMap<String,Integer> ck_arr = new HashMap<String,Integer>();
+		ck_arr.put("points", 130);
+		ck_arr.put("rebounds", 50);
+		ck_arr.put("assists", 35);
+		ck_arr.put("steals", 20);
+		ck_arr.put("blocks", 20);
+		ck_arr.put("turnovers", 20);
+		ck_arr.put("fouls", 6);
+		for (HashMap.Entry <String, Integer> entry : ck_arr.entrySet()) {
+		    int i = Integer.parseInt(FIELD_VALUES.get(entry.getKey()));
+		    if ( i > entry.getValue() ) ck++;
+		}
+		
+		if ( ck < 1) return true;
+		return false;
+	}
+	
 	public Boolean saveGame(Context ctx){
 		FIELD_VALUES.put("created_time", String.valueOf(StatsHelper.getNowTime()));
 		FIELD_VALUES.put("active_status", "1");
 		FIELD_VALUES.put("user_id", "1");
-		//FIELD_VALUES.put("minutes", "40");
 		FIELD_VALUES.put("game_type", "0");
-		//FIELD_VALUES.put("game_result", "w");
 		
 		if (super.createRow(ctx)){
 			MStatsCareer career = new MStatsCareer();
@@ -47,47 +68,5 @@ public class MStatsGames extends ModelBase {
 		}
 		return false;
 	}
-	/*
-	public MStatsGames[] getAllGames(Context ctx){
-		
-	}
-	
-	/*
-	@Override
-	public HashMap<String,String> insertInitial(){
-		HashMap<String,String> map = new HashMap<String,String>();
-		map.put(FIELD_NAMES.get(1), "1");
-		map.put(FIELD_NAMES.get(2), "0");
-		return map;
-	}
-	/*
-	public Boolean updateProfile(Context ctx){
-		FIELD_VALUES.put(FIELD_NAMES.get(2), "1");
-		return super.update(ctx, "_id=1");
-	}*/
-	
-	/*
-	public Boolean getCareer(Context ctx){
-		boolean result = super.readRow(ctx, "_id=1");
-		
-		if (result){
-			if ( FIELD_VALUES.get("tgames").equals("0") ) return false;
-			
-			for (HashMap.Entry <String, String> entry : extrafields.entrySet()) {
-			    FIELD_VALUES.put(entry.getKey(), gAvg(Integer.valueOf(FIELD_VALUES.get(entry.getValue()))));
-			}
-		}
-		
-		return result;
-	}
-	
-	private String gAvg(int stat){
-		float val = StatsHelper.divPerc(stat, FIELD_VALUES.get("tgames"));
-		return String.valueOf(val);
-	}
-	*/
-	
-	
-	
 
 }

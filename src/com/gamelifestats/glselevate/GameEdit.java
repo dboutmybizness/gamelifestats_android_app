@@ -44,20 +44,20 @@ public class GameEdit extends Activity {
 				new Integer[]{ R.id.lab_fgs, R.id.lab_fg2s, R.id.stat_fg2s, R.id.stat_fgs, R.id.dis_points });
 		
 		Statview.addView("fg2ms", R.id.press_fg2missed, 
-				new Integer[]{ R.id.lab_fgs, R.id.lab_fg2s, R.id.stat_fg2s, R.id.stat_fgs, R.id.dis_points });
+				new Integer[]{ R.id.lab_fgs, R.id.lab_fg2s, R.id.stat_fg2s, R.id.stat_fgs });
 		
 		Statview.addView("fg3m", R.id.press_fg3made, 
 				new Integer[]{ R.id.lab_fgs, R.id.lab_fg3s, R.id.stat_fg3s, R.id.stat_fgs, R.id.dis_points });
 		
 		Statview.addView("fg3ms", R.id.press_fg3missed, 
-				new Integer[]{ R.id.lab_fgs, R.id.lab_fg3s, R.id.stat_fg3s, R.id.stat_fgs, R.id.dis_points });
+				new Integer[]{ R.id.lab_fgs, R.id.lab_fg3s, R.id.stat_fg3s, R.id.stat_fgs });
 		
 		
 		Statview.addView("ftm", R.id.press_ftmade, 
 				new Integer[]{ R.id.lab_fts, R.id.stat_fts, R.id.dis_points });
 		
 		Statview.addView("ftms", R.id.press_ftmissed, 
-				new Integer[]{ R.id.lab_fts, R.id.stat_fts, R.id.dis_points });
+				new Integer[]{ R.id.lab_fts, R.id.stat_fts });
 		
 		Statview.addView("reb_def", R.id.press_rebdef, 
 				new Integer[]{ R.id.lab_def, R.id.stat_def, R.id.dis_rebounds });
@@ -93,6 +93,11 @@ public class GameEdit extends Activity {
 	
 	public void saveStats(View v){
 
+		if ( !gs.is_Saveable()) {
+			
+			return;
+		}
+		
         AlertDialog.Builder alertDialogBuilder = new AlertDialog.Builder(this);
         alertDialogBuilder
             .setMessage("Finished?")

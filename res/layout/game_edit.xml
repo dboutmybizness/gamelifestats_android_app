@@ -429,8 +429,8 @@
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_gravity="center_vertical|center_horizontal"
-                    android:text="@string/swipe_here"
-                    android:textColor="@color/Orange" />
+                    android:text="@string/swipe_here" />
+
             </FrameLayout>
 
             <Button
