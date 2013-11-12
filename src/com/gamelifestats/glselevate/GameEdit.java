@@ -6,6 +6,9 @@ import android.content.DialogInterface;
 import android.content.Intent;
 import android.database.SQLException;
 import android.os.Bundle;
+import android.support.v4.app.NavUtils;
+import android.view.Menu;
+import android.view.MenuItem;
 import android.view.View;
 import android.view.View.OnLongClickListener;
 import android.widget.Button;
@@ -89,6 +92,29 @@ public class GameEdit extends Activity {
 			}
 			
 		});
+	}
+	
+	@Override
+	public boolean onCreateOptionsMenu(Menu menu) {
+		// Inflate the menu; this adds items to the action bar if it is present.
+		getMenuInflater().inflate(R.menu.edit_game, menu);
+		return true;
+	}
+
+	@Override
+	public boolean onOptionsItemSelected(MenuItem item) {
+		if (item.getTitle().equals("Done")){
+			this.saveStats(null);
+			return true;
+		}
+		
+		switch (item.getItemId()) {
+		case android.R.id.home:
+			NavUtils.navigateUpFromSameTask(this);
+			finish();
+			return true;
+		}
+		return super.onOptionsItemSelected(item);
 	}
 	
 	private void show_error_dialog(){
