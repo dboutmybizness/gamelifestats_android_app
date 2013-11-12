@@ -16,12 +16,12 @@ import android.widget.Toast;
 
 import com.gamelifestats.glselevate.helper.SetUpStatView;
 import com.gamelifestats.glselevate.helper.ViewsHelper;
-import com.gamelifestats.glselevate.models.MStatsGames;
+import com.gamelifestats.glselevate.models.MGames;
 
 public class GameEdit extends Activity {
 	
 	SetUpStatView Statview;
-	MStatsGames gs = new MStatsGames();
+	MGames gs = new MGames();
 	ViewsHelper VH = new ViewsHelper();
 	
 	@Override
@@ -91,10 +91,33 @@ public class GameEdit extends Activity {
 		});
 	}
 	
+	private void show_error_dialog(){
+		
+		String mess = "The following errors occured:\n\n";
+		for(int i = 0; i < gs.emessage.size(); i++){
+			mess += "-"+gs.emessage.get(i)+"\n";
+		}
+		
+		AlertDialog.Builder edialog = new AlertDialog.Builder(this);
+		edialog.setTitle("Error")
+		.setMessage(mess)
+		.setCancelable(true)
+		.setNegativeButton("OK", new DialogInterface.OnClickListener() {
+
+            @Override
+            public void onClick(DialogInterface dialog, int which) {
+                dialog.cancel();
+
+            }
+        });
+		AlertDialog alertDialog = edialog.create();
+        alertDialog.show();
+	}
+	
 	public void saveStats(View v){
 
-		if ( !gs.is_Saveable()) {
-			
+		if ( !gs.is_Saveable(Statview.fieldsHash)) {
+			show_error_dialog();
 			return;
 		}
 		
@@ -153,13 +176,13 @@ public class GameEdit extends Activity {
 		if ( requestCode == 1){
 			if ( resultCode == RESULT_OK) {
 				
-				gs.FIELD_VALUES.put("minutes", data.getStringExtra("minutes"));
+				Statview.fieldsHash.put("minutes", data.getStringExtra("minutes"));
 				
 				int game_result = data.getIntExtra("game_result", 0);
 				gs.FIELD_VALUES.put("game_result", String.valueOf(game_result));
 				
 				VH.rViews((TextView)findViewById(R.id.dis_minutes), gs.FIELD_VALUES.get("minutes"));
-				VH.rViews((TextView)findViewById(R.id.dis_game_result), MStatsGames.wOrl[game_result]);
+				VH.rViews((TextView)findViewById(R.id.dis_game_result), MGames.wOrl[game_result]);
 			}
 		}
 	}

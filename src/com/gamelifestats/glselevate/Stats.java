@@ -17,7 +17,8 @@ import android.view.MenuItem;
 import com.gamelifestats.glselevate.frags.Stats_career;
 import com.gamelifestats.glselevate.frags.Stats_gamebrowser;
 import com.gamelifestats.glselevate.helper.ABSelect;
-import com.gamelifestats.glselevate.models.MGames;
+
+import deprecated.MGames;
 
 public class Stats extends FragmentActivity implements ActionBar.TabListener {
 

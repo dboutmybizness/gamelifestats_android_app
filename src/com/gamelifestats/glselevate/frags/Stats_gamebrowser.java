@@ -18,7 +18,8 @@ import android.widget.TextView;
 
 import com.gamelifestats.glselevate.R;
 import com.gamelifestats.glselevate.helper.StatsHelper;
-import com.gamelifestats.glselevate.models.MGames;
+
+import deprecated.MGames;
 
 
 public class Stats_gamebrowser extends Fragment {

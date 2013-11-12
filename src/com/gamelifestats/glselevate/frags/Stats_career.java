@@ -11,12 +11,12 @@ import android.widget.TextView;
 
 import com.gamelifestats.glselevate.R;
 import com.gamelifestats.glselevate.helper.SetUpPageView;
-import com.gamelifestats.glselevate.models.MStatsCareer;
+import com.gamelifestats.glselevate.models.MCareer;
 
 
 public class Stats_career extends Fragment {
 	
-	MStatsCareer career = new MStatsCareer();
+	MCareer career = new MCareer();
 	SetUpPageView SPV;
 	
 	Context ctx;

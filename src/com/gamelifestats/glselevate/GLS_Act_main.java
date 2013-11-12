@@ -15,11 +15,11 @@ import android.widget.TextView;
 
 import com.gamelifestats.glselevate.helper.ABSelect;
 import com.gamelifestats.glselevate.helper.SetUpPageView;
-import com.gamelifestats.glselevate.models.MStatsCareer;
+import com.gamelifestats.glselevate.models.MCareer;
 
 public class GLS_Act_main extends Activity {
 	Button stats,upload_game;
-	MStatsCareer career = new MStatsCareer();
+	MCareer career = new MCareer();
 	SetUpPageView SPV;
 	
 

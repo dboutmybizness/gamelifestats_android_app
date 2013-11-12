@@ -10,7 +10,7 @@
         android:id="@+id/scv1"
         style="@style/padded_block"
         android:layout_width="match_parent"
-        android:layout_height="match_parent"
+        android:layout_height="0dp"
         android:layout_weight="1" >
 
         <LinearLayout
@@ -28,21 +28,14 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content" >
 
-                <FrameLayout
-                    android:id="@+id/min_frame"
-                    android:layout_width="match_parent"
+                <TextView
+                    android:id="@+id/print_min"
+                    android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:layout_weight="2" >
-
-                    <TextView
-                        android:id="@+id/print_min"
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:layout_gravity="right"
-                        android:layout_marginRight="25dp"
-                        android:text="@string/double_zero"
-                        android:textAppearance="?android:attr/textAppearanceLarge" />
-                </FrameLayout>
+                    android:layout_gravity="right"
+                    android:layout_marginRight="25dp"
+                    android:text="@string/double_zero"
+                    android:textAppearance="?android:attr/textAppearanceLarge" />
 
                 <SeekBar
                     android:id="@+id/seek_minutes"
@@ -50,7 +43,6 @@
                     android:layout_height="wrap_content"
                     android:layout_weight="1"
                     android:max="60" />
-
             </TableRow>
 
             <TextView
@@ -58,30 +50,27 @@
                 style="@style/form_header_text"
                 android:layout_marginTop="20dp"
                 android:text="@string/game_result" />
-            
+
             <RadioGroup
                 android:id="@+id/winlosegroup"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:orientation="horizontal" >
 
-            <RadioButton
-                android:id="@+id/win"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:layout_weight="1"
-                android:checked="true"
-                android:text="@string/win" />
+                <RadioButton
+                    android:id="@+id/win"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginRight="15dp"
+                    android:checked="true"
+                    android:text="@string/win" />
 
-            <RadioButton
-                android:id="@+id/loss"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:layout_weight="1"
-                android:text="@string/loss" />
-
-        </RadioGroup>
-            
+                <RadioButton
+                    android:id="@+id/loss"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="@string/loss" />
+            </RadioGroup>
         </LinearLayout>
     </ScrollView>
 
@@ -94,7 +83,6 @@
             style="@style/bottom_buttons"
             android:onClick="doneMeta"
             android:text="@string/done" />
-
     </FrameLayout>
 
 </LinearLayout>

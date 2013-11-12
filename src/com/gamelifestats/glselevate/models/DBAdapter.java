@@ -53,8 +53,8 @@ public class DBAdapter {
 			ModelBase[] tables = new ModelBase[]{
 				new MProfile(),
 				new com.gamelifestats.glselevate.models.MAppMeta(),
-				new MStatsCareer(),
-				new MStatsGames()
+				new MCareer(),
+				new MGames()
 			};
 			
 			for (int i=0; i < tables.length; i++){
@@ -75,73 +75,7 @@ public class DBAdapter {
 		@Override
 		public void onUpgrade(SQLiteDatabase db, int oldVersion, int newVersion){
 			Log.w(TAG, "Upgrading database from version "+ oldVersion + " to " + newVersion + ", which will destroy old data");
-			if ( oldVersion == 1 ){
-				//need to add fields
-				
-				db.execSQL("ALTER TABLE "+MGames.TABLE+" ADD COLUMN "+MGames.GAME_RESULT+" INTEGER");
-				db.execSQL("ALTER TABLE "+MGames.TABLE+" ADD COLUMN "+MGames.GAME_TYPE+" INTEGER");
-				db.execSQL("ALTER TABLE "+MGames.TABLE+" ADD COLUMN "+MGames.CREATED_TIME+" INTEGER");
-				db.execSQL("UPDATE "+MGames.TABLE+" SET "+MGames.GAME_RESULT+" =0, "+MGames.GAME_TYPE+"=0, "+MGames.CREATED_TIME+"=0");
-				
-			}
 			
-			if ( oldVersion < 3){
-				//add new fields to 
-				db.execSQL("ALTER TABLE "+MCareer.TABLE+" ADD COLUMN "+MCareer.TFG2M+" INTEGER");
-				db.execSQL("UPDATE "+MCareer.TABLE+" SET "+MCareer.TFG2M+"=0");
-				
-				db.execSQL("ALTER TABLE "+MCareer.TABLE+" ADD COLUMN "+MCareer.TFG2A+" INTEGER");
-				db.execSQL("UPDATE "+MCareer.TABLE+" SET "+MCareer.TFG2A+"=0");
-				
-				db.execSQL("ALTER TABLE "+MCareer.TABLE+" ADD COLUMN "+MCareer.TFG3M+" INTEGER");
-				db.execSQL("UPDATE "+MCareer.TABLE+" SET "+MCareer.TFG3M+"=0");
-				
-				db.execSQL("ALTER TABLE "+MCareer.TABLE+" ADD COLUMN "+MCareer.TFG3A+" INTEGER");
-				db.execSQL("UPDATE "+MCareer.TABLE+" SET "+MCareer.TFG3A+"=0");
-				
-				db.execSQL("ALTER TABLE "+MCareer.TABLE+" ADD COLUMN "+MCareer.TFGM+" INTEGER");
-				db.execSQL("UPDATE "+MCareer.TABLE+" SET "+MCareer.TFGM+"=0");
-				
-				db.execSQL("ALTER TABLE "+MCareer.TABLE+" ADD COLUMN "+MCareer.TFGA+" INTEGER");
-				db.execSQL("UPDATE "+MCareer.TABLE+" SET "+MCareer.TFGA+"=0");
-				
-				db.execSQL("ALTER TABLE "+MCareer.TABLE+" ADD COLUMN "+MCareer.TFTM+" INTEGER");
-				db.execSQL("UPDATE "+MCareer.TABLE+" SET "+MCareer.TFTM+"=0");
-				
-				db.execSQL("ALTER TABLE "+MCareer.TABLE+" ADD COLUMN "+MCareer.TFTA+" INTEGER");
-				db.execSQL("UPDATE "+MCareer.TABLE+" SET "+MCareer.TFTA+"=0");
-				
-				db.execSQL("ALTER TABLE "+MGames.TABLE+" ADD COLUMN "+MGames.FGM+" INTEGER");
-				db.execSQL("UPDATE "+MGames.TABLE+" SET "+MGames.FGM+"=0");
-				
-				db.execSQL("ALTER TABLE "+MGames.TABLE+" ADD COLUMN "+MGames.FGA+" INTEGER");
-				db.execSQL("UPDATE "+MGames.TABLE+" SET "+MGames.FGA+"=0");
-			}
-			
-			if ( oldVersion < 4){
-				db.execSQL("ALTER TABLE "+MGames.TABLE+" ADD COLUMN "+MGames.ACTIVE_STATUS+" INTEGER");
-				db.execSQL("UPDATE "+MGames.TABLE+" SET "+MGames.ACTIVE_STATUS+" = 1");
-			}
-			
-			if ( oldVersion < 5){
-				ModelBase[] tables = new ModelBase[]{
-					new MProfile(),
-					new com.gamelifestats.glselevate.models.MAppMeta()
-				};
-					
-				for (int i=0; i < tables.length; i++){
-					ModelBase obj = tables[i];
-					db.execSQL(obj.getCreateStatement());
-					HashMap<String,String> map = obj.insertInitial();
-					if ( map != null) {
-						ContentValues args = new ContentValues();
-						for (HashMap.Entry <String, String> entry : map.entrySet()) {
-						    args.put(entry.getKey(), entry.getValue());
-						}
-						db.insert(obj.TABLE, null, args);
-					}
-				}
-			}
 		}
 	}
 	

@@ -154,5 +154,22 @@
     <style name="form_header_text" parent="stat_button_header">
         <item name="android:layout_marginBottom">10dp</item>
     </style>
+    
+    <style name="meta_label">
+        <item name="android:layout_width">wrap_content</item>
+        <item name="android:layout_height">wrap_content</item>
+        <item name="android:textAppearance">?android:attr/textAppearanceSmall</item>
+        <item name="android:layout_marginRight">5dp</item>
+    </style>
+    
+    <style name="meta_text">
+        <item name="android:layout_width">wrap_content</item>
+        <item name="android:layout_height">wrap_content</item>
+        <item name="android:textAppearance">?android:attr/textAppearanceSmall</item>
+        <item name="android:layout_marginRight">10dp</item>
+        <item name="android:textColor">@color/Orange</item>
+    </style>
+    
+    
 
 </resources>
