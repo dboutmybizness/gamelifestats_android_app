@@ -472,8 +472,8 @@
 
             <TextView
                 android:id="@+id/dis_game_result"
-                android:text="@string/empty"
-                style="@style/meta_text" />
+                style="@style/meta_text"
+                android:text="@string/win" />
 
         </LinearLayout>
     </HorizontalScrollView>

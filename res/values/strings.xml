@@ -205,6 +205,8 @@
     <string name="test_meta">Minutes: 40, Result: W, Opponent: Wildcats</string>
     <string name="add_meta">Add Meta</string>
     <string name="game_result">Game Result</string>
+    <string name="use_game_upload">Use Game Upload</string>
+    <string name="date">Date</string>
 
 
 </resources>

@@ -6,202 +6,181 @@
     android:orientation="vertical"
     android:paddingBottom="10dp" >
 
-    <LinearLayout
-        android:id="@+id/stat_box"
-        android:layout_width="match_parent"
-        android:layout_height="0dip"
-        android:layout_weight="1"
-        android:orientation="vertical" >
+    <HorizontalScrollView
+        android:id="@+id/metascroll"
+        style="@style/padded_block"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content" >
 
         <LinearLayout
-            android:id="@+id/meta_block"
-            style="@style/padded_block"
+            android:id="@+id/metabar"
             android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:orientation="vertical" >
+            android:layout_height="wrap_content" >
 
             <TextView
-                android:id="@+id/head_game_meta"
-                style="@style/h1_blue"
-                android:text="@string/meta" />
+                android:id="@+id/date_lab"
+                style="@style/meta_label"
+                android:text="@string/date" />
 
             <TextView
                 android:id="@+id/game_date"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:text="@string/empty"
-                android:textAppearance="?android:attr/textAppearanceSmall" />
-
-        </LinearLayout>
-
-        <include layout="@layout/ll_divider" />
-
-        <LinearLayout
-            style="@style/padded_block"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:orientation="vertical" >
+                style="@style/meta_text"
+                android:text="@string/double_zero" />
 
             <TextView
-                android:id="@+id/head_stats"
-                style="@style/h1_blue"
-                android:text="@string/stats" />
-
-        </LinearLayout>
-
-        <TableRow
-            android:id="@+id/sline1"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:background="@color/gls_blue"
-            android:gravity="center_vertical|center_horizontal"
-            android:padding="10dp" >
-
-            <TextView
-                android:id="@+id/dis_points"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:text="@string/zero"
-                android:textAppearance="?android:attr/textAppearanceLarge"
-                android:textSize="40sp" />
-
-            <TextView
-                android:id="@+id/lab_pts"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_gravity="center_vertical"
-                android:text="@string/pts"
-                android:textAppearance="?android:attr/textAppearanceSmall" />
-
-            <TextView
-                android:id="@+id/dis_rebounds"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_marginLeft="15dp"
-                android:text="@string/zero"
-                android:textAppearance="?android:attr/textAppearanceLarge"
-                android:textSize="40sp" />
-
-            <TextView
-                android:id="@+id/lab_rebs"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_gravity="center_vertical"
-                android:text="@string/rebs"
-                android:textAppearance="?android:attr/textAppearanceSmall" />
-
-            <TextView
-                android:id="@+id/dis_assists"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_marginLeft="15dp"
-                android:text="@string/zero"
-                android:textAppearance="?android:attr/textAppearanceLarge"
-                android:textSize="40sp" />
-
-            <TextView
-                android:id="@+id/lab_asts"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_gravity="center_vertical"
-                android:text="@string/ast"
-                android:textAppearance="?android:attr/textAppearanceSmall" />
+                android:id="@+id/lab_minutes"
+                style="@style/meta_label"
+                android:text="@string/minutes" />
 
             <TextView
                 android:id="@+id/dis_minutes"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_marginLeft="15dp"
-                android:text="@string/zero"
-                android:textAppearance="?android:attr/textAppearanceLarge"
-                android:textSize="40sp" />
+                style="@style/meta_text"
+                android:text="@string/double_zero" />
 
             <TextView
-                android:id="@+id/lab_min"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_gravity="center_vertical"
-                android:text="@string/min"
-                android:textAppearance="?android:attr/textAppearanceSmall" />
-        </TableRow>
+                android:id="@+id/textView2"
+                style="@style/meta_label"
+                android:text="@string/game_result" />
 
-        <TableRow
-            android:id="@+id/sline2"
+            <TextView
+                android:id="@+id/dis_game_result"
+                style="@style/meta_text"
+                android:text="@string/win" />
+        </LinearLayout>
+    </HorizontalScrollView>
+
+    <ScrollView
+        android:id="@+id/statmid_sc"
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_weight="1" >
+
+        <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_marginTop="25dp"
-            android:background="@color/gls_blue"
-            android:gravity="center_vertical|center_horizontal"
-            android:padding="10dp" >
+            android:orientation="vertical"
+            android:paddingTop="15dp" >
 
-            <TextView
-                android:id="@+id/dis_blocks"
-                android:layout_width="wrap_content"
+            <HorizontalScrollView
+                android:id="@+id/statsc1"
+                style="@style/statline_gls_blue"
+                android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:text="@string/zero"
-                android:textAppearance="?android:attr/textAppearanceLarge"
-                android:textSize="40sp" />
+                android:layout_gravity="center_horizontal"
+                android:layout_marginBottom="20dp" >
 
-            <TextView
-                android:id="@+id/lab_blks"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_gravity="center_vertical"
-                android:text="@string/blk"
-                android:textAppearance="?android:attr/textAppearanceSmall" />
+                <TableRow
+                    android:id="@+id/sline1"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:gravity="center_vertical|center_horizontal"
+                    android:paddingLeft="35dp"
+                    android:paddingRight="35dp" >
 
-            <TextView
-                android:id="@+id/dis_steals"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_marginLeft="15dp"
-                android:text="@string/zero"
-                android:textAppearance="?android:attr/textAppearanceLarge"
-                android:textSize="40sp" />
+                    <TextView
+                        android:id="@+id/dis_points"
+                        style="@style/statline_number"
+                        android:text="@string/zero" />
 
-            <TextView
-                android:id="@+id/lab_stls"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_gravity="center_vertical"
-                android:text="@string/stl"
-                android:textAppearance="?android:attr/textAppearanceSmall" />
+                    <TextView
+                        android:id="@+id/lab_pts"
+                        style="@style/statline_label"
+                        android:text="@string/pts" />
 
-            <TextView
-                android:id="@+id/dis_turnovers"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_marginLeft="15dp"
-                android:text="@string/zero"
-                android:textAppearance="?android:attr/textAppearanceLarge"
-                android:textSize="40sp" />
+                    <TextView
+                        android:id="@+id/dis_rebounds"
+                        style="@style/statline_number"
+                        android:text="@string/zero" />
 
-            <TextView
-                android:id="@+id/lab_tos"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_gravity="center_vertical"
-                android:text="@string/tos"
-                android:textAppearance="?android:attr/textAppearanceSmall" />
+                    <TextView
+                        android:id="@+id/lab_rebs"
+                        style="@style/statline_label"
+                        android:text="@string/rebs" />
 
-            <TextView
-                android:id="@+id/dis_fouls"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_marginLeft="15dp"
-                android:text="@string/zero"
-                android:textAppearance="?android:attr/textAppearanceLarge"
-                android:textSize="40sp" />
+                    <TextView
+                        android:id="@+id/dis_assists"
+                        style="@style/statline_number"
+                        android:text="@string/zero" />
 
-            <TextView
-                android:id="@+id/lab_fouls"
-                android:layout_width="wrap_content"
+                    <TextView
+                        android:id="@+id/lab_asts"
+                        style="@style/statline_label"
+                        android:text="@string/ast" />
+                </TableRow>
+            </HorizontalScrollView>
+
+            <HorizontalScrollView
+                android:id="@+id/statsc2"
+                style="@style/statline_gls_blue"
+                android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:layout_gravity="center_vertical"
-                android:text="@string/fls"
-                android:textAppearance="?android:attr/textAppearanceSmall" />
-        </TableRow>
-    </LinearLayout>
+                android:layout_marginBottom="20dp" >
+
+                <TableRow
+                    android:id="@+id/sline2"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:gravity="center_vertical|center_horizontal"
+                    android:paddingLeft="35dp"
+                    android:paddingRight="35dp" >
+
+                    <TextView
+                        android:id="@+id/dis_steals"
+                        style="@style/statline_number"
+                        android:text="@string/zero" />
+
+                    <TextView
+                        android:id="@+id/lab_stls"
+                        style="@style/statline_label"
+                        android:text="@string/stl" />
+
+                    <TextView
+                        android:id="@+id/dis_blocks"
+                        style="@style/statline_number"
+                        android:text="@string/zero" />
+
+                    <TextView
+                        android:id="@+id/lab_blks"
+                        style="@style/statline_label"
+                        android:text="@string/blk" />
+
+                    <TextView
+                        android:id="@+id/dis_turnovers"
+                        style="@style/statline_number"
+                        android:text="@string/zero" />
+
+                    <TextView
+                        android:id="@+id/lab_tos"
+                        style="@style/statline_label"
+                        android:text="@string/tos" />
+
+                    <TextView
+                        android:id="@+id/dis_fouls"
+                        style="@style/statline_number"
+                        android:text="@string/zero" />
+
+                    <TextView
+                        android:id="@+id/lab_fouls"
+                        style="@style/statline_label"
+                        android:text="@string/fls" />
+                </TableRow>
+            </HorizontalScrollView>
+
+            <FrameLayout
+                android:id="@+id/stframe"
+                style="@style/padded_block"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content" >
+
+                <TextView
+                    android:id="@+id/fg_blob"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="@string/empty"
+                    android:textAppearance="?android:attr/textAppearanceMedium" />
+            </FrameLayout>
+        </LinearLayout>
+    </ScrollView>
 
     <ProgressBar
         android:id="@+id/game_progress"

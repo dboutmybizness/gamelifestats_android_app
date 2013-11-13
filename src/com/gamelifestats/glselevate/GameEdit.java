@@ -106,6 +106,9 @@ public class GameEdit extends Activity {
 		if (item.getTitle().equals("Done")){
 			this.saveStats(null);
 			return true;
+		} else if ( item.getTitle().equals("Use Game Upload")){
+			show_info_dialog();
+			return true;
 		}
 		
 		switch (item.getItemId()) {
@@ -129,6 +132,25 @@ public class GameEdit extends Activity {
 		.setMessage(mess)
 		.setCancelable(true)
 		.setNegativeButton("OK", new DialogInterface.OnClickListener() {
+
+            @Override
+            public void onClick(DialogInterface dialog, int which) {
+                dialog.cancel();
+
+            }
+        });
+		AlertDialog alertDialog = edialog.create();
+        alertDialog.show();
+	}
+	
+	private void show_info_dialog(){
+		String mess = "1) Activate stat - On first press of stat buttons, text color will turn orange.\n\n"
+				+"2) Once activated update item by:\n\t\t-pressing stat button\n\t\t-usinig plus1 or minus1 via swipe or +1/-1 control buttons.";
+		AlertDialog.Builder edialog = new AlertDialog.Builder(this);
+		edialog.setTitle("Using Game Upload")
+		.setMessage(mess)
+		.setCancelable(true)
+		.setNegativeButton("Got It!", new DialogInterface.OnClickListener() {
 
             @Override
             public void onClick(DialogInterface dialog, int which) {
@@ -203,6 +225,7 @@ public class GameEdit extends Activity {
 			if ( resultCode == RESULT_OK) {
 				
 				Statview.fieldsHash.put("minutes", data.getStringExtra("minutes"));
+				gs.FIELD_VALUES.put("minutes", data.getStringExtra("minutes"));
 				
 				int game_result = data.getIntExtra("game_result", 0);
 				gs.FIELD_VALUES.put("game_result", String.valueOf(game_result));

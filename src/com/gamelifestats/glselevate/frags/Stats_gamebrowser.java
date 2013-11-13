@@ -36,7 +36,8 @@ public class Stats_gamebrowser extends Fragment {
 	Button next,prev,first,last;
 	Boolean has_games = false;
 	ProgressBar game_progress;
-	TextView game_count, game_date;
+	TextView game_count, game_date, game_result;
+	TextView fgblob;
 	
 	public Stats_gamebrowser(){
 		
@@ -70,6 +71,8 @@ public class Stats_gamebrowser extends Fragment {
 	public void setUpGames(){
 		game_count = (TextView) rootView.findViewById(R.id.game_count);
 		game_date = (TextView) rootView.findViewById(R.id.game_date);
+		game_result = (TextView) rootView.findViewById(R.id.dis_game_result);
+		fgblob = (TextView) rootView.findViewById(R.id.fg_blob);
 		
 		points = (TextView) rootView.findViewById(R.id.dis_points);
 		rebounds = (TextView) rootView.findViewById(R.id.dis_rebounds);
@@ -150,7 +153,15 @@ public class Stats_gamebrowser extends Fragment {
 					String date = StatsHelper.dateFromTime(c.getString(20));
 					dbGames.game_result = c.getInt(18);
 					String winloss = String.valueOf(MGames.wOrl[dbGames.game_result]);
-					game_date.setText(date + " ("+winloss+")");
+					game_date.setText(date);
+					game_result.setText(winloss);
+					
+					String fgb = "FGs ("+c.getString(21)+"-"+c.getString(22)+")\n"+
+					"3s ("+c.getString(14)+"-"+c.getString(15)+")\n"+
+					"FTs ("+c.getString(16)+"-"+c.getString(17)+")"+
+					"\n\n"+
+					"Rebs Offensive: "+ c.getString(5)+ "\nRebs Defensive: " +c.getString(6);
+					fgblob.setText(fgb);
 					
 				}
 			} catch (SQLException e) {
