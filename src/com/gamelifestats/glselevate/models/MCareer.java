@@ -122,10 +122,12 @@ public class MCareer extends ModelBase {
 	}
 	
 	public Boolean getCareer(Context ctx){
-		boolean result = super.readRow(ctx, "_id=1");
+		boolean result = super.readRow(ctx, "user_id=1");
 		
 		if (result){
-			if ( FIELD_VALUES.get("tgames").equals("0") ) return false;
+			String tgames = FIELD_VALUES.get("tgames");
+			if ( tgames == null ) return false;
+			if ( tgames.equals("0") ) return false;
 			
 			for (HashMap.Entry <String, String> entry : extrafields.entrySet()) {
 				if ( FIELD_VALUES.get(entry.getValue()) == null) continue;

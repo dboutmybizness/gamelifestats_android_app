@@ -52,7 +52,7 @@ public class DBAdapter {
 			
 			ModelBase[] tables = new ModelBase[]{
 				new MProfile(),
-				new com.gamelifestats.glselevate.models.MAppMeta(),
+				new MAppMeta(),
 				new MCareer(),
 				new MGames()
 			};
