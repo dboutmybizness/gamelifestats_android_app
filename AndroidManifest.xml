@@ -1,8 +1,8 @@
 <?xml version="1.0" encoding="utf-8"?>
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
     package="com.gamelifestats.glselevate"
-    android:versionCode="13"
-    android:versionName="1.2.1" >
+    android:versionCode="15"
+    android:versionName="1.2.3" >
 
     <uses-sdk
         android:minSdkVersion="11"
@@ -42,43 +42,6 @@
         </activity>
         <activity
             android:name="com.gamelifestats.glselevate.Stats"
-            android:label="@string/stats"
-            android:parentActivityName="com.gamelifestats.glselevate.GLS_Act_main" >
-            <meta-data
-                android:name="android.support.PARENT_ACTIVITY"
-                android:value="com.gamelifestats.glselevate.GLS_Act_main" />
-        </activity>
-        <activity
-            android:name="deprecated.ScoutEdit"
-            android:label="@string/scout"
-            android:parentActivityName="deprecated.Scout" >
-            <meta-data
-                android:name="android.support.PARENT_ACTIVITY"
-                android:value="com.gamelifestats.glselevate.GLS_Act_main" />
-        </activity>
-        <activity
-            android:name="deprecated.Scout"
-            android:label="@string/scout"
-            android:parentActivityName="com.gamelifestats.glselevate.GLS_Act_main" >
-            <meta-data
-                android:name="android.support.PARENT_ACTIVITY"
-                android:value="com.gamelifestats.glselevate.GLS_Act_main" />
-        </activity>
-        <activity
-            android:name="deprecated.GameMeta"
-            android:label="@string/title_activity_game_meta"
-            android:theme="@android:style/Theme.Dialog" >
-        </activity>
-        <activity
-            android:name="deprecated.GameManager"
-            android:label="@string/title_activity_game_manager"
-            android:parentActivityName="com.gamelifestats.glselevate.Stats" >
-            <meta-data
-                android:name="android.support.PARENT_ACTIVITY"
-                android:value="com.gamelifestats.glselevate.Statbook" />
-        </activity>
-        <activity
-            android:name="deprecated.Stats"
             android:label="@string/stats"
             android:parentActivityName="com.gamelifestats.glselevate.GLS_Act_main" >
             <meta-data

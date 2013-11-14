@@ -21,7 +21,7 @@ public class DBAdapter {
 
 	static final String TAG = "DBAdapter";
 	static final String DATABASE_NAME = "GLSDB";
-	static final int DATABASE_VERSION = 5;
+	static final int DATABASE_VERSION = 6;
 	
 	public static String[] FIELD_TYPES_ARRAY = {
 		"integer primary key autoincrement", "integer", "text", "float"
@@ -48,7 +48,7 @@ public class DBAdapter {
 		
 		@Override
 		public void onCreate(SQLiteDatabase db){
-			
+			Log.w(TAG, "Creating db");
 			
 			ModelBase[] tables = new ModelBase[]{
 				new MProfile(),
