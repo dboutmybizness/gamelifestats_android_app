@@ -152,7 +152,7 @@ public class Stats_gamebrowser extends Fragment {
 					
 					String date = StatsHelper.dateFromTime(c.getString(20));
 					dbGames.game_result = c.getInt(18);
-					String winloss = String.valueOf(MGames.wOrl[dbGames.game_result]);
+					String winloss = String.valueOf(com.gamelifestats.glselevate.models.MGames.wOrl[dbGames.game_result]);
 					game_date.setText(date);
 					game_result.setText(winloss);
 					
