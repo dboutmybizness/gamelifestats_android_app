@@ -228,7 +228,9 @@ public class GameEdit extends Activity {
 				gs.FIELD_VALUES.put("minutes", data.getStringExtra("minutes"));
 				
 				int game_result = data.getIntExtra("game_result", 0);
-				gs.FIELD_VALUES.put("game_result", String.valueOf(game_result));
+				String s_gresult = String.valueOf(game_result);
+				Statview.fieldsHash.put("game_result", s_gresult);
+				gs.FIELD_VALUES.put("game_result", s_gresult);
 				
 				VH.rViews((TextView)findViewById(R.id.dis_minutes), gs.FIELD_VALUES.get("minutes"));
 				VH.rViews((TextView)findViewById(R.id.dis_game_result), MGames.wOrl[game_result]);
