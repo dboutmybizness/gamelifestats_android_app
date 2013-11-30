@@ -100,22 +100,22 @@
         </HorizontalScrollView>
     </FrameLayout>
 
-    <ScrollView
-        android:id="@+id/sc_mid_container"
+    <RelativeLayout
+        android:id="@+id/stat_mid"
         android:layout_width="match_parent"
-        android:layout_height="0dip"
+        android:layout_height="match_parent"
         android:layout_weight="1" >
 
-        <RelativeLayout
-            android:id="@+id/stat_mid"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content" >
+        <ScrollView
+            android:id="@+id/left_stat_sc"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="15dp" >
 
             <LinearLayout
                 android:id="@+id/left_stat"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_marginTop="15dp"
                 android:orientation="vertical" >
 
                 <TableLayout
@@ -247,158 +247,157 @@
                     </TableRow>
                 </TableLayout>
             </LinearLayout>
+        </ScrollView>
 
-            <FrameLayout
-                android:id="@+id/secondframe"
-                android:layout_width="match_parent"
+        <ScrollView
+            android:id="@+id/secondframe"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_toRightOf="@+id/left_stat_sc" >
+
+            <RelativeLayout
+                android:id="@+id/secondrel"
+                android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_toRightOf="@+id/left_stat" >
+                android:layout_gravity="center_horizontal"
+                android:padding="10dp" >
 
-                <RelativeLayout
-                    android:id="@+id/secondrel"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_gravity="center_horizontal" >
+                <TextView
+                    android:id="@+id/lab_pointer2"
+                    style="@style/stat_button_header"
+                    android:layout_alignParentLeft="true"
+                    android:layout_alignParentTop="true"
+                    android:layout_marginLeft="10dp"
+                    android:layout_marginTop="15dp"
+                    android:text="@string/pointers_2" />
 
-                    <TextView
-                        android:id="@+id/lab_pointer2"
-                        style="@style/stat_button_header"
-                        android:layout_alignParentLeft="true"
-                        android:layout_alignParentTop="true"
-                        android:layout_marginLeft="10dp"
-                        android:layout_marginTop="15dp"
-                        android:text="@string/pointers_2" />
+                <Button
+                    android:id="@+id/press_fg2made"
+                    style="@style/stat_button_right"
+                    android:layout_alignLeft="@+id/lab_pointer2"
+                    android:layout_below="@+id/lab_pointer2"
+                    android:text="@string/made" />
 
-                    <Button
-                        android:id="@+id/press_fg2made"
-                        style="@style/stat_button_right"
-                        android:layout_alignLeft="@+id/lab_pointer2"
-                        android:layout_below="@+id/lab_pointer2"
-                        android:text="@string/made" />
+                <Button
+                    android:id="@+id/press_fg2missed"
+                    style="@style/stat_button_right"
+                    android:layout_alignBaseline="@+id/press_fg2made"
+                    android:layout_marginLeft="5dp"
+                    android:layout_toRightOf="@+id/press_fg2made"
+                    android:text="@string/attempted" />
 
-                    <Button
-                        android:id="@+id/press_fg2missed"
-                        style="@style/stat_button_right"
-                        android:layout_alignBaseline="@+id/press_fg2made"
-                        android:layout_marginLeft="5dp"
-                        android:layout_toRightOf="@+id/press_fg2made"
-                        android:text="@string/attempted" />
+                <TextView
+                    android:id="@+id/lab_pointer3"
+                    style="@style/stat_button_header"
+                    android:layout_alignLeft="@+id/lab_pointer2"
+                    android:layout_below="@+id/press_fg2made"
+                    android:layout_marginTop="5dp"
+                    android:text="@string/pointers_3" />
 
-                    <TextView
-                        android:id="@+id/lab_pointer3"
-                        style="@style/stat_button_header"
-                        android:layout_alignLeft="@+id/lab_pointer2"
-                        android:layout_below="@+id/press_fg2made"
-                        android:layout_marginTop="5dp"
-                        android:text="@string/pointers_3" />
+                <Button
+                    android:id="@+id/press_fg3made"
+                    style="@style/stat_button_right"
+                    android:layout_alignLeft="@+id/lab_pointer2"
+                    android:layout_below="@+id/lab_pointer3"
+                    android:text="@string/made" />
 
-                    <Button
-                        android:id="@+id/press_fg3made"
-                        style="@style/stat_button_right"
-                        android:layout_alignLeft="@+id/lab_pointer2"
-                        android:layout_below="@+id/lab_pointer3"
-                        android:text="@string/made" />
+                <Button
+                    android:id="@+id/press_fg3missed"
+                    style="@style/stat_button_right"
+                    android:layout_alignBaseline="@+id/press_fg3made"
+                    android:layout_marginLeft="5dp"
+                    android:layout_toRightOf="@+id/press_fg3made"
+                    android:text="@string/attempted" />
 
-                    <Button
-                        android:id="@+id/press_fg3missed"
-                        style="@style/stat_button_right"
-                        android:layout_alignBaseline="@+id/press_fg3made"
-                        android:layout_marginLeft="5dp"
-                        android:layout_toRightOf="@+id/press_fg3made"
-                        android:text="@string/attempted" />
+                <TextView
+                    android:id="@+id/lab_freethrows"
+                    style="@style/stat_button_header"
+                    android:layout_alignLeft="@+id/lab_pointer2"
+                    android:layout_below="@+id/press_fg3made"
+                    android:layout_marginTop="5dp"
+                    android:text="@string/free_throws" />
 
-                    <TextView
-                        android:id="@+id/lab_freethrows"
-                        style="@style/stat_button_header"
-                        android:layout_alignLeft="@+id/lab_pointer2"
-                        android:layout_below="@+id/press_fg3made"
-                        android:layout_marginTop="5dp"
-                        android:text="@string/free_throws" />
+                <Button
+                    android:id="@+id/press_ftmade"
+                    style="@style/stat_button_right"
+                    android:layout_alignLeft="@+id/lab_pointer2"
+                    android:layout_below="@+id/lab_freethrows"
+                    android:text="@string/made" />
 
-                    <Button
-                        android:id="@+id/press_ftmade"
-                        style="@style/stat_button_right"
-                        android:layout_alignLeft="@+id/lab_pointer2"
-                        android:layout_below="@+id/lab_freethrows"
-                        android:text="@string/made" />
+                <Button
+                    android:id="@+id/press_ftmissed"
+                    style="@style/stat_button_right"
+                    android:layout_alignBaseline="@+id/press_ftmade"
+                    android:layout_marginLeft="5dp"
+                    android:layout_toRightOf="@+id/press_ftmade"
+                    android:text="@string/attempted" />
 
-                    <Button
-                        android:id="@+id/press_ftmissed"
-                        style="@style/stat_button_right"
-                        android:layout_alignBaseline="@+id/press_ftmade"
-                        android:layout_marginLeft="5dp"
-                        android:layout_toRightOf="@+id/press_ftmade"
-                        android:text="@string/attempted" />
+                <TextView
+                    android:id="@+id/lab_rebounding"
+                    style="@style/stat_button_header"
+                    android:layout_alignLeft="@+id/lab_pointer2"
+                    android:layout_below="@+id/press_ftmade"
+                    android:layout_marginTop="5dp"
+                    android:text="@string/rebounding" />
 
-                    <TextView
-                        android:id="@+id/lab_rebounding"
-                        style="@style/stat_button_header"
-                        android:layout_alignLeft="@+id/lab_pointer2"
-                        android:layout_below="@+id/press_ftmade"
-                        android:layout_marginTop="5dp"
-                        android:text="@string/rebounding" />
+                <Button
+                    android:id="@+id/press_rebdef"
+                    style="@style/stat_button_right"
+                    android:layout_alignLeft="@+id/lab_pointer2"
+                    android:layout_below="@+id/lab_rebounding"
+                    android:text="@string/def" />
 
-                    <Button
-                        android:id="@+id/press_rebdef"
-                        style="@style/stat_button_right"
-                        android:layout_alignLeft="@+id/lab_pointer2"
-                        android:layout_below="@+id/lab_rebounding"
-                        android:text="@string/def" />
+                <Button
+                    android:id="@+id/press_reboff"
+                    style="@style/stat_button_right"
+                    android:layout_alignBaseline="@+id/press_rebdef"
+                    android:layout_marginLeft="5dp"
+                    android:layout_toRightOf="@+id/press_rebdef"
+                    android:text="@string/off" />
 
-                    <Button
-                        android:id="@+id/press_reboff"
-                        style="@style/stat_button_right"
-                        android:layout_alignBaseline="@+id/press_rebdef"
-                        android:layout_marginLeft="5dp"
-                        android:layout_toRightOf="@+id/press_rebdef"
-                        android:text="@string/off" />
+                <Button
+                    android:id="@+id/press_assists"
+                    style="@style/stat_button_right"
+                    android:layout_alignTop="@+id/press_fg2made"
+                    android:layout_marginLeft="5dp"
+                    android:layout_toRightOf="@+id/press_fg2missed"
+                    android:text="@string/assists" />
 
-                    <Button
-                        android:id="@+id/press_assists"
-                        style="@style/stat_button_right"
-                        android:layout_alignTop="@+id/press_fg2made"
-                        android:layout_marginLeft="5dp"
-                        android:layout_toRightOf="@+id/press_fg2missed"
-                        android:text="@string/assists" />
+                <Button
+                    android:id="@+id/press_steals"
+                    style="@style/stat_button_right"
+                    android:layout_alignLeft="@+id/press_assists"
+                    android:layout_below="@+id/press_assists"
+                    android:text="@string/steals" />
 
-                    <Button
-                        android:id="@+id/press_steals"
-                        style="@style/stat_button_right"
-                        android:layout_alignLeft="@+id/press_assists"
-                        android:layout_below="@+id/press_assists"
-                        android:text="@string/steals" />
+                <Button
+                    android:id="@+id/press_blocks"
+                    style="@style/stat_button_right"
+                    android:layout_alignLeft="@+id/press_assists"
+                    android:layout_below="@+id/press_steals"
+                    android:text="@string/blocks" />
 
-                    <Button
-                        android:id="@+id/press_blocks"
-                        style="@style/stat_button_right"
-                        android:layout_alignLeft="@+id/press_assists"
-                        android:layout_below="@+id/press_steals"
-                        android:text="@string/blocks" />
+                <Button
+                    android:id="@+id/press_turnovers"
+                    style="@style/stat_button_right"
+                    android:layout_alignLeft="@+id/press_assists"
+                    android:layout_below="@+id/press_blocks"
+                    android:text="@string/tos" />
 
-                    <Button
-                        android:id="@+id/press_turnovers"
-                        style="@style/stat_button_right"
-                        android:layout_alignLeft="@+id/press_assists"
-                        android:layout_below="@+id/press_blocks"
-                        android:text="@string/tos" />
-
-                    <Button
-                        android:id="@+id/press_fouls"
-                        style="@style/stat_button_right"
-                        android:layout_alignLeft="@+id/press_assists"
-                        android:layout_below="@+id/press_turnovers"
-                        android:text="@string/fouls" />
-                </RelativeLayout>
-            </FrameLayout>
-        </RelativeLayout>
-    </ScrollView>
+                <Button
+                    android:id="@+id/press_fouls"
+                    style="@style/stat_button_right"
+                    android:layout_alignLeft="@+id/press_assists"
+                    android:layout_below="@+id/press_turnovers"
+                    android:text="@string/fouls" />
+            </RelativeLayout>
+        </ScrollView>
+    </RelativeLayout>
 
     <RelativeLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:paddingBottom="10dp"
-        android:paddingLeft="10dp"
-        android:paddingRight="10dp" >
+        android:padding="10dp" >
 
         <TableRow
             android:id="@+id/tableRow1"
@@ -430,7 +429,6 @@
                     android:layout_height="wrap_content"
                     android:layout_gravity="center_vertical|center_horizontal"
                     android:text="@string/swipe_here" />
-
             </FrameLayout>
 
             <Button
@@ -457,13 +455,13 @@
 
             <TextView
                 android:id="@+id/lab_minutes"
-                android:text="@string/minutes"
-                style="@style/meta_label" />
+                style="@style/meta_label"
+                android:text="@string/minutes" />
 
             <TextView
                 android:id="@+id/dis_minutes"
-                android:text="@string/double_zero"
-                style="@style/meta_text" />
+                style="@style/meta_text"
+                android:text="@string/double_zero" />
 
             <TextView
                 android:id="@+id/textView2"
@@ -474,7 +472,6 @@
                 android:id="@+id/dis_game_result"
                 style="@style/meta_text"
                 android:text="@string/win" />
-
         </LinearLayout>
     </HorizontalScrollView>
 
