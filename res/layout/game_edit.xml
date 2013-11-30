@@ -282,7 +282,7 @@
                         android:layout_alignBaseline="@+id/press_fg2made"
                         android:layout_marginLeft="5dp"
                         android:layout_toRightOf="@+id/press_fg2made"
-                        android:text="@string/missed" />
+                        android:text="@string/attempted" />
 
                     <TextView
                         android:id="@+id/lab_pointer3"
@@ -305,7 +305,7 @@
                         android:layout_alignBaseline="@+id/press_fg3made"
                         android:layout_marginLeft="5dp"
                         android:layout_toRightOf="@+id/press_fg3made"
-                        android:text="@string/missed" />
+                        android:text="@string/attempted" />
 
                     <TextView
                         android:id="@+id/lab_freethrows"
@@ -328,7 +328,7 @@
                         android:layout_alignBaseline="@+id/press_ftmade"
                         android:layout_marginLeft="5dp"
                         android:layout_toRightOf="@+id/press_ftmade"
-                        android:text="@string/missed" />
+                        android:text="@string/attempted" />
 
                     <TextView
                         android:id="@+id/lab_rebounding"

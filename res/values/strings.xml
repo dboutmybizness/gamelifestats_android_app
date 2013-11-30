@@ -207,6 +207,7 @@
     <string name="game_result">Game Result</string>
     <string name="use_game_upload">Use Game Upload</string>
     <string name="date">Date</string>
+    <string name="attempted">Attempt</string>
 
 
 </resources>
