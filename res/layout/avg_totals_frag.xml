@@ -453,10 +453,11 @@
 
     <LinearLayout
         android:id="@+id/bot_rel"
-        style="@style/padded_block"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:orientation="vertical" >
+        android:orientation="vertical"
+        android:paddingLeft="15dp"
+        android:paddingRight="15dp" >
 
         <TextView
             android:id="@+id/lab_shooting"
@@ -480,17 +481,21 @@
                     <TextView
                         android:id="@+id/dis_fgp"
                         style="@style/big_stat"
-                        android:text="@string/zero" />
+                        android:text="@string/zero"
+                        android:textSize="40sp" />
 
                     <TextView
                         android:id="@+id/dis_fg3p"
                         style="@style/big_stat"
-                        android:text="@string/zero" />
+                        android:text="@string/zero"
+                        android:textSize="40sp" />
 
                     <TextView
                         android:id="@+id/dis_ftp"
                         style="@style/big_stat"
-                        android:text="@string/zero" />
+                        android:text="@string/zero"
+                        android:textSize="40sp" />
+
                 </TableRow>
 
                 <TableRow

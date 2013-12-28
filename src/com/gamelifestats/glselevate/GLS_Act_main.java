@@ -55,7 +55,7 @@ public class GLS_Act_main extends Activity {
     @Override
     public void onResume(){
     	super.onResume();
-    	if ( career.getCareer(this) ){
+    	if ( career.getCareer(this, 0) ){
         	
         	SPV.setOnCreateFieldsHash(career.FIELD_VALUES);
         

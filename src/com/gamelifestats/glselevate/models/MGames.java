@@ -1,9 +1,11 @@
 package com.gamelifestats.glselevate.models;
 
+import java.sql.SQLException;
 import java.util.ArrayList;
 import java.util.HashMap;
 
 import android.content.Context;
+import android.database.Cursor;
 
 import com.gamelifestats.glselevate.helper.StatsHelper;
 
@@ -78,6 +80,54 @@ public class MGames extends ModelBase {
 			career.saveCareer(ctx);
 		}
 		return false;
+	}
+	
+	public ArrayList<String> gameManageList(Context ctx){
+		DBAdapter db = new DBAdapter(ctx);
+		Cursor c;
+		ArrayList<String> alist = new ArrayList<String>();
+		try{
+			db.open();
+			c = db.getAllRows(MGames.TABLE, this.FIELDS_LIST_ARRAY, "user_id=1");
+			if( c.getCount() > 0){
+				c.moveToFirst();
+				do{
+					String id = c.getString(0);
+					String date = StatsHelper.dateFromTime(c.getString(22));
+					String text = date +" - "+ c.getString(3) + "pts, " + c.getString(4) + "reb, " + c.getString(7) + "ast";
+					String active = c.getString(23);
+					alist.add(
+							id +"_"+text+"_"+active
+					);
+				}while(c.moveToNext());
+			}
+		} catch (SQLException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+		db.close();
+		
+		return alist;
+	}
+	
+	public void updateArchive(Context ctx, ArrayList<Integer> ids, ArrayList<Boolean> vals){
+		DBAdapter db = new DBAdapter(ctx);
+		try{
+			db.open();
+			db.setTable(MGames.TABLE);
+		
+			for (int i=0; i < ids.size(); i++ ){
+				String val = (vals.get(i) == true) ? "1" : "0";
+				//Toast.makeText(ctx, val, Toast.LENGTH_SHORT).show();
+				HashMap<String,String> oneoff = new HashMap<String,String>();
+				oneoff.put("active_status", val);
+				db.update(oneoff, "_id="+ids.get(i));
+			}
+		} catch (SQLException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+		db.close();
 	}
 
 }

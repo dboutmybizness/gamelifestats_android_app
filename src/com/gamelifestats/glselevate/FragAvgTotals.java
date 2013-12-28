@@ -32,7 +32,8 @@ public class FragAvgTotals extends Fragment {
 		Boolean has_career;
 		if ( active_status_req != 6){
 			if ( active_status_req == 0 || active_status_req == 1){
-				has_career = career.getCareer(ctx, 0);
+				int actual_pass = (active_status_req == 1) ? 0 : 1;
+				has_career = career.getCareer(ctx, actual_pass);
 			} else {
 				has_career = career.getCareer(ctx);
 			}

@@ -214,5 +214,6 @@
         <item>Archived</item>
         <item>Career</item>
     </string-array>
+    <string name="filter_colon">Filter:</string>
 
 </resources>

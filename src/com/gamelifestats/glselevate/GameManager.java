@@ -12,6 +12,7 @@ import android.widget.AdapterView;
 import android.widget.AdapterView.OnItemClickListener;
 import android.widget.ListView;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import com.gamelifestats.glselevate.models.MGames;
 
@@ -62,7 +63,7 @@ public class GameManager extends Activity {
 		for(int i = 0; i < data.size(); i++){
 			String str = (String) data.get(i);
 			String[] splitter = str.split("_");
-			gameIDs.add(Integer.getInteger(splitter[0]));
+			gameIDs.add(Integer.parseInt(splitter[0]));
 			itemStrings.add(splitter[1]);
 			itemBoolean.add((splitter[2].equals("0")) ? false  : true);
 
@@ -70,22 +71,10 @@ public class GameManager extends Activity {
 	}
 	
 	private boolean pullData(){
-		data = new ArrayList<String>();
-		data.add("0_12/3_0");
-		data.add("1_12/6_1");
 		
-		return true;
-		/*
-		games = new MGames(this);
-		try {
-			data = games.retArchive();
-		} catch (SQLException e) {
-			// TODO Auto-generated catch block
-			e.printStackTrace();
-		}
+		data = games.gameManageList(this);
 		if (data.size() > 0) return true;
 		return false;
-		*/
 	}
 	
 	private void updateListItem(int position, View view){
@@ -125,7 +114,9 @@ public class GameManager extends Activity {
 	}
 	
 	public void commitSave(){
-		//games.updateArchive(gameIDs, itemBoolean);
+		games.updateArchive(this, gameIDs, itemBoolean);
+		Toast.makeText(this, "Archive saved", Toast.LENGTH_SHORT).show();
+		finish();
 	}
 
 }

@@ -19,6 +19,7 @@ import android.widget.Spinner;
 import com.gamelifestats.glselevate.FragAvgTotals;
 import com.gamelifestats.glselevate.GameManager;
 import com.gamelifestats.glselevate.R;
+import com.gamelifestats.glselevate.models.MCareer;
 
 
 public class Stats_career extends Fragment {
@@ -34,27 +35,19 @@ public class Stats_career extends Fragment {
 		rootView =  inflater.inflate(R.layout.avg_totals, container, false);
 		ctx = rootView.getContext();
 		
-		Button to_gm = (Button) rootView.findViewById(R.id.to_game_manager);
-        to_gm.setOnClickListener(new OnClickListener(){
-
-			@Override
-			public void onClick(View v) {
-				startActivity(new Intent(ctx, GameManager.class));
-				
-			}
-        			
-        });
-        /*
-        
-        Button to_arc = (Button) rootView.findViewById(R.id.to_arc);
-        to_arc.setOnClickListener(new OnClickListener(){
-
-			@Override
-			public void onClick(View v) {
-				nextT();
-			}
-        			
-        });*/
+		MCareer career = new MCareer();
+		if (career.getCareer(ctx)){	
+			Button to_gm = (Button) rootView.findViewById(R.id.to_game_manager);
+	        to_gm.setOnClickListener(new OnClickListener(){
+	
+				@Override
+				public void onClick(View v) {
+					startActivity(new Intent(ctx, GameManager.class));
+					
+				}
+	        			
+	        });
+		}
         
         Spinner sp = (Spinner) rootView.findViewById(R.id.spinner_arc);
         ArrayAdapter<CharSequence> adapter = ArrayAdapter.createFromResource(ctx,
@@ -79,14 +72,13 @@ public class Stats_career extends Fragment {
 			}
         	
         });
-        
-        
-        fm = getFragmentManager();
-        nextT(0);
-        
-        
-        
+
         return rootView;
+	}
+	public void onResume(){
+		super.onResume();
+		fm = getFragmentManager();
+        nextT(0);
 	}
 	
 	private void nextT(int clicked){
