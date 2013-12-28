@@ -58,7 +58,15 @@
         </activity>
         <activity
             android:name="com.gamelifestats.glselevate.GameMeta"
-            android:label="@string/add_meta">
+            android:label="@string/add_meta" >
+        </activity>
+        <activity
+            android:name="com.gamelifestats.glselevate.GameManager"
+            android:label="@string/game_archive"
+            android:parentActivityName="com.gamelifestats.glselevate.Stats" >
+            <meta-data
+                android:name="android.support.PARENT_ACTIVITY"
+                android:value="com.gamelifestats.glselevate.Stats" />
         </activity>
     </application>
 

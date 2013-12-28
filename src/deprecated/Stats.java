@@ -18,6 +18,7 @@ import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
 import android.widget.ListView;
 
+import com.gamelifestats.glselevate.GameManager;
 import com.gamelifestats.glselevate.R;
 import com.gamelifestats.glselevate.frags.Stats_career;
 import com.gamelifestats.glselevate.frags.Stats_gamebrowser;
@@ -156,8 +157,8 @@ public class Stats extends FragmentActivity {
     			break;
     		case 1: fragment = new Stats_gamebrowser();
     			break;
-    		case 2: fragment = new GameManager();
-    			break;
+    		//case 2: fragment = new GameManager();
+    			//break;
     	}
     	
         FragmentManager fragmentManager = getSupportFragmentManager();

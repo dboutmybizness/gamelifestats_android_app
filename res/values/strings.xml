@@ -192,7 +192,6 @@
     <string name="title_activity_game_meta">GameMeta</string>
     <string name="title_activity_game_manager">GameManager</string>
     <string name="title_activity_play_dialog">PlayDialog</string>
-
     <string name="title_activity_bball_profile">BballProfile</string>
     <string name="fg2m">FG2M</string>
     <string name="fg3m">FG3M</string>
@@ -208,6 +207,12 @@
     <string name="use_game_upload">Use Game Upload</string>
     <string name="date">Date</string>
     <string name="attempted">Attempt</string>
-
+    <string name="game_archive">Game Archive</string>
+    <string name="title_activity_frag_avg_totals">FragAvgTotals</string>
+    <string-array name="archive_array">
+        <item>Live</item>
+        <item>Archived</item>
+        <item>Career</item>
+    </string-array>
 
 </resources>

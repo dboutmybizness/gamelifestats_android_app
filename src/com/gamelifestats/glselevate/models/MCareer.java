@@ -55,69 +55,69 @@ public class MCareer extends ModelBase {
 		return map;
 	}
 	
+	private void renderGamesByQuery(MGames games, Cursor all_games){
+		int tgames = all_games.getCount();
+		if ( tgames > 0){
+			
+			Statline st_obj = new Statline();
+			st_obj.loadstats(games.FIELD_VALUES, null);
+			all_games.moveToFirst();
+			do {
+				for(int i = 2; i < 20; i++){
+					int curr = st_obj.stat_as_ints.get(games.FIELDS_LIST_ARRAY[i]);
+					
+					st_obj.stat_as_ints.put(games.FIELDS_LIST_ARRAY[i], curr + all_games.getInt(i));
+				}
+				
+			} while(all_games.moveToNext());
+			
+			st_obj.render_strings();
+			
+			FIELD_VALUES.clear();
+			FIELD_VALUES.put("tgames", String.valueOf(tgames));
+			
+			HashMap<String,String> fvals = new HashMap<String,String>();
+			fvals.put("tpoints", "points");
+			fvals.put("trebounds", "rebounds");
+			fvals.put("trebs_off", "reb_off");
+			fvals.put("trebs_def", "reb_def");
+			fvals.put("tassists", "assists");
+			fvals.put("tsteals", "steals");
+			fvals.put("tblocks", "blocks");
+			fvals.put("tturnovers", "turnovers");
+			fvals.put("tfouls", "fouls");
+			fvals.put("tminutes", "minutes");
+			
+			fvals.put("tfg2m", "fg2m");
+			fvals.put("tfg2a", "fg2a");
+			fvals.put("tfg3m", "fg3m");
+			fvals.put("tfg3a", "fg3a");
+			fvals.put("tftm", "ftm");
+			fvals.put("tfta", "fta");
+			fvals.put("tfgm", "fgm");
+			fvals.put("tfga", "fga");
+			
+			
+			for (HashMap.Entry <String, String> entry : fvals.entrySet()) {
+			    FIELD_VALUES.put(entry.getKey(), st_obj.stat_as_strings.get(entry.getValue()));
+			}
+		}
+	}
 	
 	public Boolean saveCareer(Context ctx){
 		MGames games = new MGames();
-
 		DBAdapter db = new DBAdapter(ctx);
 		try{
 			db.open();
 			Cursor all_games = db.getAllRows(MGames.TABLE, games.FIELDS_LIST_ARRAY, "user_id=1");
+			renderGamesByQuery(games, all_games);
 			
-			int tgames = all_games.getCount();
-			if ( tgames > 0){
-				
-				Statline st_obj = new Statline();
-				st_obj.loadstats(games.FIELD_VALUES, null);
-				all_games.moveToFirst();
-				do {
-					for(int i = 2; i < 20; i++){
-						int curr = st_obj.stat_as_ints.get(games.FIELDS_LIST_ARRAY[i]);
-						
-						st_obj.stat_as_ints.put(games.FIELDS_LIST_ARRAY[i], curr + all_games.getInt(i));
-					}
-					
-				} while(all_games.moveToNext());
-				
-				st_obj.render_strings();
-				
-				FIELD_VALUES.clear();
-				FIELD_VALUES.put("tgames", String.valueOf(tgames));
-				
-				HashMap<String,String> fvals = new HashMap<String,String>();
-				fvals.put("tpoints", "points");
-				fvals.put("trebounds", "rebounds");
-				fvals.put("trebs_off", "reb_off");
-				fvals.put("trebs_def", "reb_def");
-				fvals.put("tassists", "assists");
-				fvals.put("tsteals", "steals");
-				fvals.put("tblocks", "blocks");
-				fvals.put("tturnovers", "turnovers");
-				fvals.put("tfouls", "fouls");
-				fvals.put("tminutes", "minutes");
-				
-				fvals.put("tfg2m", "fg2m");
-				fvals.put("tfg2a", "fg2a");
-				fvals.put("tfg3m", "fg3m");
-				fvals.put("tfg3a", "fg3a");
-				fvals.put("tftm", "ftm");
-				fvals.put("tfta", "fta");
-				fvals.put("tfgm", "fgm");
-				fvals.put("tfga", "fga");
-				
-				
-				for (HashMap.Entry <String, String> entry : fvals.entrySet()) {
-				    FIELD_VALUES.put(entry.getKey(), st_obj.stat_as_strings.get(entry.getValue()));
-				}
-				
-			}
 		} catch (SQLException e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
 		}
 		db.close();
 		
-		//FIELD_VALUES.put("user_id", "1");
 		return super.update(ctx, "user_id=1");
 	}
 	
@@ -136,6 +136,33 @@ public class MCareer extends ModelBase {
 		}
 		
 		return result;
+	}
+	
+	public Boolean getCareer(Context ctx, int active_status){
+		//query games where active_status =as
+		MGames games = new MGames();
+		DBAdapter db = new DBAdapter(ctx);
+		try{
+			db.open();
+			Cursor all_games = db.getAllRows(MGames.TABLE, games.FIELDS_LIST_ARRAY, "user_id=1 AND active_status=" + active_status);
+			renderGamesByQuery(games, all_games);
+			
+		} catch (SQLException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+		db.close();
+		
+		String tgames = FIELD_VALUES.get("tgames");
+		if ( tgames == null ) return false;
+		if ( tgames.equals("0") ) return false;
+		
+		for (HashMap.Entry <String, String> entry : extrafields.entrySet()) {
+			if ( FIELD_VALUES.get(entry.getValue()) == null) continue;
+		    FIELD_VALUES.put(entry.getKey(), gAvg(Integer.valueOf(FIELD_VALUES.get(entry.getValue()))));
+		}
+		
+		return true;
 	}
 	
 	private String gAvg(int stat){

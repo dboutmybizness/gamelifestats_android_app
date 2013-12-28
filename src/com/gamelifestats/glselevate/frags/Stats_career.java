@@ -1,94 +1,103 @@
 package com.gamelifestats.glselevate.frags;
 
 import android.content.Context;
+import android.content.Intent;
 import android.os.Bundle;
 import android.support.v4.app.Fragment;
-import android.util.SparseArray;
+import android.support.v4.app.FragmentManager;
+import android.support.v4.app.FragmentTransaction;
 import android.view.LayoutInflater;
 import android.view.View;
+import android.view.View.OnClickListener;
 import android.view.ViewGroup;
-import android.widget.TextView;
+import android.widget.AdapterView;
+import android.widget.AdapterView.OnItemSelectedListener;
+import android.widget.ArrayAdapter;
+import android.widget.Button;
+import android.widget.Spinner;
 
+import com.gamelifestats.glselevate.FragAvgTotals;
+import com.gamelifestats.glselevate.GameManager;
 import com.gamelifestats.glselevate.R;
-import com.gamelifestats.glselevate.helper.SetUpPageView;
-import com.gamelifestats.glselevate.models.MCareer;
 
 
 public class Stats_career extends Fragment {
 	
-	MCareer career = new MCareer();
-	SetUpPageView SPV;
-	
-	Context ctx;
 	View rootView;
+	Context ctx;
+	
+	FragmentManager fm;
+	int select_count = 0;
 	
 	@Override
 	public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState){
-		rootView = inflater.inflate(R.layout.avg_totals, container, false);
+		rootView =  inflater.inflate(R.layout.avg_totals, container, false);
 		ctx = rootView.getContext();
-		SPV = new SetUpPageView();
 		
-		if ( career.getCareer(ctx) ){
-			career.getPercentages();
-        	SPV.setOnCreateFieldsHash(career.FIELD_VALUES);
-        	
-	        SparseArray<String> pageview = new SparseArray<String>();
-	        pageview.put(R.id.tot_games, "tgames");
+		Button to_gm = (Button) rootView.findViewById(R.id.to_game_manager);
+        to_gm.setOnClickListener(new OnClickListener(){
 
-	        pageview.put(R.id.tot_minutes, "tminutes");
-	        pageview.put(R.id.tot_points, "tpoints");
-	        pageview.put(R.id.tot_rebounds, "trebounds");
-	        pageview.put(R.id.tot_reb_off, "trebs_off");
-	        pageview.put(R.id.tot_reb_def, "trebs_def");
-	        pageview.put(R.id.tot_assists, "tassists");
-	        pageview.put(R.id.tot_steals, "tsteals");
-	        pageview.put(R.id.tot_blocks, "tblocks");
-	        pageview.put(R.id.tot_turnovers, "tturnovers");
-	        pageview.put(R.id.tot_fouls, "tfouls");
-	        
-	        pageview.put(R.id.avg_minutes, "aminutes");
-	        pageview.put(R.id.avg_points, "apoints");
-	        pageview.put(R.id.avg_rebounds, "arebounds");
-	        pageview.put(R.id.avg_reb_off, "arebs_off");
-	        pageview.put(R.id.avg_reb_def, "arebs_def");
-	        pageview.put(R.id.avg_assists, "aassists");
-	        pageview.put(R.id.avg_steals, "asteals");
-	        pageview.put(R.id.avg_blocks, "ablocks");
-	        pageview.put(R.id.avg_turnovers, "aturnovers");
-	        pageview.put(R.id.avg_fouls, "afouls");
-	        
-	        pageview.put(R.id.tot_fgm, "tfgm");
-	        pageview.put(R.id.tot_fg2m, "tfg2m");
-	        pageview.put(R.id.tot_fg3m, "tfg3m");
-	        pageview.put(R.id.tot_ftm, "tftm");
-	        pageview.put(R.id.tot_fga, "tfga");
-	        pageview.put(R.id.tot_fg2a, "tfg2a");
-	        pageview.put(R.id.tot_fg3a, "tfg3a");
-	        pageview.put(R.id.tot_fta, "tfta");
-	        
-	        pageview.put(R.id.avg_fgm, "afgm");
-	        pageview.put(R.id.avg_fg2m, "afg2m");
-	        pageview.put(R.id.avg_fg3m, "afg3m");
-	        pageview.put(R.id.avg_ftm, "aftm");
-	        pageview.put(R.id.avg_fga, "afga");
-	        pageview.put(R.id.avg_fg2a, "afg2a");
-	        pageview.put(R.id.avg_fg3a, "afg3a");
-	        pageview.put(R.id.avg_fta, "afta");
-	        
-	        pageview.put(R.id.dis_fgp, "fgp");
-	        pageview.put(R.id.dis_fg3p, "fg3p");
-	        pageview.put(R.id.dis_ftp, "ftp");
-
-	        
-	        for(int i = 0; i < pageview.size(); i++) {
-	        	int key = pageview.keyAt(i);
-	        	String val = pageview.get(key);
-			    SPV.addView((TextView)rootView.findViewById(key), null, val);
+			@Override
+			public void onClick(View v) {
+				startActivity(new Intent(ctx, GameManager.class));
+				
 			}
-        }	
-		return rootView;
+        			
+        });
+        /*
+        
+        Button to_arc = (Button) rootView.findViewById(R.id.to_arc);
+        to_arc.setOnClickListener(new OnClickListener(){
+
+			@Override
+			public void onClick(View v) {
+				nextT();
+			}
+        			
+        });*/
+        
+        Spinner sp = (Spinner) rootView.findViewById(R.id.spinner_arc);
+        ArrayAdapter<CharSequence> adapter = ArrayAdapter.createFromResource(ctx,
+                R.array.archive_array, android.R.layout.simple_spinner_item);
+        adapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
+        sp.setAdapter(adapter);
+        sp.setOnItemSelectedListener(new OnItemSelectedListener(){
+
+			@Override
+			public void onItemSelected(AdapterView<?> arg0, View arg1,
+					int pos, long arg3) {
+				// TODO Auto-generated method stub
+				if ( select_count >= 1){
+					nextT(pos);
+				}
+				select_count++;
+			}
+
+			@Override
+			public void onNothingSelected(AdapterView<?> arg0) {
+				// TODO Auto-generated method stub
+			}
+        	
+        });
+        
+        
+        fm = getFragmentManager();
+        nextT(0);
+        
+        
+        
+        return rootView;
 	}
 	
+	private void nextT(int clicked){
+		FragAvgTotals frag = new FragAvgTotals();
+		Bundle bundle = new Bundle();
+		bundle.putInt("active_status", clicked);
+		frag.setArguments(bundle);
+		FragmentTransaction ft = fm.beginTransaction();
+		ft.replace(R.id.frag_holder, frag);
+		ft.commit();
+	}
 
 	
 		
