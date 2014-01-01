@@ -73,13 +73,21 @@ public class Stats_fragchart extends Fragment {
         pageview.put(R.id.dis_fgp, "fgp");
         pageview.put(R.id.dis_fg3p, "fg3p");
         pageview.put(R.id.dis_ftp, "ftp");
-
         
         for(int i = 0; i < pageview.size(); i++) {
         	int key = pageview.keyAt(i);
         	String val = pageview.get(key);
 		    SPV.addView((TextView)rootView.findViewById(key), null, val);
 		}
+        
+        //
+        TextView fgma = (TextView) rootView.findViewById(R.id.ss_fgma);
+        fgma.setText("("+career.FIELD_VALUES.get("tfgm")+" - "+career.FIELD_VALUES.get("tfga")+")");
+        TextView fg3ma = (TextView) rootView.findViewById(R.id.ss_fg3ma);
+        fg3ma.setText("("+career.FIELD_VALUES.get("tfg3m")+" - "+career.FIELD_VALUES.get("tfg3a")+")");
+        TextView ftma = (TextView) rootView.findViewById(R.id.ss_ftma);
+        ftma.setText("("+career.FIELD_VALUES.get("tftm")+" - "+career.FIELD_VALUES.get("tfta")+")");
+        
         
         ArrayList<String[]> gsl = new ArrayList<String[]>();
         
