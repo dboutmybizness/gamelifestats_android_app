@@ -16,7 +16,6 @@ import android.widget.ArrayAdapter;
 import android.widget.Button;
 import android.widget.Spinner;
 
-import com.gamelifestats.glselevate.FragAvgTotals;
 import com.gamelifestats.glselevate.GameManager;
 import com.gamelifestats.glselevate.R;
 import com.gamelifestats.glselevate.models.MCareer;
@@ -82,7 +81,7 @@ public class Stats_career extends Fragment {
 	}
 	
 	private void nextT(int clicked){
-		FragAvgTotals frag = new FragAvgTotals();
+		Stats_fragchart frag = new Stats_fragchart();
 		Bundle bundle = new Bundle();
 		bundle.putInt("active_status", clicked);
 		frag.setArguments(bundle);

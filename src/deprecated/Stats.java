@@ -18,7 +18,6 @@ import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
 import android.widget.ListView;
 
-import com.gamelifestats.glselevate.GameManager;
 import com.gamelifestats.glselevate.R;
 import com.gamelifestats.glselevate.frags.Stats_career;
 import com.gamelifestats.glselevate.frags.Stats_gamebrowser;
