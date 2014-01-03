@@ -92,38 +92,43 @@ public class Stats_fragchart extends Fragment {
         ArrayList<String[]> gsl = new ArrayList<String[]>();
         
         gsl.add(new String[]{"Games","",career.FIELD_VALUES.get("tgames")});
-        gsl.add(new String[]{"Minutes", career.FIELD_VALUES.get("aminutes"), career.FIELD_VALUES.get("tminutes")});
-        gsl.add(new String[]{"Points", career.FIELD_VALUES.get("apoints"), career.FIELD_VALUES.get("tpoints")});
-        gsl.add(new String[]{"Rebounds", career.FIELD_VALUES.get("arebounds"), career.FIELD_VALUES.get("trebounds")});
-        gsl.add(new String[]{"Off. Rebs", career.FIELD_VALUES.get("arebs_off"), career.FIELD_VALUES.get("trebs_off")});
-        gsl.add(new String[]{"Def. Rebs", career.FIELD_VALUES.get("arebs_def"), career.FIELD_VALUES.get("trebs_def")});
+        gsl.add(new String[]{"Minutes", career.FIELD_VALUES.get("aminutes"), career.FIELD_VALUES.get("tminutes"), career.FIELD_VALUES.get("hminutes")});
+        gsl.add(new String[]{"Points", career.FIELD_VALUES.get("apoints"), career.FIELD_VALUES.get("tpoints"), career.FIELD_VALUES.get("hpoints")});
+        gsl.add(new String[]{"Rebounds", career.FIELD_VALUES.get("arebounds"), career.FIELD_VALUES.get("trebounds"), career.FIELD_VALUES.get("hrebounds")});
+        gsl.add(new String[]{"Off. Rebs", career.FIELD_VALUES.get("arebs_off"), career.FIELD_VALUES.get("trebs_off"), career.FIELD_VALUES.get("hreb_off")});
+        gsl.add(new String[]{"Def. Rebs", career.FIELD_VALUES.get("arebs_def"), career.FIELD_VALUES.get("trebs_def"), career.FIELD_VALUES.get("hreb_def")});
         
-        gsl.add(new String[]{"Assists", career.FIELD_VALUES.get("aassists"), career.FIELD_VALUES.get("tassists")});
-        gsl.add(new String[]{"Steals", career.FIELD_VALUES.get("asteals"), career.FIELD_VALUES.get("tsteals")});
-        gsl.add(new String[]{"Blocks", career.FIELD_VALUES.get("ablocks"), career.FIELD_VALUES.get("tblocks")});
-        gsl.add(new String[]{"Turnovers", career.FIELD_VALUES.get("aturnovers"), career.FIELD_VALUES.get("tturnovers")});
-        gsl.add(new String[]{"Fouls", career.FIELD_VALUES.get("afouls"), career.FIELD_VALUES.get("tfouls")});
+        gsl.add(new String[]{"Assists", career.FIELD_VALUES.get("aassists"), career.FIELD_VALUES.get("tassists"), career.FIELD_VALUES.get("hassists")});
+        gsl.add(new String[]{"Steals", career.FIELD_VALUES.get("asteals"), career.FIELD_VALUES.get("tsteals"), career.FIELD_VALUES.get("hsteals")});
+        gsl.add(new String[]{"Blocks", career.FIELD_VALUES.get("ablocks"), career.FIELD_VALUES.get("tblocks"), career.FIELD_VALUES.get("hblocks")});
+        gsl.add(new String[]{"Turnovers", career.FIELD_VALUES.get("aturnovers"), career.FIELD_VALUES.get("tturnovers"), career.FIELD_VALUES.get("hturnovers")});
+        gsl.add(new String[]{"Fouls", career.FIELD_VALUES.get("afouls"), career.FIELD_VALUES.get("tfouls"), career.FIELD_VALUES.get("hfouls")});
         
-        gsl.add(new String[]{"FG Made", career.FIELD_VALUES.get("afgm"), career.FIELD_VALUES.get("tfgm")});
-        gsl.add(new String[]{"FG Att", career.FIELD_VALUES.get("afga"), career.FIELD_VALUES.get("tfga")});
-        gsl.add(new String[]{"3's Made", career.FIELD_VALUES.get("afg3m"), career.FIELD_VALUES.get("tfg3m")});
-        gsl.add(new String[]{"3's Att", career.FIELD_VALUES.get("afg3a"), career.FIELD_VALUES.get("tfg3a")});
-        gsl.add(new String[]{"2's Made", career.FIELD_VALUES.get("afg2m"), career.FIELD_VALUES.get("tfg2m")});
-        gsl.add(new String[]{"2's Att", career.FIELD_VALUES.get("afg2a"), career.FIELD_VALUES.get("tfg2a")});
-        gsl.add(new String[]{"FT Made", career.FIELD_VALUES.get("aftm"), career.FIELD_VALUES.get("tftm")});
-        gsl.add(new String[]{"FT Att", career.FIELD_VALUES.get("afta"), career.FIELD_VALUES.get("tfta")});
+        gsl.add(new String[]{"FG Made", career.FIELD_VALUES.get("afgm"), career.FIELD_VALUES.get("tfgm"), career.FIELD_VALUES.get("hfgm")});
+        gsl.add(new String[]{"FG Att", career.FIELD_VALUES.get("afga"), career.FIELD_VALUES.get("tfga"), career.FIELD_VALUES.get("hfga")});
+        gsl.add(new String[]{"3's Made", career.FIELD_VALUES.get("afg3m"), career.FIELD_VALUES.get("tfg3m"), career.FIELD_VALUES.get("hfg3m")});
+        gsl.add(new String[]{"3's Att", career.FIELD_VALUES.get("afg3a"), career.FIELD_VALUES.get("tfg3a"), career.FIELD_VALUES.get("hfg3a")});
+        gsl.add(new String[]{"2's Made", career.FIELD_VALUES.get("afg2m"), career.FIELD_VALUES.get("tfg2m"), career.FIELD_VALUES.get("hfg2m")});
+        gsl.add(new String[]{"2's Att", career.FIELD_VALUES.get("afg2a"), career.FIELD_VALUES.get("tfg2a"), career.FIELD_VALUES.get("hfg2a")});
+        gsl.add(new String[]{"FT Made", career.FIELD_VALUES.get("aftm"), career.FIELD_VALUES.get("tftm"), career.FIELD_VALUES.get("hftm")});
+        gsl.add(new String[]{"FT Att", career.FIELD_VALUES.get("afta"), career.FIELD_VALUES.get("tfta"), career.FIELD_VALUES.get("hfta")});
         
 		StringBuilder sb = new StringBuilder();
 		sb.append("<html><body><table style='color:white;'>");
-		sb.append("<tr><th></th><th>AVG</th><th>Totals</th></tr>");
+		sb.append("<tr><th></th><th>AVG</th><th>Totals</th><th>Hi's</th></tr>");
 		
 		for (int i=0; i<gsl.size(); i++){
 			String[] s = gsl.get(i);
 		    sb.append("<tr>" +
 		    		"<td style='color: orange; padding-right: 7px;'>"+s[0]+"</td>" +
 		    		"<td style='padding-right: 13px;'>"+s[1]+"</td>" +
-		    		"<td>"+s[2]+"</td>" +
-		    		"</tr>");
+		    		"<td>"+s[2]+"</td>");
+		    try{
+		    	sb.append("<td>"+s[3]+"</td>");
+		    } catch (Exception e){
+		    
+		    }
+		    sb.append("</tr>");
 		}
 		
 		sb.append("</table></body></html>");

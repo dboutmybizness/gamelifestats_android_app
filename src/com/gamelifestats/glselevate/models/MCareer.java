@@ -133,6 +133,17 @@ public class MCareer extends ModelBase {
 				if ( FIELD_VALUES.get(entry.getValue()) == null) continue;
 			    FIELD_VALUES.put(entry.getKey(), gAvg(Integer.valueOf(FIELD_VALUES.get(entry.getValue()))));
 			}
+			
+			DBAdapter db = new DBAdapter(ctx);
+			try{
+				db.open();
+				attach_career_highs(db);
+			} catch (SQLException e) {
+				// TODO Auto-generated catch block
+				e.printStackTrace();
+			}
+			db.close();
+			
 		}
 		
 		return result;
@@ -146,6 +157,8 @@ public class MCareer extends ModelBase {
 			db.open();
 			Cursor all_games = db.getAllRows(MGames.TABLE, games.FIELDS_LIST_ARRAY, "user_id=1 AND active_status=" + active_status);
 			renderGamesByQuery(games, all_games);
+			
+			attach_career_highs(db);
 			
 		} catch (SQLException e) {
 			// TODO Auto-generated catch block
@@ -163,6 +176,36 @@ public class MCareer extends ModelBase {
 		}
 		
 		return true;
+	}
+	
+	private void attach_career_highs(DBAdapter db){
+		String[] fields = new String[]{
+			"minutes", "points", "rebounds", "reb_off", "reb_def",
+			"assists", "steals", "blocks", "turnovers", "fouls",
+			"fgm", "fga", "fg3m", "fg3a", "fg2m",
+			"fg2a", "ftm", "fta"
+		};
+		StringBuilder sb = new StringBuilder();
+		sb.append("SELECT ");
+		for (int i = 0; i < fields.length; i++){
+			String str = "";
+			if ( i == (fields.length - 1)){
+				str = "MAX(" + fields[i] + ")";
+			} else {
+				str = "MAX(" + fields[i] + "),";
+			}
+			sb.append(str);
+		}
+		sb.append(" FROM games");
+		
+		Cursor his = db.db.rawQuery(sb.toString(), null);
+		if ( his.getCount() > 0){
+			his.moveToFirst();
+			for (int i = 0; i < fields.length; i++){
+				FIELD_VALUES.put("h" + fields[i], his.getString(i));
+			}
+			
+		}
 	}
 	
 	private String gAvg(int stat){
